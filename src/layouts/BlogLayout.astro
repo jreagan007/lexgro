@@ -1,0 +1,191 @@
+---
+/**
+ * BlogLayout - For blog posts (1500-2500 words)
+ * Features: Author, date, tags, related posts
+ */
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  author?: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  tags?: string[];
+}
+
+const {
+  title,
+  description,
+  author = 'Keith Dyer',
+  pubDate,
+  updatedDate,
+  heroImage,
+  tags = []
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="blog-article">
+    <header class="blog-header">
+      <div class="container">
+        {tags.length > 0 && (
+          <div class="blog-tags">
+            {tags.slice(0, 3).map(tag => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+        <h1>{title}</h1>
+        <div class="blog-meta">
+          <span class="author">{author}</span>
+          <span class="separator">•</span>
+          <time datetime={pubDate.toISOString()}>
+            {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          {updatedDate && (
+            <>
+              <span class="separator">•</span>
+              <span class="updated">
+                Updated {updatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </span>
+            </>
+          )}
+        </div>
+      </div>
+    </header>
+
+    <div class="blog-content container">
+      <div class="blog-body prose">
+        <slot />
+      </div>
+    </div>
+
+    <footer class="blog-footer container">
+      <div class="author-box">
+        <div class="author-info">
+          <p class="author-name">{author}</p>
+          <p class="author-bio">
+            Keith Dyer is a fractional CMO specializing in law firm marketing.
+            He helps law firms build sustainable growth through strategic marketing.
+          </p>
+        </div>
+      </div>
+
+      <div class="blog-cta">
+        <h3>Want More Insights?</h3>
+        <p>Get actionable marketing tips for your law firm delivered to your inbox.</p>
+        <a href="/contact/" class="btn btn-primary">
+          Get in Touch
+        </a>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-header {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .blog-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    background: var(--color-bg-light);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .blog-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    max-width: 900px;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .separator {
+    opacity: 0.5;
+  }
+
+  .blog-content {
+    padding: 3rem 0;
+  }
+
+  .blog-body {
+    max-width: 700px;
+  }
+
+  .blog-footer {
+    padding: 3rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .author-box {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--color-bg-light);
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    max-width: 700px;
+  }
+
+  .author-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .author-bio {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .blog-cta {
+    background: var(--color-primary);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 14px;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .blog-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-cta p {
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-cta .btn {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .blog-cta .btn:hover {
+    background: var(--color-bg-light);
+  }
+</style>

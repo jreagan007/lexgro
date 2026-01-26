@@ -1,0 +1,2 @@
+import{t as e}from"./rolldown-runtime.CItLzv3p.mjs";function t(e,t){return{description:`Empowering Law Firms to Drive Consistent Revenue and Growth Without Wasting Time & Money`,favicon:`https://framerusercontent.com/assets/S4DbHIqxnCAHriDOWcebmTk93GE.png`,robots:`max-image-preview:large`,title:`The Law Firm CMO - Chief Marketing Officer`}}var n=e((()=>{}));export{t as n,n as t};
+//# sourceMappingURL=siteMetadata.CVACoywb.mjs.map

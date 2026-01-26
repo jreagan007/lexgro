@@ -1,0 +1,213 @@
+---
+/**
+ * Header Component (Astro)
+ * Clean, accessible navigation without React hydration overhead.
+ */
+import { Image } from 'astro:assets';
+import logoWordmark from '../assets/images/logos/lexgro-wordmark.png';
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services/' },
+  { label: 'Guides', href: '/guide/' },
+  { label: 'Blog', href: '/blog/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Contact', href: '/contact/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header">
+  <nav class="nav container" aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="LEXGRO Home">
+      <Image src={logoWordmark} alt="LEXGRO" height={40} />
+    </a>
+
+    <button
+      class="mobile-menu-btn"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div id="nav-menu" class="nav-menu">
+      <ul class="nav-links" role="list">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav-link', { active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
+              aria-current={currentPath === link.href ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary nav-cta">
+        Join the LEXGRO Platform
+      </a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(41, 140, 66, 0.1);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo img {
+    height: 40px;
+    width: auto;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-primary);
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+
+  .mobile-menu-btn:hover {
+    background: var(--color-bg-light);
+  }
+
+  @media (min-width: 900px) {
+    .mobile-menu-btn {
+      display: none;
+    }
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(41, 140, 66, 0.1);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .nav-menu.open {
+    display: block;
+  }
+
+  @media (min-width: 900px) {
+    .nav-menu {
+      display: flex;
+      position: static;
+      background: none;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      align-items: center;
+      gap: 2rem;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: 900px) {
+    .nav-links {
+      flex-direction: row;
+      gap: 0.25rem;
+    }
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+    background: var(--color-bg-light);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    color: var(--color-primary);
+    background: rgba(41, 140, 66, 0.08);
+  }
+
+  .nav-cta {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  @media (min-width: 900px) {
+    .nav-cta {
+      margin-top: 0;
+      width: auto;
+    }
+  }
+</style>
+
+<script>
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const navMenu = document.getElementById('nav-menu');
+  const iconMenu = document.querySelector('.icon-menu');
+  const iconClose = document.querySelector('.icon-close');
+
+  if (menuBtn && navMenu && iconMenu && iconClose) {
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      iconMenu.style.display = isOpen ? 'none' : 'block';
+      iconClose.style.display = isOpen ? 'block' : 'none';
+    });
+  }
+</script>

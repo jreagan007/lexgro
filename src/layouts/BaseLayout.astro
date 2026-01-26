@@ -1,0 +1,364 @@
+---
+/**
+ * BaseLayout
+ *
+ * Root layout for all pages. Includes:
+ * - HTML document structure
+ * - Header and Footer
+ * - Meta tags and SEO
+ * - Font loading
+ * - Global styles with proper accessibility
+ */
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description = "LEXGRO connects your law firm to expert marketing strategy, hands-on training, and seamless implementation for measurable and predictable growth.",
+  image = "/og-image.png",
+  canonicalUrl,
+  noIndex = false,
+} = Astro.props;
+
+const siteTitle = "LEXGRO | Law Firm CMO";
+const fullTitle = title === "Home" ? siteTitle : `${title} | ${siteTitle}`;
+const canonical = canonicalUrl || Astro.url.href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- Robots -->
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:site_name" content="LEXGRO" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site)} />
+
+    <!-- Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Generator -->
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#298C42" />
+  </head>
+  <body>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+
+    <style is:global>
+      :root {
+        /* Primary Colors - from Framer site */
+        --color-primary: #298C42;
+        --color-primary-dark: #1F8238;
+        --color-primary-light: #3DA056;
+        --color-teal: #1AA774;
+        --color-mint: #25B97B;
+
+        /* Accent Colors */
+        --color-accent: #FF8158;
+        --color-accent-dark: #E56A42;
+        --color-accent-purple: #673AE4;
+        --color-accent-blue: #75ACFF;
+
+        /* Background Colors - from Framer */
+        --color-bg-dark: #011907;
+        --color-bg-dark-alt: #233B29;
+        --color-bg-light: #C0E9CA;
+        --color-bg-lighter: #D6FFE0;
+        --color-bg-white: #FFFFFF;
+
+        /* Text Colors - Framer hues, adjusted for WCAG AA */
+        --color-text-dark: #212121;
+        --color-text-primary: #212121;
+        --color-text-muted: #4B6359;  /* Framer hue, darker for 4.5:1 contrast */
+        --color-text-light: #98B39F;
+
+        /* Border */
+        --color-border: rgba(41, 140, 66, 0.12);
+        --color-border-dark: rgba(41, 140, 66, 0.25);
+
+        /* Typography */
+        --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+        --font-display: 'Inter', system-ui, sans-serif;
+
+        /* Layout */
+        --max-width: 1440px;
+        --content-width: 1200px;
+
+        /* Shadows */
+        --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+        --shadow-card: 0 2px 8px rgba(41, 140, 66, 0.08), 0 0 0 1px rgba(41, 140, 66, 0.06);
+        --shadow-elevated: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+        /* Transitions */
+        --transition-fast: 150ms ease;
+        --transition-normal: 250ms ease;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--font-primary);
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        min-height: 100vh;
+        color: var(--color-text-primary);
+        background-color: var(--color-bg-white);
+        line-height: 1.5;
+        font-size: 1rem;
+      }
+
+      #main-content {
+        min-height: calc(100vh - 200px);
+      }
+
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-text-dark);
+      }
+
+      h1 { font-size: clamp(2rem, 5vw, 3rem); }
+      h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+      h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+
+      p {
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+      }
+
+      a:hover {
+        color: var(--color-primary-dark);
+        text-decoration: underline;
+      }
+
+      /* Focus visible for accessibility */
+      :focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+      }
+
+      /* Skip to content link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--color-primary);
+        color: white;
+        padding: 8px 16px;
+        z-index: 1000;
+        transition: top 0.3s;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
+
+      /* Container utility */
+      .container {
+        width: 100%;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      @media (min-width: 810px) {
+        .container {
+          padding: 0 2rem;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .container {
+          padding: 0 3rem;
+        }
+      }
+
+      /* Button styles */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        line-height: 1.25;
+        text-decoration: none;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        white-space: nowrap;
+      }
+
+      .btn:hover {
+        text-decoration: none;
+      }
+
+      .btn:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+      }
+
+      .btn-primary {
+        background: var(--color-primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: var(--color-primary-dark);
+        color: white;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--color-primary);
+        border: 2px solid var(--color-primary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--color-primary);
+        color: white;
+      }
+
+      .btn-lg {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
+
+      .btn-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+      }
+
+      /* Prose styles for content */
+      .prose {
+        max-width: 65ch;
+      }
+
+      .prose h2 {
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .prose h3 {
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .prose p {
+        margin-bottom: 1.25rem;
+      }
+
+      .prose ul, .prose ol {
+        margin-bottom: 1.25rem;
+        padding-left: 1.5rem;
+      }
+
+      .prose li {
+        margin-bottom: 0.5rem;
+      }
+
+      .prose a {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .prose a:hover {
+        color: var(--color-primary-dark);
+      }
+
+      /* Screen reader only utility */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </body>
+</html>

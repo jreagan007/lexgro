@@ -1,0 +1,183 @@
+---
+/**
+ * Footer Component (Astro)
+ * Site footer with navigation, contact info, and legal links.
+ */
+import { Image } from 'astro:assets';
+import logoWordmark from '../assets/images/logos/lexgro-wordmark.png';
+
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+  services: [
+    { label: 'Fractional CMO', href: '/services/fractional-cmo/' },
+    { label: 'Marketing Strategy', href: '/services/' },
+    { label: 'SEO for Law Firms', href: '/services/' },
+    { label: 'Intake Optimization', href: '/services/' },
+  ],
+  resources: [
+    { label: 'Guides', href: '/guide/' },
+    { label: 'Blog', href: '/blog/' },
+    { label: 'FAQ', href: '/faq/' },
+  ],
+  company: [
+    { label: 'About', href: '/about/' },
+    { label: 'Contact', href: '/contact/' },
+    { label: 'Privacy Policy', href: '/privacy/' },
+    { label: 'Terms of Service', href: '/terms/' },
+  ],
+};
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand Column -->
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="LEXGRO Home">
+          <Image src={logoWordmark} alt="LEXGRO" height={36} />
+        </a>
+        <p class="footer-tagline">
+          Empowering law firms to drive consistent revenue and growth without wasting time & money.
+        </p>
+        <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary footer-cta">
+          Schedule a Call
+        </a>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h3 class="footer-heading">Services</h3>
+        <ul class="footer-links" role="list">
+          {footerLinks.services.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div class="footer-col">
+        <h3 class="footer-heading">Resources</h3>
+        <ul class="footer-links" role="list">
+          {footerLinks.resources.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div class="footer-col">
+        <h3 class="footer-heading">Company</h3>
+        <ul class="footer-links" role="list">
+          {footerLinks.company.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {currentYear} LEXGRO. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-bg-dark);
+    color: white;
+    padding: 4rem 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .footer-brand {
+    max-width: 280px;
+  }
+
+  .footer-logo {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .footer-logo img {
+    height: 36px;
+    width: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-tagline {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-cta {
+    font-size: 0.875rem;
+  }
+
+  .footer-col {
+    min-width: 0;
+  }
+
+  .footer-heading {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .footer-links a {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .copyright {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+</style>

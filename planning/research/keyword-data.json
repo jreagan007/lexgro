@@ -1,0 +1,8172 @@
+{
+  "timestamp": "2026-01-18T02:23:08.861Z",
+  "summary": {
+    "totalKeywords": 81,
+    "avgVolume": 689,
+    "highVolumeKeywords": [
+      {
+        "keyword": "lawyer seo",
+        "volume": 8100
+      },
+      {
+        "keyword": "law firm seo",
+        "volume": 6600
+      },
+      {
+        "keyword": "law firm marketing",
+        "volume": 3600
+      },
+      {
+        "keyword": "lawyer website design",
+        "volume": 3600
+      },
+      {
+        "keyword": "attorney website design",
+        "volume": 3600
+      },
+      {
+        "keyword": "law firm web design",
+        "volume": 2900
+      },
+      {
+        "keyword": "law firm website development",
+        "volume": 2900
+      },
+      {
+        "keyword": "lawyer marketing",
+        "volume": 2400
+      },
+      {
+        "keyword": "attorney seo services",
+        "volume": 2400
+      },
+      {
+        "keyword": "legal seo services",
+        "volume": 2400
+      },
+      {
+        "keyword": "law firm marketing agency",
+        "volume": 1600
+      },
+      {
+        "keyword": "lawyer advertising",
+        "volume": 1600
+      },
+      {
+        "keyword": "personal injury law firm marketing",
+        "volume": 1300
+      },
+      {
+        "keyword": "personal injury lawyer marketing",
+        "volume": 1300
+      },
+      {
+        "keyword": "law firm seo services",
+        "volume": 1000
+      },
+      {
+        "keyword": "local seo for lawyers",
+        "volume": 1000
+      },
+      {
+        "keyword": "law firm ppc",
+        "volume": 1000
+      },
+      {
+        "keyword": "what is a fractional cmo",
+        "volume": 880
+      },
+      {
+        "keyword": "legal marketing services",
+        "volume": 720
+      },
+      {
+        "keyword": "criminal defense marketing",
+        "volume": 720
+      },
+      {
+        "keyword": "legal intake services",
+        "volume": 720
+      },
+      {
+        "keyword": "law firm marketing services",
+        "volume": 590
+      },
+      {
+        "keyword": "attorney lead generation",
+        "volume": 480
+      },
+      {
+        "keyword": "law firm answering service",
+        "volume": 480
+      },
+      {
+        "keyword": "part time cmo",
+        "volume": 390
+      },
+      {
+        "keyword": "family law marketing",
+        "volume": 390
+      },
+      {
+        "keyword": "hire fractional cmo",
+        "volume": 260
+      },
+      {
+        "keyword": "lawyer tv commercials",
+        "volume": 260
+      },
+      {
+        "keyword": "personal injury leads",
+        "volume": 260
+      },
+      {
+        "keyword": "agency vs in house marketing",
+        "volume": 260
+      },
+      {
+        "keyword": "outsourced cmo",
+        "volume": 210
+      },
+      {
+        "keyword": "estate planning marketing",
+        "volume": 210
+      },
+      {
+        "keyword": "law firm lead generation",
+        "volume": 210
+      }
+    ],
+    "lowCompetitionKeywords": []
+  },
+  "byCategory": {
+    "primary": [
+      {
+        "keyword": "fractional cmo for law firms",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "law firm marketing agency",
+        "volume": 1600,
+        "competition": "LOW",
+        "competitionIndex": 18,
+        "cpc": 82.73,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 1600
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 1000
+          }
+        ]
+      },
+      {
+        "keyword": "legal marketing services",
+        "volume": 720,
+        "competition": "LOW",
+        "competitionIndex": 6,
+        "cpc": 33.71,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 590
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 880
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 480
+          }
+        ]
+      },
+      {
+        "keyword": "law firm marketing services",
+        "volume": 590,
+        "competition": "LOW",
+        "competitionIndex": 7,
+        "cpc": 138.96,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 590
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 320
+          }
+        ]
+      },
+      {
+        "keyword": "attorney marketing agency",
+        "volume": 170,
+        "competition": "LOW",
+        "competitionIndex": 5,
+        "cpc": 34.73,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 140
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 110
+          }
+        ]
+      },
+      {
+        "keyword": "law firm marketing",
+        "volume": 3600,
+        "competition": "MEDIUM",
+        "competitionIndex": 40,
+        "cpc": 76.08,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 5400
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 5400
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 3600
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 3600
+          }
+        ]
+      },
+      {
+        "keyword": "lawyer marketing",
+        "volume": 2400,
+        "competition": "LOW",
+        "competitionIndex": 22,
+        "cpc": 76.12,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 590
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 2900
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 2400
+          }
+        ]
+      }
+    ],
+    "fractionalCMO": [
+      {
+        "keyword": "what is a fractional cmo",
+        "volume": 880,
+        "competition": "LOW",
+        "competitionIndex": 9,
+        "cpc": 21.87,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 1000
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 720
+          }
+        ]
+      },
+      {
+        "keyword": "fractional cmo cost",
+        "volume": 140,
+        "competition": "MEDIUM",
+        "competitionIndex": 37,
+        "cpc": 12.07,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 110
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 110
+          }
+        ]
+      },
+      {
+        "keyword": "fractional cmo vs marketing agency",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "fractional cmo vs full time cmo",
+        "volume": 10,
+        "competition": "LOW",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 10
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 10
+          }
+        ]
+      },
+      {
+        "keyword": "when to hire a fractional cmo",
+        "volume": 20,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 0
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 20
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 10
+          }
+        ]
+      },
+      {
+        "keyword": "hire fractional cmo",
+        "volume": 260,
+        "competition": "LOW",
+        "competitionIndex": 28,
+        "cpc": 22.2,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 260
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 720
+          }
+        ]
+      },
+      {
+        "keyword": "part time cmo",
+        "volume": 390,
+        "competition": "LOW",
+        "competitionIndex": 5,
+        "cpc": 58.1,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 590
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 590
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 170
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 110
+          }
+        ]
+      },
+      {
+        "keyword": "outsourced cmo",
+        "volume": 210,
+        "competition": "LOW",
+        "competitionIndex": 28,
+        "cpc": 18.87,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 320
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 320
+          }
+        ]
+      },
+      {
+        "keyword": "virtual cmo",
+        "volume": 70,
+        "competition": "MEDIUM",
+        "competitionIndex": 48,
+        "cpc": 4.88,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 50
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 40
+          }
+        ]
+      },
+      {
+        "keyword": "cmo as a service",
+        "volume": 90,
+        "competition": "HIGH",
+        "competitionIndex": 69,
+        "cpc": 32.65,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 70
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 70
+          }
+        ]
+      },
+      {
+        "keyword": "fractional cmo for small business",
+        "volume": 30,
+        "competition": "LOW",
+        "competitionIndex": 20,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 30
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 20
+          }
+        ]
+      }
+    ],
+    "practiceSpecific": [
+      {
+        "keyword": "fractional cmo for personal injury law firms",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "fractional cmo for immigration law firms",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "fractional cmo for family law firms",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "fractional cmo for estate planning law firms",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "fractional cmo for bankruptcy law firms",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "fractional cmo for mass tort firms",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "personal injury law firm marketing",
+        "volume": 1300,
+        "competition": "LOW",
+        "competitionIndex": 7,
+        "cpc": 106.23,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 1600
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 1000
+          }
+        ]
+      },
+      {
+        "keyword": "personal injury lawyer marketing",
+        "volume": 1300,
+        "competition": "LOW",
+        "competitionIndex": 7,
+        "cpc": 106.23,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 1600
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 1000
+          }
+        ]
+      },
+      {
+        "keyword": "immigration law firm marketing",
+        "volume": 90,
+        "competition": "LOW",
+        "competitionIndex": 2,
+        "cpc": 32.06,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 70
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 40
+          }
+        ]
+      },
+      {
+        "keyword": "family law marketing",
+        "volume": 390,
+        "competition": "LOW",
+        "competitionIndex": 6,
+        "cpc": 64.15,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 260
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 390
+          }
+        ]
+      },
+      {
+        "keyword": "divorce lawyer marketing",
+        "volume": 170,
+        "competition": "LOW",
+        "competitionIndex": 15,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 210
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 140
+          }
+        ]
+      },
+      {
+        "keyword": "estate planning marketing",
+        "volume": 210,
+        "competition": "MEDIUM",
+        "competitionIndex": 50,
+        "cpc": 40.38,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 260
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 110
+          }
+        ]
+      },
+      {
+        "keyword": "bankruptcy attorney marketing",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "criminal defense marketing",
+        "volume": 720,
+        "competition": "LOW",
+        "competitionIndex": 1,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 590
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 590
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 390
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 390
+          }
+        ]
+      },
+      {
+        "keyword": "mass tort marketing",
+        "volume": 90,
+        "competition": "MEDIUM",
+        "competitionIndex": 65,
+        "cpc": 21.33,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 110
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 70
+          }
+        ]
+      }
+    ],
+    "seo": [
+      {
+        "keyword": "law firm seo",
+        "volume": 6600,
+        "competition": "LOW",
+        "competitionIndex": 10,
+        "cpc": 143.92,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 5400
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 8100
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 6600
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 5400
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 9900
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 12100
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 8100
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 8100
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 5400
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 4400
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 3600
+          }
+        ]
+      },
+      {
+        "keyword": "law firm seo services",
+        "volume": 1000,
+        "competition": "LOW",
+        "competitionIndex": 7,
+        "cpc": 89.37,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 590
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 1300
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 880
+          }
+        ]
+      },
+      {
+        "keyword": "lawyer seo",
+        "volume": 8100,
+        "competition": "LOW",
+        "competitionIndex": 11,
+        "cpc": 83.84,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 5400
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 8100
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 12100
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 5400
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 6600
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 12100
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 9900
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 9900
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 8100
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 6600
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 5400
+          }
+        ]
+      },
+      {
+        "keyword": "attorney seo services",
+        "volume": 2400,
+        "competition": "LOW",
+        "competitionIndex": 7,
+        "cpc": 79.46,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 1900
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 1300
+          }
+        ]
+      },
+      {
+        "keyword": "legal seo services",
+        "volume": 2400,
+        "competition": "LOW",
+        "competitionIndex": 7,
+        "cpc": 79.46,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 1900
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 1300
+          }
+        ]
+      },
+      {
+        "keyword": "law firm seo cost",
+        "volume": 10,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 0
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 30
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 10
+          }
+        ]
+      },
+      {
+        "keyword": "is seo worth it for law firms",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "how long does law firm seo take",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "local seo for lawyers",
+        "volume": 1000,
+        "competition": "LOW",
+        "competitionIndex": 4,
+        "cpc": 89.61,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 590
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 1000
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 880
+          }
+        ]
+      }
+    ],
+    "ppc": [
+      {
+        "keyword": "law firm ppc",
+        "volume": 1000,
+        "competition": "LOW",
+        "competitionIndex": 30,
+        "cpc": 77.61,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 1300
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 1000
+          }
+        ]
+      },
+      {
+        "keyword": "law firm ppc management",
+        "volume": 30,
+        "competition": "LOW",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 20
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 30
+          }
+        ]
+      },
+      {
+        "keyword": "law firm google ads",
+        "volume": 20,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 0
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 10
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 10
+          }
+        ]
+      },
+      {
+        "keyword": "lawyer google ads",
+        "volume": 10,
+        "competition": "HIGH",
+        "competitionIndex": 75,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 0
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 0
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 10
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 10
+          }
+        ]
+      },
+      {
+        "keyword": "law firm ppc cost",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "lawyer cpc rates",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "lsa vs google ads lawyers",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "local services ads lawyers",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      }
+    ],
+    "webDesign": [
+      {
+        "keyword": "law firm web design",
+        "volume": 2900,
+        "competition": "LOW",
+        "competitionIndex": 14,
+        "cpc": 92.67,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 6600
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 3600
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 1900
+          }
+        ]
+      },
+      {
+        "keyword": "lawyer website design",
+        "volume": 3600,
+        "competition": "LOW",
+        "competitionIndex": 10,
+        "cpc": 86.77,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 8100
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 5400
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 3600
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 2900
+          }
+        ]
+      },
+      {
+        "keyword": "law firm website development",
+        "volume": 2900,
+        "competition": "LOW",
+        "competitionIndex": 14,
+        "cpc": 92.67,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 6600
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 3600
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 1900
+          }
+        ]
+      },
+      {
+        "keyword": "attorney website design",
+        "volume": 3600,
+        "competition": "LOW",
+        "competitionIndex": 10,
+        "cpc": 86.77,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 8100
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 4400
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 5400
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 3600
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 3600
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 2900
+          }
+        ]
+      }
+    ],
+    "traditional": [
+      {
+        "keyword": "law firm tv advertising",
+        "volume": 40,
+        "competition": "LOW",
+        "competitionIndex": 3,
+        "cpc": 18.93,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 70
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 40
+          }
+        ]
+      },
+      {
+        "keyword": "lawyer tv commercials",
+        "volume": 260,
+        "competition": "LOW",
+        "competitionIndex": 25,
+        "cpc": 12.82,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 320
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 260
+          }
+        ]
+      },
+      {
+        "keyword": "law firm radio advertising",
+        "volume": 10,
+        "competition": "LOW",
+        "competitionIndex": 29,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 10
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 10
+          }
+        ]
+      },
+      {
+        "keyword": "law firm billboard advertising",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "legal advertising agency",
+        "volume": 140,
+        "competition": "LOW",
+        "competitionIndex": 15,
+        "cpc": 60.86,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 140
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 90
+          }
+        ]
+      },
+      {
+        "keyword": "lawyer advertising",
+        "volume": 1600,
+        "competition": "LOW",
+        "competitionIndex": 21,
+        "cpc": 34.74,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1900
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 2400
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 2900
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 1600
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 1900
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 1900
+          }
+        ]
+      },
+      {
+        "keyword": "ctv advertising for lawyers",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      }
+    ],
+    "leadGen": [
+      {
+        "keyword": "law firm lead generation",
+        "volume": 210,
+        "competition": "MEDIUM",
+        "competitionIndex": 58,
+        "cpc": 47.33,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 260
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 210
+          }
+        ]
+      },
+      {
+        "keyword": "legal lead generation",
+        "volume": 110,
+        "competition": "MEDIUM",
+        "competitionIndex": 49,
+        "cpc": 41.49,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 170
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 140
+          }
+        ]
+      },
+      {
+        "keyword": "attorney lead generation",
+        "volume": 480,
+        "competition": "LOW",
+        "competitionIndex": 29,
+        "cpc": 137.92,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 880
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 720
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 880
+          }
+        ]
+      },
+      {
+        "keyword": "personal injury leads",
+        "volume": 260,
+        "competition": "HIGH",
+        "competitionIndex": 78,
+        "cpc": 101.1,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 480
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 210
+          }
+        ]
+      },
+      {
+        "keyword": "law firm intake training",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "legal intake services",
+        "volume": 720,
+        "competition": "MEDIUM",
+        "competitionIndex": 37,
+        "cpc": 106.08,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 1300
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 880
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 1000
+          }
+        ]
+      },
+      {
+        "keyword": "law firm answering service",
+        "volume": 480,
+        "competition": "MEDIUM",
+        "competitionIndex": 46,
+        "cpc": 329.48,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 260
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 320
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 590
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 1000
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 720
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 480
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 320
+          }
+        ]
+      },
+      {
+        "keyword": "case acquisition cost",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "cost per case personal injury",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      }
+    ],
+    "budget": [
+      {
+        "keyword": "law firm marketing budget",
+        "volume": 110,
+        "competition": "LOW",
+        "competitionIndex": 9,
+        "cpc": 36.17,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 50
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 170
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 110
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 110
+          }
+        ]
+      },
+      {
+        "keyword": "how much should a law firm spend on marketing",
+        "volume": 40,
+        "competition": "HIGH",
+        "competitionIndex": 67,
+        "cpc": 21.69,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 70
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 40
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 50
+          }
+        ]
+      },
+      {
+        "keyword": "legal marketing roi",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "law firm advertising cost",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "how much do lawyers spend on advertising",
+        "volume": 20,
+        "competition": "LOW",
+        "competitionIndex": 29,
+        "cpc": 78.01,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 20
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 10
+          }
+        ]
+      },
+      {
+        "keyword": "law firm marketing percentage",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      }
+    ],
+    "agencySelection": [
+      {
+        "keyword": "how to choose law firm marketing agency",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "law firm marketing agency red flags",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "signs marketing agency not working",
+        "volume": 0,
+        "competition": "N/A",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": []
+      },
+      {
+        "keyword": "how to fire marketing agency",
+        "volume": 30,
+        "competition": "LOW",
+        "competitionIndex": 0,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 10
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 30
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 40
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 20
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 20
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 30
+          }
+        ]
+      },
+      {
+        "keyword": "agency vs in house marketing",
+        "volume": 260,
+        "competition": "LOW",
+        "competitionIndex": 1,
+        "cpc": 0,
+        "monthlySearches": [
+          {
+            "year": 2025,
+            "month": 11,
+            "search_volume": 140
+          },
+          {
+            "year": 2025,
+            "month": 10,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 9,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 8,
+            "search_volume": 90
+          },
+          {
+            "year": 2025,
+            "month": 7,
+            "search_volume": 110
+          },
+          {
+            "year": 2025,
+            "month": 6,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 5,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 4,
+            "search_volume": 480
+          },
+          {
+            "year": 2025,
+            "month": 3,
+            "search_volume": 390
+          },
+          {
+            "year": 2025,
+            "month": 2,
+            "search_volume": 210
+          },
+          {
+            "year": 2025,
+            "month": 1,
+            "search_volume": 390
+          },
+          {
+            "year": 2024,
+            "month": 12,
+            "search_volume": 320
+          }
+        ]
+      }
+    ]
+  },
+  "allKeywords": [
+    {
+      "keyword": "fractional cmo for law firms",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "law firm marketing agency",
+      "volume": 1600,
+      "competition": "LOW",
+      "competitionIndex": 18,
+      "cpc": 82.73,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 1600
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 1000
+        }
+      ]
+    },
+    {
+      "keyword": "legal marketing services",
+      "volume": 720,
+      "competition": "LOW",
+      "competitionIndex": 6,
+      "cpc": 33.71,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 590
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 880
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 480
+        }
+      ]
+    },
+    {
+      "keyword": "law firm marketing services",
+      "volume": 590,
+      "competition": "LOW",
+      "competitionIndex": 7,
+      "cpc": 138.96,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 590
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 320
+        }
+      ]
+    },
+    {
+      "keyword": "attorney marketing agency",
+      "volume": 170,
+      "competition": "LOW",
+      "competitionIndex": 5,
+      "cpc": 34.73,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 140
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 110
+        }
+      ]
+    },
+    {
+      "keyword": "law firm marketing",
+      "volume": 3600,
+      "competition": "MEDIUM",
+      "competitionIndex": 40,
+      "cpc": 76.08,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 5400
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 5400
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 3600
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 3600
+        }
+      ]
+    },
+    {
+      "keyword": "lawyer marketing",
+      "volume": 2400,
+      "competition": "LOW",
+      "competitionIndex": 22,
+      "cpc": 76.12,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 590
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 2900
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 2400
+        }
+      ]
+    },
+    {
+      "keyword": "what is a fractional cmo",
+      "volume": 880,
+      "competition": "LOW",
+      "competitionIndex": 9,
+      "cpc": 21.87,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 1000
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 720
+        }
+      ]
+    },
+    {
+      "keyword": "fractional cmo cost",
+      "volume": 140,
+      "competition": "MEDIUM",
+      "competitionIndex": 37,
+      "cpc": 12.07,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 110
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 110
+        }
+      ]
+    },
+    {
+      "keyword": "fractional cmo vs marketing agency",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "fractional cmo vs full time cmo",
+      "volume": 10,
+      "competition": "LOW",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 10
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 10
+        }
+      ]
+    },
+    {
+      "keyword": "when to hire a fractional cmo",
+      "volume": 20,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 0
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 20
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 10
+        }
+      ]
+    },
+    {
+      "keyword": "hire fractional cmo",
+      "volume": 260,
+      "competition": "LOW",
+      "competitionIndex": 28,
+      "cpc": 22.2,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 260
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 720
+        }
+      ]
+    },
+    {
+      "keyword": "part time cmo",
+      "volume": 390,
+      "competition": "LOW",
+      "competitionIndex": 5,
+      "cpc": 58.1,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 590
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 590
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 170
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 110
+        }
+      ]
+    },
+    {
+      "keyword": "outsourced cmo",
+      "volume": 210,
+      "competition": "LOW",
+      "competitionIndex": 28,
+      "cpc": 18.87,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 320
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 320
+        }
+      ]
+    },
+    {
+      "keyword": "virtual cmo",
+      "volume": 70,
+      "competition": "MEDIUM",
+      "competitionIndex": 48,
+      "cpc": 4.88,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 50
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 40
+        }
+      ]
+    },
+    {
+      "keyword": "cmo as a service",
+      "volume": 90,
+      "competition": "HIGH",
+      "competitionIndex": 69,
+      "cpc": 32.65,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 70
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 70
+        }
+      ]
+    },
+    {
+      "keyword": "fractional cmo for small business",
+      "volume": 30,
+      "competition": "LOW",
+      "competitionIndex": 20,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 30
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 20
+        }
+      ]
+    },
+    {
+      "keyword": "fractional cmo for personal injury law firms",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "fractional cmo for immigration law firms",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "fractional cmo for family law firms",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "fractional cmo for estate planning law firms",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "fractional cmo for bankruptcy law firms",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "fractional cmo for mass tort firms",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "personal injury law firm marketing",
+      "volume": 1300,
+      "competition": "LOW",
+      "competitionIndex": 7,
+      "cpc": 106.23,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 1600
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 1000
+        }
+      ]
+    },
+    {
+      "keyword": "personal injury lawyer marketing",
+      "volume": 1300,
+      "competition": "LOW",
+      "competitionIndex": 7,
+      "cpc": 106.23,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 1600
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 1000
+        }
+      ]
+    },
+    {
+      "keyword": "immigration law firm marketing",
+      "volume": 90,
+      "competition": "LOW",
+      "competitionIndex": 2,
+      "cpc": 32.06,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 70
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 40
+        }
+      ]
+    },
+    {
+      "keyword": "family law marketing",
+      "volume": 390,
+      "competition": "LOW",
+      "competitionIndex": 6,
+      "cpc": 64.15,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 260
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 390
+        }
+      ]
+    },
+    {
+      "keyword": "divorce lawyer marketing",
+      "volume": 170,
+      "competition": "LOW",
+      "competitionIndex": 15,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 210
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 140
+        }
+      ]
+    },
+    {
+      "keyword": "estate planning marketing",
+      "volume": 210,
+      "competition": "MEDIUM",
+      "competitionIndex": 50,
+      "cpc": 40.38,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 260
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 110
+        }
+      ]
+    },
+    {
+      "keyword": "bankruptcy attorney marketing",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "criminal defense marketing",
+      "volume": 720,
+      "competition": "LOW",
+      "competitionIndex": 1,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 590
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 590
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 390
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 390
+        }
+      ]
+    },
+    {
+      "keyword": "mass tort marketing",
+      "volume": 90,
+      "competition": "MEDIUM",
+      "competitionIndex": 65,
+      "cpc": 21.33,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 110
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 70
+        }
+      ]
+    },
+    {
+      "keyword": "law firm seo",
+      "volume": 6600,
+      "competition": "LOW",
+      "competitionIndex": 10,
+      "cpc": 143.92,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 5400
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 8100
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 6600
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 5400
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 9900
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 12100
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 8100
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 8100
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 5400
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 4400
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 3600
+        }
+      ]
+    },
+    {
+      "keyword": "law firm seo services",
+      "volume": 1000,
+      "competition": "LOW",
+      "competitionIndex": 7,
+      "cpc": 89.37,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 590
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 1300
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 880
+        }
+      ]
+    },
+    {
+      "keyword": "lawyer seo",
+      "volume": 8100,
+      "competition": "LOW",
+      "competitionIndex": 11,
+      "cpc": 83.84,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 5400
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 8100
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 12100
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 5400
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 6600
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 12100
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 9900
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 9900
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 8100
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 6600
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 5400
+        }
+      ]
+    },
+    {
+      "keyword": "attorney seo services",
+      "volume": 2400,
+      "competition": "LOW",
+      "competitionIndex": 7,
+      "cpc": 79.46,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 1900
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 1300
+        }
+      ]
+    },
+    {
+      "keyword": "legal seo services",
+      "volume": 2400,
+      "competition": "LOW",
+      "competitionIndex": 7,
+      "cpc": 79.46,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 1900
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 1300
+        }
+      ]
+    },
+    {
+      "keyword": "law firm seo cost",
+      "volume": 10,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 0
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 30
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 10
+        }
+      ]
+    },
+    {
+      "keyword": "is seo worth it for law firms",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "how long does law firm seo take",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "local seo for lawyers",
+      "volume": 1000,
+      "competition": "LOW",
+      "competitionIndex": 4,
+      "cpc": 89.61,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 590
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 1000
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 880
+        }
+      ]
+    },
+    {
+      "keyword": "law firm ppc",
+      "volume": 1000,
+      "competition": "LOW",
+      "competitionIndex": 30,
+      "cpc": 77.61,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 1300
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 1000
+        }
+      ]
+    },
+    {
+      "keyword": "law firm ppc management",
+      "volume": 30,
+      "competition": "LOW",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 20
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 30
+        }
+      ]
+    },
+    {
+      "keyword": "law firm google ads",
+      "volume": 20,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 0
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 10
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 10
+        }
+      ]
+    },
+    {
+      "keyword": "lawyer google ads",
+      "volume": 10,
+      "competition": "HIGH",
+      "competitionIndex": 75,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 0
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 0
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 10
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 10
+        }
+      ]
+    },
+    {
+      "keyword": "law firm ppc cost",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "lawyer cpc rates",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "lsa vs google ads lawyers",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "local services ads lawyers",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "law firm web design",
+      "volume": 2900,
+      "competition": "LOW",
+      "competitionIndex": 14,
+      "cpc": 92.67,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 6600
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 3600
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 1900
+        }
+      ]
+    },
+    {
+      "keyword": "lawyer website design",
+      "volume": 3600,
+      "competition": "LOW",
+      "competitionIndex": 10,
+      "cpc": 86.77,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 8100
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 5400
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 3600
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 2900
+        }
+      ]
+    },
+    {
+      "keyword": "law firm website development",
+      "volume": 2900,
+      "competition": "LOW",
+      "competitionIndex": 14,
+      "cpc": 92.67,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 6600
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 3600
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 1900
+        }
+      ]
+    },
+    {
+      "keyword": "attorney website design",
+      "volume": 3600,
+      "competition": "LOW",
+      "competitionIndex": 10,
+      "cpc": 86.77,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 8100
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 4400
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 5400
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 3600
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 3600
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 2900
+        }
+      ]
+    },
+    {
+      "keyword": "law firm tv advertising",
+      "volume": 40,
+      "competition": "LOW",
+      "competitionIndex": 3,
+      "cpc": 18.93,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 70
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 40
+        }
+      ]
+    },
+    {
+      "keyword": "lawyer tv commercials",
+      "volume": 260,
+      "competition": "LOW",
+      "competitionIndex": 25,
+      "cpc": 12.82,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 320
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 260
+        }
+      ]
+    },
+    {
+      "keyword": "law firm radio advertising",
+      "volume": 10,
+      "competition": "LOW",
+      "competitionIndex": 29,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 10
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 10
+        }
+      ]
+    },
+    {
+      "keyword": "law firm billboard advertising",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "legal advertising agency",
+      "volume": 140,
+      "competition": "LOW",
+      "competitionIndex": 15,
+      "cpc": 60.86,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 140
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 90
+        }
+      ]
+    },
+    {
+      "keyword": "lawyer advertising",
+      "volume": 1600,
+      "competition": "LOW",
+      "competitionIndex": 21,
+      "cpc": 34.74,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1900
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 2400
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 2900
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 1600
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 1900
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 1900
+        }
+      ]
+    },
+    {
+      "keyword": "ctv advertising for lawyers",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "law firm lead generation",
+      "volume": 210,
+      "competition": "MEDIUM",
+      "competitionIndex": 58,
+      "cpc": 47.33,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 260
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 210
+        }
+      ]
+    },
+    {
+      "keyword": "legal lead generation",
+      "volume": 110,
+      "competition": "MEDIUM",
+      "competitionIndex": 49,
+      "cpc": 41.49,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 170
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 140
+        }
+      ]
+    },
+    {
+      "keyword": "attorney lead generation",
+      "volume": 480,
+      "competition": "LOW",
+      "competitionIndex": 29,
+      "cpc": 137.92,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 880
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 720
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 880
+        }
+      ]
+    },
+    {
+      "keyword": "personal injury leads",
+      "volume": 260,
+      "competition": "HIGH",
+      "competitionIndex": 78,
+      "cpc": 101.1,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 480
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 210
+        }
+      ]
+    },
+    {
+      "keyword": "law firm intake training",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "legal intake services",
+      "volume": 720,
+      "competition": "MEDIUM",
+      "competitionIndex": 37,
+      "cpc": 106.08,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 1300
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 880
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 1000
+        }
+      ]
+    },
+    {
+      "keyword": "law firm answering service",
+      "volume": 480,
+      "competition": "MEDIUM",
+      "competitionIndex": 46,
+      "cpc": 329.48,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 590
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 1000
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 480
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 320
+        }
+      ]
+    },
+    {
+      "keyword": "case acquisition cost",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "cost per case personal injury",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "law firm marketing budget",
+      "volume": 110,
+      "competition": "LOW",
+      "competitionIndex": 9,
+      "cpc": 36.17,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 110
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 110
+        }
+      ]
+    },
+    {
+      "keyword": "how much should a law firm spend on marketing",
+      "volume": 40,
+      "competition": "HIGH",
+      "competitionIndex": 67,
+      "cpc": 21.69,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 40
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 50
+        }
+      ]
+    },
+    {
+      "keyword": "legal marketing roi",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "law firm advertising cost",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "how much do lawyers spend on advertising",
+      "volume": 20,
+      "competition": "LOW",
+      "competitionIndex": 29,
+      "cpc": 78.01,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 20
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 10
+        }
+      ]
+    },
+    {
+      "keyword": "law firm marketing percentage",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "how to choose law firm marketing agency",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "law firm marketing agency red flags",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "signs marketing agency not working",
+      "volume": 0,
+      "competition": "N/A",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": []
+    },
+    {
+      "keyword": "how to fire marketing agency",
+      "volume": 30,
+      "competition": "LOW",
+      "competitionIndex": 0,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 20
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 30
+        }
+      ]
+    },
+    {
+      "keyword": "agency vs in house marketing",
+      "volume": 260,
+      "competition": "LOW",
+      "competitionIndex": 1,
+      "cpc": 0,
+      "monthlySearches": [
+        {
+          "year": 2025,
+          "month": 11,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 90
+        },
+        {
+          "year": 2025,
+          "month": 7,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 6,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 5,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 4,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 3,
+          "search_volume": 390
+        },
+        {
+          "year": 2025,
+          "month": 2,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 1,
+          "search_volume": 390
+        },
+        {
+          "year": 2024,
+          "month": 12,
+          "search_volume": 320
+        }
+      ]
+    }
+  ]
+}

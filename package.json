@@ -1,0 +1,36 @@
+{
+  "name": "lexgro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "firecrawl:map": "node scripts/research/firecrawl-lexgro.js map",
+    "firecrawl:crawl": "node scripts/research/firecrawl-lexgro.js crawl",
+    "firecrawl:scrape": "node scripts/research/firecrawl-lexgro.js scrape",
+    "firecrawl:extract": "node scripts/research/firecrawl-lexgro.js extract",
+    "firecrawl:all": "node scripts/research/firecrawl-lexgro.js all"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/sitemap": "^3.7.0",
+    "@chakra-ui/react": "^3.31.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "astro": "^5.16.15",
+    "astro-seo": "^1.1.0",
+    "dotenv": "^17.2.3",
+    "framer-motion": "^12.29.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-icons": "^5.5.0",
+    "schema-dts": "^1.1.5",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.36.0"
+  }
+}

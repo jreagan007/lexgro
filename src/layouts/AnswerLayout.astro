@@ -1,0 +1,167 @@
+---
+/**
+ * AnswerLayout - For answer pages (1200-2500 words)
+ * Features: Quick answer box, FAQ section, featured snippet targeting
+ */
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  quickAnswer?: string;
+  author?: string;
+  pubDate?: Date;
+}
+
+const { title, description, quickAnswer, author = 'Keith Dyer', pubDate } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="answer-article">
+    <header class="answer-header">
+      <div class="container">
+        <p class="answer-label">Quick Answer</p>
+        <h1>{title}</h1>
+      </div>
+    </header>
+
+    {quickAnswer && (
+      <div class="quick-answer-box container">
+        <div class="quick-answer">
+          <p class="quick-answer-label">The Short Answer</p>
+          <p class="quick-answer-text">{quickAnswer}</p>
+        </div>
+      </div>
+    )}
+
+    <div class="answer-content container">
+      <div class="answer-body prose">
+        <slot />
+      </div>
+
+      <aside class="answer-sidebar">
+        <div class="sidebar-cta">
+          <h4>Need Expert Help?</h4>
+          <p>Get personalized guidance for your law firm's marketing.</p>
+          <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-sm">
+            Free Consultation
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="answer-footer container">
+      <div class="answer-meta">
+        {author && <span>Written by {author}</span>}
+        {pubDate && (
+          <time datetime={pubDate.toISOString()}>
+            Updated {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        )}
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .answer-header {
+    background: linear-gradient(135deg, var(--color-bg-light) 0%, white 100%);
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .answer-label {
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .answer-header h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.25;
+    max-width: 800px;
+  }
+
+  .quick-answer-box {
+    margin-top: -1rem;
+    padding-bottom: 2rem;
+  }
+
+  .quick-answer {
+    background: var(--color-primary);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+  }
+
+  .quick-answer-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+  }
+
+  .quick-answer-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .answer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3rem 0;
+  }
+
+  @media (min-width: 1024px) {
+    .answer-content {
+      grid-template-columns: 1fr 300px;
+    }
+  }
+
+  .answer-body {
+    max-width: 800px;
+  }
+
+  .answer-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+  }
+
+  .sidebar-cta {
+    background: var(--color-bg-light);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+  }
+
+  .sidebar-cta h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-cta p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .answer-footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .answer-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+</style>

@@ -1,0 +1,3547 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+// Import images
+import heroMain from '../assets/images/heroes/hero-main.png';
+import videoThumbnail from '../assets/images/heroes/video-thumbnail.png';
+import trustAvatars1 from '../assets/images/heroes/trust-avatars-1.png';
+import trustAvatars2 from '../assets/images/heroes/trust-avatars-2.png';
+import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
+import trustAvatars4 from '../assets/images/heroes/trust-avatars-4.png';
+import trustAvatars5 from '../assets/images/heroes/trust-avatars-5.png';
+
+// Decorative assets
+import leafIconLeft from '../assets/images/decorations/leaf-icon-left.png';
+import leafIconRight from '../assets/images/decorations/leaf-icon-right.png';
+import swooshLine from '../assets/images/decorations/swoosh-line.png';
+import checkmarkGraphic from '../assets/images/decorations/checkmark-graphic.png';
+
+// Brand graphics
+import servicesGraphic from '../assets/images/brand/services-graphic.png';
+import benefitsGraphic from '../assets/images/brand/benefits-graphic.png';
+
+// Section graphics
+import circleOfTrustGraphic from '../assets/images/sections/circle-of-trust-graphic.png';
+import practiceAreaIcon from '../assets/images/sections/practice-area-features.png';
+import keithPhoto from '../assets/images/sections/keith-cmo-photo.png';
+import finalCtaBg from '../assets/images/sections/final-cta-bg.png';
+import memberAvatar1 from '../assets/images/sections/member-avatar-1.png';
+import memberAvatar2 from '../assets/images/sections/member-avatar-2.png';
+
+// Blog thumbnails (editorial photography style)
+import blogFractionalCmo from '../assets/images/editorial/blog-fractional-cmo.png';
+import blogClientGrowth from '../assets/images/editorial/blog-client-growth.png';
+import blogBankruptcy from '../assets/images/editorial/blog-bankruptcy-marketing.png';
+
+// Section graphics (editorial photography style)
+import faqEditorialGraphic from '../assets/images/editorial/faq-section.png';
+
+
+// Testimonial images
+import clarkeSpeaks from '../assets/images/testimonials/clarke-speaks.png';
+import peterDavis from '../assets/images/testimonials/peter-davis.png';
+import ericRichardson from '../assets/images/testimonials/eric-richardson.png';
+import drewBrown from '../assets/images/testimonials/drew-brown.png';
+import barrySiegel from '../assets/images/testimonials/barry-siegel.jpg';
+import blakeSwan from '../assets/images/testimonials/blake-swan.png';
+import riahGreathouse from '../assets/images/testimonials/riah-greathouse.webp';
+import matthewAlbrecht from '../assets/images/testimonials/matthew-albrecht.webp';
+import yunuenAlvarado from '../assets/images/testimonials/yunuen-alvarado.webp';
+import jamesAmaro from '../assets/images/testimonials/james-amaro.webp';
+import bethTibbott from '../assets/images/testimonials/beth-tibbott.png';
+
+// Award images
+import speaksAward from '../assets/images/awards/speaks-law-award-2023.jpg';
+import albrechtAward from '../assets/images/awards/albrecht-law-award-2024.jpg';
+import speaksAward2 from '../assets/images/awards/speaks-award-photo-2.jpg';
+import speaksAward3 from '../assets/images/awards/speaks-award-photo-3.jpg';
+
+// Limiting to 6 testimonials for cleaner CRO-optimized layout (3x2 grid)
+const testimonials = [
+  {
+    name: 'Clarke Speaks',
+    title: 'Founder | Personal Injury & Workers Comp Attorney',
+    firm: 'Speaks Law | Wilmington, NC',
+    image: clarkeSpeaks,
+  },
+  {
+    name: 'Peter Davis',
+    title: 'Founder | Personal Injury & Workers Comp Attorney',
+    firm: 'Peter N. Davis & Associates | Paterson, NJ',
+    image: peterDavis,
+  },
+  {
+    name: 'Matthew Albrecht',
+    title: 'Founder | Personal Injury Attorney',
+    firm: 'Albrecht Law | Spokane, WA',
+    image: matthewAlbrecht,
+  },
+  {
+    name: 'Riah Greathouse',
+    title: 'Founder | Personal Injury Attorney',
+    firm: 'Greathouse Law | Atlanta, GA',
+    image: riahGreathouse,
+  },
+  {
+    name: 'Barry Siegel',
+    title: 'Founder | Estate Planning & Elder Law Attorney',
+    firm: 'Siegel Law Group | Boca Raton, FL',
+    image: barrySiegel,
+  },
+  {
+    name: 'Drew Brown',
+    title: 'Founder | Personal Injury & Business Attorney',
+    firm: 'Greensboro Law Center | Greensboro, NC',
+    image: drewBrown,
+  },
+];
+
+const problems = [
+  {
+    title: 'Inconsistent Case Generation',
+    description: 'Facing challenges in acquiring consistent cases and lacking trust in your marketing partner.',
+  },
+  {
+    title: 'Overwhelmed by Implementation',
+    description: 'Encountering technological issues and skill deficiencies that result in delays in implementation.',
+  },
+  {
+    title: 'Lack of Knowledge',
+    description: 'Concerned about lack of market presence, lackluster growth, or the potential threat of shutting down.',
+  },
+];
+
+const solutions = [
+  {
+    title: 'Resources and Support from Experts',
+    description: 'Employ proven growth strategies by hiring a Fractional Chief Marketing Officer, vetted vendors, and trained Virtual Assistants.',
+  },
+  {
+    title: 'Learn to Build Case Generation Systems',
+    description: 'Access training to generate predictable revenue, minimize acquisition costs, and effectively compete in your practice area.',
+  },
+  {
+    title: 'Safe Place to Learn, Objective Approach',
+    description: 'Obtain real practice area-specific marketing training and tailored strategies without being pressured to purchase services you don\'t need.',
+  },
+];
+
+const services = [
+  {
+    title: 'Chief Marketing Officer Consulting',
+    description: 'Get senior marketing leadership without the full-time cost.',
+    href: '/services/fractional-cmo/',
+  },
+  {
+    title: 'Evergreen Marketing Training',
+    description: 'Access training for your marketing personnel anytime.',
+    href: '/services/',
+  },
+  {
+    title: 'Vendor & Employee Platform',
+    description: 'Connect with trusted vendors and trained marketers.',
+    href: '/services/',
+  },
+  {
+    title: 'Practice Area Consulting',
+    description: 'Get marketing strategies specific to your practice area.',
+    href: '/services/',
+  },
+];
+
+const pricingPlans = [
+  {
+    name: 'Platform + LEXGRO Training',
+    audience: 'Best for solo law firms that want to train existing employees',
+    price: '$97',
+    period: 'per month',
+    altPrice: '$1,000',
+    altPeriod: 'annually',
+    cta: 'Buy now',
+    ctaHref: 'https://lexgro.thinkific.com/enroll/3213268?price_id=4101995',
+    features: [
+      '9 Learning Modules',
+      '25 Tools and Exercises',
+      'Referral Program Kit',
+      'Ultimate Law Firm Facebook Training',
+    ],
+  },
+  {
+    name: 'LEXGRO Training + CMO Coaching',
+    audience: 'Best for law firms that want hands on training to grow and scale',
+    price: '$6,999',
+    period: 'one-time payment',
+    note: 'then $97/month after 90 days',
+    cta: 'Buy now',
+    ctaHref: 'https://lexgro.thinkific.com/enroll/3213259?price_id=4101984',
+    features: [
+      'Everything in LEXGRO Training, PLUS',
+      'Access to LEXGRO Private Community',
+      'Fractional CMO Coaching by specific Practice Area (Live Training and Q&A - Once per month for 6 months)',
+    ],
+  },
+  {
+    name: 'LEXGRO CMO Coaching + SMI',
+    audience: 'Best for law firms that want to immediately implement an SMI inside their firm',
+    price: '$4,999',
+    period: 'one-time payment',
+    cta: 'Buy Now',
+    ctaHref: 'https://lexgro.thinkific.com/enroll/3134631?price_id=4010959',
+    popular: true,
+    features: [
+      'Everything in LEXGRO CMO Coaching, PLUS',
+      'A fully trained Strategic Marketing Implementor (SMI) inserted into the law firm',
+      'The SMI is trained and managed by both the law firm and the CMO',
+    ],
+  },
+  {
+    name: 'LEXGRO Fractional CMO Service',
+    audience: 'A done-for-you service best for law firms that want to dominate their practice area',
+    price: 'Get Quote',
+    period: 'per month',
+    cta: 'Schedule Call',
+    ctaHref: 'https://calendly.com/lexgro/15-minute-strategy-session',
+    features: [
+      'Everything in LEXGRO SMI, PLUS',
+      'Fractional CMO - One-on-One Consulting (Once per month for Strategy and Implementation)',
+    ],
+  },
+];
+
+const faqs = [
+  {
+    question: 'Why is Digital Marketing non-Negotiable for Law Firms?',
+    answer: 'Digital marketing is needed, as most potential clients are finding legal services online rather than through word-of-mouth or print advertising. Studies have shown that more than 85% of people use search engines to locate local businesses, including lawyers. Without a sound online strategy, law firms can be invisible to the people who are actively seeking help.',
+  },
+  {
+    question: 'What are some of the special considerations for law firms utilizing online marketing?',
+    answer: 'Law firms are unique in that they are bound by strict ethical guidelines, legal work is highly sensitive, and competition is intense. They are required to adhere to ABA advertising regulations, maintain client confidentiality, and avoid making claims of guaranteed results. Trust and differentiation in a crowded online environment demand a uniquely compliant approach.',
+  },
+  {
+    question: 'What is the effect of digital marketing on law firm\'s reputation?',
+    answer: 'Digital marketing can impact a law firm\'s reputation by affecting online reviews, thought leadership articles, and the quality of the website. A good digital presence establishes trust and demonstrates expertise. A lack of online presence, or a weak online presence, can harm credibility.',
+  },
+  {
+    question: 'Can small law firms really compete for business online with larger firms?',
+    answer: 'Absolutely. With focused SEO strategies, niche targeting, and consistent content marketing, small law firms can effectively compete with larger firms in their specific practice areas and geographic regions.',
+  },
+  {
+    question: 'What are the biggest mistakes law firms make with their digital strategy?',
+    answer: 'Some of the most common mistakes include neglecting SEO, failing to produce client-focused content, and neglecting online reputation management. Many companies strive for vanity numbers over actual leads and treat digital marketing as a one-time event rather than an investment.',
+  },
+];
+
+const circleServices = [
+  'Hire Vendors & Trained Employees',
+  'Evergreen Training for Marketing Personnel',
+  'Chief Marketing Officer - Agency Services',
+  'Chief Marketing Officer Coaching & Consulting',
+];
+
+const blogPosts = [
+  {
+    title: 'Top Fractional CMO Benefits Every Law Firm Owner Should Know About',
+    excerpt: 'Gain senior marketing leadership and predictable growth without a full-time hire.',
+    image: blogFractionalCmo,
+    href: '/blog/top-fractional-cmo-benefits/',
+  },
+  {
+    title: 'How a Fractional CMO Can Transform Your Law Firm\'s Client Growth',
+    excerpt: 'Strategic marketing leadership for predictable client acquisition and firm expansion.',
+    image: blogClientGrowth,
+    href: '/blog/how-a-fractional-cmo-can-transform/',
+  },
+  {
+    title: 'Dominating the Digital Sphere: Essential Marketing for Bankruptcy Lawyers',
+    excerpt: 'Transforming Your Practice with Strategic Online Lead Generation and Client Trust.',
+    image: blogBankruptcy,
+    href: '/blog/marketing-for-bankruptcy-lawyers/',
+  },
+];
+---
+
+<BaseLayout
+  title="Law Firm CMO - Fractional Chief Marketing Officer for Law Firms"
+  description="LEXGRO empowers law firms to drive consistent revenue and growth. Get expert marketing strategy, hands-on training, and seamless implementation."
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <Image src={heroMain} alt="" class="hero-bg-image" width={2240} loading="eager" />
+    </div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1 class="hero-headline">The Law Firm CMO</h1>
+        <p class="hero-tagline">Your Growth Partner, Not Just a Vendor</p>
+        <p class="hero-subtitle">
+          Predictable Revenue. Consistent Cases. No Wasted Budget.
+        </p>
+        <p class="hero-description">
+          LEXGRO is the marketing partner that grows with you—providing strategic leadership,
+          hands-on training, and battle-tested implementation. Our interests are aligned with yours:
+          when you win, we win.
+        </p>
+        <div class="hero-cta">
+          <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg">
+            Get Your Free Growth Audit
+          </a>
+          <a href="#services" class="btn btn-secondary btn-lg">
+            Explore the Platform
+          </a>
+        </div>
+
+        <!-- Trust avatars rows inside hero -->
+        <div class="hero-trust-rows">
+          <Image src={trustAvatars1} alt="" width={600} class="hero-trust-graphic" />
+          <Image src={trustAvatars2} alt="" width={600} class="hero-trust-graphic" />
+          <Image src={trustAvatars3} alt="" width={600} class="hero-trust-graphic" />
+          <Image src={trustAvatars4} alt="" width={600} class="hero-trust-graphic" />
+          <Image src={trustAvatars5} alt="" width={600} class="hero-trust-graphic" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section -->
+  <section class="social-proof">
+    <div class="container">
+      <div class="social-proof-layout">
+        <!-- Avatar Stack & Rating -->
+        <div class="social-proof-left">
+          <div class="avatar-stack-group">
+            <div class="avatar-stack">
+              <Image src={clarkeSpeaks} alt="" width={48} height={48} class="stack-avatar" />
+              <Image src={peterDavis} alt="" width={48} height={48} class="stack-avatar" />
+              <Image src={ericRichardson} alt="" width={48} height={48} class="stack-avatar" />
+              <Image src={matthewAlbrecht} alt="" width={48} height={48} class="stack-avatar" />
+              <div class="stack-avatar stack-more">+8k</div>
+            </div>
+            <div class="rating-group">
+              <div class="stars">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <span class="review-count">250+ reviews</span>
+            </div>
+          </div>
+          <div class="trusted-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="6"></circle>
+              <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path>
+            </svg>
+            <span>Award-winning growth partner trusted by <strong>8k+</strong> law firms</span>
+          </div>
+        </div>
+
+        <!-- Service Checkmarks -->
+        <div class="social-proof-right">
+          <div class="service-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Fractional CMO Leadership</span>
+          </div>
+          <div class="service-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Evergreen Marketing Training</span>
+          </div>
+          <div class="service-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Practice Area Experts</span>
+          </div>
+          <div class="service-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Vetted Vendor Network</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section (Redesigned) -->
+  <section class="video-section-new">
+    <div class="container">
+      <div class="video-layout">
+        <div class="video-content">
+          <span class="section-label">Watch Our Approach</span>
+          <h2 class="video-headline">See How We Partner With Law Firms to Drive Growth</h2>
+          <p class="video-description">
+            In this 3-minute overview, learn how LEXGRO's fractional CMO model delivers senior marketing leadership, hands-on training, and measurable results for law firms across the country.
+          </p>
+          <div class="video-highlights">
+            <div class="video-highlight">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Strategic marketing leadership without full-time cost</span>
+            </div>
+            <div class="video-highlight">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Practice area-specific growth strategies</span>
+            </div>
+            <div class="video-highlight">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Proven results with 8,000+ law firms</span>
+            </div>
+          </div>
+        </div>
+        <div class="video-visual">
+          <div class="video-card" id="video-trigger">
+            <div class="video-thumbnail-wrapper">
+              <Image src={videoThumbnail} alt="LEXGRO Introduction Video" width={560} class="video-thumbnail" />
+              <div class="video-overlay"></div>
+              <button class="play-button-new" aria-label="Play video">
+                <div class="play-button-ring"></div>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </button>
+            </div>
+            <div class="video-duration">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>3 min watch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="video-modal" aria-hidden="true">
+    <div class="video-modal-backdrop"></div>
+    <div class="video-modal-content">
+      <button class="video-modal-close" aria-label="Close video">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="video-modal-player">
+        <iframe
+          id="video-iframe"
+          src=""
+          title="LEXGRO Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Awards Section -->
+  <section class="awards-section">
+    <div class="container">
+      <div class="awards-card">
+        <div class="awards-header">
+          <p class="section-label">Recognition</p>
+          <h2 class="section-title">Award-Winning Law Firm Growth Agency</h2>
+          <p class="section-subtitle">
+            Real results. Real recognition. See how our clients have transformed their firms
+            and earned top industry awards.
+          </p>
+        </div>
+        <div class="awards-row">
+          <div class="award-item">
+            <Image src={speaksAward} alt="Speaks Law Award 2023" width={280} class="award-img" />
+          </div>
+          <div class="award-item">
+            <Image src={speaksAward2} alt="Speaks Law Award Ceremony" width={280} class="award-img" />
+          </div>
+          <div class="award-item">
+            <Image src={speaksAward3} alt="Revenue Rockstar Trophy" width={280} class="award-img" />
+          </div>
+          <div class="award-item award-item-wide">
+            <Image src={albrechtAward} alt="Albrecht Law Award 2024" width={400} class="award-img" />
+          </div>
+        </div>
+        <div class="awards-captions">
+          <div class="award-caption award-caption-speaks">
+            <span class="award-firm">Speaks Law Firm</span>
+            <span class="award-title">8FF Revenue Rockstar Award 2023</span>
+          </div>
+          <div class="award-caption award-caption-albrecht">
+            <span class="award-firm">Albrecht Law</span>
+            <span class="award-title">8FF Speed of Growth Award 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Section (Redesigned) -->
+  <section class="partnership-section">
+    <div class="container">
+      <div class="partnership-header">
+        <span class="section-label">The LEXGRO Partnership</span>
+        <h2 class="section-title">Your Success Is Our Success</h2>
+        <p class="section-subtitle">
+          True partnership means aligned interests. We don't just provide services—we invest in your growth with expert guidance, hands-on implementation, and a proven framework for predictable revenue.
+        </p>
+      </div>
+
+      <div class="partnership-grid">
+        <!-- Partnership Pillars -->
+        <div class="partnership-pillar">
+          <div class="pillar-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3>Fractional CMO Leadership</h3>
+          <p>Senior marketing expertise without the full-time cost. Strategic guidance tailored to your practice area.</p>
+        </div>
+
+        <div class="partnership-pillar">
+          <div class="pillar-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+          </div>
+          <h3>Evergreen Training</h3>
+          <p>On-demand marketing education designed specifically for law firms. Train your team at their pace.</p>
+        </div>
+
+        <div class="partnership-pillar">
+          <div class="pillar-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 16v-4"></path>
+              <path d="M12 8h.01"></path>
+            </svg>
+          </div>
+          <h3>Vetted Vendor Network</h3>
+          <p>Pre-screened marketing partners who specialize in legal. No more wasted spend on ineffective vendors.</p>
+        </div>
+
+        <div class="partnership-pillar">
+          <div class="pillar-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="12" y1="20" x2="12" y2="10"></line>
+              <line x1="18" y1="20" x2="18" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="16"></line>
+            </svg>
+          </div>
+          <h3>Measurable Growth</h3>
+          <p>Data-driven strategies with clear KPIs. Track your ROI and see exactly where your marketing dollars go.</p>
+        </div>
+      </div>
+
+      <div class="partnership-cta">
+        <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg">
+          Get Your Free Growth Audit
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problems & Solutions Section (Redesigned) -->
+  <section class="challenges-section">
+    <div class="container">
+      <!-- Problems Part -->
+      <div class="challenges-header">
+        <span class="section-label-dark">Common Challenges</span>
+        <h2 class="challenges-title">What's Holding Your Firm Back?</h2>
+      </div>
+
+      <div class="challenges-grid">
+        <div class="challenge-card">
+          <div class="challenge-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+            </svg>
+          </div>
+          <h3>Inconsistent Case Flow</h3>
+          <p>Unpredictable lead generation making it impossible to forecast revenue or plan for growth.</p>
+        </div>
+
+        <div class="challenge-card">
+          <div class="challenge-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>Wasted Marketing Spend</h3>
+          <p>Pouring money into vendors and tactics that don't deliver measurable ROI.</p>
+        </div>
+
+        <div class="challenge-card">
+          <div class="challenge-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>No Strategic Leadership</h3>
+          <p>Missing the senior marketing expertise needed to compete with larger firms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="solutions-section">
+    <div class="container">
+      <div class="solutions-layout">
+        <div class="solutions-content">
+          <span class="section-label">The LEXGRO Approach</span>
+          <h2 class="solutions-title">Predictable Growth, Not Guesswork</h2>
+          <p class="solutions-description">
+            We partner with law firms to build sustainable marketing systems that deliver consistent results. Our approach combines strategic leadership, hands-on training, and proven implementation.
+          </p>
+
+          <div class="solutions-list">
+            <div class="solution-item">
+              <div class="solution-check">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <strong>Fractional CMO Leadership</strong>
+                <p>Senior marketing strategy without the full-time cost</p>
+              </div>
+            </div>
+
+            <div class="solution-item">
+              <div class="solution-check">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <strong>Practice Area Expertise</strong>
+                <p>Strategies tailored to your specific legal market</p>
+              </div>
+            </div>
+
+            <div class="solution-item">
+              <div class="solution-check">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div>
+                <strong>Hands-On Implementation</strong>
+                <p>We don't just advise—we help you execute</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg solutions-cta">
+            Get Your Free Growth Audit
+          </a>
+        </div>
+
+        <div class="solutions-stats">
+          <div class="stat-card">
+            <span class="stat-number">8,000+</span>
+            <span class="stat-label">Law Firms Served</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">40%</span>
+            <span class="stat-label">Avg. Cost Reduction</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">3x</span>
+            <span class="stat-label">Average ROI</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">90%</span>
+            <span class="stat-label">Client Retention</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section">
+    <div class="container">
+      <p class="section-label">Our Services</p>
+      <h2 class="section-title">Acquire the Knowledge, Tools, and Resources to Accelerate Growth</h2>
+      <div class="services-grid">
+        {services.map((service) => (
+          <a href={service.href} class="service-card">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <svg class="service-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-Stage Process Section -->
+  <section class="process-section">
+    <div class="container">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">Your 4-Stage Path to Predictable Growth</h2>
+      <p class="section-subtitle">
+        LEXGRO's proven methodology takes you from initial consultation through strategic implementation to consistent, measurable growth.
+      </p>
+      <div class="process-stages">
+        <div class="process-stage">
+          <div class="stage-number">1</div>
+          <div class="stage-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3>Consultation</h3>
+          <p>Free marketing audit to identify opportunities and gaps in your current strategy.</p>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-stage">
+          <div class="stage-number">2</div>
+          <div class="stage-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <h3>Strategy</h3>
+          <p>Custom marketing blueprint designed for your practice area and market.</p>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-stage">
+          <div class="stage-number">3</div>
+          <div class="stage-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+          </div>
+          <h3>Train & Implement</h3>
+          <p>Hands-on training and implementation with your team for lasting results.</p>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-stage">
+          <div class="stage-number">4</div>
+          <div class="stage-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="20" x2="12" y2="10"></line>
+              <line x1="18" y1="20" x2="18" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="16"></line>
+            </svg>
+          </div>
+          <h3>Consistent Growth</h3>
+          <p>Ongoing support to maintain predictable revenue and scale your firm.</p>
+        </div>
+      </div>
+      <div class="process-cta">
+        <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg">
+          Start Your Growth Journey
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Area Experts Section (Redesigned) -->
+  <section class="practice-experts-section">
+    <div class="container">
+      <div class="practice-experts-header">
+        <span class="section-label">Specialized Expertise</span>
+        <h2 class="section-title">Marketing That Understands Your Practice</h2>
+        <p class="section-subtitle">
+          Every practice area has unique marketing challenges. Our CMO expertise spans the legal industry, with specialized strategies for each area of law.
+        </p>
+      </div>
+
+      <div class="practice-areas-grid">
+        <div class="practice-area-card">
+          <div class="practice-area-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+          </div>
+          <h3 class="practice-area-title">Personal Injury</h3>
+          <p class="practice-area-desc">High-intent lead generation and case acquisition strategies for PI attorneys</p>
+          <span class="practice-area-stat">120+ Firms Served</span>
+        </div>
+
+        <div class="practice-area-card">
+          <div class="practice-area-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <h3 class="practice-area-title">Family Law</h3>
+          <p class="practice-area-desc">Sensitive, trust-building campaigns for divorce and custody matters</p>
+          <span class="practice-area-stat">45+ Firms Served</span>
+        </div>
+
+        <div class="practice-area-card">
+          <div class="practice-area-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3 class="practice-area-title">Criminal Defense</h3>
+          <p class="practice-area-desc">Urgent response marketing and reputation management for defense attorneys</p>
+          <span class="practice-area-stat">35+ Firms Served</span>
+        </div>
+
+        <div class="practice-area-card">
+          <div class="practice-area-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3 class="practice-area-title">Estate Planning</h3>
+          <p class="practice-area-desc">Educational content marketing and referral network building</p>
+          <span class="practice-area-stat">30+ Firms Served</span>
+        </div>
+
+        <div class="practice-area-card">
+          <div class="practice-area-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <h3 class="practice-area-title">Immigration</h3>
+          <p class="practice-area-desc">Multilingual campaigns and community outreach strategies</p>
+          <span class="practice-area-stat">25+ Firms Served</span>
+        </div>
+
+        <div class="practice-area-card practice-area-cta">
+          <div class="practice-area-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </div>
+          <h3 class="practice-area-title">Your Practice Area</h3>
+          <p class="practice-area-desc">Don't see your specialty? We develop custom strategies for any area of law.</p>
+          <a href="#contact" class="practice-area-link">Get Custom Strategy →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CMO Training Section -->
+  <section class="training-section">
+    <div class="container">
+      <div class="training-layout">
+        <div class="training-visual">
+          <div class="training-modules-card">
+            <div class="module-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              <span>Training Modules</span>
+            </div>
+            <div class="module-list">
+              <div class="module-item completed">
+                <div class="module-check">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <span>Law Firm Marketing Fundamentals</span>
+              </div>
+              <div class="module-item completed">
+                <div class="module-check">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <span>SEO & Content Strategy</span>
+              </div>
+              <div class="module-item in-progress">
+                <div class="module-progress"></div>
+                <span>Paid Advertising Mastery</span>
+              </div>
+              <div class="module-item">
+                <div class="module-lock">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <span>Intake Optimization</span>
+              </div>
+              <div class="module-item">
+                <div class="module-lock">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <span>Referral Systems</span>
+              </div>
+            </div>
+            <div class="module-footer">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 45%"></div>
+              </div>
+              <span class="progress-text">45% Complete</span>
+            </div>
+          </div>
+        </div>
+        <div class="training-content">
+          <p class="section-label">Education</p>
+          <h2 class="section-title-left">Specialized CMO Training for Law Firms</h2>
+          <p class="training-subtitle">
+            Our evergreen training platform gives you and your team access to comprehensive marketing education designed specifically for the legal industry.
+          </p>
+          <ul class="training-highlights">
+            <li>9 comprehensive learning modules</li>
+            <li>25+ tools, templates, and exercises</li>
+            <li>Practice area-specific strategies</li>
+            <li>On-demand access, learn at your pace</li>
+            <li>Regular updates with latest tactics</li>
+          </ul>
+          <a href="#pricing" class="btn btn-primary">
+            Access Training Platform
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vendor Platform Section -->
+  <section class="vendor-section">
+    <div class="container">
+      <div class="vendor-layout">
+        <div class="vendor-content">
+          <p class="section-label">Your Trusted Network</p>
+          <h2 class="section-title-left">Vetted Marketing Vendor Hub</h2>
+          <p class="vendor-subtitle">
+            Stop wasting money on ineffective vendors. Connect with our network of pre-vetted marketing partners who specialize in law firm growth.
+          </p>
+          <div class="vendor-stats">
+            <div class="vendor-stat">
+              <span class="stat-value">70%</span>
+              <span class="stat-label">of law firms report ineffective vendor experiences</span>
+            </div>
+            <div class="vendor-stat">
+              <span class="stat-value">$50K+</span>
+              <span class="stat-label">average wasted annually on poor marketing</span>
+            </div>
+          </div>
+          <a href="/services/" class="btn btn-secondary">
+            Explore Vendor Network
+          </a>
+        </div>
+        <div class="vendor-visual">
+          <div class="vendor-list-card">
+            <div class="vendor-list-header">
+              <span>Trusted Vendors</span>
+              <span class="vendor-badge">Verified</span>
+            </div>
+            <div class="vendor-categories">
+              <div class="vendor-category">
+                <div class="category-icon seo">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                  </svg>
+                </div>
+                <div class="category-info">
+                  <span class="category-name">SEO Specialists</span>
+                  <span class="category-count">12 vendors</span>
+                </div>
+                <span class="category-rating">4.9</span>
+              </div>
+              <div class="vendor-category">
+                <div class="category-icon ppc">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="category-info">
+                  <span class="category-name">PPC & Ads</span>
+                  <span class="category-count">8 vendors</span>
+                </div>
+                <span class="category-rating">4.8</span>
+              </div>
+              <div class="vendor-category">
+                <div class="category-icon web">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </div>
+                <div class="category-info">
+                  <span class="category-name">Web Development</span>
+                  <span class="category-count">6 vendors</span>
+                </div>
+                <span class="category-rating">4.9</span>
+              </div>
+              <div class="vendor-category">
+                <div class="category-icon content">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="category-info">
+                  <span class="category-name">Content Creation</span>
+                  <span class="category-count">10 vendors</span>
+                </div>
+                <span class="category-rating">4.7</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <p class="section-label">Real Results</p>
+      <h2 class="section-title">See What Our Partners Have Achieved</h2>
+      <p class="section-subtitle">
+        Discover how LEXGRO's specialized solutions and expert guidance have resulted in
+        predictable revenue, consistent case generation, and lower cost-per-acquisition.
+      </p>
+      <div class="testimonials-grid">
+        {testimonials.map((testimonial) => (
+          <div class="testimonial-card">
+            <div class="testimonial-video-thumb">
+              <Image src={testimonial.image} alt={testimonial.name} width={400} height={300} class="testimonial-thumb-img" />
+              <div class="video-overlay">
+                <button class="video-play-btn" aria-label={`Watch ${testimonial.name}'s testimonial`}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="testimonial-info">
+              <h3>{testimonial.name}</h3>
+              <p class="testimonial-firm">{testimonial.firm}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="testimonials-cta">
+        <a href="/testimonials/" class="btn btn-secondary">View More Results</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header-decorated">
+        <Image src={leafIconLeft} alt="" width={32} class="leaf-icon" />
+        <span class="section-label">Pricing Plan</span>
+        <Image src={leafIconRight} alt="" width={32} class="leaf-icon" />
+      </div>
+      <h2 class="section-title">Simple, Transparent Pricing</h2>
+      <p class="section-subtitle">
+        Choose the plan that fits your needs without any hidden costs.
+      </p>
+      <div class="pricing-grid">
+        {pricingPlans.map((plan) => (
+          <div class:list={['pricing-card', { popular: plan.popular }]}>
+            {plan.popular && <span class="popular-badge">Popular</span>}
+            <p class="plan-audience">{plan.audience}</p>
+            <h3 class="plan-name">{plan.name}</h3>
+            <div class="plan-price">
+              <span class="price">{plan.price}</span>
+              <span class="period">{plan.period}</span>
+            </div>
+            {plan.note && <p class="plan-note">{plan.note}</p>}
+            <a href={plan.ctaHref} class="btn btn-primary plan-cta">{plan.cta}</a>
+            {plan.altPrice && (
+              <div class="plan-alt">
+                <span class="or-divider">OR</span>
+                <div class="plan-price alt">
+                  <span class="price">{plan.altPrice}</span>
+                  <span class="period">{plan.altPeriod}</span>
+                </div>
+              </div>
+            )}
+            <p class="plan-cancel">Pause or cancel anytime you want</p>
+            <div class="plan-features">
+              <p class="features-label">What's Included:</p>
+              <ul>
+                {plan.features.map((feature) => (
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="faq-layout">
+        <div class="faq-header">
+          <Image src={faqEditorialGraphic} alt="Consultation setting" width={400} class="faq-graphic" />
+          <p class="section-label">Got Questions?</p>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">
+            Find answers to common questions about our services, pricing, and how LEXGRO can support your law firm's growth.
+          </p>
+        </div>
+        <div class="faq-list">
+          {faqs.map((faq, index) => (
+            <details class="faq-item">
+              <summary class="faq-question">
+                {faq.question}
+                <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview Section -->
+  <section class="blog-section">
+    <div class="container">
+      <p class="section-label">Industry Insights</p>
+      <h2 class="section-title">Strategies for Law Firm Success</h2>
+      <div class="blog-grid">
+        {blogPosts.map((post) => (
+          <a href={post.href} class="blog-card">
+            <div class="blog-card-image">
+              <Image src={post.image} alt={post.title} width={400} />
+            </div>
+            <div class="blog-card-content">
+              <h3>{post.title}</h3>
+              <p>{post.excerpt}</p>
+              <span class="blog-read-more">Read more</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="blog-cta">
+        <a href="/blog/" class="btn btn-secondary">View More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta-wrapper">
+    <div class="container">
+      <div class="final-cta-card">
+
+        <div class="final-cta-layout">
+          <div class="final-cta-content">
+            <h2>Ready to Partner for Growth?</h2>
+            <p class="final-cta-description">
+              Let's talk about where you want to take your firm. Get a free growth audit and discover how LEXGRO's partnership approach delivers predictable revenue—without the guesswork.
+            </p>
+            <a href="https://calendly.com/lexgro/strategy-session" class="btn final-cta-btn">
+              Get Your Free Growth Audit
+            </a>
+          </div>
+          <div class="final-cta-image">
+            <Image src={keithPhoto} alt="Keith Dyer - LEXGRO Founder" width={380} class="keith-photo" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(1, 25, 7, 0.75) 0%,
+      rgba(35, 59, 41, 0.65) 50%,
+      rgba(41, 140, 66, 0.5) 100%
+    );
+  }
+
+  .hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+    padding: 6rem 0;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-headline {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+  }
+
+  .hero-tagline {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(180deg, #C0E9CA 0%, #25B97B 50%, #298C42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-cta .btn-secondary {
+    background: transparent;
+    border-color: white;
+    color: white;
+  }
+
+  .hero-cta .btn-secondary:hover {
+    background: white;
+    color: var(--color-bg-dark);
+  }
+
+  .hero-trust-rows {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-trust-graphic {
+    height: 40px;
+    width: auto;
+  }
+
+  @media (max-width: 640px) {
+    .hero-trust-rows {
+      gap: 0.5rem;
+    }
+
+    .hero-trust-graphic {
+      height: 32px;
+    }
+  }
+
+  /* Social Proof Section */
+  .social-proof {
+    background: var(--color-bg-light);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .social-proof-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .social-proof-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .avatar-stack-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .avatar-stack {
+    display: flex;
+    align-items: center;
+  }
+
+  .stack-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-left: -12px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .stack-avatar:first-child {
+    margin-left: 0;
+  }
+
+  .stack-more {
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rating-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .stars {
+    display: flex;
+    gap: 2px;
+    color: #FFC107;
+  }
+
+  .stars svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .review-count {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .trusted-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    color: var(--color-text-dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--color-border);
+  }
+
+  .trusted-badge svg {
+    color: var(--color-primary);
+  }
+
+  .trusted-badge strong {
+    color: var(--color-primary);
+  }
+
+  .social-proof-right {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .service-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+  }
+
+  .service-check svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    .social-proof-layout {
+      justify-content: center;
+    }
+
+    .social-proof-left {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .social-proof-right {
+      justify-content: center;
+      width: 100%;
+      gap: 1rem;
+    }
+
+    .service-check {
+      font-size: 0.8125rem;
+    }
+  }
+
+  /* Video Section (Redesigned) */
+  .video-section-new {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .video-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .video-layout {
+      grid-template-columns: 1fr 1.1fr;
+      gap: 4rem;
+    }
+  }
+
+  .video-content {
+    text-align: left;
+  }
+
+  .video-headline {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark);
+  }
+
+  .video-description {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+  }
+
+  .video-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .video-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-dark);
+    line-height: 1.4;
+  }
+
+  .video-highlight svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .video-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .video-card {
+    position: relative;
+    max-width: 560px;
+    width: 100%;
+  }
+
+  .video-thumbnail-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+
+  .video-thumbnail-wrapper:hover .video-overlay {
+    opacity: 0.4;
+  }
+
+  .video-thumbnail-wrapper:hover .play-button-new {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  .video-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26, 61, 46, 0.5) 0%, rgba(41, 140, 66, 0.3) 100%);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+
+  .play-button-new {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: white;
+    color: var(--color-primary);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+
+  .play-button-new svg {
+    margin-left: 4px;
+  }
+
+  .play-button-ring {
+    position: absolute;
+    inset: -8px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  .video-duration {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .video-duration svg {
+    color: var(--color-primary);
+  }
+
+  .video-cta {
+    margin-top: 2rem;
+  }
+
+  /* Awards Section */
+  .awards-section {
+    background: var(--color-bg-dark);
+    color: white;
+    padding: 5rem 0;
+  }
+
+  .awards-section .section-label {
+    color: var(--color-mint);
+  }
+
+  .awards-section .section-title {
+    color: white;
+  }
+
+  .awards-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 24px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .awards-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .awards-section .section-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .awards-row {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+    margin-bottom: 1rem;
+  }
+
+  .award-item {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .award-item-wide {
+    flex: 1.8;
+  }
+
+  .award-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .awards-captions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .award-caption {
+    text-align: left;
+  }
+
+  .award-caption-speaks {
+    flex: 3;
+  }
+
+  .award-caption-albrecht {
+    flex: 1.8;
+  }
+
+  .award-firm {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.125rem;
+  }
+
+  .award-title {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .awards-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .awards-row {
+      flex-wrap: wrap;
+    }
+
+    .award-item {
+      flex: 1 1 calc(50% - 0.5rem);
+      min-width: 140px;
+    }
+
+    .award-item-wide {
+      flex: 1 1 100%;
+    }
+
+    .awards-captions {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .award-caption-speaks,
+    .award-caption-albrecht {
+      flex: 1;
+    }
+  }
+
+  /* Section Styles */
+  .section-label {
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-text-dark);
+  }
+
+  /* Dark section text overrides */
+  .awards-section .section-label,
+  .process-section .section-label,
+  .problems-section .section-label {
+    color: var(--color-mint);
+  }
+
+  .awards-section .section-title,
+  .process-section .section-title,
+  .problems-section .section-title,
+  .problems-section .section-title-left {
+    color: white;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  /* Problems Section */
+  .problems-section {
+    padding: 6rem 0;
+    background: var(--color-bg-dark);
+    color: white;
+  }
+
+  .problems-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .problems-layout {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+    }
+  }
+
+  .problems-content .section-label {
+    color: var(--color-accent);
+  }
+
+  .problems-content .section-title-left {
+    color: white;
+  }
+
+  .problems-subtitle {
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+
+  .problems-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .problem-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .problem-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 129, 88, 0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .problem-text h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.375rem;
+  }
+
+  .problem-text p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+  }
+
+  /* Solutions Section */
+  .solutions-section {
+    background: linear-gradient(180deg, var(--color-bg-light) 0%, #D6F5DC 100%);
+    padding: 6rem 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .solution-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(41, 140, 66, 0.1);
+    text-align: left;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .solution-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(41, 140, 66, 0.12);
+  }
+
+  .solution-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    margin-bottom: 1.25rem;
+  }
+
+  .solution-icon-1 {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    color: var(--color-primary);
+  }
+
+  .solution-icon-2 {
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+    color: #1976D2;
+  }
+
+  .solution-icon-3 {
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFCC02 20%, #FFE0B2 100%);
+    color: #F57C00;
+  }
+
+  .solution-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-dark);
+    padding-right: 2rem;
+  }
+
+  .solution-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .solution-check {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-mint) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  /* Challenges Section (Redesigned) */
+  .challenges-section {
+    padding: 5rem 0;
+    background: var(--color-bg-dark);
+    color: white;
+  }
+
+  .challenges-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-label-dark {
+    color: var(--color-mint);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .challenges-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: white;
+  }
+
+  .challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .challenges-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .challenge-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: background 0.3s ease;
+  }
+
+  .challenge-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .challenge-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    color: var(--color-mint);
+  }
+
+  .challenge-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .challenge-card p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+  }
+
+  /* Solutions Section (Redesigned) */
+  .solutions-section {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .solutions-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .solutions-layout {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .solutions-content {
+    text-align: left;
+  }
+
+  .solutions-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .solutions-description {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .solutions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .solution-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .solution-check {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-top: 0.125rem;
+  }
+
+  .solution-item strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .solution-item p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .solutions-cta {
+    margin-top: 0.5rem;
+  }
+
+  /* Stats Grid */
+  .solutions-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .stat-card {
+    background: linear-gradient(135deg, #f8fdf9 0%, #e8f5eb 100%);
+    border: 1px solid rgba(41, 140, 66, 0.1);
+    border-radius: 16px;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .solutions-content {
+      text-align: center;
+    }
+
+    .solutions-list {
+      text-align: left;
+    }
+
+    .solutions-cta {
+      text-align: center;
+    }
+  }
+
+  .benefits-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 768px) {
+    .benefits-row {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .benefit-card {
+    background: white;
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(41, 140, 66, 0.1);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .benefit-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 0.75rem;
+    background: linear-gradient(135deg, var(--color-bg-light) 0%, #D6F5DC 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+  }
+
+  .benefit-label {
+    display: block;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .benefit-value {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+  }
+
+  /* Services Section */
+  .services-section {
+    padding: 5rem 0;
+    text-align: center;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 14px;
+    border: 1px solid var(--color-border);
+    text-align: left;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--color-primary);
+  }
+
+  .service-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-dark);
+  }
+
+  .service-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .service-arrow {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--color-primary);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .service-card:hover .service-arrow {
+    opacity: 1;
+  }
+
+  /* Testimonials Section */
+  .testimonials-section {
+    background: white;
+    padding: 6rem 0;
+    text-align: center;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .testimonials-cta {
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 640px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .testimonial-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .testimonial-video-thumb {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: var(--color-bg-dark);
+  }
+
+  .testimonial-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .testimonial-card:hover .testimonial-thumb-img {
+    transform: scale(1.05);
+  }
+
+  .video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: background 0.3s ease;
+  }
+
+  .testimonial-card:hover .video-overlay {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+  }
+
+  .video-play-btn {
+    width: 56px;
+    height: 56px;
+    background: var(--color-primary);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(41, 140, 66, 0.4);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .video-play-btn:hover {
+    transform: scale(1.1);
+    background: var(--color-primary-dark);
+  }
+
+  .video-play-btn svg {
+    margin-left: 3px;
+  }
+
+  .testimonial-info {
+    padding: 1.25rem;
+    text-align: left;
+  }
+
+  .testimonial-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-text-dark);
+    font-weight: 600;
+  }
+
+  .testimonial-firm {
+    font-size: 0.8125rem;
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  /* Section Header Decorated */
+  .section-header-decorated {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .leaf-icon {
+    width: 24px;
+    height: auto;
+  }
+
+  /* Pricing Section */
+  .pricing-section {
+    padding: 5rem 0;
+    text-align: center;
+    background: white;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 640px) {
+    .pricing-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pricing-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .pricing-card {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card.popular {
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 4px 20px rgba(41, 140, 66, 0.15);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.375rem 1rem;
+    border-radius: 20px;
+  }
+
+  .plan-audience {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .plan-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .plan-price {
+    margin-bottom: 0.5rem;
+  }
+
+  .plan-price .price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-text-dark);
+  }
+
+  .plan-price .period {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .plan-price.alt .price {
+    font-size: 1.5rem;
+  }
+
+  .plan-note {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .plan-cta {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .plan-alt {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  .or-divider {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .plan-cancel {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .plan-features {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .features-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .plan-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .plan-features li svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+    margin-top: 2px;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 5rem 0;
+    background: var(--color-bg-light);
+  }
+
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .faq-layout {
+      grid-template-columns: 1fr 1.5fr;
+    }
+  }
+
+  .faq-header {
+    text-align: left;
+  }
+
+  .faq-header .section-title {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .faq-header .section-subtitle {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .faq-graphic {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::marker {
+    display: none;
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+    color: var(--color-primary);
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 1.5rem 1.25rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Partnership Section (Redesigned) */
+  .partnership-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #F8FDF9 0%, #FFFFFF 100%);
+    text-align: center;
+  }
+
+  .partnership-header {
+    margin-bottom: 4rem;
+  }
+
+  .partnership-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .partnership-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .partnership-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .partnership-pillar {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(41, 140, 66, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .partnership-pillar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(41, 140, 66, 0.12);
+  }
+
+  .pillar-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, rgba(41, 140, 66, 0.1) 0%, rgba(192, 233, 202, 0.3) 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    color: var(--color-primary);
+  }
+
+  .partnership-pillar h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .partnership-pillar p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .partnership-cta {
+    margin-top: 3rem;
+  }
+
+  /* Blog Section */
+  .blog-section {
+    padding: 5rem 0;
+    background: var(--color-bg-light);
+    text-align: center;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 640px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .blog-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: left;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .blog-card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .blog-card-content {
+    padding: 1.5rem;
+  }
+
+  .blog-card h3 {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-dark);
+  }
+
+  .blog-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .blog-read-more {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .blog-card:hover .blog-read-more {
+    text-decoration: underline;
+  }
+
+  .blog-cta {
+    margin-top: 2.5rem;
+  }
+
+  /* Video Modal */
+  .video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .video-modal.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .video-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    z-index: 1;
+  }
+
+  .video-modal-close {
+    position: absolute;
+    top: -48px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.2s ease;
+  }
+
+  .video-modal-close:hover {
+    transform: scale(1.1);
+  }
+
+  .video-modal-player {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .video-modal-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 4-Stage Process Section */
+  .process-section {
+    padding: 5rem 0;
+    background: var(--color-bg-dark);
+    color: white;
+    text-align: center;
+  }
+
+  .process-section .section-label {
+    color: var(--color-mint);
+  }
+
+  .process-section .section-title {
+    color: white;
+  }
+
+  .process-section .section-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .process-stages {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .process-stage {
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+    padding: 0 1rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .stage-number {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 28px;
+    background: var(--color-accent);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .stage-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-mint);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .process-stage h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: white;
+  }
+
+  .process-stage p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+  }
+
+  .process-connector {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-mint));
+    margin-top: 50px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    .process-connector {
+      display: none;
+    }
+
+    .process-stages {
+      gap: 2rem;
+    }
+  }
+
+  .process-cta {
+    margin-top: 3rem;
+  }
+
+  /* Practice Area Experts Section (Redesigned) */
+  .practice-experts-section {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .practice-experts-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .practice-areas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .practice-areas-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .practice-area-card {
+    background: var(--color-bg-light);
+    border-radius: 16px;
+    padding: 1.75rem;
+    border: 1px solid var(--color-border);
+    transition: all 0.25s ease;
+  }
+
+  .practice-area-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 24px rgba(41, 140, 66, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .practice-area-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--color-primary), #25B97B);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .practice-area-icon svg {
+    color: white;
+  }
+
+  .practice-area-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .practice-area-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .practice-area-stat {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(41, 140, 66, 0.1);
+    padding: 0.375rem 0.75rem;
+    border-radius: 20px;
+  }
+
+  .practice-area-cta {
+    background: linear-gradient(135deg, #1a3d2e 0%, #298C42 100%);
+    border: none;
+  }
+
+  .practice-area-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(41, 140, 66, 0.25);
+  }
+
+  .practice-area-cta .practice-area-icon {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .practice-area-cta .practice-area-title {
+    color: white;
+  }
+
+  .practice-area-cta .practice-area-desc {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .practice-area-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+
+  .practice-area-link:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* CMO Training Section */
+  .training-section {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .training-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .training-layout {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .training-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .training-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+  }
+
+  .training-highlights li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .training-highlights li::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+  }
+
+  .training-modules-card {
+    background: var(--color-bg-dark);
+    border-radius: 20px;
+    padding: 1.5rem;
+    color: white;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .module-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .module-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .module-item.completed {
+    color: white;
+  }
+
+  .module-item.in-progress {
+    background: rgba(41, 140, 66, 0.2);
+    border: 1px solid var(--color-primary);
+    color: white;
+  }
+
+  .module-check {
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .module-progress {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .module-progress::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: var(--color-primary);
+    border-radius: 50%;
+  }
+
+  .module-lock {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.4);
+    flex-shrink: 0;
+  }
+
+  .module-footer {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .progress-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-mint));
+    border-radius: 3px;
+  }
+
+  .progress-text {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Vendor Platform Section */
+  .vendor-section {
+    padding: 5rem 0;
+    background: var(--color-bg-light);
+  }
+
+  .vendor-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .vendor-layout {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .vendor-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .vendor-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .vendor-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-accent);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    max-width: 200px;
+  }
+
+  .vendor-list-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-elevated);
+    border: 1px solid var(--color-border);
+  }
+
+  .vendor-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+
+  .vendor-badge {
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .vendor-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .vendor-category {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    background: var(--color-bg-light);
+    border-radius: 12px;
+    transition: background 0.2s ease;
+  }
+
+  .vendor-category:hover {
+    background: var(--color-bg-lighter);
+  }
+
+  .category-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .category-icon.seo { background: #E8F5E9; color: var(--color-primary); }
+  .category-icon.ppc { background: #E3F2FD; color: #1976D2; }
+  .category-icon.web { background: #F3E5F5; color: #7B1FA2; }
+  .category-icon.content { background: #FFF3E0; color: #F57C00; }
+
+  .category-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .category-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+
+  .category-count {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .category-rating {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .category-rating::before {
+    content: '★';
+    color: #FFC107;
+  }
+
+  /* Enhanced Final CTA */
+  .final-cta-wrapper {
+    padding: 4rem 0;
+    background: var(--color-bg-white);
+  }
+
+  .final-cta-card {
+    background: linear-gradient(135deg, #0a2815 0%, #153d23 40%, #1e5530 100%);
+    border-radius: 20px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    min-height: 400px;
+  }
+
+  .final-cta-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    align-items: end;
+    position: relative;
+    z-index: 2;
+    min-height: 400px;
+  }
+
+  @media (min-width: 900px) {
+    .final-cta-layout {
+      grid-template-columns: 1fr auto;
+    }
+  }
+
+  .final-cta-content {
+    text-align: left;
+    padding: 4rem;
+    padding-right: 2rem;
+  }
+
+  .final-cta-card h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 1.25rem;
+    color: white;
+    line-height: 1.15;
+    font-weight: 700;
+    max-width: 500px;
+  }
+
+  .final-cta-description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 520px;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .final-cta-btn {
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.9375rem;
+    padding: 0.875rem 1.75rem;
+    display: inline-flex;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .final-cta-btn:hover {
+    background: var(--color-primary-light);
+    color: white;
+  }
+
+  .final-cta-image {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+    z-index: 3;
+    padding-right: 3rem;
+  }
+
+  .keith-photo {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .final-cta-card {
+      min-height: auto;
+    }
+
+    .final-cta-layout {
+      min-height: auto;
+    }
+
+    .final-cta-content {
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .final-cta-description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-cta-image {
+      justify-content: center;
+      padding: 0 2rem;
+    }
+
+    .keith-photo {
+      max-width: 260px;
+    }
+  }
+</style>
+
+<script>
+  // Video Modal
+  const videoTrigger = document.getElementById('video-trigger');
+  const videoModal = document.getElementById('video-modal');
+  const videoIframe = document.getElementById('video-iframe') as HTMLIFrameElement;
+  const closeBtn = document.querySelector('.video-modal-close');
+  const backdrop = document.querySelector('.video-modal-backdrop');
+
+  // Replace with actual LEXGRO YouTube video ID
+  const youtubeVideoId = 'YOUR_VIDEO_ID';
+  const youtubeUrl = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0`;
+
+  function openModal() {
+    if (videoModal && videoIframe) {
+      videoIframe.src = youtubeUrl;
+      videoModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal() {
+    if (videoModal && videoIframe) {
+      videoModal.classList.remove('open');
+      videoIframe.src = '';
+      document.body.style.overflow = '';
+    }
+  }
+
+  videoTrigger?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  backdrop?.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>

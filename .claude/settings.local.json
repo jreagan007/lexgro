@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:lexgro.com)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(wc:*)",
+      "Bash(file:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(unzip:*)",
+      "Bash(npx tsx:*)",
+      "Bash(ls:*)",
+      "Bash(npx ts-node:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
