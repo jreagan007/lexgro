@@ -351,6 +351,43 @@ Use these phrases to maintain brand voice:
 
 ---
 
+## 9.1 Punctuation Rules
+
+### Never Use Em Dashes (—)
+
+Em dashes feel robotic and AI-generated. They create an unnatural reading rhythm and make copy sound like it was written by a machine.
+
+**Don't write:**
+- "We don't just advise—we help you execute"
+- "Strategic leadership—without the full-time cost"
+- "Real results—not just reports"
+- "A fractional CMO provides leadership—typically 10-20 hours per month"
+
+**Write instead:**
+- "We don't just advise. We help you execute."
+- "Strategic leadership without the full-time cost."
+- "Real results, not just reports."
+- "A fractional CMO provides leadership. They typically work 10-20 hours per month."
+
+Use periods for emphasis. Use commas for flow. Skip the dashes entirely.
+
+### Punctuation Quick Reference
+
+| Instead of | Use |
+|------------|-----|
+| Em dash (—) | Period or comma |
+| Semicolons (;) | Two separate sentences |
+| Ellipsis (...) | Nothing (just end the sentence) |
+| Colon for lists (:) | Period, then start list |
+
+### Why This Matters
+
+Read your copy out loud. Em dashes create awkward pauses that sound unnatural in speech. If you wouldn't pause that long when talking, don't use an em dash when writing.
+
+**The test:** If you can replace the em dash with a period or comma and it reads better, do it.
+
+---
+
 ## 10. Implementation Checklist
 
 When writing new copy, verify:

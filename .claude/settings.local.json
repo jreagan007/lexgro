@@ -13,7 +13,15 @@
       "Bash(ls:*)",
       "Bash(npx ts-node:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(grep:*)",
+      "Bash(done)",
+      "Bash(npm run dev:*)",
+      "Bash(pkill:*)",
+      "Bash(xargs kill:*)",
+      "Bash(npx astro dev:*)"
     ]
   }
 }

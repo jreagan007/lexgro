@@ -2,14 +2,118 @@
 
 ## Project Status
 **Current Phase:** Site Migration from Framer to Astro
-**Last Updated:** January 25, 2026 (Session 2)
+**Last Updated:** January 27, 2026 (Session 7)
+
+### ✅ Session 7 - Keith's Manifesto Implementation
+- **Homepage hero** updated: "Stop Guessing. Start Leading." + new value props
+- **About page** completely refreshed:
+  - New mission: "Build Predictable, Durable Growth"
+  - New vision section added
+  - 9 core values (expanded from 4): Aligned Interests, Objectivity Over Ego, Execution Is the Strategy, Accountability Through Data, Ethical Conduct, Respect for People, Trusted Partners Only, Professional Communication, Intentional Growth
+  - 3x3 values grid layout
+- **"Who We Help" section** added to homepage:
+  - "LEXGRO Is NOT For" column (5 items)
+  - "LEXGRO IS For" column (5 items)
+  - Positioned before FAQ section
+- **Blog fixes**: All 27 posts now display, category filter working, using editorial photos instead of branded cards
+
+### ✅ Session 6 - OG Image Pipeline Complete
+- **43 OG images** generated (1200x630px) for all pages
+- **30 card images** generated (800x450px) for blog/content previews
+- Batch generation script: `scripts/generate-all-og.ts`
+- Updated prompts.ts with 30+ page-type categories
+- All static pages now have OG image props in BaseLayout
+- Blog index updated to use content collection + card images
+- Fixed all `/og/og-*.png` paths to `/og/*.png`
+
+### ✅ Session 5 Additions (50 pages total)
+- `/podcast/` - Podcast index with 26 episodes
+- `/podcast/[slug].astro` - Dynamic episode pages
+- `/cmo-podcast/` - CMO Podcast with 3 episodes
+- `/cmo-podcast/[slug].astro` - CMO episode pages
+- `/tips-from-keith/` - Video tips page with 12 tips
+- `/services/vendor.astro` - Vendor platform service
+- `/services/evergreen-marketing.astro` - Training service
+- `/services/evergreen-consulting.astro` - Consulting service
+- `/privacy.astro` - Privacy policy
+- `/terms.astro` - Terms of service
+- `/faq.astro` - Comprehensive FAQ page
+- `/results.astro` - Case studies and results
+- `/calculator.astro` - Marketing ROI calculator
+- `/careers.astro` - Careers page
+
+## OG Image Pipeline
+
+### Generated Images
+```
+public/og/                    # OG images (1200x630)
+├── homepage.png              # Homepage
+├── about.png                 # About page
+├── contact.png               # Contact page
+├── faq.png                   # FAQ
+├── results.png               # Results/Case Studies
+├── careers.png               # Careers
+├── calculator.png            # ROI Calculator
+├── podcast.png               # Podcast pages
+├── tips-from-keith.png       # Tips from Keith
+├── services.png              # Services index + subpages
+├── guide.png                 # Guides index
+├── blog.png                  # Blog index
+├── answers.png               # Answers index
+├── blog/                     # Blog post OG images
+│   └── *.png                 # 27 blog posts
+├── guide/                    # Guide OG images
+│   └── *.png
+├── answers/                  # Answer OG images
+│   └── *.png
+└── services/                 # Service OG images
+    └── *.png
+
+public/cards/                 # Card images (800x450) for previews
+├── blog/
+│   └── *.png                 # 27 blog cards
+├── guide/
+│   └── *.png
+├── answers/
+│   └── *.png
+└── services/
+    └── *.png
+```
+
+### Generation Commands
+```bash
+# Generate all missing images
+npx tsx scripts/generate-all-og.ts
+
+# Force regenerate all images
+npx tsx scripts/generate-all-og.ts --force
+
+# Generate only static pages
+npx tsx scripts/generate-all-og.ts --pages
+
+# Generate only content collection items
+npx tsx scripts/generate-all-og.ts --content
+
+# Generate only card images
+npx tsx scripts/generate-all-og.ts --cards
+```
+
+### OG Image System Files
+```
+src/lib/og/
+├── compositor.ts        # Sharp-based image compositing
+└── prompts.ts           # 30+ page categories with gradients
+
+scripts/
+├── generate-all-og.ts   # Batch generation for all pages
+└── generate-homepage-og.ts  # Homepage-specific with Gemini
+```
 
 ## Migration Progress
 
 ### ✅ Foundation Complete
 - [x] `astro.config.mjs` - React, MDX, sitemap integrations
 - [x] Design tokens (`src/lib/theme/tokens.ts`)
-- [x] Chakra UI v3 theme (available but not used - using Astro components)
 - [x] `BaseLayout.astro` with Header, Footer, global styles
 - [x] `Header.astro` - Astro-native nav with mobile menu
 - [x] `Footer.astro` - Astro-native footer
@@ -17,80 +121,67 @@
 - [x] 4 page layouts: GuideLayout, AnswerLayout, ServiceLayout, BlogLayout
 - [x] Dynamic routing for all content types
 
-### 📦 Assets Downloaded
-Located in `src/assets/images/`:
+### 📄 Pages Built (78 Total)
 
-**Logos:**
-- `logos/lexgro-icon.png`
-- `logos/lexgro-wordmark.png`
+**Core Pages:**
+- `/` - Homepage (COMPLETE - all 17 sections)
+- `/about/` - About page with Keith bio, stats, values
+- `/contact/` - Contact form, methods, FAQs
+- `/privacy/` - Privacy policy
+- `/terms/` - Terms of service
+- `/faq/` - Comprehensive FAQ
+- `/results/` - Case studies and success stories
+- `/calculator/` - Marketing ROI calculator
+- `/careers/` - Careers page
 
-**Heroes:**
-- `heroes/hero-main.png` - Main hero background
-- `heroes/services-graphic.png` - Services illustration
-- `heroes/video-thumbnail.png` - Video section thumbnail
-- `heroes/trust-avatars-1.png` through `trust-avatars-5.png` - Trust badge rows with avatars
-- `heroes/cta-graphic.png` - CTA button graphic
+**Services:**
+- `/services/` - Services index with cards and process
+- `/services/fractional-cmo/` - Fractional CMO service
+- `/services/vendor/` - Vendor platform service
+- `/services/evergreen-marketing/` - Training service
+- `/services/evergreen-consulting/` - Consulting service
 
-**Decorations (NEW):**
-- `decorations/leaf-icon-left.png` - Section header leaf icon
-- `decorations/leaf-icon-right.png` - Section header leaf icon
-- `decorations/swoosh-line.png` - Decorative swoosh line
-- `decorations/checkmark-graphic.png` - Checkmark decoration
-- `decorations/problems-header.png` - Problems section header
-- `decorations/solutions-header.png` - Solutions section header
+**Content Hubs:**
+- `/blog/` - Blog index with featured posts (uses card images)
+- `/blog/[slug]/` - 27 blog posts
+- `/guide/` - Guides index with topic navigation
+- `/guide/[slug]/` - Guide pages
+- `/answers/` - Answers index with search
+- `/answers/[slug]/` - Answer pages
 
-**Brand Graphics (NEW):**
-- `brand/services-graphic.png` - Services section graphic
-- `brand/benefits-graphic.png` - Benefits section graphic
-- `brand/services-cta-graphic.png` - Services CTA graphic
+**Podcast (29 pages):**
+- `/podcast/` - Law Firm Growth Podcast index
+- `/podcast/[slug]/` - 26 episode pages
+- `/cmo-podcast/` - CMO Podcast index
+- `/cmo-podcast/[slug]/` - 3 CMO episode pages
 
-**Testimonials (11 total):**
-- `testimonials/clarke-speaks.png`
-- `testimonials/peter-davis.png`
-- `testimonials/eric-richardson.png`
-- `testimonials/drew-brown.png`
-- `testimonials/barry-siegel.jpg`
-- `testimonials/blake-swan.png`
-- `testimonials/riah-greathouse.webp` (NEW)
-- `testimonials/matthew-albrecht.webp` (NEW)
-- `testimonials/yunuen-alvarado.webp` (NEW)
-- `testimonials/james-amaro.webp` (NEW)
-- `testimonials/beth-tibbott.png` (NEW)
+**Video Content:**
+- `/tips-from-keith/` - Video tips library (12 tips)
 
-**Awards:**
-- `awards/speaks-law-award-2023.jpg`
-- `awards/albrecht-law-award-2024.jpg`
+### 📋 Brand Messaging (Keith's Manifesto 2026)
 
-### 📄 Pages Building
-- `/` - Homepage (IN PROGRESS - rebuilding section by section)
-- `/guide/fractional-cmo-law-firms/`
-- `/answers/what-is-fractional-cmo/`
-- `/services/fractional-cmo/`
-- `/blog/why-marketing-agencies-fail-law-firms/`
+**Mission:**
+> LEXGRO helps law firms build predictable, durable growth by aligning strategy, execution, and accountability under one system.
 
-### 🔧 Homepage Sections Status (Framer Match)
+**Vision:**
+> To become the most trusted growth partner in legal marketing—known for honest advice, deep expertise, and measurable results.
 
-| Section | Status | Notes |
-|---------|--------|-------|
-| Hero | ✅ Updated | Full-width bg, gradient text, trust avatar rows |
-| Trust Badges | ✅ Done | SVG icons in circles, 4 badges |
-| Video Section | ✅ Done | Thumbnail + play button |
-| Awards | ✅ Done | 2 award cards |
-| Problems | ✅ Done | 3 problem cards with numbers |
-| Solutions | ✅ Done | 3 solution cards, benefits row |
-| Services | ✅ Done | 4 service cards with arrows |
-| Testimonials | ✅ Done | 11 client testimonials |
-| Pricing | ✅ Added | 4 tiers ($97, $6,999, $4,999, Get Quote) |
-| FAQ | ✅ Added | 5 accordion questions |
-| Final CTA | ✅ Done | Green bg, white button |
+**Hero Tagline:** "Stop Guessing. Start Leading."
 
-**Still Missing:**
-- "Let's Grow with LEXGRO" decorative sections with leaf icons
-- Circle of Trust section
-- 4-stage process (Consultation, Strategy, Train, Growth)
-- Blog preview section with latest posts
+**Core Values (9):**
+1. Aligned Interests Above All
+2. Objectivity Over Ego
+3. Execution Is the Strategy
+4. Accountability Through Data
+5. Ethical Conduct, Always
+6. Respect for People and Perspectives
+7. Trusted Partners Only
+8. Professional Communication Is Non-Negotiable
+9. Intentional Growth
 
-### 🎨 Design System Colors (from Framer)
+**Differentiator:** "Execution Is the Strategy" - Plans without implementation are worthless.
+
+### 🎨 Design System Colors
 ```css
 --color-primary: #298C42       /* Main green */
 --color-primary-dark: #1F8238  /* Hover green */
@@ -107,32 +198,22 @@ Located in `src/assets/images/`:
 --color-text-muted: #4B6359    /* Accessible muted (WCAG AA) */
 ```
 
-### 🔜 TODO - Current Session
-1. [DONE] Rebuild hero section to match Framer - added trust avatar rows
-2. [DONE] Add pricing section (4 tiers)
-3. [DONE] Add FAQ section
-4. [DONE] Update testimonials to 11 people
-5. [DONE] Video modal overlay for YouTube playback
-6. [DONE] Trust badges horizontal layout fix
-7. Add decorative "Let's Grow with LEXGRO" sections
-8. Add 4-stage services process
-9. Add blog preview section
-10. Match all typography/spacing to Framer
+### 🔜 TODO - Next Priority
+1. [ ] Add YouTube video ID to homepage video modal
+2. [ ] Create vendor subpages (7 pages)
+3. [ ] Build /sops-tools members area
+4. [ ] Add SEO schemas (JSON-LD)
+5. [ ] Full accessibility audit
+6. [ ] Performance optimization
 
 ### ⚠️ Needs Configuration
 - Video modal: Replace `YOUR_VIDEO_ID` in index.astro script with actual YouTube video ID
 
-### 📋 Future Tasks
-- Create index pages (/guide/, /services/, /blog/, /about/, /contact/)
-- Add SEO schemas (JSON-LD)
-- Add Trustpilot widget
-- Full accessibility audit
-- Performance optimization
-
 ## Dev Commands
 ```bash
 npm run dev -- --port 4322   # Dev server
-npm run build                 # Build
+npm run build                 # Build (78 pages)
+npx tsx scripts/generate-all-og.ts  # Generate OG images
 ```
 
 ## Key Files
@@ -148,20 +229,42 @@ src/
 │   ├── ServiceLayout.astro
 │   └── BlogLayout.astro
 ├── pages/
-│   ├── index.astro          # HOMEPAGE - rebuilding
-│   ├── guide/[slug].astro
-│   ├── answers/[slug].astro
-│   ├── services/[slug].astro
-│   └── blog/[slug].astro
-├── assets/images/
-│   ├── logos/
-│   ├── heroes/
-│   ├── decorations/         # NEW - section decorations
-│   ├── brand/               # NEW - brand graphics
-│   ├── testimonials/        # Updated - 11 photos
-│   ├── awards/
-│   └── icons/
-└── content.config.ts
+│   ├── index.astro          # Homepage
+│   ├── about.astro
+│   ├── contact.astro
+│   ├── faq.astro
+│   ├── results.astro
+│   ├── calculator.astro
+│   ├── careers.astro
+│   ├── privacy.astro
+│   ├── terms.astro
+│   ├── guide/
+│   ├── answers/
+│   ├── services/
+│   ├── blog/
+│   ├── podcast/
+│   ├── cmo-podcast/
+│   └── tips-from-keith/
+├── lib/og/
+│   ├── compositor.ts
+│   └── prompts.ts
+├── data/
+│   ├── podcast-episodes.ts
+│   └── cmo-podcast-episodes.ts
+└── content/
+    ├── blog/
+    ├── guides/
+    ├── answers/
+    └── services/
+
+public/
+├── og/                      # 43 OG images
+├── cards/                   # 30 card images
+└── og-image.png             # Default OG fallback
+
+scripts/
+├── generate-all-og.ts       # Batch OG generation
+└── generate-homepage-og.ts  # Homepage OG with Gemini
 ```
 
 ## Reference Data

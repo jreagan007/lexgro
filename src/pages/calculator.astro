@@ -1,0 +1,548 @@
+---
+/**
+ * Marketing ROI Calculator Page
+ *
+ * Interactive calculator to estimate marketing ROI
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Marketing ROI Calculator"
+  description="Calculate your law firm's marketing ROI. Get cost per lead, cost per case, and conversion benchmarks for personal injury, family law, and more."
+  image="/og/calculator.png"
+>
+  <!-- Hero Section -->
+  <section class="calc-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="section-label">Free Tool</span>
+        <h1 class="hero-title">Marketing ROI Calculator</h1>
+        <p class="hero-subtitle">
+          Understand your true marketing costs and returns. Enter your numbers to see where you stand and where you can improve.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="calculator-section">
+    <div class="container">
+      <div class="calculator-layout">
+        <div class="calculator-card">
+          <form id="roi-calculator" class="calc-form">
+            <!-- Monthly Spend -->
+            <div class="form-group">
+              <label for="monthly-spend">Monthly Marketing Spend</label>
+              <div class="input-wrapper">
+                <span class="input-prefix">$</span>
+                <input
+                  type="number"
+                  id="monthly-spend"
+                  name="monthlySpend"
+                  placeholder="10,000"
+                  min="0"
+                  step="100"
+                />
+              </div>
+              <span class="form-hint">Include all marketing: ads, SEO, vendors, etc.</span>
+            </div>
+
+            <!-- Monthly Leads -->
+            <div class="form-group">
+              <label for="monthly-leads">Monthly Leads Generated</label>
+              <input
+                type="number"
+                id="monthly-leads"
+                name="monthlyLeads"
+                placeholder="50"
+                min="0"
+              />
+              <span class="form-hint">Total inquiries from all marketing channels</span>
+            </div>
+
+            <!-- Signed Cases -->
+            <div class="form-group">
+              <label for="signed-cases">Monthly Signed Cases</label>
+              <input
+                type="number"
+                id="signed-cases"
+                name="signedCases"
+                placeholder="10"
+                min="0"
+              />
+              <span class="form-hint">New clients signed from marketing leads</span>
+            </div>
+
+            <!-- Average Case Value -->
+            <div class="form-group">
+              <label for="avg-case-value">Average Case Value</label>
+              <div class="input-wrapper">
+                <span class="input-prefix">$</span>
+                <input
+                  type="number"
+                  id="avg-case-value"
+                  name="avgCaseValue"
+                  placeholder="5,000"
+                  min="0"
+                  step="100"
+                />
+              </div>
+              <span class="form-hint">Average fee per signed case</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg calc-btn">
+              Calculate ROI
+            </button>
+          </form>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="results-panel" id="results-panel">
+          <h3 class="results-title">Your Marketing Metrics</h3>
+
+          <div class="results-grid">
+            <div class="result-card">
+              <span class="result-label">Cost Per Lead</span>
+              <span class="result-value" id="cost-per-lead">$--</span>
+            </div>
+            <div class="result-card">
+              <span class="result-label">Cost Per Case</span>
+              <span class="result-value" id="cost-per-case">$--</span>
+            </div>
+            <div class="result-card">
+              <span class="result-label">Lead-to-Case Rate</span>
+              <span class="result-value" id="conversion-rate">--%</span>
+            </div>
+            <div class="result-card highlight">
+              <span class="result-label">Marketing ROI</span>
+              <span class="result-value" id="roi-percentage">--%</span>
+            </div>
+          </div>
+
+          <div class="results-summary" id="results-summary">
+            <p>Enter your numbers above to see your results.</p>
+          </div>
+
+          <div class="results-cta">
+            <p>Want to improve these numbers?</p>
+            <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary">
+              Get a Free Strategy Session
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benchmarks Section -->
+  <section class="benchmarks-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Industry Benchmarks</h2>
+        <p class="section-subtitle">How do your numbers compare?</p>
+      </div>
+
+      <div class="benchmarks-grid">
+        <div class="benchmark-card">
+          <h3>Personal Injury</h3>
+          <ul>
+            <li><strong>Cost Per Lead:</strong> $150-400</li>
+            <li><strong>Cost Per Case:</strong> $1,500-4,000</li>
+            <li><strong>Lead-to-Case:</strong> 8-15%</li>
+            <li><strong>Target ROI:</strong> 300%+</li>
+          </ul>
+        </div>
+        <div class="benchmark-card">
+          <h3>Family Law</h3>
+          <ul>
+            <li><strong>Cost Per Lead:</strong> $75-200</li>
+            <li><strong>Cost Per Case:</strong> $400-1,200</li>
+            <li><strong>Lead-to-Case:</strong> 15-25%</li>
+            <li><strong>Target ROI:</strong> 400%+</li>
+          </ul>
+        </div>
+        <div class="benchmark-card">
+          <h3>Criminal Defense</h3>
+          <ul>
+            <li><strong>Cost Per Lead:</strong> $100-300</li>
+            <li><strong>Cost Per Case:</strong> $500-1,500</li>
+            <li><strong>Lead-to-Case:</strong> 15-20%</li>
+            <li><strong>Target ROI:</strong> 350%+</li>
+          </ul>
+        </div>
+        <div class="benchmark-card">
+          <h3>Immigration</h3>
+          <ul>
+            <li><strong>Cost Per Lead:</strong> $50-150</li>
+            <li><strong>Cost Per Case:</strong> $200-600</li>
+            <li><strong>Lead-to-Case:</strong> 20-30%</li>
+            <li><strong>Target ROI:</strong> 500%+</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Not Happy With Your Numbers?</h2>
+        <p class="cta-subtitle">
+          Let's identify where you're losing money and how to fix it.
+        </p>
+        <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg">
+          Schedule a Free Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('roi-calculator') as HTMLFormElement;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const monthlySpend = parseFloat((document.getElementById('monthly-spend') as HTMLInputElement).value) || 0;
+    const monthlyLeads = parseFloat((document.getElementById('monthly-leads') as HTMLInputElement).value) || 0;
+    const signedCases = parseFloat((document.getElementById('signed-cases') as HTMLInputElement).value) || 0;
+    const avgCaseValue = parseFloat((document.getElementById('avg-case-value') as HTMLInputElement).value) || 0;
+
+    // Calculate metrics
+    const costPerLead = monthlyLeads > 0 ? monthlySpend / monthlyLeads : 0;
+    const costPerCase = signedCases > 0 ? monthlySpend / signedCases : 0;
+    const conversionRate = monthlyLeads > 0 ? (signedCases / monthlyLeads) * 100 : 0;
+    const monthlyRevenue = signedCases * avgCaseValue;
+    const roi = monthlySpend > 0 ? ((monthlyRevenue - monthlySpend) / monthlySpend) * 100 : 0;
+
+    // Update display
+    (document.getElementById('cost-per-lead') as HTMLElement).textContent =
+      costPerLead > 0 ? `$${costPerLead.toFixed(0)}` : '$--';
+    (document.getElementById('cost-per-case') as HTMLElement).textContent =
+      costPerCase > 0 ? `$${costPerCase.toFixed(0)}` : '$--';
+    (document.getElementById('conversion-rate') as HTMLElement).textContent =
+      conversionRate > 0 ? `${conversionRate.toFixed(1)}%` : '--%';
+    (document.getElementById('roi-percentage') as HTMLElement).textContent =
+      roi !== 0 ? `${roi.toFixed(0)}%` : '--%';
+
+    // Update summary
+    const summary = document.getElementById('results-summary') as HTMLElement;
+    if (monthlySpend > 0 && monthlyLeads > 0 && signedCases > 0) {
+      let message = '';
+      if (roi > 300) {
+        message = `Great job! Your ${roi.toFixed(0)}% ROI indicates a healthy marketing operation. You're generating $${monthlyRevenue.toLocaleString()} from a $${monthlySpend.toLocaleString()} investment.`;
+      } else if (roi > 100) {
+        message = `Your marketing is profitable with a ${roi.toFixed(0)}% ROI, but there's room for improvement. Many of our clients achieve 300%+ ROI with optimized campaigns.`;
+      } else if (roi > 0) {
+        message = `Your ${roi.toFixed(0)}% ROI suggests your marketing is barely breaking even. Let's talk about improving your lead quality and conversion rates.`;
+      } else {
+        message = `Your current marketing is operating at a loss. This is more common than you'd think, and it's fixable with the right strategy.`;
+      }
+      summary.innerHTML = `<p>${message}</p>`;
+    }
+
+    // Scroll to results on mobile
+    document.getElementById('results-panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>
+
+<style>
+  /* Hero */
+  .calc-hero {
+    padding: 4rem 0 3rem;
+    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+  }
+
+  .hero-content {
+    max-width: 600px;
+  }
+
+  .section-label {
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark);
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Calculator Section */
+  .calculator-section {
+    padding: 0 0 5rem;
+    background: white;
+  }
+
+  .calculator-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 900px) {
+    .calculator-layout {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .calculator-card {
+    padding: 2rem;
+    background: var(--color-bg-light);
+    border-radius: 24px;
+  }
+
+  .calc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-prefix {
+    position: absolute;
+    left: 1rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    background: white;
+    transition: border-color 0.2s ease;
+  }
+
+  .input-wrapper input {
+    padding-left: 2rem;
+  }
+
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  .form-hint {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .calc-btn {
+    margin-top: 1rem;
+  }
+
+  /* Results Panel */
+  .results-panel {
+    padding: 2rem;
+    background: var(--color-bg-dark);
+    border-radius: 24px;
+    color: white;
+  }
+
+  .results-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .result-card {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .result-card.highlight {
+    background: var(--color-primary);
+    grid-column: span 2;
+  }
+
+  .result-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.5rem;
+  }
+
+  .result-card.highlight .result-label {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .result-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-mint);
+  }
+
+  .result-card.highlight .result-value {
+    color: white;
+    font-size: 2.25rem;
+  }
+
+  .results-summary {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .results-summary p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .results-cta {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .results-cta p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+  }
+
+  /* Benchmarks Section */
+  .benchmarks-section {
+    padding: 5rem 0;
+    background: var(--color-bg-light);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+  }
+
+  .benchmarks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .benchmark-card {
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+  }
+
+  .benchmark-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-primary);
+  }
+
+  .benchmark-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .benchmark-card li {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .benchmark-card li:last-child {
+    border-bottom: none;
+  }
+
+  .benchmark-card strong {
+    color: var(--color-text-dark);
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+
+  .cta-section .btn-primary {
+    background: white;
+    color: var(--color-primary);
+  }
+</style>

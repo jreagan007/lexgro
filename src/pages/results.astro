@@ -1,0 +1,518 @@
+---
+/**
+ * Results / Case Studies Page
+ *
+ * Client success stories and outcomes
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface CaseStudy {
+  firm: string;
+  practiceArea: string;
+  location: string;
+  challenge: string;
+  solution: string;
+  results: string[];
+  quote?: string;
+  quotePerson?: string;
+  quoteTitle?: string;
+}
+
+const caseStudies: CaseStudy[] = [
+  {
+    firm: 'Personal Injury Firm',
+    practiceArea: 'Personal Injury',
+    location: 'Southeast US',
+    challenge: 'Spending $50k/month on marketing with no clear visibility into which channels were driving signed cases. Agency relationships were strained with conflicting reports.',
+    solution: 'Implemented call tracking and attribution across all campaigns. Restructured Google Ads to focus on high-intent keywords. Replaced underperforming SEO vendor.',
+    results: [
+      '127% increase in signed cases within 6 months',
+      '32% reduction in cost per signed case',
+      'Clear attribution showing ROI by channel',
+    ],
+    quote: 'For the first time, we actually know where our cases are coming from. The clarity alone was worth the investment.',
+    quotePerson: 'Managing Partner',
+    quoteTitle: 'Personal Injury Firm',
+  },
+  {
+    firm: 'Family Law Practice',
+    practiceArea: 'Family Law',
+    location: 'Texas',
+    challenge: 'Relied entirely on referrals but hit a growth ceiling. No digital presence and no internal marketing expertise.',
+    solution: 'Built comprehensive digital marketing foundation including new website, local SEO, and targeted Google Ads. Created referral tracking system to maintain existing channels.',
+    results: [
+      '85% increase in monthly leads',
+      '40% of new clients now from digital channels',
+      'Referral business maintained while adding new source',
+    ],
+    quote: 'We went from being invisible online to dominating our local market. The growth has been steady and sustainable.',
+    quotePerson: 'Founding Partner',
+    quoteTitle: 'Family Law Practice',
+  },
+  {
+    firm: 'Immigration Law Firm',
+    practiceArea: 'Immigration',
+    location: 'California',
+    challenge: 'Inconsistent lead flow with feast-or-famine cycles. Intake team overwhelmed during peaks and idle during valleys.',
+    solution: 'Diversified marketing across multiple channels to smooth lead flow. Implemented intake optimization and lead nurturing sequences.',
+    results: [
+      '65% more consistent monthly lead volume',
+      '28% improvement in lead-to-client conversion',
+      'Intake team properly staffed with predictable workflow',
+    ],
+  },
+  {
+    firm: 'Multi-Practice Firm',
+    practiceArea: 'Multiple Practice Areas',
+    location: 'Midwest',
+    challenge: 'Marketing efforts scattered across practice areas with no cohesive strategy. Each attorney doing their own thing.',
+    solution: 'Created unified marketing strategy with practice-area specific campaigns. Centralized reporting and vendor management.',
+    results: [
+      '3x increase in marketing efficiency',
+      'Unified brand presence across all channels',
+      '$180k annual savings from vendor consolidation',
+    ],
+    quote: 'Finally, our marketing works together instead of against itself. The firm feels unified now.',
+    quotePerson: 'Managing Director',
+    quoteTitle: 'Multi-Practice Firm',
+  },
+];
+
+const metrics = [
+  { value: '$47M+', label: 'Client Revenue Generated' },
+  { value: '200+', label: 'Law Firms Served' },
+  { value: '94%', label: 'Client Retention Rate' },
+  { value: '12+', label: 'Years Experience' },
+];
+---
+
+<BaseLayout
+  title="Client Results & Case Studies"
+  description="Real results from LEXGRO clients. See case studies, ROI metrics, and testimonials from personal injury, family law, and immigration firms."
+  image="/og/results.png"
+>
+  <!-- Hero Section -->
+  <section class="results-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="section-label">Results</span>
+        <h1 class="hero-title">Real Results for Real Law Firms</h1>
+        <p class="hero-subtitle">
+          We measure success by one thing: your growth. Here's what we've helped law firms achieve.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Section -->
+  <section class="metrics-section">
+    <div class="container">
+      <div class="metrics-grid">
+        {metrics.map((metric) => (
+          <div class="metric-card">
+            <span class="metric-value">{metric.value}</span>
+            <span class="metric-label">{metric.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section class="cases-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Client Success Stories</h2>
+        <p class="section-subtitle">
+          Every firm has unique challenges. Here's how we've helped solve them.
+        </p>
+      </div>
+
+      <div class="cases-list">
+        {caseStudies.map((study, index) => (
+          <div class="case-card">
+            <div class="case-header">
+              <div class="case-meta">
+                <span class="case-practice">{study.practiceArea}</span>
+                <span class="case-location">{study.location}</span>
+              </div>
+              <span class="case-number">{String(index + 1).padStart(2, '0')}</span>
+            </div>
+
+            <div class="case-content">
+              <div class="case-section">
+                <h3 class="case-section-title">The Challenge</h3>
+                <p class="case-text">{study.challenge}</p>
+              </div>
+
+              <div class="case-section">
+                <h3 class="case-section-title">Our Solution</h3>
+                <p class="case-text">{study.solution}</p>
+              </div>
+
+              <div class="case-section">
+                <h3 class="case-section-title">The Results</h3>
+                <ul class="results-list">
+                  {study.results.map((result) => (
+                    <li>{result}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {study.quote && (
+                <div class="case-quote">
+                  <blockquote>"{study.quote}"</blockquote>
+                  <cite>
+                    <span class="quote-person">{study.quotePerson}</span>
+                    <span class="quote-title">{study.quoteTitle}</span>
+                  </cite>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach Section -->
+  <section class="approach-section">
+    <div class="container">
+      <div class="approach-content">
+        <span class="section-label-dark">Our Approach</span>
+        <h2 class="section-title-light">Why We Get Results</h2>
+        <div class="approach-grid">
+          <div class="approach-item">
+            <h3>Deep Legal Industry Focus</h3>
+            <p>We only work with law firms. Every strategy is built on what actually works in legal marketing, not generic advice.</p>
+          </div>
+          <div class="approach-item">
+            <h3>Data-Driven Decisions</h3>
+            <p>We track everything. Every decision is backed by data, and every dollar is accountable to results.</p>
+          </div>
+          <div class="approach-item">
+            <h3>Long-Term Partnership</h3>
+            <p>We're not here for quick wins. Our average client relationship spans years, not months.</p>
+          </div>
+          <div class="approach-item">
+            <h3>Honest Communication</h3>
+            <p>We tell you what's working, what isn't, and what to do about it. No sugarcoating, no vanity metrics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Write Your Success Story?</h2>
+        <p class="cta-subtitle">
+          Let's discuss how LEXGRO can help your firm achieve similar results.
+        </p>
+        <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg">
+          Schedule a Free Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .results-hero {
+    padding: 5rem 0 3rem;
+    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+  }
+
+  .hero-content {
+    max-width: 650px;
+  }
+
+  .section-label {
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .section-label-dark {
+    color: var(--color-mint);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-dark);
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Metrics Section */
+  .metrics-section {
+    padding: 0 0 4rem;
+    background: white;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .metric-card {
+    padding: 2rem;
+    background: var(--color-bg-dark);
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .metric-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-mint);
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-label {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Cases Section */
+  .cases-section {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title-light {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+  }
+
+  .cases-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .case-card {
+    background: var(--color-bg-light);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+  }
+
+  .case-meta {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .case-practice {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.375rem 0.875rem;
+    border-radius: 100px;
+  }
+
+  .case-location {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+  }
+
+  .case-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .case-content {
+    padding: 2rem;
+  }
+
+  .case-section {
+    margin-bottom: 2rem;
+  }
+
+  .case-section:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .case-section-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .case-text {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .results-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .results-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .results-list li::before {
+    content: "↑";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .case-quote {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .case-quote blockquote {
+    font-size: 1.0625rem;
+    font-style: italic;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+
+  .case-quote cite {
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+  }
+
+  .quote-person {
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+
+  .quote-title {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Approach Section */
+  .approach-section {
+    padding: 5rem 0;
+    background: var(--color-bg-dark);
+  }
+
+  .approach-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: left;
+  }
+
+  .approach-item h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  .approach-item p {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+
+  .cta-section .btn-primary {
+    background: white;
+    color: var(--color-primary);
+  }
+</style>

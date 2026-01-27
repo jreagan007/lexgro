@@ -169,17 +169,8 @@ const blog = defineCollection({
     // Tags for categorization
     tags: z.array(z.string()),
 
-    // Category
-    category: z.enum([
-      'marketing-strategy',
-      'seo',
-      'ppc',
-      'intake',
-      'agency-selection',
-      'budget',
-      'case-studies',
-      'industry-news',
-    ]),
+    // Category (flexible to support all content types)
+    category: z.string(),
 
     // Related guide (if applicable)
     relatedGuide: z.string().optional(),

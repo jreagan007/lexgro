@@ -1,0 +1,426 @@
+---
+/**
+ * FAQ Page
+ *
+ * Frequently asked questions about LEXGRO services
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+interface FAQCategory {
+  title: string;
+  questions: {
+    question: string;
+    answer: string;
+  }[];
+}
+
+const faqCategories: FAQCategory[] = [
+  {
+    title: 'Getting Started',
+    questions: [
+      {
+        question: 'How do I know if LEXGRO is right for my firm?',
+        answer: 'LEXGRO works best with law firms that are serious about growth and ready to invest in marketing properly. Whether you need strategic guidance, hands-on support, or training for your team, we have solutions for firms at different stages. The best way to find out is to schedule a free strategy session where we can discuss your specific situation.',
+      },
+      {
+        question: 'What size law firms do you work with?',
+        answer: 'We work with solo practitioners up to firms with 50+ attorneys. Our fractional CMO and consulting services are most popular with firms between 5-30 attorneys, while our training programs serve firms of all sizes including solos looking to build their marketing foundation.',
+      },
+      {
+        question: 'Do you work with firms outside the US?',
+        answer: 'Currently, our services are designed specifically for law firms in the United States. Our strategies, vendor network, and training are all tailored to the US legal market.',
+      },
+      {
+        question: 'How quickly can we get started?',
+        answer: 'For most services, we can begin within 1-2 weeks of signing up. Fractional CMO engagements typically start with a discovery phase in week one. Training access is immediate upon enrollment.',
+      },
+    ],
+  },
+  {
+    title: 'Fractional CMO Services',
+    questions: [
+      {
+        question: 'What exactly is a Fractional CMO?',
+        answer: 'A Fractional CMO is an experienced Chief Marketing Officer who works with your firm part-time. You get executive-level marketing leadership without the cost of a full-time hire. Our fractional CMOs handle strategy, vendor management, campaign oversight, and team leadership.',
+      },
+      {
+        question: 'How much time does a Fractional CMO dedicate to my firm?',
+        answer: 'Time commitment varies based on your needs and chosen package. Most engagements include weekly strategy calls, ongoing campaign management, and vendor oversight. Expect your fractional CMO to be actively involved in your marketing decisions and execution.',
+      },
+      {
+        question: 'Can you work with our existing marketing vendors?',
+        answer: 'Absolutely. Part of our role is evaluating and managing your vendor relationships. We\'ll assess current vendors, recommend changes if needed, and ensure everyone is aligned and accountable. We don\'t require you to use specific vendors.',
+      },
+      {
+        question: 'What if we already have in-house marketing staff?',
+        answer: 'Great! We work alongside your team to provide strategic direction and mentorship. Many firms use our fractional CMO to lead and develop their internal marketing coordinators or managers.',
+      },
+    ],
+  },
+  {
+    title: 'Pricing & Contracts',
+    questions: [
+      {
+        question: 'How much does a Fractional CMO cost?',
+        answer: 'Our fractional CMO services start at $4,999/month for firms focused on retaining existing marketing gains, and $6,999/month for firms in active growth mode. Enterprise solutions are available for larger firms with custom needs.',
+      },
+      {
+        question: 'Are there long-term contracts?',
+        answer: 'We believe in earning your business month after month. While we recommend a minimum 3-month commitment to see meaningful results, we don\'t lock you into long-term contracts. You can cancel with 30 days notice.',
+      },
+      {
+        question: 'What\'s included in the monthly fee?',
+        answer: 'Our fees cover strategic consulting and marketing leadership. This includes strategy development, vendor management, campaign oversight, weekly calls, and ongoing support. Ad spend, vendor fees, and creative production are separate costs.',
+      },
+      {
+        question: 'Do you offer any guarantees?',
+        answer: 'We don\'t guarantee specific results because marketing outcomes depend on many factors including your budget, market, and service offering. What we do guarantee is dedicated attention, proven strategies, and complete transparency about what\'s working and what isn\'t.',
+      },
+    ],
+  },
+  {
+    title: 'Training & Resources',
+    questions: [
+      {
+        question: 'What\'s included in Evergreen Marketing Training?',
+        answer: 'Evergreen Marketing Training includes 9 comprehensive modules, 52+ video lessons, templates, SOPs, calculators, and practice-area specific content. You get lifetime access and all future updates for $97/month.',
+      },
+      {
+        question: 'Can my whole team access the training?',
+        answer: 'Team access is available. Each subscription covers one user, but we offer team pricing for firms that want to train multiple staff members. Contact us for team rates.',
+      },
+      {
+        question: 'How is the training different from YouTube or free resources?',
+        answer: 'Our training is specifically designed for law firms, not general marketing advice. It includes actionable templates, real examples from legal marketing, and strategies we\'ve tested across hundreds of firms. Everything is organized as a curriculum, not random tips.',
+      },
+    ],
+  },
+  {
+    title: 'Vendor Platform',
+    questions: [
+      {
+        question: 'How do you vet vendors?',
+        answer: 'Every vendor in our network has been personally evaluated by Keith Dyer and the LEXGRO team. We look at their track record with law firms, pricing transparency, client retention, and actual results. Many vendors in our network are ones we\'ve worked with directly on client campaigns.',
+      },
+      {
+        question: 'Do you receive commissions from vendors?',
+        answer: 'We maintain full transparency about any referral relationships. Our primary obligation is to recommend what\'s best for your firm. We\'ll always disclose if we have a financial relationship with a vendor we recommend.',
+      },
+      {
+        question: 'What if a vendor doesn\'t work out?',
+        answer: 'Part of our value is ongoing vendor oversight. If a vendor underperforms, we\'ll work with you to address the issues or find a replacement. Our vendors know they\'re accountable to LEXGRO, not just individual clients.',
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Frequently Asked Questions"
+  description="Common questions about LEXGRO's fractional CMO services, pricing, contracts, training programs, and vendor platform for law firms."
+  image="/og/faq.png"
+>
+  <!-- Hero Section -->
+  <section class="faq-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Frequently Asked Questions</h1>
+        <p class="hero-subtitle">
+          Find answers to common questions about our services. Can't find what you're looking for? <a href="/contact/">Contact us</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Categories -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="faq-nav">
+          <h3 class="nav-title">Categories</h3>
+          <ul class="nav-list">
+            {faqCategories.map((category, index) => (
+              <li>
+                <a href={`#category-${index}`} class="nav-link">
+                  {category.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <!-- FAQ Content -->
+        <div class="faq-content">
+          {faqCategories.map((category, categoryIndex) => (
+            <div class="faq-category" id={`category-${categoryIndex}`}>
+              <h2 class="category-title">{category.title}</h2>
+              <div class="faq-list">
+                {category.questions.map((item) => (
+                  <details class="faq-item">
+                    <summary class="faq-question">{item.question}</summary>
+                    <div class="faq-answer">
+                      <p>{item.answer}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Still Have Questions?</h2>
+        <p class="cta-subtitle">
+          Schedule a free strategy session to discuss your specific situation.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg">
+            Schedule a Call
+          </a>
+          <a href="/contact/" class="btn btn-secondary btn-lg">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .faq-hero {
+    padding: 4rem 0 3rem;
+    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+  }
+
+  .hero-content {
+    max-width: 600px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark);
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .hero-subtitle a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .hero-subtitle a:hover {
+    text-decoration: underline;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 3rem 0 5rem;
+    background: white;
+  }
+
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 900px) {
+    .faq-layout {
+      grid-template-columns: 220px 1fr;
+    }
+  }
+
+  /* Sidebar Navigation */
+  .faq-nav {
+    position: sticky;
+    top: 100px;
+    align-self: start;
+  }
+
+  .nav-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.625rem 0;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    padding-left: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+  }
+
+  /* FAQ Content */
+  .faq-category {
+    margin-bottom: 3rem;
+  }
+
+  .faq-category:last-child {
+    margin-bottom: 0;
+  }
+
+  .category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-bg-light);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-question {
+    padding: 1.25rem 0;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: "+";
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    content: "-";
+  }
+
+  .faq-answer {
+    padding-bottom: 1.5rem;
+  }
+
+  .faq-answer p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 5rem 0;
+    background: var(--color-bg-dark);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .cta-section .btn-secondary {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+
+  .cta-section .btn-secondary:hover {
+    background: white;
+    color: var(--color-primary);
+    border-color: white;
+  }
+
+  /* Mobile Nav */
+  @media (max-width: 899px) {
+    .faq-nav {
+      position: static;
+      background: var(--color-bg-light);
+      padding: 1.5rem;
+      border-radius: 16px;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .nav-link {
+      padding: 0.5rem 1rem;
+      background: white;
+      border-radius: 100px;
+      border-left: none;
+      font-size: 0.875rem;
+    }
+
+    .nav-link:hover {
+      border-left: none;
+      background: var(--color-primary);
+      color: white;
+    }
+  }
+</style>

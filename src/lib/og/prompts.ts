@@ -13,6 +13,15 @@ export const NEGATIVE_PROMPT = 'text, words, letters, numbers, watermark, logo, 
 export type PromptKey =
   // Homepage
   | 'homepage'
+  // Static pages
+  | 'about'
+  | 'contact'
+  | 'faq'
+  | 'results'
+  | 'podcast'
+  | 'careers'
+  | 'calculator'
+  | 'tips'
   // Services
   | 'fractional-cmo'
   | 'marketing-strategy'
@@ -20,10 +29,12 @@ export type PromptKey =
   | 'seo'
   | 'training'
   | 'vendor-platform'
+  | 'evergreen'
   // Content types
   | 'guide'
   | 'blog'
   | 'case-study'
+  | 'answers'
   // Practice areas
   | 'personal-injury'
   | 'family-law'
@@ -31,6 +42,9 @@ export type PromptKey =
   | 'estate-planning'
   | 'immigration'
   | 'bankruptcy'
+  | 'divorce'
+  | 'dui'
+  | 'workers-comp'
   // General
   | 'growth'
   | 'consulting'
@@ -52,6 +66,56 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
 
   homepage: {
     prompt: `Dramatic upward perspective of modern glass skyscraper at golden hour, warm sunlight reflecting off windows creating patterns of light, deep green ivy climbing architectural elements, sense of growth and upward momentum, professional urban success atmosphere, shot from below looking up conveying ambition and achievement, editorial architectural photography, Kodak Ektar vivid colors with warm golden tones, dramatic lighting contrast, no people, no text, no logos, authentic aspirational business growth aesthetic, cinematic wide angle lens`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  // === STATIC PAGES ===
+
+  about: {
+    prompt: `Modern office with plants and natural light, team workspace without people, comfortable professional environment, warm afternoon light through windows, inviting company culture atmosphere, editorial interiors photography, Kodak Portra 400 warm colors, no people, no text, no logos, authentic team culture aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  contact: {
+    prompt: `Welcoming reception area with comfortable seating, green plants, warm natural light, modern professional law firm lobby, hospitality atmosphere, late afternoon golden hour, editorial photography, Fuji Pro 400H warm tones, no people, no text, no logos, authentic client-welcome aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [26, 167, 116]],
+  },
+
+  faq: {
+    prompt: `Open book with reading glasses on wooden desk, warm lamp light, cozy study corner, helpful educational atmosphere, evening light, knowledge sharing mood, Kodak Portra 800 warm colors, shallow depth of field, no readable text, no people, authentic learning aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [37, 185, 123]],
+  },
+
+  results: {
+    prompt: `Trophy and certificate frames on professional office credenza, warm natural light, achievement display, success celebration atmosphere, polished wood surface, editorial photography, Kodak Gold 200 warm tones, no readable text, no faces, no logos, authentic results showcase aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [255, 129, 88]],
+  },
+
+  podcast: {
+    prompt: `Professional podcast microphone on desk, warm studio lighting, acoustic panels visible in soft focus, creative audio production atmosphere, evening recording session mood, editorial photography, Portra 400 warm colors, shallow depth of field, no people, no text, no logos, authentic podcast studio aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [103, 58, 228]],
+  },
+
+  careers: {
+    prompt: `Modern open office workspace with natural light, comfortable ergonomic chairs, green plants throughout, collaborative team environment without people, inspiring workplace atmosphere, morning light, editorial interiors, Fuji Pro 400H colors, no people, no text, no logos, authentic career opportunity aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  calculator: {
+    prompt: `Elegant calculator and notebook on polished desk, morning coffee nearby, strategic planning atmosphere, warm natural light, financial analysis mood, professional productivity setup, Kodak Portra 160 soft colors, shallow focus, no screens, no readable numbers, no people, authentic ROI planning aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [37, 185, 123]],
+  },
+
+  tips: {
+    prompt: `Comfortable executive chair with notepad nearby, warm office setting, mentorship atmosphere, golden hour light through windows, wisdom sharing mood, professional guidance environment, Portra 400 warm tones, no people, no text visible, authentic expert tips aesthetic`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
@@ -94,6 +158,12 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
     fallbackGradient: [[35, 59, 41], [41, 140, 66]],
   },
 
+  evergreen: {
+    prompt: `Lush green plant growing toward sunlight in modern office, growth and nurturing atmosphere, natural morning light, sustainable success metaphor, professional workspace corner, editorial photography, Kodak Portra 400 vivid greens, shallow depth of field, no people, no text, authentic evergreen growth aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [37, 185, 123]],
+  },
+
   // === CONTENT TYPES ===
 
   guide: {
@@ -112,6 +182,12 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
     prompt: `Stack of manila folders on conference table, natural afternoon light, glass of water nearby, professional meeting aftermath, serious business atmosphere, editorial photography, Kodak Gold 200 muted warmth, no visible text, no logos, no people, authentic results-focused business aesthetic`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [255, 129, 88]],
+  },
+
+  answers: {
+    prompt: `Question mark shaped light pattern on professional desk, warm afternoon light, curious learning atmosphere, educational helpful mood, modern law office setting, editorial photography, Portra 160 warm colors, shallow depth of field, no readable text, no people, authentic knowledge Q&A aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [26, 167, 116]],
   },
 
   // === PRACTICE AREAS ===
@@ -152,6 +228,24 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
     fallbackGradient: [[1, 25, 7], [37, 185, 123]],
   },
 
+  divorce: {
+    prompt: `Two empty chairs at table in warm light, compassionate supportive atmosphere, morning light through window, family law office setting, respectful transition mood, editorial interiors photography, Portra 400 soft warm colors, no people, no text, authentic family law support aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  dui: {
+    prompt: `Dignified law library with leather chairs, warm reading lamp, serious professional atmosphere, evening study mood, defense practice setting, editorial photography, Kodak Ektar muted tones, shallow focus on chair, no people, no text, no alcohol references, authentic criminal defense aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [103, 58, 228]],
+  },
+
+  'workers-comp': {
+    prompt: `Comfortable consultation office with natural light, supportive professional environment, warm afternoon light, worker advocacy atmosphere, welcoming law firm setting, editorial interiors, Portra 160 warm colors, no people, no text, authentic workers rights aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [255, 129, 88]],
+  },
+
   // === GENERAL ===
 
   growth: {
@@ -184,6 +278,16 @@ export function getPromptKeyFromSlug(slug: string): PromptKey {
   // Homepage
   if (normalizedSlug === '' || normalizedSlug === 'index' || normalizedSlug === 'home') return 'homepage'
 
+  // Static pages (exact matches)
+  if (normalizedSlug === 'about') return 'about'
+  if (normalizedSlug === 'contact') return 'contact'
+  if (normalizedSlug === 'faq') return 'faq'
+  if (normalizedSlug === 'results') return 'results'
+  if (normalizedSlug === 'careers') return 'careers'
+  if (normalizedSlug === 'calculator') return 'calculator'
+  if (normalizedSlug.includes('tips-from-keith') || normalizedSlug.includes('tips')) return 'tips'
+  if (normalizedSlug.includes('podcast') || normalizedSlug.includes('cmo-podcast')) return 'podcast'
+
   // Services
   if (normalizedSlug.includes('fractional-cmo')) return 'fractional-cmo'
   if (normalizedSlug.includes('marketing-strategy') || normalizedSlug.includes('strategy')) return 'marketing-strategy'
@@ -191,15 +295,19 @@ export function getPromptKeyFromSlug(slug: string): PromptKey {
   if (normalizedSlug.includes('seo')) return 'seo'
   if (normalizedSlug.includes('training')) return 'training'
   if (normalizedSlug.includes('vendor')) return 'vendor-platform'
+  if (normalizedSlug.includes('evergreen')) return 'evergreen'
 
   // Content types
   if (normalizedSlug.startsWith('guide/') || normalizedSlug === 'guide') return 'guide'
   if (normalizedSlug.startsWith('blog/') || normalizedSlug === 'blog') return 'blog'
+  if (normalizedSlug.startsWith('answers/') || normalizedSlug === 'answers') return 'answers'
   if (normalizedSlug.includes('case-study')) return 'case-study'
 
-  // Practice areas
+  // Practice areas (more specific first)
+  if (normalizedSlug.includes('divorce') || normalizedSlug.includes('family-law')) return 'divorce'
+  if (normalizedSlug.includes('dui')) return 'dui'
+  if (normalizedSlug.includes('workers-comp')) return 'workers-comp'
   if (normalizedSlug.includes('personal-injury') || normalizedSlug.includes('pi-')) return 'personal-injury'
-  if (normalizedSlug.includes('family-law') || normalizedSlug.includes('family')) return 'family-law'
   if (normalizedSlug.includes('criminal')) return 'criminal-defense'
   if (normalizedSlug.includes('estate') || normalizedSlug.includes('elder')) return 'estate-planning'
   if (normalizedSlug.includes('immigration')) return 'immigration'
