@@ -6,12 +6,6 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
-
-// Editorial images for blog cards
-import blogFractionalCmo from '../../assets/images/editorial/blog-fractional-cmo.png';
-import blogClientGrowth from '../../assets/images/editorial/blog-client-growth.png';
-import blogBankruptcy from '../../assets/images/editorial/blog-bankruptcy-marketing.png';
 
 // Get all blog posts sorted by date
 const allPosts = await getCollection('blog');
@@ -35,21 +29,9 @@ function formatDate(date: Date): string {
   }).format(date);
 }
 
-// Map slugs to images (cycle through available images)
-const imageMap: Record<string, ImageMetadata> = {
-  'fractional-cmo-benefits-law-firms': blogFractionalCmo,
-  'fractional-cmo-law-firms': blogFractionalCmo,
-  'fractional-cmo-transform-client-growth': blogClientGrowth,
-  'fractional-cfo-law-firms': blogClientGrowth,
-  'fractional-coo-law-firms': blogClientGrowth,
-  'bankruptcy-lawyer-marketing': blogBankruptcy,
-  'bankruptcy-lead-generation': blogBankruptcy,
-};
-
-const defaultImages = [blogFractionalCmo, blogClientGrowth, blogBankruptcy];
-
-function getPostImage(slug: string, index: number): ImageMetadata {
-  return imageMap[slug] || defaultImages[index % 3];
+// Get unique card image for each post from generated cards
+function getPostCardImage(slug: string): string {
+  return `/cards/blog/${slug}.png`;
 }
 
 // Category display names
@@ -107,12 +89,13 @@ function getCategoryDisplay(category: string): string {
       <div class="container">
         <a href={`/blog/${featuredPost.data.slug}/`} class="featured-card">
           <div class="featured-image">
-            <Image
-              src={getPostImage(featuredPost.data.slug, 0)}
+            <img
+              src={getPostCardImage(featuredPost.data.slug)}
               alt={featuredPost.data.title}
-              width={800}
-              height={450}
+              width="800"
+              height="450"
               class="featured-img"
+              loading="eager"
             />
             <span class="featured-badge">Featured</span>
           </div>
@@ -138,12 +121,13 @@ function getCategoryDisplay(category: string): string {
         {regularPosts.map((post, index) => (
           <a href={`/blog/${post.data.slug}/`} class="blog-card" data-category={post.data.category}>
             <div class="card-image">
-              <Image
-                src={getPostImage(post.data.slug, index)}
+              <img
+                src={getPostCardImage(post.data.slug)}
                 alt={post.data.title}
-                width={400}
-                height={225}
+                width="400"
+                height="225"
                 class="card-img"
+                loading="lazy"
               />
             </div>
             <div class="card-content">

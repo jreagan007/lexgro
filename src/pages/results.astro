@@ -6,83 +6,85 @@
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-interface CaseStudy {
+interface Testimonial {
+  name: string;
+  title: string;
   firm: string;
   practiceArea: string;
-  location: string;
-  challenge: string;
-  solution: string;
-  results: string[];
-  quote?: string;
-  quotePerson?: string;
-  quoteTitle?: string;
+  videoId?: string;
+  image?: string;
 }
 
-const caseStudies: CaseStudy[] = [
+const testimonials: Testimonial[] = [
   {
-    firm: 'Personal Injury Firm',
+    name: 'Clarke Speaks',
+    title: 'Founder',
+    firm: 'Speaks Law',
+    practiceArea: 'Personal Injury & Workers Comp',
+  },
+  {
+    name: 'Peter Davis',
+    title: 'Founder',
+    firm: 'Peter N. Davis & Associates',
+    practiceArea: 'Personal Injury & Workers Comp',
+  },
+  {
+    name: 'Eric Richardson',
+    title: 'Founder',
+    firm: 'ER Law',
+    practiceArea: 'Personal Injury, Estate Planning & Family Law',
+  },
+  {
+    name: 'Riah Greathouse',
+    title: 'Founder',
+    firm: 'Greathouse Law',
     practiceArea: 'Personal Injury',
-    location: 'Southeast US',
-    challenge: 'Spending $50k/month on marketing with no clear visibility into which channels were driving signed cases. Agency relationships were strained with conflicting reports.',
-    solution: 'Implemented call tracking and attribution across all campaigns. Restructured Google Ads to focus on high-intent keywords. Replaced underperforming SEO vendor.',
-    results: [
-      '127% increase in signed cases within 6 months',
-      '32% reduction in cost per signed case',
-      'Clear attribution showing ROI by channel',
-    ],
-    quote: 'For the first time, we actually know where our cases are coming from. The clarity alone was worth the investment.',
-    quotePerson: 'Managing Partner',
-    quoteTitle: 'Personal Injury Firm',
   },
   {
-    firm: 'Family Law Practice',
-    practiceArea: 'Family Law',
-    location: 'Texas',
-    challenge: 'Relied entirely on referrals but hit a growth ceiling. No digital presence and no internal marketing expertise.',
-    solution: 'Built comprehensive digital marketing foundation including new website, local SEO, and targeted Google Ads. Created referral tracking system to maintain existing channels.',
-    results: [
-      '85% increase in monthly leads',
-      '40% of new clients now from digital channels',
-      'Referral business maintained while adding new source',
-    ],
-    quote: 'We went from being invisible online to dominating our local market. The growth has been steady and sustainable.',
-    quotePerson: 'Founding Partner',
-    quoteTitle: 'Family Law Practice',
+    name: 'Drew Brown',
+    title: 'Founder',
+    firm: 'Greensboro Law Center',
+    practiceArea: 'Personal Injury & Business',
   },
   {
-    firm: 'Immigration Law Firm',
+    name: 'Barry Siegel',
+    title: 'Founder',
+    firm: 'Siegel Law Group',
+    practiceArea: 'Estate Planning & Elder Law',
+  },
+  {
+    name: 'Blake Swan',
+    title: 'Founder',
+    firm: 'Tennessee Injury Attorneys',
+    practiceArea: 'Personal Injury & Business',
+  },
+  {
+    name: 'Matthew Albrecht',
+    title: 'Founder',
+    firm: 'Albrecht Law',
+    practiceArea: 'Personal Injury',
+  },
+  {
+    name: 'Yunuen Alvarado Bustos',
+    title: 'Marketing Manager',
+    firm: 'Lincoln Goldfinch Law',
     practiceArea: 'Immigration',
-    location: 'California',
-    challenge: 'Inconsistent lead flow with feast-or-famine cycles. Intake team overwhelmed during peaks and idle during valleys.',
-    solution: 'Diversified marketing across multiple channels to smooth lead flow. Implemented intake optimization and lead nurturing sequences.',
-    results: [
-      '65% more consistent monthly lead volume',
-      '28% improvement in lead-to-client conversion',
-      'Intake team properly staffed with predictable workflow',
-    ],
   },
   {
-    firm: 'Multi-Practice Firm',
-    practiceArea: 'Multiple Practice Areas',
-    location: 'Midwest',
-    challenge: 'Marketing efforts scattered across practice areas with no cohesive strategy. Each attorney doing their own thing.',
-    solution: 'Created unified marketing strategy with practice-area specific campaigns. Centralized reporting and vendor management.',
-    results: [
-      '3x increase in marketing efficiency',
-      'Unified brand presence across all channels',
-      '$180k annual savings from vendor consolidation',
-    ],
-    quote: 'Finally, our marketing works together instead of against itself. The firm feels unified now.',
-    quotePerson: 'Managing Director',
-    quoteTitle: 'Multi-Practice Firm',
+    name: 'James Amaro',
+    title: 'Founder',
+    firm: 'Amaro Law Firm',
+    practiceArea: 'Personal Injury',
   },
 ];
 
+
+// TODO: Get real metrics from Keith
 const metrics = [
-  { value: '$47M+', label: 'Client Revenue Generated' },
   { value: '200+', label: 'Law Firms Served' },
-  { value: '94%', label: 'Client Retention Rate' },
   { value: '12+', label: 'Years Experience' },
+  { value: '94%', label: 'Client Retention Rate' },
+  { value: '10', label: 'Video Testimonials' },
 ];
 ---
 
@@ -118,56 +120,31 @@ const metrics = [
     </div>
   </section>
 
-  <!-- Case Studies Section -->
-  <section class="cases-section">
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Client Success Stories</h2>
+        <h2 class="section-title">What Our Clients Say</h2>
         <p class="section-subtitle">
-          Every firm has unique challenges. Here's how we've helped solve them.
+          Hear directly from law firm owners who've worked with LEXGRO.
         </p>
       </div>
 
-      <div class="cases-list">
-        {caseStudies.map((study, index) => (
-          <div class="case-card">
-            <div class="case-header">
-              <div class="case-meta">
-                <span class="case-practice">{study.practiceArea}</span>
-                <span class="case-location">{study.location}</span>
+      <div class="testimonials-grid">
+        {testimonials.map((testimonial) => (
+          <div class="testimonial-card">
+            <div class="testimonial-video">
+              <div class="video-placeholder">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="2"/>
+                  <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+                </svg>
               </div>
-              <span class="case-number">{String(index + 1).padStart(2, '0')}</span>
             </div>
-
-            <div class="case-content">
-              <div class="case-section">
-                <h3 class="case-section-title">The Challenge</h3>
-                <p class="case-text">{study.challenge}</p>
-              </div>
-
-              <div class="case-section">
-                <h3 class="case-section-title">Our Solution</h3>
-                <p class="case-text">{study.solution}</p>
-              </div>
-
-              <div class="case-section">
-                <h3 class="case-section-title">The Results</h3>
-                <ul class="results-list">
-                  {study.results.map((result) => (
-                    <li>{result}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {study.quote && (
-                <div class="case-quote">
-                  <blockquote>"{study.quote}"</blockquote>
-                  <cite>
-                    <span class="quote-person">{study.quotePerson}</span>
-                    <span class="quote-title">{study.quoteTitle}</span>
-                  </cite>
-                </div>
-              )}
+            <div class="testimonial-info">
+              <h3 class="testimonial-name">{testimonial.name}</h3>
+              <p class="testimonial-title">{testimonial.title} | {testimonial.practiceArea}</p>
+              <p class="testimonial-firm">{testimonial.firm}</p>
             </div>
           </div>
         ))}
@@ -296,8 +273,8 @@ const metrics = [
     color: rgba(255, 255, 255, 0.7);
   }
 
-  /* Cases Section */
-  .cases-section {
+  /* Testimonials Section */
+  .testimonials-section {
     padding: 5rem 0;
     background: white;
   }
@@ -326,131 +303,72 @@ const metrics = [
     color: var(--color-text-muted);
   }
 
-  .cases-list {
-    display: flex;
-    flex-direction: column;
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
 
-  .case-card {
+  .testimonial-card {
     background: var(--color-bg-light);
-    border-radius: 24px;
+    border-radius: 16px;
     overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .case-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
   }
 
-  .case-meta {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .case-practice {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: white;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.375rem 0.875rem;
-    border-radius: 100px;
-  }
-
-  .case-location {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.8);
-    display: flex;
-    align-items: center;
-  }
-
-  .case-number {
-    font-size: 2rem;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.3);
-  }
-
-  .case-content {
-    padding: 2rem;
-  }
-
-  .case-section {
-    margin-bottom: 2rem;
-  }
-
-  .case-section:last-of-type {
-    margin-bottom: 0;
-  }
-
-  .case-section-title {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-  }
-
-  .case-text {
-    font-size: 1rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-  }
-
-  .results-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .results-list li {
+  .testimonial-video {
     position: relative;
-    padding-left: 1.5rem;
-    font-size: 1rem;
-    color: var(--color-text-dark);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-  }
-
-  .results-list li::before {
-    content: "↑";
-    position: absolute;
-    left: 0;
-    color: var(--color-primary);
-    font-weight: 700;
-  }
-
-  .case-quote {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: white;
-    border-radius: 12px;
-    border-left: 4px solid var(--color-primary);
-  }
-
-  .case-quote blockquote {
-    font-size: 1.0625rem;
-    font-style: italic;
-    color: var(--color-text-dark);
-    line-height: 1.6;
-    margin: 0 0 1rem;
-  }
-
-  .case-quote cite {
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1a2e22 100%);
     display: flex;
-    flex-direction: column;
-    font-style: normal;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
 
-  .quote-person {
-    font-weight: 600;
+  .video-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .play-icon {
+    width: 64px;
+    height: 64px;
+    color: white;
+    opacity: 0.9;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .testimonial-card:hover .play-icon {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .testimonial-info {
+    padding: 1.5rem;
+  }
+
+  .testimonial-name {
+    font-size: 1.125rem;
+    font-weight: 700;
     color: var(--color-text-dark);
+    margin-bottom: 0.25rem;
   }
 
-  .quote-title {
+  .testimonial-title {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  .testimonial-firm {
     font-size: 0.875rem;
     color: var(--color-text-muted);
   }

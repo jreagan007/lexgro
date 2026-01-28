@@ -1,9 +1,15 @@
 ---
 /**
  * AnswerLayout - For answer pages (1200-2500 words)
- * Features: Quick answer box, FAQ section, featured snippet targeting
+ * Features: Quick answer box, FAQ section, featured snippet targeting, breadcrumbs, schema
  */
 import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
 
 interface Props {
   title: string;
@@ -11,15 +17,67 @@ interface Props {
   quickAnswer?: string;
   author?: string;
   pubDate?: Date;
+  faqs?: FAQ[];
+  slug?: string;
 }
 
-const { title, description, quickAnswer, author = 'Keith Dyer', pubDate } = Astro.props;
+const { title, description, quickAnswer, author = 'Keith Dyer', pubDate, faqs = [], slug = '' } = Astro.props;
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Answers', href: '/answers/' },
+  { label: title }
+];
+
+// Article schema
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LEXGRO",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lexgro.com/logo.png"
+    }
+  },
+  ...(pubDate && { "datePublished": pubDate.toISOString() }),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://lexgro.com/answers/${slug}/`
+  }
+};
+
+// FAQ schema if FAQs present
+const faqSchema = faqs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+} : null;
 ---
 
 <BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
   <article class="answer-article">
     <header class="answer-header">
       <div class="container">
+        <Breadcrumbs items={breadcrumbItems} />
         <p class="answer-label">Quick Answer</p>
         <h1>{title}</h1>
       </div>

@@ -1,9 +1,10 @@
 ---
 /**
  * GuideLayout - For pillar/guide pages (5000-8000 words)
- * Features: Table of contents, related content, long-form styling
+ * Features: Table of contents, related content, long-form styling, breadcrumbs, schema
  */
 import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 interface Props {
   title: string;
@@ -12,15 +13,52 @@ interface Props {
   pubDate?: Date;
   updatedDate?: Date;
   heroImage?: string;
+  slug?: string;
 }
 
-const { title, description, author = 'Keith Dyer', pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, author = 'Keith Dyer', pubDate, updatedDate, heroImage, slug = '' } = Astro.props;
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Guides', href: '/guide/' },
+  { label: title }
+];
+
+// Article schema for guide
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LEXGRO",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lexgro.com/logo.png"
+    }
+  },
+  ...(pubDate && { "datePublished": pubDate.toISOString() }),
+  ...(updatedDate && { "dateModified": updatedDate.toISOString() }),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://lexgro.com/guide/${slug}/`
+  }
+};
 ---
 
 <BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
   <article class="guide-article">
     <header class="guide-header">
       <div class="container">
+        <Breadcrumbs items={breadcrumbItems} />
         <p class="guide-label">Complete Guide</p>
         <h1>{title}</h1>
         <p class="guide-description">{description}</p>

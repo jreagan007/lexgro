@@ -1,9 +1,10 @@
 ---
 /**
  * BlogLayout - For blog posts (1500-2500 words)
- * Features: Author, date, tags, related posts
+ * Features: Author, date, tags, related posts, breadcrumbs, schema
  */
 import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 interface Props {
   title: string;
@@ -13,6 +14,7 @@ interface Props {
   updatedDate?: Date;
   heroImage?: string;
   tags?: string[];
+  slug?: string;
 }
 
 const {
@@ -22,14 +24,51 @@ const {
   pubDate,
   updatedDate,
   heroImage,
-  tags = []
+  tags = [],
+  slug = ''
 } = Astro.props;
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Blog', href: '/blog/' },
+  { label: title }
+];
+
+// Article schema
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LEXGRO",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://lexgro.com/logo.png"
+    }
+  },
+  "datePublished": pubDate.toISOString(),
+  ...(updatedDate && { "dateModified": updatedDate.toISOString() }),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://lexgro.com/blog/${slug}/`
+  }
+};
 ---
 
 <BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
   <article class="blog-article">
     <header class="blog-header">
       <div class="container">
+        <Breadcrumbs items={breadcrumbItems} />
         {tags.length > 0 && (
           <div class="blog-tags">
             {tags.slice(0, 3).map(tag => (
