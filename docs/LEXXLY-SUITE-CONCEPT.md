@@ -28,7 +28,8 @@ LEXGRO (Parent Brand)
     ├── LexxlyRank    → SEO Intelligence & Gap Analysis
     ├── LexxlyPulse   → Sentiment & Pain Point Discovery
     ├── LexxlySchema  → Automated Structured Data
-    └── LexxlyBuild   → Programmatic SEO & Web Implementation
+    ├── LexxlyBuild   → Programmatic SEO & Web Implementation
+    └── LexxlyAIO     → AI Optimization & LLM Mentions
 ```
 
 ### Positioning
@@ -150,6 +151,45 @@ LEXGRO (Parent Brand)
 | **Internal Linking Automation** | Topic cluster linking |
 | **Image Optimization** | Alt text, compression, WebP conversion |
 
+---
+
+### 6. LexxlyAIO - AI Optimization & LLM Mentions
+
+**The Future of Search:** AI-powered search (ChatGPT, Google AI Overview, Perplexity) is rapidly changing how clients find lawyers. LexxlyAIO tracks and optimizes your firm's visibility in AI responses.
+
+**Core Capabilities:**
+
+| Feature | Data Source | Description |
+|---------|-------------|-------------|
+| **LLM Mentions Tracking** | DataForSEO AI Optimization API | Monitor when/how your firm is mentioned in ChatGPT responses |
+| **AI Overview Monitoring** | DataForSEO AI Optimization API | Track Google AI Overview citations and rankings |
+| **Citation Analysis** | LLM Mentions API | Identify which sources AI models cite when recommending lawyers |
+| **Competitor AI Visibility** | LLM Mentions API | See which competitors appear in AI responses for your keywords |
+| **AI-First Content Optimization** | AI Optimization API | Optimize content to be cited by AI models |
+| **Prompt Tracking** | LLM Mentions API | Track which prompts/queries trigger mentions of your firm |
+
+**Why This Matters:**
+> "When someone asks ChatGPT 'Who is the best personal injury lawyer in Atlanta?', will your firm be mentioned? LexxlyAIO tracks and optimizes for this new reality."
+
+**Supported Platforms:**
+- ChatGPT (OpenAI)
+- Google AI Overview (SGE)
+- Perplexity (coming soon)
+- Claude (coming soon)
+
+**Key Metrics Tracked:**
+- Mention frequency by platform
+- Sentiment of AI mentions
+- Competitor mention comparison
+- Source attribution (what websites AI cites)
+- Query patterns that trigger mentions
+
+**Use Cases:**
+1. **Visibility Monitoring:** "Is my firm being recommended when people ask AI about [practice area] lawyers?"
+2. **Competitive Intelligence:** "Which firms does ChatGPT recommend for DUI lawyers in my city?"
+3. **Content Optimization:** "What content do I need to create to get cited by AI?"
+4. **Brand Protection:** "Are AI models saying anything negative about my firm?"
+
 **Page Generation Example:**
 
 ```
@@ -178,16 +218,82 @@ Generates:
 
 ### Available Endpoints
 
-| API | Use Case | LexxlyRank | LexxlyPulse | LexxlySchema |
-|-----|----------|------------|-------------|--------------|
-| SERP API | Rank tracking, SERP features | ✅ | | |
-| Keywords Data API | Volume, difficulty, trends | ✅ | | |
-| Backlinks API | Link analysis, competitors | ✅ | | |
-| On-Page API | Technical SEO audit | ✅ | | ✅ |
-| News API | Trending topics, PR | | ✅ | |
-| Reviews API | Sentiment, reputation | | ✅ | |
-| People Also Ask | FAQ mining | ✅ | ✅ | ✅ |
-| Related Keywords | Content clusters | ✅ | | |
+| API | Use Case | LexxlyRank | LexxlyPulse | LexxlySchema | LexxlyAIO |
+|-----|----------|------------|-------------|--------------|-----------|
+| SERP API | Rank tracking, SERP features | ✅ | | | |
+| Keywords Data API | Volume, difficulty, trends | ✅ | | | |
+| Backlinks API | Link analysis, competitors | ✅ | | | |
+| On-Page API | Technical SEO audit | ✅ | | ✅ | |
+| News API | Trending topics, PR | | ✅ | | |
+| Reviews API | Sentiment, reputation | | ✅ | | |
+| People Also Ask | FAQ mining | ✅ | ✅ | ✅ | |
+| Related Keywords | Content clusters | ✅ | | | |
+| **AI Optimization API** | LLM mentions tracking | | | | ✅ |
+| **LLM Mentions API** | ChatGPT/AI Overview citations | | | | ✅ |
+
+### AI Optimization API Details (LexxlyAIO)
+
+The DataForSEO AI Optimization API provides:
+
+| Endpoint | Function |
+|----------|----------|
+| **LLM Mentions** | Track brand mentions across ChatGPT, Google AI Overview |
+| **Citation Sources** | Identify which websites AI models cite |
+| **Competitor Mentions** | Monitor competitor visibility in AI responses |
+| **Query Analysis** | Track which prompts trigger brand mentions |
+| **Sentiment Analysis** | Measure tone of AI-generated mentions |
+
+**Database:** DataForSEO maintains an internal LLM Responses database crawled from major AI platforms.
+
+**Documentation:** https://docs.dataforseo.com/v3/ai_optimization/llm_mentions/overview/
+
+### Complete DataForSEO API Catalog
+
+The full DataForSEO API suite provides enterprise-grade data that can be white-labeled for LEXGRO clients. Here's the complete catalog organized by law firm use case:
+
+#### Search Intelligence APIs
+
+| API | Description | Law Firm Use Case |
+|-----|-------------|-------------------|
+| **SERP API** | Real-time search results from 100+ search engines | Track rankings, SERP features, local pack positions |
+| **Keywords Data API** | Search volume, CPC, competition, trends | Keyword research for practice areas |
+| **Backlinks API** | Link profiles, referring domains, anchor text | Competitive link analysis, link building opportunities |
+| **On-Page API** | Technical SEO audits, Core Web Vitals | Website health checks, schema validation |
+| **DataForSEO Labs API** | Competitive intelligence, keyword gaps | Find keywords competitors rank for that you don't |
+
+#### AI Optimization APIs (NEW)
+
+| API | Description | Law Firm Use Case |
+|-----|-------------|-------------------|
+| **AI Optimization API** | AI search visibility tracking | Monitor how AI models recommend your firm |
+| **LLM Mentions API** | Brand mentions in ChatGPT, AI Overview | Track recommendations across AI platforms |
+| **AI Overview Tracking** | Google SGE citation monitoring | Ensure visibility in AI-generated answers |
+
+#### Content & Research APIs
+
+| API | Description | Law Firm Use Case |
+|-----|-------------|-------------------|
+| **Content Analysis API** | Sentiment analysis, entity extraction | Analyze competitor content, brand sentiment |
+| **Content Generation API** | AI-powered content creation | Scale blog posts, practice area pages |
+| **People Also Ask API** | FAQ extraction from SERPs | Create FAQ schema, answer client questions |
+| **Related Keywords API** | Semantic keyword clustering | Build topical authority, content clusters |
+
+#### Business Data APIs
+
+| API | Description | Law Firm Use Case |
+|-----|-------------|-------------------|
+| **Business Data API** | Google Business Profile data | Monitor GMB rankings, competitor reviews |
+| **Reviews API** | Review aggregation and analysis | Reputation monitoring, sentiment tracking |
+| **Contact Info API** | Business contact extraction | Lead generation, competitive research |
+| **Social Media API** | Social profile data | Track social presence, competitor activity |
+
+#### App & Marketplace APIs
+
+| API | Description | Law Firm Use Case |
+|-----|-------------|-------------------|
+| **App Data API** | Mobile app store data | Track legal app competitors (if applicable) |
+| **Merchant API** | E-commerce data | N/A for most law firms |
+| **Domain Analytics API** | Domain authority, traffic estimates | Evaluate potential acquisition targets |
 
 ### Additional APIs (Taqtics Infrastructure)
 
@@ -198,6 +304,23 @@ Generates:
 | Google Search Console | Performance data integration |
 | Google Analytics | Traffic attribution |
 | Ahrefs/SEMrush (optional) | Secondary data validation |
+
+---
+
+## Full-Scope Law Firm Services Matrix
+
+How LEXXLY Suite powers comprehensive law firm marketing services:
+
+| Service Category | LEXXLY Products Used | Key Deliverables |
+|------------------|---------------------|------------------|
+| **SEO Strategy** | LexxlyRank + LexxlySchema | Keyword gaps, rank tracking, technical audits, schema implementation |
+| **Content Marketing** | LexxlyPulse + LexxlyBuild | Sentiment research, FAQ discovery, programmatic page generation |
+| **Competitive Intelligence** | LexxlyRank + LexxlyAIO | Competitor rankings, backlink analysis, AI visibility comparison |
+| **Reputation Management** | LexxlyPulse | Review monitoring, sentiment tracking, response recommendations |
+| **AI Search Optimization** | LexxlyAIO | LLM mentions tracking, AI citation optimization, visibility reports |
+| **Attribution & ROI** | LexxlyIQ | Media contribution analysis, channel performance, cost-per-case tracking |
+| **Local SEO** | LexxlyRank + LexxlySchema | GMB optimization, local pack tracking, location page scaling |
+| **PPC Intelligence** | LexxlyRank | CPC benchmarks, competitor ad analysis, keyword opportunity scoring |
 
 ---
 

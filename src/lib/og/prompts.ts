@@ -65,7 +65,7 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
   // === HOMEPAGE ===
 
   homepage: {
-    prompt: `Dramatic upward perspective of modern glass skyscraper at golden hour, warm sunlight reflecting off windows creating patterns of light, deep green ivy climbing architectural elements, sense of growth and upward momentum, professional urban success atmosphere, shot from below looking up conveying ambition and achievement, editorial architectural photography, Kodak Ektar vivid colors with warm golden tones, dramatic lighting contrast, no people, no text, no logos, authentic aspirational business growth aesthetic, cinematic wide angle lens`,
+    prompt: `Empty executive boardroom at dawn, floor-to-ceiling windows overlooking city skyline, leather chairs pushed back from long table, coffee cup left behind, golden hour light casting long shadows across polished wood surface, sense of recent strategic meeting, 1990s corporate documentary style, shot on Kodak Portra 400, slight grain, warm muted professional tones, no people, no text, no logos, authentic ambitious atmosphere`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
@@ -73,49 +73,49 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
   // === STATIC PAGES ===
 
   about: {
-    prompt: `Modern office with plants and natural light, team workspace without people, comfortable professional environment, warm afternoon light through windows, inviting company culture atmosphere, editorial interiors photography, Kodak Portra 400 warm colors, no people, no text, no logos, authentic team culture aesthetic`,
+    prompt: `Corner office with window overlooking trees, afternoon light through blinds casting patterns, green plant on credenza, worn leather chair, stack of folders on desk, 1980s professional atmosphere, documentary photography style, Kodak Gold 200 warm colors, dust visible in light shafts, no people, no text, no logos, authentic lived-in executive office`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 
   contact: {
-    prompt: `Welcoming reception area with comfortable seating, green plants, warm natural light, modern professional law firm lobby, hospitality atmosphere, late afternoon golden hour, editorial photography, Fuji Pro 400H warm tones, no people, no text, no logos, authentic client-welcome aesthetic`,
+    prompt: `Law firm reception area late afternoon, empty leather waiting chairs, natural light through tall windows, fern on side table, polished marble floor reflecting light, 1990s professional services aesthetic, editorial interiors photography, Fuji Pro 400H muted warm tones, quiet anticipation atmosphere, no people, no text, no logos`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [26, 167, 116]],
   },
 
   faq: {
-    prompt: `Open book with reading glasses on wooden desk, warm lamp light, cozy study corner, helpful educational atmosphere, evening light, knowledge sharing mood, Kodak Portra 800 warm colors, shallow depth of field, no readable text, no people, authentic learning aesthetic`,
+    prompt: `Reference books stacked on wooden desk, reading glasses set down, warm desk lamp illuminating papers, evening light through window, 1970s study corner aesthetic, Kodak Portra 800 colors, slight grain, cozy knowledge atmosphere, shallow depth of field on book spine, no readable text visible, no people, authentic learning environment`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [37, 185, 123]],
   },
 
   results: {
-    prompt: `Trophy and certificate frames on professional office credenza, warm natural light, achievement display, success celebration atmosphere, polished wood surface, editorial photography, Kodak Gold 200 warm tones, no readable text, no faces, no logos, authentic results showcase aesthetic`,
+    prompt: `Framed certificates on credenza, morning light through blinds, trophy visible out of focus, polished dark wood surface, 1980s achievement display aesthetic, Kodak Gold 200 warm tones, editorial photography, dust motes in light, no readable text on frames, no faces, no logos, authentic professional success atmosphere`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [255, 129, 88]],
   },
 
   podcast: {
-    prompt: `Professional podcast microphone on desk, warm studio lighting, acoustic panels visible in soft focus, creative audio production atmosphere, evening recording session mood, editorial photography, Portra 400 warm colors, shallow depth of field, no people, no text, no logos, authentic podcast studio aesthetic`,
+    prompt: `Professional condenser microphone on boom arm, empty recording studio, acoustic foam panels in background, warm tungsten lighting, mixing board out of focus, 1990s radio station aesthetic, Kodak Portra 400 colors, slight grain, creative production atmosphere, no people, no text, no logos, authentic audio studio feel`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [103, 58, 228]],
   },
 
   careers: {
-    prompt: `Modern open office workspace with natural light, comfortable ergonomic chairs, green plants throughout, collaborative team environment without people, inspiring workplace atmosphere, morning light, editorial interiors, Fuji Pro 400H colors, no people, no text, no logos, authentic career opportunity aesthetic`,
+    prompt: `Empty office bullpen morning before staff arrives, desks with personal items, natural light through large windows, green plants on desks, promising career opportunity atmosphere, 1990s workplace documentary style, Kodak Gold 200 warm colors, dust in morning light, no people, no text, no logos, authentic team culture environment`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 
   calculator: {
-    prompt: `Elegant calculator and notebook on polished desk, morning coffee nearby, strategic planning atmosphere, warm natural light, financial analysis mood, professional productivity setup, Kodak Portra 160 soft colors, shallow focus, no screens, no readable numbers, no people, authentic ROI planning aesthetic`,
+    prompt: `Vintage calculator beside stack of legal pads on oak desk, pencil cup nearby, warm afternoon light through blinds, 1980s accounting office aesthetic, strategic planning atmosphere, Kodak Portra 160 muted colors, shallow focus on calculator keys, no readable numbers, no people, authentic financial planning workspace`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [37, 185, 123]],
   },
 
   tips: {
-    prompt: `Comfortable executive chair with notepad nearby, warm office setting, mentorship atmosphere, golden hour light through windows, wisdom sharing mood, professional guidance environment, Portra 400 warm tones, no people, no text visible, authentic expert tips aesthetic`,
+    prompt: `Worn leather executive chair behind cluttered desk, afternoon light through window blinds, framed photos out of focus, coffee mug left behind, mentorship atmosphere, 1980s executive office documentary style, Portra 400 warm tones, slight grain, no people visible, no text, authentic expert wisdom environment`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
@@ -123,43 +123,43 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
   // === SERVICES ===
 
   'fractional-cmo': {
-    prompt: `Modern executive office at golden hour, warm natural light through floor-to-ceiling windows, polished wood desk with leather chair, city skyline blurred in background, sophisticated professional atmosphere, editorial photography style, Kodak Portra 400 warm tones, shallow depth of field, no people, no text, no computer screens, authentic high-end business aesthetic`,
+    prompt: `Corner office at dusk, city lights beginning to glow through window, empty leather chair at mahogany desk, briefcase beside, strategic leadership atmosphere, 1990s corporate photography style, Kodak Portra 400 warm colors with cool exterior, no people, no text, no computer screens, authentic C-suite executive environment`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 
   'marketing-strategy': {
-    prompt: `Open planner and notebook on marble desk, morning coffee steam rising, natural window light casting soft shadows, green plant in corner, organized productive workspace, documentary lifestyle photography, Fuji Pro 400H colors, slight grain, no people, no text visible, no screens, authentic strategic planning atmosphere`,
+    prompt: `Whiteboard with erased marks visible, dry erase markers scattered on tray, empty conference chairs, morning light through frosted glass, recent planning session atmosphere, 1990s consulting firm aesthetic, Fuji Pro 400H muted tones, documentary style, no readable text, no people, authentic strategy meeting environment`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [26, 167, 116]],
   },
 
   'intake-optimization': {
-    prompt: `Modern reception desk corner in warm lighting, comfortable waiting area chairs visible, polished surfaces, welcoming professional law firm atmosphere, late afternoon golden light, editorial interiors photography, Kodak Gold 200 warm tones, no people, no text, no logos, inviting client-focused space`,
+    prompt: `Law firm reception area after hours, empty waiting chairs in row, phone console on desk, late afternoon light through tall windows, client service atmosphere, 1980s professional services documentary style, Kodak Gold 200 warm tones, no people, no readable text, authentic intake process environment`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [255, 129, 88]],
   },
 
   seo: {
-    prompt: `Laptop keyboard edge in soft focus, natural light from window, notepad beside, clean minimalist desk setup, warm wood tones, productivity atmosphere, documentary style, 35mm film grain, Portra 160 muted colors, no screens visible, no people, no text, authentic digital marketing workspace`,
+    prompt: `Research library corner with reference books, warm reading lamp, notepad with pen, old keyboard partially visible, investigative research atmosphere, 1990s information gathering aesthetic, Kodak Portra 160 muted colors, dust visible in light, no readable text, no people, no screens glowing, authentic research workspace`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [103, 58, 228]],
   },
 
   training: {
-    prompt: `Empty conference room with whiteboard, morning light through blinds creating patterns, leather chairs around polished table, professional development atmosphere, clean modern corporate interior, editorial photography, Kodak Ektar colors, no people, no text on whiteboard, no logos, authentic learning environment`,
+    prompt: `Empty training room with rows of chairs facing whiteboard, projector screen pulled down, handouts on seats, morning light through windows, professional development atmosphere, 1980s corporate training documentary style, Kodak Ektar muted colors, no people, no readable text on board, authentic learning environment`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 
   'vendor-platform': {
-    prompt: `Organized desk with file folders and documents stacked neatly, warm desk lamp glow, natural wood surface, professional organization aesthetic, evening work atmosphere, documentary style, Fuji Superia 400 warm tones, shallow focus on folder edges, no text visible, no people, authentic business operations feel`,
+    prompt: `Filing cabinet drawer half open, manila folders visible, labeled tabs out of focus, warm desk lamp nearby, organized operations atmosphere, 1970s office documentary style, Fuji Superia 400 warm muted tones, shallow focus on folder edges, no readable text, no people, authentic business systems environment`,
     style: 'dark',
     fallbackGradient: [[35, 59, 41], [41, 140, 66]],
   },
 
   evergreen: {
-    prompt: `Lush green plant growing toward sunlight in modern office, growth and nurturing atmosphere, natural morning light, sustainable success metaphor, professional workspace corner, editorial photography, Kodak Portra 400 vivid greens, shallow depth of field, no people, no text, authentic evergreen growth aesthetic`,
+    prompt: `Potted fern catching morning light in office corner, window condensation visible, growth and nurturing atmosphere, natural imperfections, 1990s lifestyle documentary style, Kodak Portra 400 vivid greens, shallow depth of field, no people, no text, authentic sustainable growth metaphor`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [37, 185, 123]],
   },
@@ -167,13 +167,13 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
   // === CONTENT TYPES ===
 
   guide: {
-    prompt: `Open book pages catching warm light, reading glasses resting nearby, cozy study atmosphere, morning light through curtains, educational welcoming mood, editorial lifestyle photography, Kodak Portra 800 warm tones, soft bokeh background, no readable text, no people, no faces, authentic knowledge-sharing aesthetic`,
+    prompt: `Heavy reference book open on wooden desk, reading glasses set aside, warm lamp light in evening, leather desk blotter worn, 1970s study atmosphere, educational research mood, Kodak Portra 800 warm tones, shallow focus on page edges, no readable text, no people, authentic knowledge-sharing environment`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 
   blog: {
-    prompt: `Coffee cup on wooden desk beside open notebook, morning window light, green plant leaf in soft focus, creative workspace atmosphere, journaling moment, documentary lifestyle photography, 35mm film aesthetic, Portra 400 warm colors, no readable text, no people, no screens, authentic content creation space`,
+    prompt: `Morning coffee steam rising beside leather journal, pen uncapped, natural window light, green plant leaf in soft focus, creative workspace atmosphere, 1990s journaling documentary style, 35mm film grain, Portra 400 warm colors, no readable text, no people, authentic content creation space`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [37, 185, 123]],
   },

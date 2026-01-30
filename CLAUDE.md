@@ -1,5 +1,19 @@
 # Lexgro - Astro Site Project
 
+## Writing Rules
+- **No em-dashes (—)** - Use periods, commas, colons, or parentheses instead. Em-dashes sound machine-like.
+- **Human, conversational tone** - Write like Keith talks: direct, no fluff, actionable
+- **No marketing jargon** - Avoid buzzwords like "synergy", "leverage", "holistic"
+- **Active voice** - "We build growth systems" not "Growth systems are built"
+- **Specificity over abstraction** - Use real numbers, examples, and outcomes
+
+## OG Image Style
+- **Documentary photography aesthetic** - 35mm film grain, muted tones
+- **Film stocks**: Kodak Portra 400, Tri-X, Ektachrome, Kodak Gold 200
+- **Era references**: 1970s-1990s documentary, journalistic style
+- **Imperfect authenticity**: dust, grain, natural imperfections
+- **Never include**: people, faces, text, logos, perfect lighting
+
 ## Project Status
 **Current Phase:** Site Migration from Framer to Astro
 **Last Updated:** January 27, 2026 (Session 7)

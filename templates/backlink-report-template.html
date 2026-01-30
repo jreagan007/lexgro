@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlink Analysis Report - LEXGRO</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #1a1a1a; line-height: 1.5; max-width: 8.5in; margin: 0 auto; padding: 0.5in; }
+
+        :root {
+            --lexgro-green: #298C42;
+            --dark-green: #1a3d2e;
+            --light-mint: #f0f9f4;
+        }
+
+        .page { page-break-after: always; min-height: 10in; }
+        .page:last-child { page-break-after: avoid; }
+
+        /* Header */
+        .report-header { text-align: center; margin-bottom: 1.5rem; padding-top: 1rem; }
+        .report-title { font-size: 28px; color: var(--dark-green); font-weight: bold; margin-bottom: 0.5rem; }
+        .report-subtitle { font-size: 14px; color: var(--lexgro-green); margin-bottom: 0.5rem; }
+        .report-meta { font-size: 10px; color: #666; font-style: italic; }
+
+        /* Sections */
+        .section-header { font-size: 14px; color: var(--dark-green); font-weight: bold; margin: 1rem 0 0.5rem 0; border-bottom: 2px solid var(--lexgro-green); padding-bottom: 0.25rem; }
+        .subsection-header { font-size: 11px; color: var(--lexgro-green); font-weight: bold; margin: 0.75rem 0 0.25rem 0; }
+
+        /* Text */
+        .body-text { font-size: 10px; margin-bottom: 0.5rem; }
+        .callout { font-size: 10px; color: var(--dark-green); font-style: italic; padding: 0.5rem; background: var(--light-mint); border-left: 3px solid var(--lexgro-green); margin: 0.5rem 0; }
+        .bullet { font-size: 9px; margin-left: 1rem; margin-bottom: 0.25rem; }
+        .small-note { font-size: 8px; color: #666; font-style: italic; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; font-size: 9px; }
+        th { background: var(--lexgro-green); color: white; text-align: left; padding: 6px 8px; font-weight: bold; }
+        td { padding: 5px 8px; border: 1px solid var(--lexgro-green); }
+        tr:nth-child(even) td { background: var(--light-mint); }
+        tr:nth-child(odd) td { background: white; }
+
+        /* Footer */
+        .report-footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc; font-size: 9px; }
+
+        @media print {
+            body { padding: 0; }
+            .page { min-height: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER & SUMMARY -->
+<div class="page">
+    <div class="report-header">
+        <div class="report-title">[CLIENT_NAME]</div>
+        <div class="report-subtitle">Backlink Analysis & Link Building Strategy</div>
+        <div class="report-meta">Prepared by LEXGRO (LexxlyRank) — [DATE]</div>
+    </div>
+
+    <div class="section-header">Executive Summary</div>
+    <table>
+        <tr><th>Metric</th><th>Value</th><th>Status</th></tr>
+        <tr><td>Referring Domains</td><td>[VALUE]</td><td>[STATUS]</td></tr>
+        <tr><td>Legacy Backlinks</td><td>[VALUE]</td><td>[STATUS]</td></tr>
+        <tr><td>Broken Links Found</td><td>[VALUE]</td><td>[STATUS]</td></tr>
+        <tr><td>Link Value Lost</td><td>[VALUE]</td><td>[STATUS]</td></tr>
+        <tr><td>Link Gap vs Competitors</td><td>[VALUE]</td><td>[STATUS]</td></tr>
+        <tr><td>Profile Links Missing</td><td>[VALUE]</td><td>[STATUS]</td></tr>
+    </table>
+
+    <div class="subsection-header">What We Delivered</div>
+    <div class="bullet">• [X] redirect rules — recovering link value</div>
+    <div class="bullet">• [X] link gap prospects identified</div>
+    <div class="bullet">• [X] resource pages ready for outreach</div>
+    <div class="bullet">• [X] profile platforms audited</div>
+    <div class="bullet">• Content gap analysis complete</div>
+    <div class="bullet">• Outreach templates ready</div>
+
+    <div class="subsection-header">Brand Assets</div>
+    <div class="body-text">All data exports and reports: <strong>[CLIENT_DOMAIN]/data/</strong></div>
+</div>
+
+<!-- PAGE 2: COMPETITIVE LANDSCAPE -->
+<div class="page">
+    <div class="section-header">Competitive Landscape</div>
+    <div class="callout">Your competitors have more backlinks — but [YOUR_ADVANTAGE]. [DIFFERENTIATOR] is your edge.</div>
+
+    <table>
+        <tr><th>Competitor</th><th>Backlinks</th><th>Ref Domains</th><th>Owner</th></tr>
+        <tr><td>[COMPETITOR_1]</td><td>[VALUE]</td><td>[VALUE]</td><td>[OWNER]</td></tr>
+        <tr><td>[COMPETITOR_2]</td><td>[VALUE]</td><td>[VALUE]</td><td>[OWNER]</td></tr>
+        <tr><td>[COMPETITOR_3]</td><td>[VALUE]</td><td>[VALUE]</td><td>[OWNER]</td></tr>
+        <tr><td>[CLIENT] (you)</td><td>[VALUE]</td><td>[VALUE]</td><td>[ADVANTAGE] ✓</td></tr>
+    </table>
+
+    <div class="subsection-header">Your Competitive Advantages</div>
+    <div class="bullet">• [ADVANTAGE_1]</div>
+    <div class="bullet">• [ADVANTAGE_2]</div>
+    <div class="bullet">• [ADVANTAGE_3]</div>
+    <div class="bullet">• [ADVANTAGE_4]</div>
+
+    <div class="subsection-header">Content Gap Analysis</div>
+    <table>
+        <tr><th>Content Type</th><th>Competitor Links</th><th>Your Links</th><th>Gap</th></tr>
+        <tr><td>[CONTENT_1]</td><td>[VALUE]</td><td>[VALUE]</td><td>[GAP_SIZE]</td></tr>
+        <tr><td>[CONTENT_2]</td><td>[VALUE]</td><td>[VALUE]</td><td>[GAP_SIZE]</td></tr>
+        <tr><td>[CONTENT_3]</td><td>[VALUE]</td><td>[VALUE]</td><td>[GAP_SIZE]</td></tr>
+    </table>
+</div>
+
+<!-- PAGE 3: LINK GAP OPPORTUNITIES -->
+<div class="page">
+    <div class="section-header">Link Gap Opportunities ([TOTAL] Total)</div>
+    <div class="callout">Sites linking to competitors but NOT you — pre-qualified prospects.</div>
+
+    <div class="subsection-header">[VERTICAL_1] ([COUNT] prospects)</div>
+    <table>
+        <tr><th>Domain</th><th>Rank</th><th>Notes</th></tr>
+        <tr><td>[DOMAIN]</td><td>[RANK]</td><td>[NOTES]</td></tr>
+        <tr><td>[DOMAIN]</td><td>[RANK]</td><td>[NOTES]</td></tr>
+    </table>
+
+    <div class="subsection-header">[VERTICAL_2] ([COUNT] prospects)</div>
+    <table>
+        <tr><th>Domain</th><th>Rank</th><th>Notes</th></tr>
+        <tr><td>[DOMAIN]</td><td>[RANK]</td><td>[NOTES]</td></tr>
+        <tr><td>[DOMAIN]</td><td>[RANK]</td><td>[NOTES]</td></tr>
+    </table>
+
+    <div class="subsection-header">Resource Pages ([COUNT] total)</div>
+    <table>
+        <tr><th>URL</th><th>Type</th></tr>
+        <tr><td>[URL]</td><td>[TYPE]</td></tr>
+        <tr><td>[URL]</td><td>[TYPE]</td></tr>
+    </table>
+</div>
+
+<!-- PAGE 4: PROFILE LINKS -->
+<div class="page">
+    <div class="section-header">Profile Link Opportunities</div>
+    <div class="body-text">[EXISTING] existing, [MISSING] missing. Quick wins below.</div>
+
+    <div class="subsection-header">Existing ✓</div>
+    <table>
+        <tr><th>Platform</th><th>DA</th></tr>
+        <tr><td>[PLATFORM]</td><td>[DA]</td></tr>
+    </table>
+
+    <div class="subsection-header">Tier 1: Create Now (DA 90+)</div>
+    <table>
+        <tr><th>Platform</th><th>DA</th><th>Action</th></tr>
+        <tr><td>[PLATFORM]</td><td>[DA]</td><td>[ACTION]</td></tr>
+    </table>
+
+    <div class="subsection-header">Tier 2: [CATEGORY]</div>
+    <table>
+        <tr><th>Platform</th><th>DA</th><th>Action</th></tr>
+        <tr><td>[PLATFORM]</td><td>[DA]</td><td>[ACTION]</td></tr>
+    </table>
+</div>
+
+<!-- PAGE 5: OUTREACH STRATEGY -->
+<div class="page">
+    <div class="section-header">Outreach Strategy</div>
+
+    <div class="subsection-header">Link Building Methods</div>
+    <div class="bullet">• Resource Page Inclusion — request addition to existing pages</div>
+    <div class="bullet">• Link Insertion — offer your page as additional resource</div>
+    <div class="bullet">• Broken Link Replacement — offer content for dead links</div>
+    <div class="bullet">• Profile Creation — build presence on high-DA platforms</div>
+    <div class="bullet">• Guest Posting — contribute to relevant publications</div>
+
+    <div class="subsection-header">How We Work With Your Team</div>
+    <div class="bullet">• Weekly outreach batches (20-30 emails)</div>
+    <div class="bullet">• Shared tracking spreadsheet</div>
+    <div class="bullet">• Content requests when gaps identified</div>
+    <div class="bullet">• Monthly reporting</div>
+    <div class="bullet">• Quarterly full audits</div>
+
+    <div class="subsection-header">Email Templates</div>
+    <div class="small-note">Full templates at [CLIENT_DOMAIN]/data/</div>
+    <div class="body-text"><strong>Resource Page:</strong> "I found your [page] — we've created an independent alternative. Unlike [competitor type], we're [differentiator]. Would you consider adding us?"</div>
+    <div class="body-text"><strong>[Vertical]:</strong> "[Stat about audience]. We've built a resource specifically for them — [key differentiators]. We'd be honored to be included."</div>
+</div>
+
+<!-- PAGE 6: ACTION PLAN -->
+<div class="page">
+    <div class="section-header">90-Day Action Plan</div>
+
+    <div class="subsection-header">Week 1-2: Foundation</div>
+    <table>
+        <tr><th>Task</th><th>Owner</th><th>Status</th></tr>
+        <tr><td>Deploy redirects</td><td>Dev</td><td>Ready</td></tr>
+        <tr><td>Create [Platform] profile</td><td>Marketing</td><td>Pending</td></tr>
+    </table>
+
+    <div class="subsection-header">Week 3-4: Outreach Launch</div>
+    <table>
+        <tr><th>Task</th><th>Owner</th><th>Target</th></tr>
+        <tr><td>[Vertical] outreach</td><td>LEXGRO</td><td>[X] sites</td></tr>
+        <tr><td>Resource page requests</td><td>LEXGRO</td><td>[X] pages</td></tr>
+    </table>
+
+    <div class="subsection-header">Month 2-3: Scale</div>
+    <div class="bullet">• [Category] outreach — [X] sites</div>
+    <div class="bullet">• Partnership outreach — [X] orgs</div>
+    <div class="bullet">• Create linkable [topic] content</div>
+
+    <div class="subsection-header">Success Metrics</div>
+    <table>
+        <tr><th>Metric</th><th>Current</th><th>90-Day Target</th></tr>
+        <tr><td>Referring Domains</td><td>[VALUE]</td><td>[TARGET]</td></tr>
+        <tr><td>Profile Links</td><td>[VALUE]</td><td>[TARGET]</td></tr>
+        <tr><td>Link Gap Closed</td><td>[VALUE]</td><td>[TARGET]</td></tr>
+    </table>
+
+    <div class="report-footer">
+        <div><strong>Prepared by:</strong> LEXGRO (LexxlyRank)</div>
+        <div><strong>Client:</strong> [CLIENT_NAME]</div>
+        <div><strong>Data Location:</strong> [CLIENT_DOMAIN]/data/</div>
+        <div class="small-note">Next audit: [NEXT_MONTH]</div>
+    </div>
+</div>
+
+</body>
+</html>

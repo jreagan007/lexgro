@@ -45,7 +45,7 @@ const FONT_BODY = "'DM Sans', 'Inter', system-ui, sans-serif"
 
 // Gemini API config
 const API_KEY = process.env.GEMINI_API_KEY
-const IMAGE_MODEL = 'gemini-2.0-flash-exp'
+const IMAGE_MODEL = 'gemini-2.0-flash-exp-image-generation'
 const API_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${IMAGE_MODEL}:generateContent`
 
 // Parse CLI args
