@@ -90,6 +90,36 @@ When creating content that requires statistics or research:
 3. Always cite the original source
 4. Include a "Sources" section with numbered references
 
+---
+
+## Tool Stack
+
+**See `docs/TOOLS-WORKFLOW.md` for complete documentation.**
+
+| Tool | Purpose | When to Use |
+|------|---------|-------------|
+| **Claude** | Reasoning, writing, code | Strategy, content creation, analysis |
+| **Perplexity** | Research with citations | Stats, facts, sourced data |
+| **Firecrawl** | Web scraping | Competitor sites, directories |
+| **Gemini** | Image generation | OG images, blog cards |
+| **DataForSEO** | SEO data | Keywords, SERP analysis |
+
+### API Keys (.env)
+```
+PERPLEXITY_API_KEY=pplx-xxx
+FIRECRAWL_API_KEY=fc-xxx
+GEMINI_API_KEY=AIzaSyxxx
+DATAFORSEO_LOGIN=xxx
+DATAFORSEO_PASSWORD=xxx
+```
+
+### Decision: Which Tool?
+- **Writing content?** → Claude + Perplexity (research first)
+- **Need current stats?** → Perplexity (NOT Claude)
+- **Competitor analysis?** → Firecrawl → Claude
+- **Keyword data?** → DataForSEO
+- **Images?** → Gemini
+
 ## OG Image Style
 
 See `docs/OG-IMAGE-STYLE-GUIDE.md` for comprehensive guidelines. Key points:
@@ -107,7 +137,19 @@ See `docs/OG-IMAGE-STYLE-GUIDE.md` for comprehensive guidelines. Key points:
 
 ## Project Status
 **Current Phase:** Site Migration from Framer to Astro
-**Last Updated:** January 27, 2026 (Session 7)
+**Last Updated:** January 29, 2026 (Session 8)
+
+### ✅ Session 8 - Content Style Audit + Tools Setup
+- **Content audit completed:** 106 issues reduced to 39 (63% reduction)
+- **Style guide created:** `docs/STYLE_GUIDE.md`
+- **Audit tools built:** `npm run audit`, `npm run fix:style`
+- **Tools workflow documented:** `docs/TOOLS-WORKFLOW.md`
+- **Full tool stack configured:**
+  - Perplexity API (research with citations)
+  - Firecrawl API (web scraping)
+  - Gemini API (image generation)
+  - DataForSEO (SEO intelligence)
+- **Audit report:** `docs/CONTENT-AUDIT-REPORT.md`
 
 ### ✅ Session 7 - Keith's Manifesto Implementation
 - **Homepage hero** updated: "Stop Guessing. Start Leading." + new value props
