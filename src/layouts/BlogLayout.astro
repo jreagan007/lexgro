@@ -1,7 +1,7 @@
 ---
 /**
- * BlogLayout - For blog posts
- * Features: Sticky sidebar with TOC, related content, CTA, reading time, author box
+ * BlogLayout - Modern Editorial Blog Template
+ * Features: Hero image, clean TOC, smart related posts, CRO-focused CTAs
  */
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
@@ -17,7 +17,7 @@ interface Props {
   slug?: string;
   category?: string;
   readingTime?: string;
-  relatedPosts?: Array<{ title: string; slug: string; category?: string }>;
+  relatedPosts?: Array<{ title: string; slug: string; category?: string; description?: string }>;
 }
 
 const {
@@ -81,494 +81,469 @@ function formatDate(date: Date): string {
 <BaseLayout title={title} description={description} image={`/og/blog/${slug}.png`}>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
+  <!-- Reading Progress Bar -->
+  <div class="progress-bar" id="progress-bar"></div>
+
   <article class="blog-article">
-    <!-- Header -->
+    <!-- Compact Header -->
     <header class="blog-header">
-      <div class="container">
+      <div class="container-narrow">
         <Breadcrumbs items={breadcrumbItems} />
 
-        <div class="header-content">
-          <span class="category-label">{category}</span>
-          <h1>{title}</h1>
-          <p class="description">{description}</p>
+        <div class="meta-top">
+          <span class="category-pill">{category}</span>
+          <span class="reading-time">{readingTime}</span>
+        </div>
 
-          <div class="meta-row">
-            <div class="author-meta">
-              <img
-                src="/images/keith-dyer.jpg"
-                alt={author}
-                class="author-avatar"
-                width="48"
-                height="48"
-                onerror="this.style.display='none'"
-              />
-              <div class="author-details">
-                <span class="author-name">{author}</span>
-                <span class="author-title">Fractional CMO</span>
-              </div>
-            </div>
+        <h1 class="article-title">{title}</h1>
+        <p class="article-lede">{description}</p>
 
-            <div class="post-meta">
-              <time datetime={pubDate.toISOString()}>
+        <div class="author-row">
+          <div class="author-info">
+            <img
+              src="/images/keith-dyer.jpg"
+              alt={author}
+              class="author-avatar"
+              width="44"
+              height="44"
+              onerror="this.src='/images/avatar-placeholder.svg'"
+            />
+            <div class="author-text">
+              <a href="/about/" class="author-name">{author}</a>
+              <time datetime={pubDate.toISOString()} class="pub-date">
                 {formatDate(pubDate)}
               </time>
-              <span class="separator">·</span>
-              <span class="reading-time">{readingTime}</span>
             </div>
+          </div>
+
+          <!-- Share Buttons -->
+          <div class="share-buttons">
+            <button class="share-btn" data-share="twitter" title="Share on X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </button>
+            <button class="share-btn" data-share="linkedin" title="Share on LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </button>
+            <button class="share-btn" data-share="copy" title="Copy link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </button>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- Reading Progress Bar -->
-    <div class="progress-bar" id="progress-bar"></div>
+    <!-- Hero Image (if exists) -->
+    {heroImage && (
+      <div class="hero-image">
+        <img src={heroImage} alt={title} loading="eager" />
+      </div>
+    )}
 
-    <!-- Main Content Grid -->
-    <div class="blog-grid container">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="sidebar-inner">
-          <!-- Table of Contents -->
-          <nav class="toc-section">
-            <h4 class="sidebar-title">In This Article</h4>
-            <div id="toc-links" class="toc-links">
-              <!-- Populated by JS -->
-            </div>
-          </nav>
-
-          <!-- CTA Card -->
-          <div class="cta-card">
-            <span class="cta-eyebrow">Free Strategy Session</span>
-            <h4>Ready to Grow Your Firm?</h4>
-            <p>Get a personalized marketing roadmap for your practice.</p>
-            <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-sm">
-              Book a Call
-            </a>
+    <!-- Main Content Area -->
+    <div class="content-wrapper">
+      <div class="container-narrow">
+        <!-- Floating TOC (Right Side) -->
+        <aside class="toc-sidebar" id="toc-sidebar">
+          <div class="toc-inner">
+            <button class="toc-toggle" id="toc-toggle">
+              <span class="toc-label">Contents</span>
+              <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <nav class="toc-nav" id="toc-nav">
+              <!-- Populated by JS - H2s only -->
+            </nav>
           </div>
+        </aside>
 
-          <!-- Related Articles -->
-          {relatedPosts.length > 0 && (
-            <div class="related-section">
-              <h4 class="sidebar-title">Related Articles</h4>
-              <ul class="related-list">
-                {relatedPosts.slice(0, 3).map(post => (
-                  <li>
-                    <a href={`/blog/${post.slug}/`}>
-                      <span class="related-category">{post.category || 'Blog'}</span>
-                      <span class="related-title">{post.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <!-- Quick Links -->
-          <div class="quick-links">
-            <h4 class="sidebar-title">Explore More</h4>
-            <ul>
-              <li><a href="/guide/law-firm-marketing/">Marketing Guide</a></li>
-              <li><a href="/guide/law-firm-seo/">SEO Guide</a></li>
-              <li><a href="/services/fractional-cmo/">CMO Services</a></li>
-              <li><a href="/podcast/">Podcast</a></li>
-            </ul>
-          </div>
-        </div>
-      </aside>
-
-      <!-- Main Content -->
-      <div class="main-content">
-        <div class="blog-body prose" id="blog-content">
+        <!-- Article Body -->
+        <div class="article-body prose" id="blog-content">
           <slot />
         </div>
 
         <!-- Tags -->
         {tags.length > 0 && (
-          <div class="tags-section">
-            <span class="tags-label">Topics:</span>
+          <div class="tags-row">
             {tags.map(tag => (
               <span class="tag">{tag}</span>
             ))}
           </div>
         )}
 
-        <!-- Author Box -->
-        <div class="author-box">
+        <!-- Author Card -->
+        <div class="author-card">
           <img
             src="/images/keith-dyer.jpg"
             alt={author}
-            class="author-image"
-            width="80"
-            height="80"
-            onerror="this.style.display='none'"
+            class="author-card-img"
+            width="72"
+            height="72"
+            onerror="this.src='/images/avatar-placeholder.svg'"
           />
-          <div class="author-content">
-            <span class="author-label">Written by</span>
-            <h4 class="author-name">{author}</h4>
-            <p class="author-bio">
-              Keith Dyer is a fractional CMO who helps law firms build predictable,
-              sustainable growth through strategic marketing. With over 15 years in
-              legal marketing, he's worked with firms across all practice areas.
+          <div class="author-card-content">
+            <span class="author-card-label">Written by</span>
+            <h4 class="author-card-name">{author}</h4>
+            <p class="author-card-bio">
+              Fractional CMO helping law firms build predictable growth through strategic marketing. 15+ years in legal marketing.
             </p>
-            <a href="/about/" class="author-link">Learn more about Keith →</a>
+            <a href="/about/" class="author-card-link">More about Keith</a>
           </div>
         </div>
 
-        <!-- Bottom CTA -->
-        <div class="bottom-cta">
-          <div class="cta-content">
-            <h3>Want to Implement These Strategies?</h3>
-            <p>
-              Reading is great, but results come from action. Let's talk about
-              how to put these insights to work for your firm.
-            </p>
-            <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg">
-              Schedule a Strategy Call
-            </a>
+        <!-- Inline CTA -->
+        <div class="inline-cta">
+          <div class="inline-cta-content">
+            <h3>Ready to Put This Into Action?</h3>
+            <p>Get a personalized marketing roadmap for your firm.</p>
           </div>
+          <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary">
+            Book a Free Call
+          </a>
         </div>
       </div>
     </div>
+
+    <!-- Related Posts Section -->
+    {relatedPosts.length > 0 && (
+      <section class="related-section">
+        <div class="container">
+          <h2 class="related-heading">Keep Reading</h2>
+          <div class="related-grid">
+            {relatedPosts.slice(0, 3).map(post => (
+              <a href={`/blog/${post.slug}/`} class="related-card">
+                <span class="related-card-category">{post.category || 'Blog'}</span>
+                <h3 class="related-card-title">{post.title}</h3>
+                {post.description && (
+                  <p class="related-card-desc">{post.description.slice(0, 100)}...</p>
+                )}
+                <span class="related-card-link">Read article →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta">
+      <div class="container-narrow">
+        <div class="bottom-cta-inner">
+          <h2>Let's Grow Your Firm</h2>
+          <p>Stop guessing. Start growing. Book a free strategy call.</p>
+          <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-white btn-lg">
+            Schedule a Call
+          </a>
+        </div>
+      </div>
+    </section>
   </article>
 </BaseLayout>
 
 <style>
+  /* Progress Bar */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-teal));
+    width: 0%;
+    z-index: 1000;
+    transition: width 0.1s ease;
+  }
+
+  /* Container */
+  .container-narrow {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
   /* Header */
   .blog-header {
-    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
-    padding: 3rem 0 2.5rem;
+    padding: 2rem 0 1.5rem;
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .header-content {
-    max-width: 800px;
+  .meta-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
   }
 
-  .category-label {
-    display: inline-block;
+  .category-pill {
     background: var(--color-primary);
     color: white;
     font-size: 0.6875rem;
     font-weight: 700;
-    padding: 0.375rem 0.875rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 100px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
   }
 
-  .blog-header h1 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: var(--color-text-dark);
-  }
-
-  .description {
-    font-size: 1.125rem;
+  .reading-time {
+    font-size: 0.8125rem;
     color: var(--color-text-muted);
-    line-height: 1.6;
+  }
+
+  .article-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    line-height: 1.15;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .article-lede {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
     margin-bottom: 1.5rem;
   }
 
-  .meta-row {
+  .author-row {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 1rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--color-border);
   }
 
-  .author-meta {
+  .author-info {
     display: flex;
     align-items: center;
     gap: 0.75rem;
   }
 
   .author-avatar {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     object-fit: cover;
-    background: var(--color-bg-light);
   }
 
-  .author-details {
+  .author-text {
     display: flex;
     flex-direction: column;
   }
 
-  .author-details .author-name {
+  .author-name {
     font-weight: 600;
     color: var(--color-text-dark);
+    text-decoration: none;
+    font-size: 0.9375rem;
   }
 
-  .author-details .author-title {
+  .author-name:hover {
+    color: var(--color-primary);
+  }
+
+  .pub-date {
     font-size: 0.8125rem;
     color: var(--color-text-muted);
   }
 
-  .post-meta {
+  /* Share Buttons */
+  .share-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .share-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: white;
+    color: var(--color-text-muted);
+    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
+    justify-content: center;
+    transition: all 0.2s ease;
   }
 
-  .separator {
-    opacity: 0.5;
-  }
-
-  .reading-time {
+  .share-btn:hover {
+    border-color: var(--color-primary);
     color: var(--color-primary);
-    font-weight: 500;
+    background: var(--color-bg-light);
   }
 
-  /* Progress Bar */
-  .progress-bar {
-    position: fixed;
-    top: 72px;
-    left: 0;
-    height: 3px;
+  .share-btn.copied {
+    border-color: var(--color-primary);
     background: var(--color-primary);
-    width: 0%;
-    z-index: 100;
-    transition: width 0.1s ease;
+    color: white;
   }
 
-  /* Main Grid */
-  .blog-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    padding-top: 3rem;
-    padding-bottom: 4rem;
+  /* Hero Image */
+  .hero-image {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
   }
 
-  @media (min-width: 1024px) {
-    .blog-grid {
-      grid-template-columns: 280px 1fr;
-      gap: 4rem;
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    max-height: 450px;
+  }
+
+  /* Content Wrapper */
+  .content-wrapper {
+    position: relative;
+    padding: 2.5rem 0 3rem;
+  }
+
+  /* TOC Sidebar */
+  .toc-sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1200px) {
+    .toc-sidebar {
+      display: block;
+      position: absolute;
+      right: calc(50% - 340px - 220px);
+      top: 2.5rem;
+      width: 200px;
+    }
+
+    .toc-inner {
+      position: sticky;
+      top: 100px;
     }
   }
 
-  /* Sidebar */
-  .sidebar {
-    order: 2;
-  }
-
-  @media (min-width: 1024px) {
-    .sidebar {
-      order: 1;
-    }
-  }
-
-  .sidebar-inner {
-    position: sticky;
-    top: 100px;
+  .toc-toggle {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 0.75rem;
   }
 
-  .sidebar-title {
-    font-size: 0.75rem;
+  .toc-label {
+    font-size: 0.6875rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-text-muted);
-    margin-bottom: 0.75rem;
   }
 
-  /* TOC */
-  .toc-section {
-    padding: 1.25rem;
-    background: var(--color-bg-light);
-    border-radius: 12px;
+  .toc-chevron {
+    color: var(--color-text-muted);
+    transition: transform 0.2s ease;
   }
 
-  .toc-links {
+  .toc-toggle[aria-expanded="false"] .toc-chevron {
+    transform: rotate(-90deg);
+  }
+
+  .toc-nav {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
   }
 
-  .toc-links :global(a) {
+  .toc-nav.collapsed {
+    display: none;
+  }
+
+  .toc-nav :global(a) {
     display: block;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    text-decoration: none;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    line-height: 1.4;
-  }
-
-  .toc-links :global(a:hover) {
-    background: white;
-    color: var(--color-primary);
-  }
-
-  .toc-links :global(a.active) {
-    background: white;
-    color: var(--color-primary);
-    font-weight: 500;
-  }
-
-  .toc-links :global(a.toc-link--sub) {
-    padding-left: 1.5rem;
+    padding: 0.375rem 0;
     font-size: 0.8125rem;
-  }
-
-  /* CTA Card */
-  .cta-card {
-    background: var(--color-bg-dark);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    text-align: center;
-  }
-
-  .cta-eyebrow {
-    display: block;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-mint);
-    margin-bottom: 0.5rem;
-  }
-
-  .cta-card h4 {
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .cta-card p {
-    font-size: 0.875rem;
-    opacity: 0.8;
-    margin-bottom: 1rem;
-    line-height: 1.5;
-  }
-
-  .cta-card .btn {
-    width: 100%;
-  }
-
-  /* Related Articles */
-  .related-section {
-    padding: 1.25rem;
-    background: white;
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-  }
-
-  .related-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .related-list a {
-    display: block;
-    text-decoration: none;
-    padding: 0.75rem;
-    background: var(--color-bg-light);
-    border-radius: 8px;
-    transition: all 0.2s ease;
-  }
-
-  .related-list a:hover {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .related-list a:hover .related-category {
-    color: var(--color-mint);
-  }
-
-  .related-list a:hover .related-title {
-    color: white;
-  }
-
-  .related-category {
-    display: block;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-primary);
-    margin-bottom: 0.25rem;
-  }
-
-  .related-title {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-text-dark);
-    line-height: 1.4;
-  }
-
-  /* Quick Links */
-  .quick-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .quick-links a {
-    display: block;
-    padding: 0.5rem 0;
-    font-size: 0.875rem;
     color: var(--color-text-muted);
     text-decoration: none;
-    border-bottom: 1px solid var(--color-border);
-    transition: color 0.2s ease;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+    transition: all 0.15s ease;
   }
 
-  .quick-links li:last-child a {
-    border-bottom: none;
-  }
-
-  .quick-links a:hover {
+  .toc-nav :global(a:hover) {
     color: var(--color-primary);
   }
 
-  /* Main Content */
-  .main-content {
-    order: 1;
-    max-width: 720px;
+  .toc-nav :global(a.active) {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary);
+    font-weight: 500;
   }
 
-  @media (min-width: 1024px) {
-    .main-content {
-      order: 2;
-    }
-  }
-
-  .blog-body {
+  /* Article Body */
+  .article-body {
+    font-size: 1.0625rem;
     line-height: 1.75;
+    color: var(--color-text);
+  }
+
+  .article-body :global(h2) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark);
+    scroll-margin-top: 100px;
+  }
+
+  .article-body :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-dark);
+  }
+
+  .article-body :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .article-body :global(ul), .article-body :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .article-body :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .article-body :global(blockquote) {
+    border-left: 3px solid var(--color-primary);
+    padding-left: 1.25rem;
+    margin: 2rem 0;
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .article-body :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .article-body :global(a:hover) {
+    color: var(--color-primary-dark);
   }
 
   /* Tags */
-  .tags-section {
+  .tags-row {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     gap: 0.5rem;
-    padding: 1.5rem 0;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--color-border);
-  }
-
-  .tags-label {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: var(--color-text-muted);
   }
 
   .tag {
@@ -576,119 +551,236 @@ function formatDate(date: Date): string {
     color: var(--color-text-muted);
     font-size: 0.75rem;
     font-weight: 500;
-    padding: 0.375rem 0.75rem;
+    padding: 0.375rem 0.875rem;
     border-radius: 100px;
   }
 
-  /* Author Box */
-  .author-box {
+  /* Author Card */
+  .author-card {
     display: flex;
-    gap: 1.5rem;
-    padding: 2rem;
+    gap: 1.25rem;
+    padding: 1.5rem;
     background: var(--color-bg-light);
-    border-radius: 16px;
-    margin-top: 2rem;
+    border-radius: 12px;
+    margin-top: 2.5rem;
   }
 
-  @media (max-width: 600px) {
-    .author-box {
+  @media (max-width: 500px) {
+    .author-card {
       flex-direction: column;
       text-align: center;
+      align-items: center;
     }
   }
 
-  .author-image {
-    width: 80px;
-    height: 80px;
+  .author-card-img {
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
-    background: white;
   }
 
-  .author-content {
+  .author-card-content {
     flex: 1;
   }
 
-  .author-label {
+  .author-card-label {
     font-size: 0.6875rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     color: var(--color-text-muted);
   }
 
-  .author-content .author-name {
+  .author-card-name {
     font-size: 1.125rem;
     font-weight: 700;
     margin: 0.25rem 0 0.5rem;
     color: var(--color-text-dark);
   }
 
-  .author-bio {
+  .author-card-bio {
     font-size: 0.9375rem;
     color: var(--color-text-muted);
-    line-height: 1.6;
-    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
   }
 
-  .author-link {
+  .author-card-link {
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--color-primary);
     text-decoration: none;
   }
 
-  .author-link:hover {
+  .author-card-link:hover {
     text-decoration: underline;
+  }
+
+  /* Inline CTA */
+  .inline-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border: 2px solid var(--color-primary);
+    border-radius: 12px;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    .inline-cta {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .inline-cta h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .inline-cta p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .inline-cta .btn {
+    flex-shrink: 0;
+  }
+
+  /* Related Section */
+  .related-section {
+    padding: 4rem 0;
+    background: var(--color-bg-light);
+  }
+
+  .related-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .related-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid var(--color-border);
+  }
+
+  .related-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .related-card-category {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .related-card-title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+
+  .related-card-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card-link {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
   }
 
   /* Bottom CTA */
   .bottom-cta {
-    margin-top: 3rem;
-    padding: 3rem;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
-    border-radius: 20px;
+    padding: 4rem 0;
+  }
+
+  .bottom-cta-inner {
     text-align: center;
   }
 
-  .cta-content {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .bottom-cta h3 {
-    font-size: 1.5rem;
+  .bottom-cta h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
     color: white;
     margin-bottom: 0.75rem;
+    font-weight: 700;
   }
 
   .bottom-cta p {
+    font-size: 1.125rem;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
-    line-height: 1.6;
   }
 
-  .bottom-cta .btn {
+  .btn-white {
     background: white;
     color: var(--color-primary);
+    border: none;
   }
 
-  .bottom-cta .btn:hover {
+  .btn-white:hover {
     background: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .blog-header {
+      padding: 1.5rem 0 1rem;
+    }
+
+    .content-wrapper {
+      padding: 2rem 0;
+    }
+
+    .article-body :global(h2) {
+      font-size: 1.375rem;
+    }
   }
 </style>
 
 <script>
-  // Generate TOC from headings
   document.addEventListener('DOMContentLoaded', () => {
-    const tocContainer = document.getElementById('toc-links');
+    // Generate TOC - H2s only for cleaner navigation
+    const tocNav = document.getElementById('toc-nav');
     const content = document.getElementById('blog-content');
-    const headings = content?.querySelectorAll('h2, h3');
+    const headings = content?.querySelectorAll('h2');
 
-    if (tocContainer && headings && headings.length > 0) {
+    if (tocNav && headings && headings.length > 0) {
       headings.forEach((heading, index) => {
-        // Generate ID if not present
         if (!heading.id) {
           heading.id = heading.textContent
             ?.toLowerCase()
@@ -699,29 +791,34 @@ function formatDate(date: Date): string {
         const link = document.createElement('a');
         link.href = `#${heading.id}`;
         link.textContent = heading.textContent;
-        link.className = heading.tagName === 'H3' ? 'toc-link toc-link--sub' : 'toc-link';
-        tocContainer.appendChild(link);
+        tocNav.appendChild(link);
       });
 
-      // Highlight active section on scroll
-      const observerOptions = {
-        rootMargin: '-100px 0px -70% 0px',
-        threshold: 0
-      };
-
+      // Active section tracking
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           const id = entry.target.getAttribute('id');
-          const tocLink = tocContainer.querySelector(`a[href="#${id}"]`);
+          const tocLink = tocNav.querySelector(`a[href="#${id}"]`);
 
           if (entry.isIntersecting) {
-            tocContainer.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+            tocNav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
             tocLink?.classList.add('active');
           }
         });
-      }, observerOptions);
+      }, { rootMargin: '-100px 0px -70% 0px', threshold: 0 });
 
       headings.forEach(heading => observer.observe(heading));
+    }
+
+    // TOC Toggle
+    const tocToggle = document.getElementById('toc-toggle');
+    if (tocToggle && tocNav) {
+      tocToggle.setAttribute('aria-expanded', 'true');
+      tocToggle.addEventListener('click', () => {
+        const expanded = tocToggle.getAttribute('aria-expanded') === 'true';
+        tocToggle.setAttribute('aria-expanded', String(!expanded));
+        tocNav.classList.toggle('collapsed', !expanded);
+      });
     }
 
     // Reading progress bar
@@ -743,5 +840,27 @@ function formatDate(date: Date): string {
         progressBar.style.width = `${progress * 100}%`;
       });
     }
+
+    // Share buttons
+    const shareButtons = document.querySelectorAll('.share-btn');
+    const pageUrl = encodeURIComponent(window.location.href);
+    const pageTitle = encodeURIComponent(document.title);
+
+    shareButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const type = btn.getAttribute('data-share');
+
+        if (type === 'twitter') {
+          window.open(`https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`, '_blank', 'width=550,height=420');
+        } else if (type === 'linkedin') {
+          window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`, '_blank', 'width=550,height=420');
+        } else if (type === 'copy') {
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            btn.classList.add('copied');
+            setTimeout(() => btn.classList.remove('copied'), 2000);
+          });
+        }
+      });
+    });
   });
 </script>

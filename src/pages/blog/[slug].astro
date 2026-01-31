@@ -6,24 +6,41 @@ export async function getStaticPaths() {
   const posts = await getCollection('blog');
 
   return posts.map((entry) => {
-    // Find related posts based on matching tags
+    // Find related posts based on matching tags OR category
     const currentTags = entry.data.tags || [];
-    const relatedPosts = posts
+    const currentCategory = entry.data.category;
+
+    const scoredPosts = posts
       .filter(p => p.data.slug !== entry.data.slug) // Exclude current post
       .map(p => {
-        // Count matching tags
         const postTags = p.data.tags || [];
         const matchingTags = currentTags.filter(tag => postTags.includes(tag)).length;
-        return { post: p, matchingTags };
+        const sameCategory = p.data.category === currentCategory ? 2 : 0; // Bonus for same category
+        return { post: p, score: matchingTags + sameCategory };
       })
-      .filter(item => item.matchingTags > 0) // Only posts with at least one matching tag
-      .sort((a, b) => b.matchingTags - a.matchingTags) // Sort by most matching tags
+      .sort((a, b) => b.score - a.score) // Sort by highest score
       .slice(0, 3) // Take top 3
       .map(item => ({
         title: item.post.data.title,
         slug: item.post.data.slug,
-        category: item.post.data.category
+        category: item.post.data.category,
+        description: item.post.data.description
       }));
+
+    // If we don't have 3, fill with recent posts
+    const relatedPosts = scoredPosts.length >= 3 ? scoredPosts : [
+      ...scoredPosts,
+      ...posts
+        .filter(p => p.data.slug !== entry.data.slug && !scoredPosts.find(sp => sp.slug === p.data.slug))
+        .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+        .slice(0, 3 - scoredPosts.length)
+        .map(p => ({
+          title: p.data.title,
+          slug: p.data.slug,
+          category: p.data.category,
+          description: p.data.description
+        }))
+    ];
 
     return {
       params: { slug: entry.data.slug },
@@ -53,6 +70,7 @@ const readingTime = entry.data.readingTime || '5 min read';
   author={entry.data.author}
   pubDate={entry.data.pubDate}
   updatedDate={entry.data.updatedDate}
+  heroImage={`/og/blog/${entry.data.slug}.png`}
   tags={entry.data.tags}
   slug={entry.data.slug}
   category={entry.data.category}
