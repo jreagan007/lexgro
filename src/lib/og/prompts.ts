@@ -431,15 +431,19 @@ export const HEX_COLORS = {
 }
 
 /**
- * CARD IMAGE PROMPTS - Abstract Geometric Style
+ * CARD IMAGE PROMPTS - Editorial Photography Style (On-Brand)
  *
- * Card images (800x450) use a different aesthetic than OG images:
- * - Abstract data visualizations
- * - Geometric shapes and patterns
- * - Growth/progress metaphors (upward arrows, networks, pathways)
- * - Dark green background with orange/coral and green accents
- * - Clean, modern, illustrative (NOT photographic)
- * - No text, no people, no logos
+ * Card images (800x450) use the SAME editorial aesthetic as OG images:
+ * - Documentary photography, 35mm film look
+ * - Kodak Portra / Fuji Pro colors
+ * - Natural light, authentic environments
+ * - Law firm and professional settings
+ * - NO abstract geometric, NO illustrations
+ *
+ * Cards are UNIQUE variations from OG images:
+ * - Different compositions and angles
+ * - Complementary but distinct scenes
+ * - Tighter crops, different focal points
  */
 export interface CardPromptConfig {
   prompt: string
@@ -450,110 +454,110 @@ export interface CardPromptConfig {
 export const CARD_PROMPTS: Record<string, CardPromptConfig> = {
   // === GROWTH / GENERAL ===
   'growth': {
-    prompt: `Abstract geometric data visualization on dark forest green background, glowing orange upward trending line graph with illuminated nodes at data points, thin parallel diagonal lines in corner, minimalist growth chart aesthetic, warm orange and gold accent colors, clean modern vector illustration style, no text, no people, no logos, corporate data visualization art`,
+    prompt: `Close-up of green office plant leaves catching morning light, modern desk blurred in background, growth metaphor, Kodak Portra 400 warm greens, 35mm film grain, editorial lifestyle photography, shallow depth of field, no people, no text, no logos`,
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 
   'network': {
-    prompt: `Abstract network diagram on dark green background, interconnected nodes in orange coral and mint green colors, glowing connection lines between circular nodes of varying sizes, data visualization aesthetic, clean geometric shapes, modern abstract illustration, no text, no people, no logos`,
+    prompt: `Overhead view of conference table with scattered business cards and coffee cups after meeting, warm afternoon light, connection and networking atmosphere, Fuji Pro 400H colors, 35mm documentary style, no readable text, no faces, no logos`,
     fallbackGradient: [[1, 25, 7], [26, 167, 116]],
   },
 
   'pathway': {
-    prompt: `Abstract minimalist pathway leading to glowing orange sunrise on horizon, dark teal green sky and ground, geometric white stepping stones or ladder rungs receding into distance, hope and progress metaphor, clean vector illustration style, no text, no people, no logos`,
+    prompt: `Hallway in professional building with natural light streaming from windows at end, leading lines, journey and progress atmosphere, warm golden hour, Kodak Portra 160 muted tones, architectural documentary style, no people, no text`,
     fallbackGradient: [[1, 25, 7], [255, 129, 88]],
   },
 
   'chart': {
-    prompt: `Abstract bar chart or graph visualization on dark green background, glowing orange and mint green bars ascending upward, subtle grid lines, minimalist data visualization, modern geometric illustration, no text, no numbers, no people, no logos`,
+    prompt: `Vintage calculator on wooden desk beside yellow legal pad, warm desk lamp light, financial planning atmosphere, 1980s professional aesthetic, Kodak Gold 200, shallow focus on calculator keys, no readable numbers, no people`,
     fallbackGradient: [[1, 25, 7], [37, 185, 123]],
   },
 
   // === PRACTICE AREAS ===
   'personal-injury-card': {
-    prompt: `Abstract shield or protection symbol made of glowing orange geometric lines on dark green background, strength and advocacy visual metaphor, interconnected nodes forming protective shape, modern data visualization aesthetic, no text, no people, no logos`,
+    prompt: `Detail of courthouse marble column with natural light, dignified institutional texture, advocacy atmosphere, overcast soft lighting, Tri-X converted to warm color, 35mm grain, no people, no text, no scales of justice`,
     fallbackGradient: [[1, 25, 7], [255, 129, 88]],
   },
 
   'family-law-card': {
-    prompt: `Abstract interconnected circles representing family bonds on dark green background, warm coral orange and soft green glowing nodes, supportive connected network visualization, clean geometric illustration, no text, no people, no logos`,
+    prompt: `Two empty chairs across desk in warm office light, supportive consultation setting, family photo frames face-down for privacy, evening golden hour, Portra 160 warm tones, no visible faces, no text, compassionate atmosphere`,
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 
   'bankruptcy-card': {
-    prompt: `Abstract pathway or staircase leading upward toward glowing orange sunrise on dark green background, fresh start and new beginning metaphor, clean geometric minimalist illustration, hope and progress visualization, no text, no people, no logos`,
+    prompt: `Fresh start: clean minimalist desk with single green plant catching morning light, organized surface, hopeful new beginning atmosphere, Portra 160 soft colors, editorial photography, no clutter, no people, no text`,
     fallbackGradient: [[1, 25, 7], [37, 185, 123]],
   },
 
   'criminal-defense-card': {
-    prompt: `Abstract balanced scales made of glowing geometric lines on dark purple-green background, justice and defense visual metaphor, modern minimalist data visualization style, subtle purple and green accents, no text, no people, no logos`,
+    prompt: `Law library detail: leather book spines in warm lamp light, dark wood shelves, serious scholarly atmosphere, evening study, Kodak Ektar muted colors, shallow focus on books, no readable titles, no people`,
     fallbackGradient: [[1, 25, 7], [103, 58, 228]],
   },
 
   'immigration-card': {
-    prompt: `Abstract globe or world map made of interconnected glowing nodes on dark green background, teal and orange connection lines spanning continents, global network visualization, modern geometric illustration, no text, no people, no flags, no logos`,
+    prompt: `Globe on desk with afternoon light, hopeful professional atmosphere, world map slightly out of focus on wall, welcoming law office setting, Fuji Pro 400H warm colors, no readable text, no flags, no people`,
     fallbackGradient: [[1, 25, 7], [26, 167, 116]],
   },
 
   'divorce-card': {
-    prompt: `Abstract two paths diverging then finding parallel harmony on dark green background, warm supportive orange and green tones, geometric line illustration showing transition and new direction, minimalist metaphor visualization, no text, no people, no logos`,
+    prompt: `Two leather chairs in consultation room, natural side light through window, respectful transition atmosphere, modern family law office, Portra 400 soft warm colors, no people, no text, supportive environment`,
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 
   'workers-comp-card': {
-    prompt: `Abstract protective gear or shield shape made of glowing orange geometric nodes and lines on dark green background, worker protection and support metaphor, modern data visualization aesthetic, no text, no people, no logos`,
+    prompt: `Detail of comfortable office seating area, natural light through window, worker advocacy atmosphere, supportive professional environment, Portra 160 warm colors, no people, no text, welcoming feeling`,
     fallbackGradient: [[1, 25, 7], [255, 129, 88]],
   },
 
   'dui-card': {
-    prompt: `Abstract balanced scales of justice with glowing purple and green geometric elements on dark background, defense and fairness metaphor, modern minimalist legal visualization, no text, no people, no logos`,
+    prompt: `Dignified law library corner with reading lamp on, leather chair in frame, serious professional atmosphere, defense practice setting, Kodak Ektar muted tones, no people, no text, no alcohol references`,
     fallbackGradient: [[1, 25, 7], [103, 58, 228]],
   },
 
   'estate-card': {
-    prompt: `Abstract tree with branching geometric lines representing legacy and growth on dark green background, warm orange and green nodes at branch points, family tree data visualization metaphor, modern illustration, no text, no people, no logos`,
+    prompt: `Antique pen and leather folder on wooden desk, natural window light, estate planning atmosphere, dignified trustworthy mood, Portra 400 vintage tones, shallow depth of field, no readable text, no people`,
     fallbackGradient: [[35, 59, 41], [41, 140, 66]],
   },
 
   // === SERVICES ===
   'fractional-cmo-card': {
-    prompt: `Abstract upward trending arrow made of glowing orange line with illuminated data nodes on dark forest green background, growth trajectory visualization, thin parallel accent lines, clean modern executive aesthetic, no text, no people, no logos`,
+    prompt: `Executive desk corner at dusk, city lights beginning outside window, empty leather chair, strategic leadership atmosphere, 1990s corporate style, Portra 400 warm/cool contrast, no people, no screens, no text`,
     fallbackGradient: [[1, 25, 7], [255, 129, 88]],
   },
 
   'marketing-card': {
-    prompt: `Abstract funnel or conversion flow made of glowing geometric shapes on dark green background, orange and mint green nodes showing progression, marketing data visualization, modern minimalist illustration, no text, no people, no logos`,
+    prompt: `Whiteboard with erased marks, dry erase markers on tray, empty conference room, morning strategy session atmosphere, 1990s consulting aesthetic, Fuji Pro 400H muted tones, no readable text, no people`,
     fallbackGradient: [[1, 25, 7], [37, 185, 123]],
   },
 
   'seo-card': {
-    prompt: `Abstract upward climbing graph or ranking visualization on dark green background, glowing orange and green ascending nodes connected by lines, search visibility metaphor, modern data visualization, no text, no people, no logos`,
+    prompt: `Research materials on desk: reference books stacked, notepad with pen, warm reading lamp, investigative atmosphere, 1990s information gathering aesthetic, Portra 160 muted colors, no readable text, no people, no screens`,
     fallbackGradient: [[1, 25, 7], [26, 167, 116]],
   },
 
   'training-card': {
-    prompt: `Abstract ascending steps or levels made of glowing geometric shapes on dark green background, skill progression visualization, orange and green illuminated platforms, learning journey metaphor, modern illustration, no text, no people, no logos`,
+    prompt: `Empty training room chairs facing whiteboard, handouts on seats, morning light through windows, professional development atmosphere, 1980s corporate training style, Kodak Ektar colors, no readable text, no people`,
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 
   'consulting-card': {
-    prompt: `Abstract two overlapping circles or venn diagram with glowing intersection on dark green background, partnership and collaboration visualization, orange and teal geometric elements, modern minimalist illustration, no text, no people, no logos`,
+    prompt: `Two leather chairs facing each other, coffee table between, consultation atmosphere, natural side light, warm inviting mood, Fuji Pro 400H tones, editorial interiors photography, no people, no text`,
     fallbackGradient: [[1, 25, 7], [26, 167, 116]],
   },
 
   // === CONTENT TYPES ===
   'blog-card': {
-    prompt: `Abstract network of interconnected ideas represented by glowing nodes on dark green background, orange and mint green connection lines, knowledge network visualization, modern data illustration, no text, no people, no logos`,
+    prompt: `Close-up of coffee cup beside open leather journal, morning light through window, creative workspace atmosphere, content creation mood, Portra 400 warm colors, 35mm grain, no readable text, no people`,
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 
   'guide-card': {
-    prompt: `Abstract roadmap or journey path with glowing waypoints on dark green background, orange milestone nodes connected by green pathway lines, navigation and guidance metaphor, modern geometric illustration, no text, no people, no logos`,
+    prompt: `Heavy reference book open on desk, reading glasses nearby, warm lamp evening light, educational research atmosphere, 1970s study mood, Portra 800 warm tones, shallow focus on page edges, no readable text, no people`,
     fallbackGradient: [[1, 25, 7], [37, 185, 123]],
   },
 
   'default-card': {
-    prompt: `Abstract upward growth visualization on dark forest green background, glowing orange trending line with connected data nodes, subtle diagonal accent lines, clean modern corporate aesthetic, minimalist geometric illustration, no text, no people, no logos`,
+    prompt: `Modern law office detail: green plant on credenza, natural light through window, professional welcoming atmosphere, editorial interiors style, Kodak Portra 400 warm colors, shallow depth of field, no people, no text, no logos`,
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
 }
