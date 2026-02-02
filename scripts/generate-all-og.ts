@@ -254,10 +254,42 @@ function escapeXml(str: string): string {
 }
 
 /**
+ * Extract a punchy headline for cards - not just parroting the full title
+ * Focuses on the main keyword phrase and keeps it short
+ */
+function getCardHeadline(title: string): string {
+  // Extract main phrase (before : or - or | or —)
+  const mainPhrase = title.split(/[:\-|—]/)[0].trim()
+
+  // Remove common filler words for punchier headlines
+  const fillers = ['How to', 'How a', 'The Ultimate', 'A Guide to', 'Why ', 'What is']
+  let headline = mainPhrase
+  for (const filler of fillers) {
+    if (headline.toLowerCase().startsWith(filler.toLowerCase())) {
+      headline = headline.slice(filler.length).trim()
+      // Capitalize first letter
+      headline = headline.charAt(0).toUpperCase() + headline.slice(1)
+      break
+    }
+  }
+
+  // If still too long, take first 4-5 words
+  const words = headline.split(' ')
+  if (words.length > 5) {
+    headline = words.slice(0, 5).join(' ')
+  }
+
+  return headline
+}
+
+/**
  * Wrap title text to max 2 lines
  */
-function wrapTitle(title: string, maxCharsPerLine: number = 28): string[] {
-  const words = title.split(' ')
+function wrapTitle(title: string, maxCharsPerLine: number = 28, isCard: boolean = false): string[] {
+  // For cards, use punchy headline instead of full title
+  const displayTitle = isCard ? getCardHeadline(title) : title
+
+  const words = displayTitle.split(' ')
   const lines: string[] = []
   let currentLine = ''
 
@@ -290,7 +322,7 @@ function createTextOverlaySVG(
   isCard: boolean = false
 ): string {
   const padding = isCard ? 48 : SAFE_PADDING
-  const titleLines = wrapTitle(title, isCard ? 22 : 28)
+  const titleLines = wrapTitle(title, isCard ? 22 : 28, isCard)
 
   // Scale fonts for cards
   const categorySize = isCard ? 11 : 13
