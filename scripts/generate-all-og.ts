@@ -410,20 +410,19 @@ async function compositeImage(
     .composite([{ input: brandingBuffer, blend: 'over' }])
     .toBuffer()
 
-  // Layer 5: Logo (bottom right)
-  if (fs.existsSync(LOGO_PATH)) {
+  // Layer 5: Logo (bottom right) - OG images only, not cards
+  if (!isCard && fs.existsSync(LOGO_PATH)) {
     try {
-      const logoSize = isCard ? { w: 100, h: 28 } : { w: 140, h: 40 }
+      const logoSize = { w: 140, h: 40 }
       const logo = await sharp(LOGO_PATH)
         .resize(logoSize.w, logoSize.h, { fit: 'inside' })
         .toBuffer()
 
-      const padding = isCard ? 48 : SAFE_PADDING
       buffer = await sharp(buffer)
         .composite([{
           input: logo,
-          top: height - padding - logoSize.h,
-          left: width - padding - logoSize.w,
+          top: height - SAFE_PADDING - logoSize.h,
+          left: width - SAFE_PADDING - logoSize.w,
         }])
         .toBuffer()
     } catch (e) {
