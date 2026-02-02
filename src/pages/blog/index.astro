@@ -50,6 +50,13 @@ const categoryNames: Record<string, string> = {
 function getCategoryDisplay(category: string): string {
   return categoryNames[category] || category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }
+
+// Extract keyword-focused alt text from title (part before colon/dash)
+function getKeywordAlt(title: string): string {
+  // Get main keyword phrase (before : or - or |)
+  const mainPhrase = title.split(/[:\-|]/)[0].trim();
+  return mainPhrase || title;
+}
 ---
 
 <BaseLayout
@@ -91,7 +98,7 @@ function getCategoryDisplay(category: string): string {
           <div class="featured-image">
             <img
               src={getPostCardImage(featuredPost.data.slug)}
-              alt={featuredPost.data.title}
+              alt={getKeywordAlt(featuredPost.data.title)}
               width="800"
               height="450"
               class="featured-img"
@@ -123,7 +130,7 @@ function getCategoryDisplay(category: string): string {
             <div class="card-image">
               <img
                 src={getPostCardImage(post.data.slug)}
-                alt={post.data.title}
+                alt={getKeywordAlt(post.data.title)}
                 width="400"
                 height="225"
                 class="card-img"
