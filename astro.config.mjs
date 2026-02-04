@@ -9,8 +9,26 @@ export default defineConfig({
   site: process.env.URL || 'https://lexgro.netlify.app',
 
   redirects: {
+    // Service pages consolidation
     '/services/': '/how-we-work/',
     '/services/fractional-cmo/': '/how-we-work/',
+    '/services/fractional-law-firm-cmo/': '/how-we-work/',
+
+    // URL changes from Framer migration
+    '/privacy-policy': '/privacy/',
+    '/privacy-policy/': '/privacy/',
+
+    // Vendor pages (redirect to main vendor page until subpages built)
+    '/vendors/': '/services/vendor/',
+    '/vendors/hire-a-trained-smi': '/services/vendor/',
+    '/vendors/marketing-intake-training': '/services/vendor/',
+    '/vendors/billboards': '/services/vendor/',
+    '/vendors/media-buying': '/services/vendor/',
+    '/vendors/hire-a-fractional-cfo': '/services/vendor/',
+    '/vendors/hire-a-fractional-coo': '/services/vendor/',
+    '/vendors/hire-a-fractional-cmo': '/services/vendor/',
+    '/explore-vendors': '/services/vendor/',
+    '/explore-vendors/': '/services/vendor/',
   },
 
   integrations: [
