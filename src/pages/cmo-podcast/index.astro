@@ -10,6 +10,27 @@ import { podcastPlatforms } from '../../data/podcast-episodes';
 
 const sortedEpisodes = getSortedCMOEpisodes();
 const latestEpisode = sortedEpisodes[0];
+
+// PodcastSeries Schema
+const podcastSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'PodcastSeries',
+  name: 'The CMO Podcast',
+  description: 'Candid conversations with law firm CMOs and marketing directors. Learn how top firms build and lead their marketing organizations.',
+  url: 'https://lexgro.com/cmo-podcast/',
+  image: 'https://lexgro.com/og/podcast.png',
+  author: {
+    '@type': 'Person',
+    name: 'Keith Dyer',
+    url: 'https://lexgro.com/about/',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'LEXGRO',
+    url: 'https://lexgro.com',
+  },
+  numberOfEpisodes: cmoEpisodes.length,
+};
 ---
 
 <BaseLayout
@@ -17,6 +38,8 @@ const latestEpisode = sortedEpisodes[0];
   description="Candid conversations with law firm CMOs and marketing directors. Learn how top firms build and lead their marketing organizations."
   image="/og/podcast.png"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(podcastSchema)} />
+
   <!-- Hero Section -->
   <section class="podcast-hero">
     <div class="container">

@@ -26,6 +26,41 @@ const sortedEpisodes = getSortedCMOEpisodes();
 const currentIndex = sortedEpisodes.findIndex((e) => e.slug === episode.slug);
 const prevEpisode = sortedEpisodes[currentIndex + 1];
 const nextEpisode = sortedEpisodes[currentIndex - 1];
+
+// Parse duration to ISO 8601 format
+function parseDuration(duration: string): string {
+  const match = duration.match(/(\d+)/);
+  if (match) {
+    return `PT${match[1]}M`;
+  }
+  return 'PT30M';
+}
+
+// PodcastEpisode Schema
+const episodeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'PodcastEpisode',
+  name: episode.title,
+  description: episode.longDescription || episode.description,
+  url: `https://lexgro.com/cmo-podcast/${episode.slug}/`,
+  datePublished: episode.pubDate,
+  duration: parseDuration(episode.duration),
+  episodeNumber: episode.number,
+  partOfSeries: {
+    '@type': 'PodcastSeries',
+    name: 'The CMO Podcast',
+    url: 'https://lexgro.com/cmo-podcast/',
+  },
+  author: {
+    '@type': 'Person',
+    name: episode.guest,
+    jobTitle: episode.guestTitle,
+    worksFor: {
+      '@type': 'Organization',
+      name: episode.guestFirm,
+    },
+  },
+};
 ---
 
 <BaseLayout
@@ -33,6 +68,8 @@ const nextEpisode = sortedEpisodes[currentIndex - 1];
   description={episode.description}
   image="/og/podcast.png"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(episodeSchema)} />
+
   <!-- Episode Header -->
   <section class="episode-header">
     <div class="container">

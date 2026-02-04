@@ -14,6 +14,41 @@ const metrics = [
   { value: '94%', label: 'Client Retention Rate' },
   { value: '10', label: 'Video Testimonials' },
 ];
+
+// Organization Schema with testimonials
+const resultsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Client Results and Case Studies',
+  description: 'Real results from LEXGRO clients. See case studies, ROI metrics, and testimonials from personal injury, family law, and immigration firms.',
+  url: 'https://lexgro.com/results/',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'LEXGRO',
+    url: 'https://lexgro.com',
+    description: 'Legal marketing agency helping law firms grow with data-driven strategies.',
+    review: testimonials.map((t) => ({
+      '@type': 'Review',
+      author: {
+        '@type': 'Person',
+        name: t.name,
+        jobTitle: t.title,
+        worksFor: {
+          '@type': 'LegalService',
+          name: t.firm,
+          areaServed: t.practiceArea,
+        },
+      },
+      ...(t.youtubeId && {
+        video: {
+          '@type': 'VideoObject',
+          name: `${t.name} - LEXGRO Testimonial`,
+          embedUrl: `https://www.youtube.com/embed/${t.youtubeId}`,
+        },
+      }),
+    })),
+  },
+};
 ---
 
 <BaseLayout
@@ -21,6 +56,8 @@ const metrics = [
   description="Real results from LEXGRO clients. See case studies, ROI metrics, and testimonials from personal injury, family law, and immigration firms."
   image="/og/results.png"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(resultsSchema)} />
+
   <!-- Hero Section -->
   <section class="results-hero">
     <div class="container">

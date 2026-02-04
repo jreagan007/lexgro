@@ -10,6 +10,36 @@ import { tips, getSortedTips, formatDate } from '../../data/tips-from-keith';
 const sortedTips = getSortedTips();
 const latestTip = sortedTips[0];
 const olderTips = sortedTips.slice(1);
+
+// ItemList Schema for video series
+const videoListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Tips from Keith - Law Firm Marketing Tips',
+  description: 'Quick, actionable marketing tips for law firms from Keith Dyer.',
+  url: 'https://lexgro.com/tips-from-keith/',
+  numberOfItems: tips.length,
+  itemListElement: sortedTips.map((tip, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'VideoObject',
+      name: tip.title,
+      description: tip.description,
+      uploadDate: tip.pubDate,
+      duration: `PT${tip.duration.replace(':', 'M').replace(/[^0-9M]/g, '')}S`,
+      author: {
+        '@type': 'Person',
+        name: 'Keith Dyer',
+      },
+      ...(tip.youtubeId && {
+        thumbnailUrl: `https://img.youtube.com/vi/${tip.youtubeId}/maxresdefault.jpg`,
+        embedUrl: `https://www.youtube.com/embed/${tip.youtubeId}`,
+        contentUrl: `https://www.youtube.com/watch?v=${tip.youtubeId}`,
+      }),
+    },
+  })),
+};
 ---
 
 <BaseLayout
@@ -17,6 +47,8 @@ const olderTips = sortedTips.slice(1);
   description="Quick, actionable marketing tips for law firms from Keith Dyer. Watch short videos packed with strategies you can implement today."
   image="/og/tips-from-keith.png"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(videoListSchema)} />
+
   <!-- Hero Section -->
   <section class="tips-hero">
     <div class="container">
