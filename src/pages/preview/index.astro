@@ -1,0 +1,702 @@
+---
+/**
+ * LEXGRO Preview Home
+ * Partnership-focused, LEXGRO voice, clean CRO UX
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+// Import existing trust assets
+import trustAvatars1 from '../../assets/images/heroes/trust-avatars-1.png';
+import trustAvatars2 from '../../assets/images/heroes/trust-avatars-2.png';
+import trustAvatars3 from '../../assets/images/heroes/trust-avatars-3.png';
+---
+
+<BaseLayout
+  title="Your Growth Partner"
+  description="LEXGRO partners with law firms to build predictable, durable growth. Intelligence, editorial, and full funnel distribution. All under one roof."
+  noIndex={true}
+>
+  <!-- Preview Banner -->
+  <div class="preview-banner">
+    Preview Mode. <a href="/">Return to live site</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="hero-label">Your Growth Partner</p>
+          <h1>Marketing That<br/>Actually Works.</h1>
+          <p class="hero-text">
+            Intelligence that tells you what to build. Editorial that produces consistently. Distribution that reaches everywhere. When you win, we win.
+          </p>
+          <div class="hero-actions">
+            <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg">Get Your Growth Audit</a>
+            <a href="/preview/how-we-work/" class="btn btn-ghost btn-lg">How We Work</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-value">47</span>
+              <span class="stat-text">Law firm partners</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">12</span>
+              <span class="stat-text">Years in legal</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">$47M+</span>
+              <span class="stat-text">Revenue generated</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-trust">
+        <p class="trust-label">Trusted by law firms across the country</p>
+        <div class="trust-avatars">
+          <Image src={trustAvatars1} alt="Law firm partners" width={400} />
+          <Image src={trustAvatars2} alt="Law firm partners" width={400} />
+          <Image src={trustAvatars3} alt="Law firm partners" width={400} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section-light">
+    <div class="container">
+      <div class="content-narrow">
+        <h2>You Know Something's Wrong</h2>
+        <p class="lead">Agencies promise results. They deliver reports. You spend money. Nobody knows what actually drives cases.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-item">
+          <h3>Channels Don't Talk</h3>
+          <p>SEO runs one direction. Paid runs another. TV looks nothing like the website. Nobody owns the full picture.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Content Blends In</h3>
+          <p>Stock photos. Template copy. The same FAQ every firm publishes. Nothing that earns trust.</p>
+        </div>
+        <div class="problem-item">
+          <h3>Attribution Is Broken</h3>
+          <p>Which channels drive cases? Not clicks. Not impressions. Cases. Most firms have no idea.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Model -->
+  <section class="section-white">
+    <div class="container">
+      <div class="content-narrow">
+        <p class="section-label">How It Works</p>
+        <h2>A System. Not Services.</h2>
+        <p class="lead">We don't sell hours. We build systems. Intelligence finds opportunities. Editorial produces content. Distribution gets it everywhere. Each layer feeds the next.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Pillars -->
+  <section class="section-dark">
+    <div class="container">
+      <div class="pillars">
+        <div class="pillar">
+          <span class="pillar-num">01</span>
+          <h3>Intelligence</h3>
+          <p class="pillar-tagline">The LEXXLY Suite</p>
+          <p>Our team uses data to decide what to build. Keyword gaps. Pain points. Attribution. We know where to focus before we write a single word.</p>
+          <ul class="pillar-list">
+            <li>LexxlyRank: Where to compete and win</li>
+            <li>LexxlyPulse: What people actually ask</li>
+            <li>LexxlyIQ: What channels drive cases</li>
+            <li>LexxlyAIO: Visibility in AI search</li>
+          </ul>
+          <a href="/preview/lexxly/" class="pillar-link">Explore LEXXLY</a>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">02</span>
+          <h3>Editorial</h3>
+          <p class="pillar-tagline">Content That Converts</p>
+          <p>Research before writing. Review before publishing. Documentary visuals. No stock images. Writers and editors, not content farms.</p>
+          <ul class="pillar-list">
+            <li>Research with real citations</li>
+            <li>Style guide every piece follows</li>
+            <li>Documentary photography</li>
+            <li>Quality review before publish</li>
+          </ul>
+          <a href="/preview/how-we-work/#editorial" class="pillar-link">See Editorial Process</a>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">03</span>
+          <h3>Full Funnel</h3>
+          <p class="pillar-tagline">First Impression to Signed Case</p>
+          <p>Same visual language everywhere. CTV reaches households before they search. LSAs capture intent. Meta retargets. All channels aligned.</p>
+          <ul class="pillar-list">
+            <li>CTV behavioral targeting. Market exclusive.</li>
+            <li>Local Services Ads. Google Verified.</li>
+            <li>Paid media across Search and Social</li>
+            <li>Conversion optimization</li>
+          </ul>
+          <a href="/preview/how-we-work/#funnel" class="pillar-link">See Full Funnel</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Different -->
+  <section class="section-light">
+    <div class="container">
+      <div class="compare-grid">
+        <div class="compare-content">
+          <p class="section-label">The Difference</p>
+          <h2>System vs. Agency</h2>
+          <p>Agencies sell hours. We build systems. Intelligence learns your market. Editorial produces consistently. Distribution reaches everywhere. Each layer feeds the next.</p>
+        </div>
+        <div class="compare-table">
+          <div class="compare-row compare-header">
+            <span></span>
+            <span>Traditional Agency</span>
+            <span>LEXGRO Partnership</span>
+          </div>
+          <div class="compare-row">
+            <span>Keyword Research</span>
+            <span>Manual, quarterly updates</span>
+            <span>Ongoing, updated as markets shift</span>
+          </div>
+          <div class="compare-row">
+            <span>Content</span>
+            <span>Template copy, stock photos</span>
+            <span>Researched, documentary visuals</span>
+          </div>
+          <div class="compare-row">
+            <span>Channels</span>
+            <span>Siloed, separate strategies</span>
+            <span>Integrated, unified visual language</span>
+          </div>
+          <div class="compare-row">
+            <span>Attribution</span>
+            <span>Last click only</span>
+            <span>Full journey, true contribution</span>
+          </div>
+          <div class="compare-row">
+            <span>Relationship</span>
+            <span>Vendor you manage</span>
+            <span>Partner invested in your growth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTV Blue Ocean -->
+  <section class="section-green">
+    <div class="container">
+      <div class="ctv-grid">
+        <div class="ctv-content">
+          <p class="section-label">Blue Ocean</p>
+          <h2>Before They Search</h2>
+          <p>Ninety percent of people who will need a lawyer have not searched yet. Paid search fights over the 10 percent who have.</p>
+          <p>CTV behavioral targeting reaches households before they type a query. First to establish trust. First call when ready.</p>
+          <div class="ctv-points">
+            <div class="ctv-point">
+              <strong>Behavioral audiences</strong>
+              <span>Target qualifying events. Not demographics.</span>
+            </div>
+            <div class="ctv-point">
+              <strong>Market exclusivity</strong>
+              <span>One firm per geography. Competitors locked out.</span>
+            </div>
+            <div class="ctv-point">
+              <strong>Full attribution</strong>
+              <span>Commercial view to signed case. Tracked.</span>
+            </div>
+          </div>
+        </div>
+        <div class="ctv-stats">
+          <div class="ctv-stat">
+            <span class="ctv-stat-num">10%</span>
+            <span class="ctv-stat-label">Actively searching</span>
+            <span class="ctv-stat-note">Traditional paid search fights here</span>
+          </div>
+          <div class="ctv-stat ctv-stat-highlight">
+            <span class="ctv-stat-num">90%</span>
+            <span class="ctv-stat-label">Before they search</span>
+            <span class="ctv-stat-note">CTV behavioral targeting reaches here</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Build Something That Lasts</h2>
+        <p>Get a Growth Audit. No pitch. No pressure. Just an honest look at what's working and what's not.</p>
+        <div class="cta-actions">
+          <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-white btn-lg">Get Your Growth Audit</a>
+          <a href="tel:+18005551234" class="btn btn-outline-white btn-lg">Call Directly</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Preview Banner */
+  .preview-banner {
+    background: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+  }
+  .preview-banner a {
+    color: var(--color-primary-light);
+    margin-left: 0.5rem;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--color-bg-dark);
+    color: #fff;
+    padding: 4rem 1.5rem 3rem;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+  .hero-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-light);
+    margin-bottom: 0.75rem;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+  .hero-text {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2rem;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .hero-visual {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .stat-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+  .stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary-light);
+  }
+  .stat-text {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .hero-trust {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .trust-label {
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 1rem;
+  }
+  .trust-avatars {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0.9;
+  }
+  .trust-avatars img {
+    height: 40px;
+    width: auto;
+  }
+
+  /* Sections */
+  .section-light {
+    padding: 4rem 1.5rem;
+    background: #f8f9fa;
+  }
+  .section-white {
+    padding: 4rem 1.5rem;
+    background: #fff;
+  }
+  .section-dark {
+    padding: 4rem 1.5rem;
+    background: var(--color-bg-dark);
+    color: #fff;
+  }
+  .section-green {
+    padding: 4rem 1.5rem;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
+    color: #fff;
+  }
+  .section-cta {
+    padding: 4rem 1.5rem;
+    background: var(--color-primary);
+    color: #fff;
+    text-align: center;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  .section-dark .section-label,
+  .section-green .section-label {
+    color: var(--color-primary-light);
+  }
+  .content-narrow {
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+  }
+  .content-narrow h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 1rem;
+  }
+  .lead {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  /* Problem Grid */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  @media (max-width: 800px) {
+    .problem-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+  }
+  .problem-item {
+    text-align: center;
+  }
+  .problem-item h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+  .problem-item p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  /* Pillars */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .pillars {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+  }
+  .pillar {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+  .pillar-num {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary-light);
+    margin-bottom: 0.75rem;
+  }
+  .pillar h3 {
+    font-size: 1.375rem;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+  .pillar-tagline {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 1rem;
+  }
+  .pillar > p:not(.pillar-tagline) {
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+  .pillar-list {
+    list-style: none;
+    margin-bottom: 1.25rem;
+  }
+  .pillar-list li {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.7);
+    padding: 0.375rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .pillar-list li:last-child {
+    border-bottom: none;
+  }
+  .pillar-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary-light);
+    text-decoration: none;
+  }
+  .pillar-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Compare */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .compare-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .compare-content h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 1rem;
+  }
+  .compare-content p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+  .compare-table {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    font-size: 0.875rem;
+  }
+  .compare-row span {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  .compare-header {
+    background: var(--color-bg-dark);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .compare-header span {
+    border-bottom: none;
+  }
+  .compare-row:not(.compare-header) span:first-child {
+    font-weight: 500;
+    color: var(--color-text-dark);
+  }
+  .compare-row:not(.compare-header) span:nth-child(2) {
+    color: var(--color-text-muted);
+  }
+  .compare-row:not(.compare-header) span:nth-child(3) {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+  .compare-row:last-child span {
+    border-bottom: none;
+  }
+
+  /* CTV */
+  .ctv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .ctv-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+  .ctv-content h2 {
+    color: #fff;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 1rem;
+  }
+  .ctv-content > p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .ctv-points {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .ctv-point {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  .ctv-point strong {
+    font-size: 0.9375rem;
+    color: var(--color-primary-light);
+  }
+  .ctv-point span {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .ctv-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .ctv-stat {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .ctv-stat-highlight {
+    background: rgba(41, 140, 66, 0.25);
+    border-color: var(--color-primary);
+  }
+  .ctv-stat-num {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .ctv-stat-highlight .ctv-stat-num {
+    color: var(--color-primary-light);
+  }
+  .ctv-stat-label {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+  .ctv-stat-note {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* CTA */
+  .cta-content {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .cta-content h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  .cta-content > p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 1.5rem;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Buttons */
+  .btn-ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+  .btn-white {
+    background: #fff;
+    color: var(--color-primary);
+  }
+  .btn-white:hover {
+    background: rgba(255,255,255,0.9);
+    color: var(--color-primary);
+  }
+  .btn-outline-white {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+  .btn-outline-white:hover {
+    background: #fff;
+    color: var(--color-primary);
+  }
+</style>
