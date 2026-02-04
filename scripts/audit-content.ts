@@ -51,7 +51,7 @@ const RULES = {
     fix: () => ' and ',
   },
   withAbbrev: {
-    pattern: /\bw\//gi,
+    pattern: /(?<!\\)\bw\//gi,  // Exclude \w/ regex patterns
     message: 'Abbreviation "w/" found. Spell out "with".',
     fix: () => 'with',
   },
@@ -558,7 +558,7 @@ const META_RULES = {
     message: 'Meta description exceeds 160 characters.',
   },
   titleTooLong: {
-    pattern: /title:\s*["']?(.{61,})["']?/i,
+    pattern: /^title:\s*["'](.{61,})["']/im,  // Only frontmatter titles (start of line)
     message: 'Meta title exceeds 60 characters.',
   },
 }
