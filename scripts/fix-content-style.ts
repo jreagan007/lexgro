@@ -533,6 +533,93 @@ const FIXES: { pattern: RegExp; replacement: string | ((match: string, ...args: 
     replacement: 'capacity',
     description: 'bandwidth → capacity',
   },
+
+  // === LLM GIVEAWAY PATTERNS ===
+  // LLM Headers - remove "Introduction:" prefix but keep the rest
+  {
+    pattern: /^(##\s*)Introduction:\s*/gm,
+    replacement: '$1',
+    description: '## Introduction: prefix → removed (kept heading text)',
+  },
+  {
+    pattern: /^(##\s*)Overview:\s*/gm,
+    replacement: '$1',
+    description: '## Overview: prefix → removed (kept heading text)',
+  },
+  {
+    pattern: /^(##\s*)Background:\s*/gm,
+    replacement: '$1',
+    description: '## Background: prefix → removed (kept heading text)',
+  },
+  {
+    pattern: /^(##\s*)Conclusion:\s*/gm,
+    replacement: '$1',
+    description: '## Conclusion: prefix → removed (kept heading text)',
+  },
+  {
+    pattern: /^(##\s*)Summary:\s*/gm,
+    replacement: '$1',
+    description: '## Summary: prefix → removed (kept heading text)',
+  },
+  {
+    pattern: /^##\s*Final Thoughts?:\s*/gm,
+    replacement: '## ',
+    description: '## Final Thought(s): → removed',
+  },
+  {
+    pattern: /^##\s*Final Takeaway:\s*/gm,
+    replacement: '## ',
+    description: '## Final Takeaway: → removed',
+  },
+  {
+    pattern: /^##\s*Key Takeaways?:\s*/gm,
+    replacement: '## ',
+    description: '## Key Takeaway(s): → removed',
+  },
+
+  // Artificial Authenticity Markers
+  {
+    pattern: /\*\*From Keith'?s Perspective:?\*\*\s*/gi,
+    replacement: '**From my experience:** ',
+    description: "From Keith's Perspective → From my experience",
+  },
+  {
+    pattern: /\*\*Real Results Example:?\*\*\s*/gi,
+    replacement: '**Case study:** ',
+    description: 'Real Results Example → Case study',
+  },
+  {
+    pattern: /\*\*From Keith:?\*\*\s*/gi,
+    replacement: '',
+    description: 'From Keith → removed',
+  },
+
+  // Conversational LLM Patterns
+  {
+    pattern: /\bLet me explain\.?\s*/gi,
+    replacement: '',
+    description: 'Let me explain → removed',
+  },
+  {
+    pattern: /\bLet me walk you through\.?\s*/gi,
+    replacement: '',
+    description: 'Let me walk you through → removed',
+  },
+  {
+    pattern: /\bLet me show you\.?\s*/gi,
+    replacement: '',
+    description: 'Let me show you → removed',
+  },
+  {
+    pattern: /\bLet me break (this|it) down\.?\s*/gi,
+    replacement: '',
+    description: 'Let me break this down → removed',
+  },
+  {
+    pattern: /\bHere'?s what you need to know:?\s*/gi,
+    replacement: '',
+    description: "Here's what you need to know → removed",
+  },
 ]
 
 interface FixResult {

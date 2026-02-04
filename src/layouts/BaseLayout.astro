@@ -36,6 +36,14 @@ const canonical = canonicalUrl || Astro.url.href;
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WK56H7KT');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -85,6 +93,11 @@ const canonical = canonicalUrl || Astro.url.href;
     <meta name="theme-color" content="#298C42" />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WK56H7KT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <Header />
     <main id="main-content">
       <slot />
@@ -360,5 +373,86 @@ const canonical = canonicalUrl || Astro.url.href;
         border: 0;
       }
     </style>
+
+    <!-- GTM Event Tracking -->
+    <script is:inline>
+      // Initialize dataLayer
+      window.dataLayer = window.dataLayer || [];
+
+      // Track CTA button clicks
+      document.addEventListener('click', function(e) {
+        var target = e.target.closest('a, button');
+        if (!target) return;
+
+        var classList = target.className || '';
+        var href = target.getAttribute('href') || '';
+        var text = target.textContent?.trim() || '';
+
+        // Track CTA buttons
+        if (classList.includes('btn') || target.getAttribute('data-track-cta')) {
+          window.dataLayer.push({
+            event: 'cta_click',
+            cta_text: text,
+            cta_href: href,
+            cta_location: target.closest('section')?.id || 'unknown'
+          });
+        }
+
+        // Track phone clicks
+        if (href.startsWith('tel:')) {
+          window.dataLayer.push({
+            event: 'phone_click',
+            phone_number: href.replace('tel:', ''),
+            click_location: window.location.pathname
+          });
+        }
+
+        // Track email clicks
+        if (href.startsWith('mailto:')) {
+          window.dataLayer.push({
+            event: 'email_click',
+            email_address: href.replace('mailto:', ''),
+            click_location: window.location.pathname
+          });
+        }
+
+        // Track outbound links
+        if (href.startsWith('http') && !href.includes(window.location.hostname)) {
+          window.dataLayer.push({
+            event: 'outbound_link',
+            link_url: href,
+            link_text: text
+          });
+        }
+      });
+
+      // Track scroll depth
+      var scrollThresholds = [25, 50, 75, 90];
+      var scrollTracked = {};
+      window.addEventListener('scroll', function() {
+        var scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        scrollThresholds.forEach(function(threshold) {
+          if (scrollPercent >= threshold && !scrollTracked[threshold]) {
+            scrollTracked[threshold] = true;
+            window.dataLayer.push({
+              event: 'scroll_depth',
+              scroll_percentage: threshold,
+              page_path: window.location.pathname
+            });
+          }
+        });
+      });
+
+      // Track form submissions
+      document.addEventListener('submit', function(e) {
+        var form = e.target;
+        var formName = form.getAttribute('name') || form.getAttribute('id') || 'unknown_form';
+        window.dataLayer.push({
+          event: 'form_submit',
+          form_name: formName,
+          page_path: window.location.pathname
+        });
+      });
+    </script>
   </body>
 </html>

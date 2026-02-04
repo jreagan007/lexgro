@@ -28,11 +28,28 @@ This is non-negotiable. The style guide contains essential rules that must be fo
 4. Verify `lastModified` is updated (auto-fix does this for MDX)
 
 ```bash
+# Style Audit
 npm run audit           # Quick summary of issues
 npm run audit:verbose   # Detailed issues with context
 npm run audit:fix       # Show suggested fixes
-npm run fix:style       # Auto-fix: %, em-dashes, &, jargon, etc.
+npm run audit:llm       # LLM-specific pattern checks only
+
+# Auto-Fix
+npm run fix:style       # Auto-fix: %, em-dashes, &, jargon, LLM patterns
 npm run fix:style:dry   # Preview fixes without applying
+
+# Internal Links
+npm run links:analyze   # Find missing internal links
+npm run links:verbose   # Detailed link suggestions with context
+
+# Content Priority
+npm run content:priority         # Show priority queue for content fixes
+npm run content:priority:verbose # Detailed scoring breakdown
+
+# Research/Citations
+npm run research:citations <file>        # Find uncited statistics
+npm run research:citations <file> --fetch # Also fetch sources via Perplexity
+npm run research:citations --all         # Scan all content files
 ```
 
 ### Auto-Fixed Issues
@@ -50,6 +67,14 @@ The `fix:style` script automatically handles:
 - `move the needle` → "produce results"
 - `leverage your/the` → "use your/the"
 - Various "very [word]" improvements
+- **LLM Patterns:**
+  - `## Introduction:` header → removed
+  - `## Overview:` header → removed
+  - `**From Keith's Perspective:**` → `**From my experience:**`
+  - `**Real Results Example:**` → `**Case study:**`
+  - `Let me explain.` → removed
+  - `Let me walk you through.` → removed
+  - `Here's what you need to know` → removed
 
 ### Manual Review Required
 These issues need human judgment:
@@ -57,6 +82,9 @@ These issues need human judgment:
 - Titles over 60 characters (shorten)
 - "really" and remaining "very" in context
 - "leverage", "synergy", "holistic" in technical contexts
+- Missing internal links (use `npm run links:analyze`)
+- Missing Sources section (use `npm run research:citations`)
+- Stub content (use `npm run content:priority` to identify)
 
 ### Last Modified
 **CRITICAL:** When editing ANY content file, update `lastModified` in frontmatter:
@@ -64,6 +92,41 @@ These issues need human judgment:
 lastModified: '2026-01-29'  # Always use today's date YYYY-MM-DD
 ```
 The `fix:style` script updates this automatically for MDX files.
+
+### Content Improvement Workflow
+
+**Step 1: Identify priority files**
+```bash
+npm run content:priority
+```
+This shows files ranked by urgency (stubs first, then high-traffic pages with issues).
+
+**Step 2: Check specific file issues**
+```bash
+npm run audit:verbose | grep <filename>
+npm run links:analyze --file <filename>
+npm run research:citations <filename>
+```
+
+**Step 3: Fix issues**
+1. Run `npm run fix:style` for auto-fixable issues
+2. Manually add internal links (use suggestions from `links:analyze`)
+3. Add Sources section with citations (use `research:citations --fetch`)
+4. Rewrite LLM patterns to sound natural
+
+**Step 4: Verify**
+```bash
+npm run audit:verbose | grep <filename>
+```
+
+### LLM Pattern Detection
+The audit system detects AI-generated content patterns:
+- **Headers:** `## Introduction:`, `## Overview:`, `## Background:`
+- **Markers:** `**From Keith's Perspective:**`, `**Real Results Example:**`
+- **Phrases:** "Let me explain", "Here's what you need to know", "Think of it as"
+- **Transitions:** "Now let's", "Well, the...", "You might be wondering"
+
+Run `npm run audit:llm` to check only for LLM patterns.
 
 ---
 
@@ -96,6 +159,15 @@ When creating content that requires statistics or research:
 
 **See `docs/TOOLS-WORKFLOW.md` for complete documentation.**
 
+### Role Separation (Critical)
+- **Claude** = Reasoning, writing, code, analysis
+- **Perplexity** = Research with live web citations (DO NOT use Claude for current stats)
+- **Firecrawl** = Web scraping, crawling, site analysis
+- **Gemini** = Image generation
+- **DataForSEO** = Keyword and SERP data
+
+**Do not make the stack weak by doing 100 percent Claude.** Each tool has a specific strength.
+
 | Tool | Purpose | When to Use |
 |------|---------|-------------|
 | **Claude** | Reasoning, writing, code | Strategy, content creation, analysis |
@@ -112,6 +184,12 @@ GEMINI_API_KEY=AIzaSyxxx
 DATAFORSEO_LOGIN=xxx
 DATAFORSEO_PASSWORD=xxx
 ```
+
+### Perplexity Models (Updated Feb 2026)
+- `sonar-pro` - Advanced search with 2x more results (default)
+- `sonar` - Lightweight grounded search
+- `sonar-reasoning` - Real-time reasoning with search
+- `sonar-deep-research` - Long-form source-dense reports
 
 ### Decision: Which Tool?
 - **Writing content?** → Claude + Perplexity (research first)
@@ -411,7 +489,13 @@ public/
 
 scripts/
 ├── generate-all-og.ts       # Batch OG generation
-└── generate-homepage-og.ts  # Homepage OG with Gemini
+├── generate-homepage-og.ts  # Homepage OG with Gemini
+├── audit-content.ts         # Style guide audit (npm run audit)
+├── fix-content-style.ts     # Auto-fix style issues (npm run fix:style)
+├── analyze-internal-links.ts # Link analysis (npm run links:analyze)
+├── prioritize-content.ts    # Priority queue (npm run content:priority)
+├── research-for-content.ts  # Citation helper (npm run research:citations)
+└── research-topic.ts        # Topic research with Perplexity
 ```
 
 ## Reference Data

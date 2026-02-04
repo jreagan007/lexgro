@@ -7,6 +7,7 @@
  *   npx tsx scripts/audit-content.ts              # Audit all content
  *   npx tsx scripts/audit-content.ts --fix        # Show suggested fixes
  *   npx tsx scripts/audit-content.ts --verbose    # Show all issues with context
+ *   npx tsx scripts/audit-content.ts --llm        # LLM-specific checks only
  *
  * Checks for:
  *   - Em-dashes (—)
@@ -29,6 +30,7 @@ const PROJECT_ROOT = process.cwd()
 const args = process.argv.slice(2)
 const verbose = args.includes('--verbose')
 const showFixes = args.includes('--fix')
+const llmOnly = args.includes('--llm')
 
 // Style guide rules
 const RULES = {
@@ -274,6 +276,281 @@ const RULES = {
   },
 }
 
+// LLM-specific giveaway patterns
+const LLM_RULES = {
+  // LLM Header Giveaways
+  llmIntroHeader: {
+    pattern: /^##\s*Introduction:?\s*$/gm,
+    message: 'LLM header pattern "## Introduction" found. Remove this header entirely.',
+    fix: () => '',
+  },
+  llmOverviewHeader: {
+    pattern: /^##\s*Overview:?\s*$/gm,
+    message: 'LLM header pattern "## Overview" found. Use a more specific heading.',
+  },
+  llmBackgroundHeader: {
+    pattern: /^##\s*Background:?\s*$/gm,
+    message: 'LLM header pattern "## Background" found. Use a more specific heading.',
+  },
+  llmConclusionHeader: {
+    pattern: /^##\s*Conclusion:?\s*$/gm,
+    message: 'LLM header pattern "## Conclusion" found. Use a more specific or actionable heading.',
+  },
+
+  // Artificial Authenticity Markers
+  llmKeithPerspective: {
+    pattern: /\*\*From Keith'?s Perspective:?\*\*/gi,
+    message: 'LLM marker "From Keith\'s Perspective" found. Use "From my experience:" instead.',
+    fix: () => '**From my experience:**',
+  },
+  llmRealResults: {
+    pattern: /\*\*Real Results Example:?\*\*/gi,
+    message: 'LLM marker "Real Results Example" found. Use "Case study:" instead.',
+    fix: () => '**Case study:**',
+  },
+  llmFromKeith: {
+    pattern: /\*\*From Keith:?\*\*/gi,
+    message: 'LLM marker "From Keith:" found. Remove or use first-person.',
+    fix: () => '',
+  },
+  llmProTip: {
+    pattern: /\*\*Pro Tip:?\*\*/gi,
+    message: 'LLM marker "Pro Tip" found. Just state the tip directly.',
+  },
+  llmExpertInsight: {
+    pattern: /\*\*Expert Insight:?\*\*/gi,
+    message: 'LLM marker "Expert Insight" found. Just state the insight directly.',
+  },
+
+  // Conversational LLM Patterns
+  llmLetMeExplain: {
+    pattern: /\bLet me explain\.?\s*/gi,
+    message: 'LLM phrase "Let me explain" found. Just explain directly.',
+    fix: () => '',
+  },
+  llmLetMeWalk: {
+    pattern: /\bLet me walk you through\.?\s*/gi,
+    message: 'LLM phrase "Let me walk you through" found. Just walk through directly.',
+    fix: () => '',
+  },
+  llmLetMeShow: {
+    pattern: /\bLet me show you\.?\s*/gi,
+    message: 'LLM phrase "Let me show you" found. Just show directly.',
+    fix: () => '',
+  },
+  llmLetMeBreak: {
+    pattern: /\bLet me break (this|it) down\.?\s*/gi,
+    message: 'LLM phrase "Let me break this down" found. Just break it down directly.',
+    fix: () => '',
+  },
+  llmHeresWhat: {
+    pattern: /\bHere'?s what you need to know\.?\s*/gi,
+    message: 'LLM phrase "Here\'s what you need to know" found. Just state it.',
+    fix: () => '',
+  },
+  llmThinkOfIt: {
+    pattern: /\bThink of it (as|like)\b/gi,
+    message: 'LLM phrase "Think of it as/like" found. Use a direct comparison instead.',
+  },
+  llmYouMightBeWondering: {
+    pattern: /\bYou might be wondering\b/gi,
+    message: 'LLM phrase "You might be wondering" found. Just answer the question directly.',
+  },
+  llmSoWhyDoes: {
+    pattern: /\bSo,? why does (this|it)\b/gi,
+    message: 'LLM rhetorical question pattern found. Answer directly without the question.',
+  },
+  llmWellThe: {
+    pattern: /^Well,?\s+the\b/gim,
+    message: 'LLM conversational "Well, the..." found. Start directly with the point.',
+  },
+  llmNowLets: {
+    pattern: /\bNow,? let'?s\b/gi,
+    message: 'LLM transitional "Now let\'s" found. Just start the next section.',
+  },
+
+  // Structural LLM patterns
+  llmFirstSecondThird: {
+    pattern: /\b(First|Second|Third|Fourth|Fifth),\s+\w+\.\s+(Second|Third|Fourth|Fifth),/gi,
+    message: 'LLM numbered list pattern (First, ... Second, ...) found. Use bullet points or restructure.',
+  },
+  llmOnOneHand: {
+    pattern: /\bOn (the\s+)?one hand\b.*\bon (the\s+)?other hand\b/gis,
+    message: 'LLM "on one hand...on the other hand" pattern found. Be more direct.',
+  },
+}
+
+// Structural checks (non-regex based)
+interface StructuralIssue {
+  type: string
+  message: string
+  line?: number
+}
+
+/**
+ * Check for stub/placeholder content
+ */
+function checkForStubContent(content: string, lines: string[]): StructuralIssue[] {
+  const issues: StructuralIssue[] = []
+  const stubPatterns = [
+    /\*Content to be written\*/i,
+    /\bTODO:/i,
+    /\bPLACEHOLDER\b/i,
+    /\[Insert .+\]/i,
+    /\{TBD\}/i,
+    /\bLorem ipsum\b/i,
+    /Coming soon\.?$/i,
+  ]
+
+  for (let i = 0; i < lines.length; i++) {
+    for (const pattern of stubPatterns) {
+      if (pattern.test(lines[i])) {
+        issues.push({
+          type: 'stubContent',
+          message: `Stub/placeholder content found: "${lines[i].trim().slice(0, 50)}..."`,
+          line: i + 1,
+        })
+      }
+    }
+  }
+
+  // Check for very short content (likely stub)
+  const bodyContent = content.replace(/^---[\s\S]*?---/, '').trim()
+  const wordCount = bodyContent.split(/\s+/).filter(w => w.length > 0).length
+  if (wordCount < 200) {
+    issues.push({
+      type: 'stubContent',
+      message: `File appears to be a stub (only ${wordCount} words in body).`,
+    })
+  }
+
+  return issues
+}
+
+/**
+ * Check for missing Sources section when statistics are present
+ */
+function checkForMissingSources(content: string): StructuralIssue[] {
+  const issues: StructuralIssue[] = []
+
+  // Patterns that indicate statistics requiring citations
+  const statPatterns = [
+    /\$[\d,]+(?:\s+(?:to|-)?\s*\$[\d,]+)?(?:\s+(?:per|a)\s+(?:year|month|week|day|hour))?/g, // Money amounts
+    /\d+(?:\.\d+)?\s*percent/gi, // Percentages
+    /\d{1,3}(?:,\d{3})+/g, // Large numbers
+    /(?:according to|study shows?|research (?:shows?|indicates?)|data (?:shows?|suggests?))/gi, // Citation phrases
+    /(?:survey|report|study)\s+(?:found|shows?|reveals?)/gi,
+  ]
+
+  let hasStats = false
+  for (const pattern of statPatterns) {
+    if (pattern.test(content)) {
+      hasStats = true
+      break
+    }
+  }
+
+  // Check if Sources section exists
+  const hasSourcesSection = /^##?\s*Sources?\s*$/im.test(content) ||
+    /^##?\s*References?\s*$/im.test(content) ||
+    /^\[\d+\]:/m.test(content) // Numbered reference style
+
+  if (hasStats && !hasSourcesSection) {
+    issues.push({
+      type: 'missingSources',
+      message: 'Content has statistics but no Sources/References section. Add citations per style guide.',
+    })
+  }
+
+  return issues
+}
+
+/**
+ * Check for self-referential links (page linking to itself)
+ */
+function checkForSelfLinks(content: string, filePath: string): StructuralIssue[] {
+  const issues: StructuralIssue[] = []
+
+  // Extract slug from file path
+  const match = filePath.match(/\/([^/]+)\.mdx?$/)
+  if (!match) return issues
+
+  const slug = match[1]
+
+  // Check for links to the same slug
+  const linkPattern = new RegExp(`\\]\\(/?(?:guide|blog|answers|services)?/?${slug}/?\\)`, 'gi')
+  if (linkPattern.test(content)) {
+    issues.push({
+      type: 'selfLink',
+      message: `Page links to itself (${slug}). Remove self-referential link.`,
+    })
+  }
+
+  return issues
+}
+
+/**
+ * Calculate passive voice percentage
+ */
+function checkPassiveVoicePercentage(content: string): StructuralIssue[] {
+  const issues: StructuralIssue[] = []
+
+  // Remove frontmatter and code blocks
+  let bodyContent = content.replace(/^---[\s\S]*?---/, '')
+  bodyContent = bodyContent.replace(/```[\s\S]*?```/g, '')
+
+  // Count sentences (rough approximation)
+  const sentences = bodyContent.split(/[.!?]+/).filter(s => s.trim().length > 10)
+  const totalSentences = sentences.length
+
+  if (totalSentences < 5) return issues // Not enough content to measure
+
+  // Count passive voice instances
+  const passivePattern = /\b(was|were|been|being|is|are|am)\s+(being\s+)?\w+ed\b/gi
+  const passiveMatches = bodyContent.match(passivePattern) || []
+  const passiveCount = passiveMatches.length
+
+  const passivePercent = Math.round((passiveCount / totalSentences) * 100)
+
+  if (passivePercent > 20) {
+    issues.push({
+      type: 'highPassiveVoice',
+      message: `Passive voice is ${passivePercent}% (max 20%). Found ${passiveCount} passive constructions in ${totalSentences} sentences.`,
+    })
+  }
+
+  return issues
+}
+
+/**
+ * Check for zero internal links in body content
+ */
+function checkForInternalLinks(content: string, filePath: string): StructuralIssue[] {
+  const issues: StructuralIssue[] = []
+
+  // Skip non-MDX files
+  if (!filePath.endsWith('.mdx') && !filePath.endsWith('.md')) return issues
+
+  // Remove frontmatter
+  const bodyContent = content.replace(/^---[\s\S]*?---/, '')
+
+  // Check for internal links (not including /contact which is just a CTA)
+  const internalLinkPattern = /\]\(\/(?!contact)[^)]+\)/g
+  const matches = bodyContent.match(internalLinkPattern) || []
+
+  // Filter out image links and anchors
+  const actualLinks = matches.filter(m => !m.includes('.png') && !m.includes('.jpg') && !m.includes('#'))
+
+  if (actualLinks.length === 0) {
+    issues.push({
+      type: 'noInternalLinks',
+      message: 'No internal links in body content. Add links to related guides/answers/blog posts.',
+    })
+  }
+
+  return issues
+}
+
 // Meta description length check
 const META_RULES = {
   descriptionTooLong: {
@@ -305,8 +582,11 @@ function auditFile(filePath: string): Issue[] {
   const lines = content.split('\n')
   const relativePath = path.relative(PROJECT_ROOT, filePath)
 
+  // Determine which rules to use
+  const rulesToCheck = llmOnly ? LLM_RULES : { ...RULES, ...LLM_RULES }
+
   // Check each rule
-  for (const [ruleName, rule] of Object.entries(RULES)) {
+  for (const [ruleName, rule] of Object.entries(rulesToCheck)) {
     let match
     const regex = new RegExp(rule.pattern.source, rule.pattern.flags)
 
@@ -335,6 +615,76 @@ function auditFile(filePath: string): Issue[] {
       }
 
       issues.push(issue)
+    }
+  }
+
+  // Structural checks (only for content files)
+  if (filePath.endsWith('.mdx') || filePath.endsWith('.md')) {
+    // Check for stub content
+    const stubIssues = checkForStubContent(content, lines)
+    for (const si of stubIssues) {
+      issues.push({
+        file: relativePath,
+        line: si.line || 1,
+        column: 1,
+        rule: si.type,
+        message: si.message,
+        context: '',
+      })
+    }
+
+    // Check for missing sources
+    const sourceIssues = checkForMissingSources(content)
+    for (const si of sourceIssues) {
+      issues.push({
+        file: relativePath,
+        line: 1,
+        column: 1,
+        rule: si.type,
+        message: si.message,
+        context: '',
+      })
+    }
+
+    // Check for self-referential links
+    const selfLinkIssues = checkForSelfLinks(content, filePath)
+    for (const si of selfLinkIssues) {
+      issues.push({
+        file: relativePath,
+        line: 1,
+        column: 1,
+        rule: si.type,
+        message: si.message,
+        context: '',
+      })
+    }
+
+    // Check passive voice percentage
+    const passiveIssues = checkPassiveVoicePercentage(content)
+    for (const si of passiveIssues) {
+      issues.push({
+        file: relativePath,
+        line: 1,
+        column: 1,
+        rule: si.type,
+        message: si.message,
+        context: '',
+      })
+    }
+
+    // Check for internal links (only if not llm-only mode)
+    if (!llmOnly) {
+      const linkIssues = checkForInternalLinks(content, filePath)
+      for (const si of linkIssues) {
+        issues.push({
+          file: relativePath,
+          line: 1,
+          column: 1,
+          rule: si.type,
+          message: si.message,
+          context: '',
+        })
+      }
     }
   }
 
@@ -467,7 +817,12 @@ function formatIssue(issue: Issue, index: number): string {
  */
 async function main() {
   console.log('\n📋 LEXGRO Content Style Audit\n')
-  console.log('Checking all content against style guide rules...\n')
+
+  if (llmOnly) {
+    console.log('🤖 LLM-ONLY MODE: Checking for AI-generated content patterns...\n')
+  } else {
+    console.log('Checking all content against style guide rules...\n')
+  }
 
   const files = await getContentFiles()
   console.log(`Found ${files.length} content files to audit.\n`)

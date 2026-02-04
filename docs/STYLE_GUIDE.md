@@ -82,9 +82,24 @@ Try to get anchor text that uses keywords if possible. Also if possible, do not 
 
 **Bad:** "More data based on studies done on law firm marketing ROI is available from the [Legal Marketing Association](http://example.com/)"
 
-At the bottom of the page, provide a numbered list of every source that you used, in order. You do not need to create a citation, just provide the link.
+At the bottom of the page, provide a list of every source used.
 
-Title the list "Sources" with an H2 and make the list numbered, not bulleted.
+Title the list "References" with an H2. Use this compact format:
+
+```
+## References
+
+Organization Name. [Article Title](https://url)
+
+Organization Name. [Article Title](https://url)
+```
+
+**Format rules:**
+- No numbers or bullets
+- Organization/publisher name first, followed by period
+- Linked article title in brackets
+- One blank line between each reference
+- No descriptions after the link
 
 ---
 
@@ -286,9 +301,74 @@ Common hyphenated terms in legal marketing:
 
 1. **No em-dashes (—):** Use periods, commas, colons, or parentheses instead. Em-dashes sound machine-like.
 2. **No marketing jargon:** Never use "synergy," "leverage" (as verb), "holistic," "paradigm shift"
-3. **Always cite sources:** Every statistic needs a link to the original source
-4. **Active voice:** Maximum 20 percent passive voice
-5. **Paragraphs under 5 lines:** White space keeps readers moving
+3. **No machine words:** Avoid AI-sounding vocabulary that flags content as automated
+4. **Always cite sources:** Every statistic needs a link to the original source
+5. **Active voice:** Maximum 20 percent passive voice
+6. **Paragraphs under 5 lines:** White space keeps readers moving
+
+---
+
+## Machine Words to Avoid
+
+These words and phrases signal AI-generated content. Use human alternatives.
+
+| Machine Word | Human Alternative |
+|-------------|-------------------|
+| ensure | make sure |
+| utilize | use |
+| crucial | important, critical |
+| delve | explore, examine |
+| comprehensive | complete, thorough |
+| robust | strong, solid |
+| leverage (verb) | use, apply |
+| facilitate | help, enable |
+| seamless | smooth, easy |
+| cutting-edge | modern, advanced |
+| paradigm | approach, model |
+| synergy | combination, teamwork |
+| holistic | complete, whole |
+| streamline | simplify |
+| optimal | best |
+| pivotal | key, important |
+| empower | help, enable |
+| endeavor | try, work |
+| plethora | many, plenty |
+| myriad | many |
+| foster | build, develop |
+| underscore | highlight, emphasize |
+| landscape | market, industry |
+| actionable | practical, useful |
+| bandwidth | capacity, time |
+
+### AI Header Patterns to Avoid
+
+Do not use these header formats:
+
+- "## Introduction:" or "## Introduction"
+- "## Conclusion:" or "## Conclusion"
+- "## Overview:"
+- "## Final Thought:" or "## Final Takeaway:"
+- "## Key Takeaways:"
+
+Instead, use descriptive headers that add value:
+
+- "## The Problem with Traditional Marketing"
+- "## What This Means for Your Firm"
+- "## Where to Start"
+
+### AI Phrase Patterns to Avoid
+
+- "Let me explain..."
+- "Here's what you need to know..."
+- "Think of it as..."
+- "In this article, we will..."
+- "To understand X, we must first..."
+- "Without further ado..."
+- "It goes without saying..."
+- "At the end of the day..."
+- "Moving forward..."
+- "In today's world..."
+- "Now more than ever..."
 
 ---
 
