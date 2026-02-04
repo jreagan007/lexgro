@@ -6,6 +6,7 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { cmoEpisodes, getSortedCMOEpisodes, formatDate } from '../../data/cmo-podcast-episodes';
+import { podcastPlatforms } from '../../data/podcast-episodes';
 
 const sortedEpisodes = getSortedCMOEpisodes();
 const latestEpisode = sortedEpisodes[0];
@@ -26,9 +27,9 @@ const latestEpisode = sortedEpisodes[0];
           Candid conversations with law firm CMOs and marketing directors. Learn how the best firms build, lead, and scale their marketing organizations.
         </p>
         <div class="subscribe-buttons">
-          <a href="#" class="subscribe-btn">Apple Podcasts</a>
-          <a href="#" class="subscribe-btn">Spotify</a>
-          <a href="#" class="subscribe-btn">YouTube</a>
+          <a href={podcastPlatforms.apple} class="subscribe-btn" target="_blank" rel="noopener">Apple Podcasts</a>
+          <a href={podcastPlatforms.spotify} class="subscribe-btn" target="_blank" rel="noopener">Spotify</a>
+          <a href={podcastPlatforms.youtube} class="subscribe-btn" target="_blank" rel="noopener">YouTube</a>
         </div>
       </div>
     </div>

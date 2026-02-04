@@ -6,6 +6,7 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { cmoEpisodes, getSortedCMOEpisodes, formatDate, type CMOEpisode } from '../../data/cmo-podcast-episodes';
+import { podcastPlatforms } from '../../data/podcast-episodes';
 
 export function getStaticPaths() {
   return cmoEpisodes.map((episode) => ({
@@ -67,9 +68,9 @@ const nextEpisode = sortedEpisodes[currentIndex - 1];
           <div class="player-info">
             <p class="player-text">Listen to this episode</p>
             <div class="platform-buttons">
-              <a href="#" class="platform-btn">Apple Podcasts</a>
-              <a href="#" class="platform-btn">Spotify</a>
-              <a href="#" class="platform-btn">YouTube</a>
+              <a href={podcastPlatforms.apple} class="platform-btn" target="_blank" rel="noopener">Apple Podcasts</a>
+              <a href={podcastPlatforms.spotify} class="platform-btn" target="_blank" rel="noopener">Spotify</a>
+              <a href={podcastPlatforms.youtube} class="platform-btn" target="_blank" rel="noopener">YouTube</a>
             </div>
           </div>
         </div>
@@ -112,10 +113,9 @@ const nextEpisode = sortedEpisodes[currentIndex - 1];
             <h3 class="sidebar-title">Subscribe</h3>
             <p class="sidebar-text">Never miss conversations with law firm marketing leaders.</p>
             <div class="subscribe-links">
-              <a href="#" class="subscribe-link">Apple Podcasts</a>
-              <a href="#" class="subscribe-link">Spotify</a>
-              <a href="#" class="subscribe-link">YouTube</a>
-              <a href="#" class="subscribe-link">RSS Feed</a>
+              <a href={podcastPlatforms.apple} class="subscribe-link" target="_blank" rel="noopener">Apple Podcasts</a>
+              <a href={podcastPlatforms.spotify} class="subscribe-link" target="_blank" rel="noopener">Spotify</a>
+              <a href={podcastPlatforms.youtube} class="subscribe-link" target="_blank" rel="noopener">YouTube</a>
             </div>
           </div>
         </aside>
