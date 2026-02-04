@@ -1,0 +1,131 @@
+{
+  "terms": {
+    "fractional cmo": "/services/fractional-cmo/",
+    "fractional cmo services": "/services/fractional-cmo/",
+    "fractional CMO": "/services/fractional-cmo/",
+    "fractional CMO services": "/services/fractional-cmo/",
+    "fractional chief marketing officer": "/services/fractional-cmo/",
+
+    "law firm marketing": "/guide/law-firm-marketing/",
+    "legal marketing": "/guide/law-firm-marketing/",
+    "law firm marketing strategy": "/guide/law-firm-marketing/",
+    "marketing for law firms": "/guide/law-firm-marketing/",
+
+    "law firm seo": "/guide/law-firm-seo/",
+    "law firm SEO": "/guide/law-firm-seo/",
+    "legal seo": "/guide/law-firm-seo/",
+    "seo for law firms": "/guide/law-firm-seo/",
+    "seo for lawyers": "/guide/law-firm-seo/",
+    "attorney seo": "/guide/law-firm-seo/",
+    "lawyer seo": "/guide/law-firm-seo/",
+
+    "law firm ppc": "/guide/law-firm-ppc/",
+    "law firm PPC": "/guide/law-firm-ppc/",
+    "ppc for law firms": "/guide/law-firm-ppc/",
+    "ppc for lawyers": "/guide/law-firm-ppc/",
+    "google ads for lawyers": "/guide/law-firm-ppc/",
+    "google ads for law firms": "/guide/law-firm-ppc/",
+    "paid search for law firms": "/guide/law-firm-ppc/",
+
+    "law firm lead generation": "/guide/law-firm-lead-generation/",
+    "lead generation for law firms": "/guide/law-firm-lead-generation/",
+    "lawyer lead generation": "/guide/law-firm-lead-generation/",
+    "attorney lead generation": "/guide/law-firm-lead-generation/",
+    "legal lead generation": "/guide/law-firm-lead-generation/",
+
+    "law firm web design": "/guide/law-firm-web-design/",
+    "lawyer web design": "/guide/law-firm-web-design/",
+    "attorney web design": "/guide/law-firm-web-design/",
+    "legal web design": "/guide/law-firm-web-design/",
+    "law firm website": "/guide/law-firm-web-design/",
+
+    "law firm marketing budget": "/guide/law-firm-marketing-budget/",
+    "marketing budget": "/guide/law-firm-marketing-budget/",
+    "legal marketing budget": "/guide/law-firm-marketing-budget/",
+
+    "fractional cmo for law firms": "/guide/fractional-cmo-law-firms/",
+    "fractional cmo guide": "/guide/fractional-cmo-law-firms/",
+
+    "what is a fractional cmo": "/answers/what-is-fractional-cmo/",
+    "what is fractional cmo": "/answers/what-is-fractional-cmo/",
+
+    "contact": "/contact/",
+    "contact us": "/contact/",
+    "schedule a call": "/contact/",
+    "strategy call": "/contact/",
+
+    "results": "/results/",
+    "case studies": "/results/",
+    "client results": "/results/",
+
+    "about lexgro": "/about/",
+    "about us": "/about/",
+
+    "cmo vs agency": "/blog/why-marketing-agencies-fail-law-firms/",
+    "why agencies fail": "/blog/why-marketing-agencies-fail-law-firms/",
+    "marketing agencies fail": "/blog/why-marketing-agencies-fail-law-firms/",
+
+    "fractional cmo benefits": "/blog/top-fractional-cmo-benefits/",
+    "benefits of fractional cmo": "/blog/top-fractional-cmo-benefits/",
+
+    "personal injury marketing": "/blog/personal-injury-lawyer-marketing/",
+    "personal injury lawyer marketing": "/blog/personal-injury-lawyer-marketing/",
+    "pi lawyer marketing": "/blog/personal-injury-lawyer-marketing/",
+
+    "divorce lawyer marketing": "/blog/mastering-divorce-lawyer-marketing/",
+    "family law marketing": "/blog/mastering-divorce-lawyer-marketing/",
+
+    "bankruptcy lawyer marketing": "/blog/bankruptcy-lawyer-marketing-guide/",
+    "bankruptcy attorney marketing": "/blog/bankruptcy-lawyer-marketing-guide/",
+
+    "dui lawyer marketing": "/blog/market-your-dui-law-practice/",
+    "dui attorney marketing": "/blog/market-your-dui-law-practice/",
+
+    "immigration lawyer marketing": "/blog/how-immigration-lawyers-can-market-ethically-and-effectively/",
+    "immigration attorney marketing": "/blog/how-immigration-lawyers-can-market-ethically-and-effectively/",
+
+    "workers comp lawyer marketing": "/blog/workers-comp-lawyer-marketing-strategies-that-actually-work/",
+    "workers compensation marketing": "/blog/workers-comp-lawyer-marketing-strategies-that-actually-work/",
+
+    "criminal defense marketing": "/blog/criminal-defense-attorney-seo-strategies/",
+    "criminal defense seo": "/blog/criminal-defense-attorney-seo-strategies/",
+
+    "estate law marketing": "/blog/how-to-educate-vs-sell-in-estate-law-marketing/",
+    "estate planning marketing": "/blog/how-to-educate-vs-sell-in-estate-law-marketing/",
+
+    "law firm sales training": "/blog/law-firm-sales-training/",
+    "sales training for lawyers": "/blog/law-firm-sales-training/",
+    "intake training": "/blog/law-firm-sales-training/",
+
+    "cost per case": "/blog/ways-to-reduce-cost-per-case-acquisition/",
+    "cost per acquisition": "/blog/ways-to-reduce-cost-per-case-acquisition/",
+    "reduce cost per case": "/blog/ways-to-reduce-cost-per-case-acquisition/",
+
+    "law firm budgeting": "/blog/law-firm-budgeting-for-growth/",
+    "budgeting for growth": "/blog/law-firm-budgeting-for-growth/",
+
+    "facebook ads for lawyers": "/blog/attorney-facebook-ads/",
+    "attorney facebook ads": "/blog/attorney-facebook-ads/",
+    "lawyer facebook ads": "/blog/attorney-facebook-ads/"
+  },
+  "pillars": {
+    "marketing": {
+      "url": "/guide/law-firm-marketing/",
+      "children": [
+        "/guide/law-firm-seo/",
+        "/guide/law-firm-ppc/",
+        "/guide/law-firm-web-design/",
+        "/guide/law-firm-lead-generation/",
+        "/guide/law-firm-marketing-budget/"
+      ]
+    },
+    "fractional-cmo": {
+      "url": "/guide/fractional-cmo-law-firms/",
+      "children": [
+        "/services/fractional-cmo/",
+        "/answers/what-is-fractional-cmo/",
+        "/blog/top-fractional-cmo-benefits/"
+      ]
+    }
+  }
+}

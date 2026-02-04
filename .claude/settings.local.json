@@ -25,7 +25,17 @@
       "WebSearch",
       "WebFetch(domain:open.spotify.com)",
       "WebFetch(domain:podcasts.apple.com)",
-      "WebFetch(domain:www.youtube.com)"
+      "WebFetch(domain:www.youtube.com)",
+      "Bash(tee:*)",
+      "Bash(npm run audit:*)",
+      "WebFetch(domain:lexgro.netlify.app)",
+      "Bash(npm run audit:llm:*)",
+      "Bash(npm run fix:style:dry:*)",
+      "Bash(npm run links:analyze:*)",
+      "Bash(npm run content:priority:*)",
+      "Bash(npm run research:citations:*)",
+      "Bash(npm run audit:verbose:*)",
+      "Bash(npm run fix:style:*)"
     ]
   }
 }

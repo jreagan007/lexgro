@@ -40,10 +40,10 @@ const RULES = {
     message: 'Em-dash found. Use periods, commas, colons, or parentheses instead.',
     fix: (match: string) => '. ',
   },
-  percentSymbol: {
-    pattern: /(\d+)%/g,
-    message: 'Percentage symbol found. Use "percent" spelled out (e.g., "25 percent").',
-    fix: (match: string, num: string) => `${num} percent`,
+  percentSpelledOut: {
+    pattern: /(\d+)\s+percent\b/gi,
+    message: 'Percent spelled out. Use % symbol (e.g., "25%").',
+    fix: (match: string, num: string) => `${num}%`,
   },
   ampersand: {
     pattern: /\s&\s/g,

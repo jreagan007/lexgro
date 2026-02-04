@@ -24,11 +24,11 @@ const TODAY = new Date().toISOString().split('T')[0]
 
 // Auto-fixable patterns
 const FIXES: { pattern: RegExp; replacement: string | ((match: string, ...args: any[]) => string); description: string }[] = [
-  // Percentage symbols
+  // Percentage spelled out → symbol
   {
-    pattern: /(\d+)%/g,
-    replacement: '$1 percent',
-    description: '% → percent',
+    pattern: /(\d+)\s+percent\b/gi,
+    replacement: '$1%',
+    description: 'percent → %',
   },
   // Em-dashes to periods or commas
   {
@@ -42,9 +42,9 @@ const FIXES: { pattern: RegExp; replacement: string | ((match: string, ...args: 
     replacement: ' and ',
     description: '& → and',
   },
-  // w/ abbreviation
+  // w/ abbreviation (but not in regex like \w/)
   {
-    pattern: /\bw\//gi,
+    pattern: /(?<!\\)\bw\//gi,
     replacement: 'with',
     description: 'w/ → with',
   },

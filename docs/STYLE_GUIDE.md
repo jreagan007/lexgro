@@ -197,8 +197,8 @@ Example:
 - Round numbers when exact precision isn't needed: "around $50,000" not "$49,873"
 
 ### Percentages
-- Spell out "percent" with numerals: 25 percent (not 25%)
-- This sounds more human and conversational
+- Use % symbol with numerals: 25% (not "25 percent")
+- More scannable for data-driven content
 - In headlines, can spell out fully for impact: "Cut Costs by Forty Percent"
 
 ---
@@ -212,11 +212,12 @@ Example:
 
 ### Okay to Use
 - $ (when immediately preceding a number; not in place of the word "dollar")
+- % for percentages (25%)
 - " for inches
 - ' for feet
 
 ### Spell Out
-- percent (not %)
+- degree (It was 65 degrees outside)
 - and (not &)
 - degree (It was 65 degrees outside; The unit has 40-degree gradeability)
 
