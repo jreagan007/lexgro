@@ -22,6 +22,8 @@ export type PromptKey =
   | 'careers'
   | 'calculator'
   | 'tips'
+  | 'how-we-work'
+  | 'lexxly'
   | 'preview'
   | 'preview-how-we-work'
   | 'preview-lexxly'
@@ -68,7 +70,7 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
   // === HOMEPAGE ===
 
   homepage: {
-    prompt: `Upward view through glass atrium of modern office building, morning light streaming through skylights, green plants visible on interior balconies, architectural lines converging toward bright sky, sense of growth and ambition, warm golden hour tones with deep shadows, shot on Kodak Portra 400 35mm film, natural grain and imperfections, documentary architectural photography, no people visible, no text, no logos, authentic aspirational business atmosphere`,
+    prompt: `Partnership meeting just concluded, two leather chairs facing each other with warm afternoon light between them, coffee cups on side table, sense of collaboration and aligned interests, green plant in corner, warm golden hour through window, shot on Kodak Portra 400 35mm film, natural grain, documentary interiors photography, no people visible, no text, no logos, authentic growth partnership atmosphere`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
   },
@@ -121,6 +123,18 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
     prompt: `Worn leather executive chair behind cluttered desk, afternoon light through window blinds, framed photos out of focus, coffee mug left behind, mentorship atmosphere, 1980s executive office documentary style, Portra 400 warm tones, slight grain, no people visible, no text, authentic expert wisdom environment`,
     style: 'dark',
     fallbackGradient: [[1, 25, 7], [41, 140, 66]],
+  },
+
+  'how-we-work': {
+    prompt: `Systematic workflow station with three organized work areas in sequence, research materials leading to editorial desk leading to distribution center, morning light through industrial windows, interconnected process flow visible, methodology and precision atmosphere, 1990s operations photography, Fuji Pro 400H warm colors, no people visible, no readable text, no logos, authentic integrated system aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [26, 167, 116]],
+  },
+
+  lexxly: {
+    prompt: `Strategic intelligence workspace with market research materials spread across desk, competitor analysis printouts stacked, warm lamp light on data charts (blurred), keyword research documents visible, analytical decision-making atmosphere, focused strategic mood, 1990s research operations photography, Kodak Portra 400 warm tones, no people visible, no readable text, no logos, authentic data-driven intelligence aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [103, 58, 228]],
   },
 
   preview: {
@@ -308,6 +322,12 @@ export function getPromptKeyFromSlug(slug: string): PromptKey {
   if (normalizedSlug === 'calculator') return 'calculator'
   if (normalizedSlug.includes('tips-from-keith') || normalizedSlug.includes('tips')) return 'tips'
   if (normalizedSlug.includes('podcast') || normalizedSlug.includes('cmo-podcast')) return 'podcast'
+
+  // How We Work and LEXXLY (production)
+  if (normalizedSlug === 'how-we-work') return 'how-we-work'
+  if (normalizedSlug === 'lexxly') return 'lexxly'
+
+  // Preview pages (legacy)
   if (normalizedSlug === 'preview-how-we-work' || normalizedSlug.includes('preview/how-we-work')) return 'preview-how-we-work'
   if (normalizedSlug === 'preview-lexxly' || normalizedSlug.includes('preview/lexxly')) return 'preview-lexxly'
   if (normalizedSlug.includes('preview')) return 'preview'

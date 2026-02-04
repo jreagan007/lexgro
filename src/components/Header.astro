@@ -1,21 +1,43 @@
 ---
 /**
  * Header Component (Astro)
- * Clean, accessible navigation without React hydration overhead.
+ * Clean, accessible navigation with dropdown support.
  */
 import { Image } from 'astro:assets';
 import logoWordmark from '../assets/images/logos/lexgro-wordmark.png';
 
-const navLinks = [
+interface NavLink {
+  label: string;
+  href?: string;
+  dropdown?: { label: string; href: string }[];
+}
+
+const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'Services', href: '/services/' },
-  { label: 'Blog', href: '/blog/' },
-  { label: 'Guides', href: '/guide/' },
-  { label: 'Podcast', href: '/podcast/' },
+  { label: 'How We Work', href: '/how-we-work/' },
+  { label: 'LEXXLY', href: '/lexxly/' },
+  {
+    label: 'Resources',
+    dropdown: [
+      { label: 'Guides', href: '/guide/' },
+      { label: 'Blog', href: '/blog/' },
+      { label: 'Podcast', href: '/podcast/' },
+    ]
+  },
   { label: 'About', href: '/about/' },
 ];
 
 const currentPath = Astro.url.pathname;
+
+function isActive(link: NavLink): boolean {
+  if (link.href) {
+    return currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+  }
+  if (link.dropdown) {
+    return link.dropdown.some(item => currentPath.startsWith(item.href));
+  }
+  return false;
+}
 ---
 
 <header class="header">
@@ -44,19 +66,47 @@ const currentPath = Astro.url.pathname;
     <div id="nav-menu" class="nav-menu">
       <ul class="nav-links" role="list">
         {navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class:list={['nav-link', { active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
-              aria-current={currentPath === link.href ? 'page' : undefined}
-            >
-              {link.label}
-            </a>
+          <li class={link.dropdown ? 'has-dropdown' : ''}>
+            {link.href ? (
+              <a
+                href={link.href}
+                class:list={['nav-link', { active: isActive(link) }]}
+                aria-current={currentPath === link.href ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <div class="dropdown-container">
+                <button
+                  class:list={['nav-link', 'dropdown-trigger', { active: isActive(link) }]}
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                >
+                  {link.label}
+                  <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 4.5 6 7.5 9 4.5"></polyline>
+                  </svg>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  {link.dropdown?.map((item) => (
+                    <li role="none">
+                      <a
+                        href={item.href}
+                        class:list={['dropdown-link', { active: currentPath.startsWith(item.href) }]}
+                        role="menuitem"
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </li>
         ))}
       </ul>
       <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary nav-cta">
-        Join the LEXGRO Platform
+        Get Your Growth Audit
       </a>
     </div>
   </nav>
@@ -161,7 +211,9 @@ const currentPath = Astro.url.pathname;
   }
 
   .nav-link {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
     padding: 0.75rem 1rem;
     font-size: 0.9375rem;
     font-weight: 500;
@@ -169,6 +221,10 @@ const currentPath = Astro.url.pathname;
     text-decoration: none;
     border-radius: 8px;
     transition: color 0.2s ease, background 0.2s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
   }
 
   .nav-link:hover {
@@ -180,6 +236,92 @@ const currentPath = Astro.url.pathname;
   .nav-link.active {
     color: var(--color-primary);
     background: rgba(41, 140, 66, 0.08);
+  }
+
+  /* Dropdown */
+  .has-dropdown {
+    position: relative;
+  }
+
+  .dropdown-container {
+    position: relative;
+  }
+
+  .dropdown-trigger {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 900px) {
+    .dropdown-trigger {
+      width: auto;
+    }
+  }
+
+  .dropdown-icon {
+    transition: transform 0.2s ease;
+  }
+
+  .dropdown-trigger[aria-expanded="true"] .dropdown-icon {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0 0 1rem;
+  }
+
+  .dropdown-menu.open {
+    display: block;
+  }
+
+  @media (min-width: 900px) {
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      padding: 0.5rem 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: var(--shadow-elevated);
+      border: 1px solid rgba(41, 140, 66, 0.1);
+    }
+
+    .has-dropdown:hover .dropdown-menu,
+    .dropdown-trigger:focus + .dropdown-menu,
+    .dropdown-menu:hover {
+      display: block;
+    }
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 0.625rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+
+  .dropdown-link:hover {
+    color: var(--color-primary);
+    background: var(--color-bg-light);
+    text-decoration: none;
+  }
+
+  .dropdown-link.active {
+    color: var(--color-primary);
+  }
+
+  @media (min-width: 900px) {
+    .dropdown-link {
+      border-radius: 4px;
+      margin: 0 0.25rem;
+    }
   }
 
   .nav-cta {
@@ -197,6 +339,7 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script>
+  // Mobile menu toggle
   const menuBtn = document.querySelector('.mobile-menu-btn');
   const navMenu = document.getElementById('nav-menu');
   const iconMenu = document.querySelector('.icon-menu');
@@ -206,8 +349,39 @@ const currentPath = Astro.url.pathname;
     menuBtn.addEventListener('click', () => {
       const isOpen = navMenu.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', String(isOpen));
-      iconMenu.style.display = isOpen ? 'none' : 'block';
-      iconClose.style.display = isOpen ? 'block' : 'none';
+      (iconMenu as HTMLElement).style.display = isOpen ? 'none' : 'block';
+      (iconClose as HTMLElement).style.display = isOpen ? 'block' : 'none';
     });
   }
+
+  // Mobile dropdown toggle
+  const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+  dropdownTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      // Only handle click on mobile
+      if (window.innerWidth < 900) {
+        e.preventDefault();
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', String(!isExpanded));
+        const menu = trigger.nextElementSibling;
+        if (menu) {
+          menu.classList.toggle('open');
+        }
+      }
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest('.has-dropdown')) {
+      dropdownTriggers.forEach((trigger) => {
+        trigger.setAttribute('aria-expanded', 'false');
+        const menu = trigger.nextElementSibling;
+        if (menu) {
+          menu.classList.remove('open');
+        }
+      });
+    }
+  });
 </script>

@@ -323,6 +323,38 @@ const canonical = canonicalUrl || Astro.url.href;
         font-size: 0.875rem;
       }
 
+      .btn-ghost {
+        background: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      .btn-white {
+        background: #fff;
+        color: var(--color-primary);
+      }
+
+      .btn-white:hover {
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--color-primary);
+      }
+
+      .btn-outline-white {
+        background: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+      }
+
+      .btn-outline-white:hover {
+        background: #fff;
+        color: var(--color-primary);
+      }
+
       /* Prose styles for content */
       .prose {
         max-width: 65ch;

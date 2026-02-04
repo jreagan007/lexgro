@@ -8,11 +8,16 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://lexgro.com',
 
+  redirects: {
+    '/services/': '/how-we-work/',
+    '/services/fractional-cmo/': '/how-we-work/',
+  },
+
   integrations: [
     react(),
     mdx(),
     sitemap({
-      filter: (page) => !page.includes('/admin') && !page.includes('/api')
+      filter: (page) => !page.includes('/admin') && !page.includes('/api') && !page.includes('/preview')
     })
   ],
 

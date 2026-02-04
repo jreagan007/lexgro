@@ -59,7 +59,7 @@ const generateAll = !onlyPages && !onlyContent && !onlyCards
 
 // Static pages to generate OG images for
 const STATIC_PAGES: { slug: string; title: string; category: string }[] = [
-  { slug: 'homepage', title: 'Fractional CMO for Law Firms', category: 'HOME' },
+  { slug: 'homepage', title: 'Marketing That Actually Works', category: 'HOME' },
   { slug: 'about', title: 'About LEXGRO', category: 'ABOUT' },
   { slug: 'contact', title: 'Contact Us', category: 'CONTACT' },
   { slug: 'faq', title: 'Frequently Asked Questions', category: 'FAQ' },
@@ -68,12 +68,15 @@ const STATIC_PAGES: { slug: string; title: string; category: string }[] = [
   { slug: 'calculator', title: 'Marketing ROI Calculator', category: 'TOOLS' },
   { slug: 'podcast', title: 'The CMO Podcast', category: 'PODCAST' },
   { slug: 'tips-from-keith', title: 'Tips from Keith', category: 'TIPS' },
+  // Core pages (new navigation)
+  { slug: 'how-we-work', title: 'A System. Not Services.', category: 'THE SYSTEM' },
+  { slug: 'lexxly', title: 'Data That Drives Decisions', category: 'INTELLIGENCE' },
   // Index pages
   { slug: 'services', title: 'Law Firm Marketing Services', category: 'SERVICES' },
   { slug: 'guide', title: 'Marketing Guides for Law Firms', category: 'GUIDES' },
   { slug: 'blog', title: 'Law Firm Marketing Blog', category: 'BLOG' },
   { slug: 'answers', title: 'Marketing Answers', category: 'ANSWERS' },
-  // Preview pages
+  // Preview pages (legacy)
   { slug: 'preview', title: 'Your Growth Partner', category: 'PREVIEW' },
   { slug: 'preview-how-we-work', title: 'How We Work', category: 'PREVIEW' },
   { slug: 'preview-lexxly', title: 'The LEXXLY Suite', category: 'PREVIEW' },

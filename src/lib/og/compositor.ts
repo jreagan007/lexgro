@@ -247,9 +247,9 @@ function createBrandingSVG(): string {
 /**
  * Create homepage-specific text overlay with brand messaging
  * Layout:
- * - Eyebrow: "THE LAW FIRM CMO" (mint, uppercase, tracked)
- * - Headline: "Predictable Growth." (large, white, bold)
- * - Subheadline: "Without the Guesswork." (large, white, bold)
+ * - Eyebrow: "YOUR GROWTH PARTNER" (mint, uppercase, tracked)
+ * - Headline: "Marketing That" (large, white, bold)
+ * - Subheadline: "Actually Works." (large, white, bold)
  * - All within 80px safe area
  */
 function createHomepageTextOverlaySVG(): string {
@@ -284,19 +284,121 @@ function createHomepageTextOverlaySVG(): string {
         }
       </style>
 
-      <!-- Eyebrow: THE LAW FIRM CMO -->
+      <!-- Eyebrow: YOUR GROWTH PARTNER -->
       <text x="${SAFE_PADDING}" y="${eyebrowY}" class="eyebrow" fill="${HEX_COLORS.mint}">
-        THE LAW FIRM CMO
+        YOUR GROWTH PARTNER
       </text>
 
-      <!-- Headline: Predictable Growth. -->
+      <!-- Headline: Marketing That -->
       <text x="${SAFE_PADDING}" y="${headlineY}" class="headline" fill="${HEX_COLORS.white}">
-        Predictable Growth.
+        Marketing That
       </text>
 
-      <!-- Subheadline: Without the Guesswork. -->
+      <!-- Subheadline: Actually Works. -->
       <text x="${SAFE_PADDING}" y="${subheadlineY}" class="subheadline" fill="${HEX_COLORS.white}" opacity="0.9">
-        Without the Guesswork.
+        Actually Works.
+      </text>
+    </svg>
+  `
+}
+
+/**
+ * Create How We Work text overlay
+ * - Eyebrow: "THE SYSTEM"
+ * - Headline: "A System."
+ * - Subheadline: "Not Services."
+ */
+function createHowWeWorkTextOverlaySVG(): string {
+  const SAFE_PADDING = 80
+  const eyebrowY = HEIGHT * 0.32
+  const headlineY = HEIGHT * 0.48
+  const subheadlineY = HEIGHT * 0.62
+
+  return `
+    <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .eyebrow {
+          font-family: ${FONT_BODY};
+          font-size: 16px;
+          font-weight: 700;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+        }
+        .headline {
+          font-family: ${FONT_DISPLAY};
+          font-size: 64px;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+        }
+        .subheadline {
+          font-family: ${FONT_DISPLAY};
+          font-size: 52px;
+          font-weight: 600;
+          letter-spacing: -0.01em;
+        }
+      </style>
+
+      <text x="${SAFE_PADDING}" y="${eyebrowY}" class="eyebrow" fill="${HEX_COLORS.mint}">
+        THE SYSTEM
+      </text>
+
+      <text x="${SAFE_PADDING}" y="${headlineY}" class="headline" fill="${HEX_COLORS.white}">
+        A System.
+      </text>
+
+      <text x="${SAFE_PADDING}" y="${subheadlineY}" class="subheadline" fill="${HEX_COLORS.white}" opacity="0.9">
+        Not Services.
+      </text>
+    </svg>
+  `
+}
+
+/**
+ * Create LEXXLY text overlay
+ * - Eyebrow: "INTELLIGENCE PLATFORM"
+ * - Headline: "Data That Drives"
+ * - Subheadline: "Decisions."
+ */
+function createLexxlyTextOverlaySVG(): string {
+  const SAFE_PADDING = 80
+  const eyebrowY = HEIGHT * 0.32
+  const headlineY = HEIGHT * 0.48
+  const subheadlineY = HEIGHT * 0.62
+
+  return `
+    <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .eyebrow {
+          font-family: ${FONT_BODY};
+          font-size: 16px;
+          font-weight: 700;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+        }
+        .headline {
+          font-family: ${FONT_DISPLAY};
+          font-size: 64px;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+        }
+        .subheadline {
+          font-family: ${FONT_DISPLAY};
+          font-size: 52px;
+          font-weight: 600;
+          letter-spacing: -0.01em;
+        }
+      </style>
+
+      <text x="${SAFE_PADDING}" y="${eyebrowY}" class="eyebrow" fill="${HEX_COLORS.mint}">
+        INTELLIGENCE PLATFORM
+      </text>
+
+      <text x="${SAFE_PADDING}" y="${headlineY}" class="headline" fill="${HEX_COLORS.white}">
+        Data That Drives
+      </text>
+
+      <text x="${SAFE_PADDING}" y="${subheadlineY}" class="subheadline" fill="${HEX_COLORS.white}" opacity="0.9">
+        Decisions.
       </text>
     </svg>
   `
@@ -338,11 +440,17 @@ export async function compositeOGImage(options: CompositeOptions): Promise<Buffe
   const overlayBuffer = Buffer.from(createOverlaySVG())
   const accentBuffer = Buffer.from(createAccentBarSVG())
 
-  // Use homepage-specific text layout for homepage, otherwise standard
-  const isHomepage = promptKey === 'homepage'
-  const textBuffer = isHomepage
-    ? Buffer.from(createHomepageTextOverlaySVG())
-    : Buffer.from(createTextOverlaySVG(title, category))
+  // Use page-specific text layouts for key pages, otherwise standard
+  let textBuffer: Buffer
+  if (promptKey === 'homepage') {
+    textBuffer = Buffer.from(createHomepageTextOverlaySVG())
+  } else if (promptKey === 'how-we-work' || promptKey === 'preview-how-we-work') {
+    textBuffer = Buffer.from(createHowWeWorkTextOverlaySVG())
+  } else if (promptKey === 'lexxly' || promptKey === 'preview-lexxly') {
+    textBuffer = Buffer.from(createLexxlyTextOverlaySVG())
+  } else {
+    textBuffer = Buffer.from(createTextOverlaySVG(title, category))
+  }
   const brandingBuffer = Buffer.from(createBrandingSVG())
 
   // Start compositing

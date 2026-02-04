@@ -1,0 +1,693 @@
+---
+/**
+ * LEXXLY Suite - Intelligence Platform
+ * Partnership-focused, LEXGRO voice
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="LEXXLY Suite"
+  description="The intelligence platform our team uses to decide what to build, who to target, and where the gaps are. Data that drives real decisions."
+  image="/og/lexxly.png"
+>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">Intelligence Platform</span>
+      <h1>LEXXLY Suite</h1>
+      <p class="hero-text">Not dashboards you log into once a month. Data our team actually uses. What to build. Who to target. Where the gaps are.</p>
+      <div class="hero-actions">
+        <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-primary btn-lg">Request Access</a>
+        <a href="/how-we-work/" class="btn btn-ghost btn-lg">How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="section-light">
+    <div class="container">
+      <div class="products">
+
+        <!-- LexxlyRank -->
+        <div class="product" id="rank">
+          <div class="product-header">
+            <div class="product-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <div>
+              <h2>LexxlyRank</h2>
+              <span class="product-type">SEO Intelligence</span>
+            </div>
+          </div>
+
+          <p class="product-intro">SERP data meets CPC data. High cost per click means high intent. High volume means opportunity. We understand intent before planning a single post or pillar page.</p>
+
+          <div class="product-features">
+            <h3>What We Look For</h3>
+            <div class="features-list">
+              <div class="feature">
+                <strong>Keyword gaps</strong>
+                <span>What competitors rank for that you don't. We build a roadmap based on where you can actually win.</span>
+              </div>
+              <div class="feature">
+                <strong>Position tracking</strong>
+                <span>We watch your rankings. When something drops, we catch it early and figure out why.</span>
+              </div>
+              <div class="feature">
+                <strong>Link opportunities</strong>
+                <span>Who links to competitors? Why? We find the opportunities worth pursuing.</span>
+              </div>
+              <div class="feature">
+                <strong>Local visibility</strong>
+                <span>Google Maps rankings by location. How you show up in each market you serve.</span>
+              </div>
+              <div class="feature">
+                <strong>Featured snippets</strong>
+                <span>Position zero. The answer box. We identify which queries you can own.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-output">
+            <h3>Example Output</h3>
+            <div class="output-table">
+              <div class="output-row output-header">
+                <span>Keyword Gap</span>
+                <span>Volume</span>
+                <span>Difficulty</span>
+                <span>Action</span>
+              </div>
+              <div class="output-row">
+                <span>scaffold accident lawyer nyc</span>
+                <span>320</span>
+                <span class="diff-med">Medium</span>
+                <span>Create practice page</span>
+              </div>
+              <div class="output-row">
+                <span>uber accident lawyer brooklyn</span>
+                <span>210</span>
+                <span class="diff-low">Low</span>
+                <span>Quick win this month</span>
+              </div>
+              <div class="output-row">
+                <span>construction settlement ny</span>
+                <span>480</span>
+                <span class="diff-high">High</span>
+                <span>Complete guide</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LexxlyPulse -->
+        <div class="product" id="pulse">
+          <div class="product-header">
+            <div class="product-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h2>LexxlyPulse</h2>
+              <span class="product-type">Sentiment Discovery</span>
+            </div>
+          </div>
+
+          <p class="product-intro">FAQ content built on real sentiment is gold. We pull from legal forums, review sites, social discussions. What people actually ask. The words they actually use. That becomes your content.</p>
+
+          <div class="product-features">
+            <h3>What We Find</h3>
+            <div class="features-list">
+              <div class="feature">
+                <strong>Pain points by frequency</strong>
+                <span>Not just what people ask. How often. The questions that come up over and over become your FAQ content.</span>
+              </div>
+              <div class="feature">
+                <strong>Their words, not yours</strong>
+                <span>The exact phrases your audience uses. Your content speaks their language.</span>
+              </div>
+              <div class="feature">
+                <strong>News worth covering</strong>
+                <span>Verdicts, regulatory changes, trending topics. Stories that earn links and build authority.</span>
+              </div>
+              <div class="feature">
+                <strong>Gaps in competitor perception</strong>
+                <span>What people say about competitors. Where you can position differently.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-output">
+            <h3>Example Output</h3>
+            <div class="clusters">
+              <div class="cluster">
+                <span class="cluster-count">203</span>
+                <span class="cluster-name">Medical and injury concerns</span>
+              </div>
+              <div class="cluster">
+                <span class="cluster-count">128</span>
+                <span class="cluster-name">Legal process questions</span>
+              </div>
+              <div class="cluster">
+                <span class="cluster-count">85</span>
+                <span class="cluster-name">Financial stress</span>
+              </div>
+              <div class="cluster">
+                <span class="cluster-count">70</span>
+                <span class="cluster-name">Insurance disputes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LexxlyIQ -->
+        <div class="product" id="iq">
+          <div class="product-header">
+            <div class="product-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20V10"></path>
+                <path d="M18 20V4"></path>
+                <path d="M6 20v-4"></path>
+              </svg>
+            </div>
+            <div>
+              <h2>LexxlyIQ</h2>
+              <span class="product-type">Attribution + CRO</span>
+            </div>
+          </div>
+
+          <p class="product-intro">Full journey attribution. First impression to signed case. Then we optimize the conversion points so more traffic turns into cases.</p>
+
+          <div class="product-features">
+            <h3>What We Track and Optimize</h3>
+            <div class="features-list">
+              <div class="feature">
+                <strong>View-through attribution</strong>
+                <span>CTV builds awareness but rarely gets last click. We credit awareness channels for the journeys they start.</span>
+              </div>
+              <div class="feature">
+                <strong>Conversion rate optimization</strong>
+                <span>Form, phone, chat. Which converts better? Why? We test and optimize continuously.</span>
+              </div>
+              <div class="feature">
+                <strong>Real contribution</strong>
+                <span>Each touchpoint measured by actual impact. Not arbitrary position in the funnel.</span>
+              </div>
+              <div class="feature">
+                <strong>Budget recommendations</strong>
+                <span>Based on what actually drives cases. Not assumptions.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-output">
+            <h3>How We Credit Each Channel</h3>
+            <div class="attribution">
+              <div class="attr-row">
+                <span class="attr-channel">CTV</span>
+                <span class="attr-role">First impression, builds awareness</span>
+                <span class="attr-solution">We track who saw it, even if they didn't click</span>
+              </div>
+              <div class="attr-row">
+                <span class="attr-channel">Paid Search</span>
+                <span class="attr-role">Captures active intent</span>
+                <span class="attr-solution">Credit based on the full journey, not just last click</span>
+              </div>
+              <div class="attr-row">
+                <span class="attr-channel">SEO and Content</span>
+                <span class="attr-role">Builds trust, answers questions</span>
+                <span class="attr-solution">We see which pages help close cases</span>
+              </div>
+              <div class="attr-row">
+                <span class="attr-channel">Retargeting</span>
+                <span class="attr-role">Brings visitors back</span>
+                <span class="attr-solution">No double counting. One conversion, accurate credit.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LexxlyAIO -->
+        <div class="product" id="aio">
+          <div class="product-header">
+            <div class="product-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div>
+              <h2>LexxlyAIO</h2>
+              <span class="product-type">AI Search Optimization</span>
+            </div>
+          </div>
+
+          <p class="product-intro">Search behavior is shifting. People ask AI assistants, get answers without clicking. We make sure you're visible where they're looking. And we give them a reason to visit your site instead of stopping at the summary.</p>
+
+          <div class="product-features">
+            <h3>What We Track</h3>
+            <div class="features-list">
+              <div class="feature">
+                <strong>Visibility across AI platforms</strong>
+                <span>ChatGPT, Google AI Overview, Perplexity. Where are you showing up? Where are you missing?</span>
+              </div>
+              <div class="feature">
+                <strong>Citation analysis</strong>
+                <span>What sources get referenced? Why? We reverse-engineer what earns the mention.</span>
+              </div>
+              <div class="feature">
+                <strong>Click-through optimization</strong>
+                <span>A mention isn't enough. We build content that earns the visit, not just the summary.</span>
+              </div>
+              <div class="feature">
+                <strong>Competitor gaps</strong>
+                <span>Where competitors show up. Where they don't. Your positioning opportunities.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-output">
+            <h3>Why It Matters</h3>
+            <div class="callout">
+              <p>More searches end without a click. AI gives the answer. If you're not visible there, and if there's no reason to visit your site, you're invisible to a growing segment of people who need a lawyer.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration -->
+  <section class="section-dark">
+    <div class="container">
+      <div class="integration">
+        <h2>Data That Drives Decisions</h2>
+        <p>LEXXLY isn't a reporting tool you check once a month. It's how we decide what to build. Our editorial team uses this data. Then distribution gets it everywhere.</p>
+        <div class="integration-flow">
+          <div class="int-step">
+            <span class="int-label">LEXXLY Intelligence</span>
+            <span class="int-desc">Identifies keyword gaps, pain points, opportunities</span>
+          </div>
+          <div class="int-arrow"></div>
+          <div class="int-step">
+            <span class="int-label">Editorial Production</span>
+            <span class="int-desc">Creates content prioritized by opportunity score</span>
+          </div>
+          <div class="int-arrow"></div>
+          <div class="int-step">
+            <span class="int-label">Full Funnel Distribution</span>
+            <span class="int-desc">Places content everywhere prospects look</span>
+          </div>
+          <div class="int-arrow"></div>
+          <div class="int-step">
+            <span class="int-label">Attribution Feedback</span>
+            <span class="int-desc">Measures what works, refines intelligence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>See LEXXLY in Action</h2>
+        <p>A demo for your market. No pitch. Just an honest look at what's possible.</p>
+        <div class="cta-actions">
+          <a href="https://calendly.com/lexgro/strategy-session" class="btn btn-white btn-lg">Request Demo</a>
+          <a href="/how-we-work/" class="btn btn-outline-white btn-lg">How We Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0a2912 100%);
+    color: #fff;
+    padding: 4rem 1.5rem 3.5rem;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-bg-dark);
+    background: var(--color-primary-light);
+    padding: 0.3125rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  .hero-text {
+    font-size: 1.0625rem;
+    color: rgba(255,255,255,0.85);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .btn-ghost:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+  }
+
+  /* Sections */
+  .section-light {
+    padding: 3.5rem 1.5rem;
+    background: #f8f9fa;
+  }
+  .section-dark {
+    padding: 3.5rem 1.5rem;
+    background: var(--color-bg-dark);
+    color: #fff;
+  }
+  .section-cta {
+    padding: 4rem 1.5rem;
+    background: var(--color-primary);
+    color: #fff;
+    text-align: center;
+  }
+
+  /* Products */
+  .products {
+    display: grid;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .product {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 2rem;
+    scroll-margin-top: 2rem;
+  }
+  .product-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .product-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .product-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.125rem;
+  }
+  .product-type {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+  }
+  .product-intro {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Features */
+  .product-features h3 {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .features-list {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .feature {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  .feature strong {
+    font-size: 0.9375rem;
+  }
+  .feature span {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  /* Output */
+  .product-output h3 {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .output-table {
+    background: #f8f9fa;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .output-row {
+    display: grid;
+    grid-template-columns: 2fr 0.6fr 0.7fr 1.2fr;
+    gap: 0.75rem;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8125rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .output-row:last-child {
+    border-bottom: none;
+  }
+  .output-header {
+    background: var(--color-bg-dark);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-bottom: none;
+  }
+  .diff-low {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  .diff-med {
+    color: #f5a623;
+    font-weight: 600;
+  }
+  .diff-high {
+    color: #c44;
+    font-weight: 600;
+  }
+
+  /* Clusters */
+  .clusters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  @media (max-width: 500px) {
+    .clusters {
+      grid-template-columns: 1fr;
+    }
+  }
+  .cluster {
+    background: #f8f9fa;
+    padding: 0.875rem 1rem;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .cluster-count {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .cluster-name {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Attribution */
+  .attribution {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .attr-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 1fr;
+    gap: 0.75rem;
+    padding: 0.625rem 0.875rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    align-items: center;
+  }
+  @media (max-width: 600px) {
+    .attr-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+  .attr-channel {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  .attr-role {
+    color: var(--color-text-muted);
+  }
+  .attr-solution {
+    color: var(--color-text-dark);
+  }
+
+  /* Callout */
+  .callout {
+    background: linear-gradient(135deg, rgba(41, 140, 66, 0.08) 0%, rgba(26, 167, 116, 0.08) 100%);
+    border-left: 3px solid var(--color-primary);
+    padding: 1rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+  }
+  .callout p {
+    font-size: 0.9375rem;
+    color: var(--color-text-dark);
+    line-height: 1.5;
+  }
+
+  /* Integration */
+  .integration {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .integration h2 {
+    color: #fff;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 0.75rem;
+  }
+  .integration > p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0 auto 2rem;
+  }
+  .integration-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .int-step {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 0.875rem 1rem;
+    text-align: center;
+    min-width: 150px;
+  }
+  .int-label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.125rem;
+  }
+  .int-desc {
+    display: block;
+    font-size: 0.6875rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .int-arrow {
+    width: 20px;
+    height: 2px;
+    background: var(--color-primary-light);
+    position: relative;
+  }
+  .int-arrow::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -3px;
+    border: 4px solid transparent;
+    border-left-color: var(--color-primary-light);
+  }
+
+  /* CTA */
+  .cta-content {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .cta-content h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+  .cta-content > p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 1.5rem;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-white {
+    background: #fff;
+    color: var(--color-primary);
+  }
+  .btn-white:hover {
+    background: rgba(255,255,255,0.9);
+    color: var(--color-primary);
+  }
+  .btn-outline-white {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+  .btn-outline-white:hover {
+    background: #fff;
+    color: var(--color-primary);
+  }
+</style>
