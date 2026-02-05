@@ -421,6 +421,9 @@ scripts/
 --color-bg-lighter: #D6FFE0    /* Very light green */
 --color-text-dark: #212121     /* Body text */
 --color-text-muted: #4B6359    /* Accessible muted (WCAG AA) */
+--color-slate: #64748b         /* Neutral slate - muted elements */
+--color-slate-light: #94a3b8   /* Light slate */
+--color-slate-dark: #475569    /* Dark slate */
 ```
 
 ### 🔜 TODO - Next Priority
