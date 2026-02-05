@@ -6,7 +6,7 @@
 
 This is non-negotiable. The style guide contains essential rules that must be followed for all copy, including:
 - No em-dashes (use periods, commas, colons)
-- "25 percent" not "25%"
+- Use % symbol: "25%" not "25 percent"
 - Paragraphs under 5 lines
 - Flesch score 50-60
 - Sources section with numbered references
@@ -54,7 +54,7 @@ npm run research:citations --all         # Scan all content files
 
 ### Auto-Fixed Issues
 The `fix:style` script automatically handles:
-- `%` → `percent` (e.g., "25%" → "25 percent")
+- `percent` → `%` (e.g., "25 percent" → "25%")
 - Em-dashes (—) → periods
 - Ampersands (&) → "and"
 - `w/` → "with"
@@ -215,7 +215,25 @@ See `docs/OG-IMAGE-STYLE-GUIDE.md` for comprehensive guidelines. Key points:
 
 ## Project Status
 **Current Phase:** Site Migration from Framer to Astro
-**Last Updated:** January 29, 2026 (Session 8)
+**Last Updated:** February 4, 2026 (Session 9)
+
+### ✅ Session 9 - Homepage Visual Redesign + CTA Consolidation
+- **Homepage sections redesigned:**
+  - Problem section: neutral slate colors, numbered cards, larger icons
+  - System section: visual flow diagram (Intelligence → Editorial → Distribution → Learn)
+  - Pillars section: icons, featured card styling, two-line list items
+  - Compare section: side-by-side cards with glow effect on LEXGRO, muted agency card
+  - CTV section: 90/10 funnel visual, feature cards with icons
+- **Color system expanded:**
+  - Added slate palette: `--color-slate`, `--color-slate-light`, `--color-slate-dark`
+  - Removed off-brand orange from problem section
+  - Removed red from comparison section
+- **CTA consolidation:**
+  - All 30+ Calendly links replaced with `/contact/`
+  - Primary conversion now routes to contact form
+- **Style guide alignment:**
+  - Fixed % vs "percent" rule (use % symbol)
+  - All content now passes audit
 
 ### ✅ Session 8 - Content Style Audit + Tools Setup
 - **Content audit completed:** 106 issues reduced to 39 (63% reduction)
