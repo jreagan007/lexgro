@@ -2,18 +2,95 @@
 /**
  * Results / Case Studies Page
  *
- * Client success stories and outcomes
+ * Client success stories, awards, case studies, and testimonials
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { testimonials } from '../data/testimonials';
 
-// TODO: Get real metrics from Keith
 const metrics = [
-  { value: '200+', label: 'Law Firms Served' },
-  { value: '12+', label: 'Years Experience' },
-  { value: '94%', label: 'Client Retention Rate' },
-  { value: '10', label: 'Video Testimonials' },
+  { value: '47', label: 'Law Firm Partners' },
+  { value: '12+', label: 'Years in Legal' },
+  { value: '$47M+', label: 'Revenue Generated' },
+  { value: '94%', label: 'Client Retention' },
 ];
+
+const awards = [
+  {
+    firm: 'Speaks Law Firm',
+    award: '8FF Revenue Rockstar Award',
+    year: '2023',
+    person: 'Clarke Speaks',
+    role: 'Founder',
+    location: 'Wilmington, NC',
+  },
+  {
+    firm: 'Albrecht Law',
+    award: '8FF Speed of Growth Award',
+    year: '2024',
+    person: 'Matthew Albrecht',
+    role: 'Founder',
+    location: 'Spokane, WA',
+  },
+];
+
+const caseStudies = [
+  {
+    title: 'Personal Injury Firm',
+    subtitle: 'SEO and PPC Campaign',
+    metric: '45%',
+    metricLabel: 'Increase in qualified leads',
+    detail: '30 new cases generated in six months from a combined SEO and paid search campaign built on data-driven keyword targeting.',
+    iconType: 'search',
+  },
+  {
+    title: 'Real Estate Law Firm',
+    subtitle: 'Reputation Management',
+    metric: '3.8 → 4.7',
+    metricLabel: 'Google review improvement',
+    detail: 'Proactive reputation plan improved average Google rating and drove a significant increase in referral traffic within one quarter.',
+    iconType: 'star',
+  },
+  {
+    title: 'Multi-Practice Firm',
+    subtitle: 'Data-Driven Transition',
+    metric: '30%',
+    metricLabel: 'Lower cost per lead',
+    detail: 'Firm transitioned from traditional ads to a data-driven approach, reducing cost per lead by 30% in nine months while increasing case volume.',
+    iconType: 'chart',
+  },
+];
+
+const approaches = [
+  {
+    title: 'Deep Legal Industry Focus',
+    desc: 'We only work with law firms. Every strategy is built on what actually works in legal marketing, not generic advice.',
+    iconType: 'eye',
+  },
+  {
+    title: 'Data-Driven Decisions',
+    desc: 'We track everything. Data backs every decision, and results hold every dollar accountable.',
+    iconType: 'pulse',
+  },
+  {
+    title: 'Long-Term Partnership',
+    desc: 'We are not here for quick wins. Our average client relationship spans years, not months.',
+    iconType: 'users',
+  },
+  {
+    title: 'Honest Communication',
+    desc: 'We tell you what is working, what is not, and what to do about it. No sugarcoating, no vanity metrics.',
+    iconType: 'chat',
+  },
+];
+
+// Practice area groupings for testimonial section
+const practiceAreas = [...new Set(testimonials.map(t => {
+  if (t.practiceArea.includes('Personal Injury')) return 'Personal Injury';
+  if (t.practiceArea.includes('Estate Planning') || t.practiceArea.includes('Elder Law')) return 'Estate and Elder Law';
+  if (t.practiceArea.includes('Immigration')) return 'Immigration';
+  if (t.practiceArea.includes('Family Law') || t.practiceArea.includes('Criminal')) return 'Family and Criminal Law';
+  return t.practiceArea;
+}))];
 
 // Organization Schema with testimonials
 const resultsSchema = {
@@ -39,13 +116,6 @@ const resultsSchema = {
           areaServed: t.practiceArea,
         },
       },
-      ...(t.youtubeId && {
-        video: {
-          '@type': 'VideoObject',
-          name: `${t.name} - LEXGRO Testimonial`,
-          embedUrl: `https://www.youtube.com/embed/${t.youtubeId}`,
-        },
-      }),
     })),
   },
 };
@@ -58,344 +128,822 @@ const resultsSchema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(resultsSchema)} />
 
-  <!-- Hero Section -->
+  <!-- ========== HERO ========== -->
   <section class="results-hero">
     <div class="container">
-      <div class="hero-content">
-        <span class="section-label">Results</span>
-        <h1 class="hero-title">Real Results for Real Law Firms</h1>
-        <p class="hero-subtitle">
-          We measure success by one thing: your growth. Here's what we've helped law firms achieve.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Metrics Section -->
-  <section class="metrics-section">
-    <div class="container">
-      <div class="metrics-grid">
-        {metrics.map((metric) => (
-          <div class="metric-card">
-            <span class="metric-value">{metric.value}</span>
-            <span class="metric-label">{metric.label}</span>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="hero-label">Results</span>
+          <h1>Real Results for<br/>Real Law Firms</h1>
+          <p class="hero-text">
+            We measure success by one thing: your growth. Not impressions, not clicks. Signed cases and revenue.
+          </p>
+          <div class="hero-actions">
+            <a href="/contact/" class="btn btn-primary btn-lg">Get Your Growth Audit</a>
+            <a href="#case-studies" class="btn btn-ghost btn-lg">See Case Studies</a>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="testimonials-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">What Our Clients Say</h2>
-        <p class="section-subtitle">
-          Hear directly from law firm owners who've worked with LEXGRO.
-        </p>
-      </div>
-
-      <div class="testimonials-grid">
-        {testimonials.map((testimonial) => (
-          <div class="testimonial-card">
-            <div class="testimonial-video">
-              <div class="video-placeholder">
-                <svg class="play-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="2"/>
-                  <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
-                </svg>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-stats">
+            {metrics.map((metric) => (
+              <div class="stat-item">
+                <span class="stat-value">{metric.value}</span>
+                <span class="stat-text">{metric.label}</span>
               </div>
-            </div>
-            <div class="testimonial-info">
-              <h3 class="testimonial-name">{testimonial.name}</h3>
-              <p class="testimonial-title">{testimonial.title} | {testimonial.practiceArea}</p>
-              <p class="testimonial-firm">{testimonial.firm}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Approach Section -->
-  <section class="approach-section">
-    <div class="container">
-      <div class="approach-content">
-        <span class="section-label-dark">Our Approach</span>
-        <h2 class="section-title-light">Why We Get Results</h2>
-        <div class="approach-grid">
-          <div class="approach-item">
-            <h3>Deep Legal Industry Focus</h3>
-            <p>We only work with law firms. Every strategy is built on what actually works in legal marketing, not generic advice.</p>
-          </div>
-          <div class="approach-item">
-            <h3>Data-Driven Decisions</h3>
-            <p>We track everything. Data backs every decision, and results hold every dollar accountable.</p>
-          </div>
-          <div class="approach-item">
-            <h3>Long-Term Partnership</h3>
-            <p>We're not here for quick wins. Our average client relationship spans years, not months.</p>
-          </div>
-          <div class="approach-item">
-            <h3>Honest Communication</h3>
-            <p>We tell you what's working, what isn't, and what to do about it. No sugarcoating, no vanity metrics.</p>
+            ))}
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
+  <!-- ========== AWARDS ========== -->
+  <section class="section-awards">
+    <div class="container">
+      <div class="awards-header">
+        <span class="section-badge">Recognition</span>
+        <h2>Award-Winning Law Firm Growth</h2>
+        <p class="lead">Real results. Real recognition. Our clients earn top industry awards because the system works.</p>
+      </div>
+      <div class="awards-grid">
+        {awards.map((award) => (
+          <div class="award-card">
+            <div class="award-trophy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                <path d="M4 22h16"/>
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+              </svg>
+            </div>
+            <div class="award-info">
+              <span class="award-year">{award.year}</span>
+              <h3 class="award-name">{award.award}</h3>
+              <p class="award-firm">{award.firm}</p>
+              <p class="award-person">{award.person}, {award.role} &middot; {award.location}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CASE STUDIES ========== -->
+  <section class="section-case-studies" id="case-studies">
+    <div class="container">
+      <div class="cs-header">
+        <span class="cs-badge">Case Studies</span>
+        <h2>The Numbers Speak</h2>
+        <p class="lead-dark">Every engagement is measured. Every dollar is accountable. Here is what the data shows.</p>
+      </div>
+      <div class="cs-grid">
+        {caseStudies.map((cs) => (
+          <div class="cs-card">
+            <div class="cs-card-top">
+              <div class="cs-icon">
+                {cs.iconType === 'search' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="M21 21l-4.35-4.35"/>
+                    <path d="M11 8v6M8 11h6"/>
+                  </svg>
+                )}
+                {cs.iconType === 'star' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                )}
+                {cs.iconType === 'chart' && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                  </svg>
+                )}
+              </div>
+              <div class="cs-metric-block">
+                <span class="cs-metric">{cs.metric}</span>
+                <span class="cs-metric-label">{cs.metricLabel}</span>
+              </div>
+            </div>
+            <div class="cs-card-bottom">
+              <h3>{cs.title}</h3>
+              <span class="cs-subtitle">{cs.subtitle}</span>
+              <p>{cs.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section-testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <span class="section-badge">Testimonials</span>
+        <h2>See What Our Clients Have Achieved</h2>
+        <p class="lead">Predictable revenue, consistent case generation, and lower cost per acquisition. All while keeping marketing costs in check.</p>
+      </div>
+
+      <div class="practice-chips">
+        {practiceAreas.map((area) => (
+          <span class="practice-chip">{area}</span>
+        ))}
+      </div>
+
+      <div class="testimonials-grid">
+        {testimonials.map((t) => (
+          <div class="testimonial-card">
+            <div class="testimonial-top">
+              <div class="testimonial-avatar">
+                <img src={t.photo} alt={t.name} class="testimonial-photo" loading="lazy" />
+              </div>
+              <div class="testimonial-meta">
+                <h3 class="testimonial-name">{t.name}</h3>
+                <p class="testimonial-role">{t.title}, {t.firm}</p>
+              </div>
+            </div>
+            <div class="testimonial-bottom">
+              <p class="testimonial-practice">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="testimonial-icon">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+                {t.practiceArea}
+              </p>
+              <p class="testimonial-location">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="testimonial-icon">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                {t.location}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY WE GET RESULTS ========== -->
+  <section class="section-approach">
+    <div class="container">
+      <div class="approach-header">
+        <span class="section-label">The Framework</span>
+        <h2>Why We Get Results</h2>
+        <p class="lead-dark">No shortcuts. No vanity metrics. A system built for compounding growth.</p>
+      </div>
+      <div class="approach-grid">
+        {approaches.map((item) => (
+          <div class="approach-card">
+            <div class="approach-icon">
+              {item.iconType === 'eye' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              )}
+              {item.iconType === 'pulse' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              )}
+              {item.iconType === 'users' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              )}
+              {item.iconType === 'chat' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              )}
+            </div>
+            <div class="approach-text">
+              <strong>{item.title}</strong>
+              <p>{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="section-cta">
     <div class="container">
       <div class="cta-content">
-        <h2 class="cta-title">Ready to Write Your Success Story?</h2>
-        <p class="cta-subtitle">
-          Let's discuss how LEXGRO can help your firm achieve similar results.
-        </p>
-        <a href="/contact/" class="btn btn-primary btn-lg">
-          Schedule a Free Consultation
-        </a>
+        <h2>Ready to Write Your Success Story?</h2>
+        <p>Get a Growth Audit. No pitch. No pressure. Just an honest look at where the opportunities are.</p>
+        <div class="cta-actions">
+          <a href="/contact/" class="btn btn-white btn-lg">Schedule a Free Consultation</a>
+        </div>
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* Hero */
+  /* ===========================
+     HERO
+     =========================== */
   .results-hero {
-    padding: 5rem 0 3rem;
-    background: linear-gradient(180deg, var(--color-bg-light) 0%, white 100%);
+    background: var(--color-bg-dark);
+    color: #fff;
+    padding: 5rem 1.5rem 4rem;
   }
-
-  .hero-content {
-    max-width: 650px;
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
   }
-
-  .section-label {
-    color: var(--color-primary);
-    font-size: 0.75rem;
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+  .hero-label {
+    font-size: 0.8125rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-light);
     margin-bottom: 0.75rem;
     display: block;
   }
-
-  .section-label-dark {
-    color: var(--color-mint);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-    display: block;
-  }
-
-  .hero-title {
+  .results-hero h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800;
     line-height: 1.1;
+    color: #fff;
     margin-bottom: 1.25rem;
-    color: var(--color-text-dark);
+    letter-spacing: -0.02em;
   }
-
-  .hero-subtitle {
-    font-size: 1.125rem;
-    color: #4b5563;
+  .hero-text {
+    font-size: 1.0625rem;
     line-height: 1.6;
+    color: #b0b8b3;
+    margin-bottom: 2rem;
+    max-width: 500px;
   }
-
-  /* Metrics Section */
-  .metrics-section {
-    padding: 0 0 4rem;
-    background: white;
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
-
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+  .hero-visual {
+    display: flex;
+    justify-content: flex-end;
   }
-
-  .metric-card {
-    padding: 2rem;
-    background: var(--color-bg-dark);
-    border-radius: 16px;
-    text-align: center;
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 340px;
   }
-
-  .metric-value {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--color-mint);
-    margin-bottom: 0.5rem;
+  .stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
   }
-
-  .metric-label {
-    font-size: 0.9375rem;
+  .stat-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  .stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary-light);
+  }
+  .stat-text {
+    font-size: 0.875rem;
     color: #b0b8b3;
   }
 
-  /* Testimonials Section */
-  .testimonials-section {
-    padding: 5rem 0;
-    background: white;
+  /* ===========================
+     AWARDS
+     =========================== */
+  .section-awards {
+    padding: 6rem 1.5rem;
+    background: #fafafa;
+    position: relative;
   }
-
-  .section-header {
+  .section-awards::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
+  }
+  .awards-header {
+    max-width: 600px;
+    margin: 0 auto 4rem;
     text-align: center;
-    margin-bottom: 3rem;
   }
-
-  .section-title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  .section-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-slate);
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12) 0%, rgba(100, 116, 139, 0.06) 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(100, 116, 139, 0.15);
+  }
+  .awards-header h2,
+  .testimonials-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-dark);
+    letter-spacing: -0.02em;
+  }
+  .lead {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: #4b5563;
+  }
+  .awards-header .lead,
+  .testimonials-header .lead {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  @media (max-width: 700px) {
+    .awards-grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+    }
+  }
+  .award-card {
+    position: relative;
+    background: #fff;
+    border: 2px solid rgba(41, 140, 66, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(41, 140, 66, 0.08), 0 0 0 1px rgba(41, 140, 66, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .award-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--color-mint));
+    border-radius: 20px 20px 0 0;
+  }
+  .award-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(41, 140, 66, 0.15), 0 0 0 1px rgba(41, 140, 66, 0.1);
+    border-color: rgba(41, 140, 66, 0.3);
+  }
+  .award-trophy {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 20px;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 8px 24px rgba(41, 140, 66, 0.3);
+  }
+  .award-trophy svg {
+    width: 36px;
+    height: 36px;
+    color: #fff;
+  }
+  .award-year {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    background: rgba(41, 140, 66, 0.08);
+    padding: 0.375rem 0.875rem;
+    border-radius: 100px;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(41, 140, 66, 0.12);
+  }
+  .award-name {
+    font-size: 1.375rem;
     font-weight: 700;
     color: var(--color-text-dark);
     margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
   }
-
-  .section-title-light {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 700;
-    color: white;
-    margin-bottom: 2rem;
+  .award-firm {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
   }
-
-  .section-subtitle {
-    font-size: 1.0625rem;
+  .award-person {
+    font-size: 0.8125rem;
     color: #4b5563;
+  }
+
+  /* ===========================
+     CASE STUDIES
+     =========================== */
+  .section-case-studies {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(180deg, var(--color-bg-dark) 0%, #0a1f0f 100%);
+    color: #fff;
+  }
+  .cs-header {
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+  .cs-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #fff;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .cs-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .lead-dark {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: #b0b8b3;
+  }
+  .cs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .cs-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+    }
+  }
+  .cs-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .cs-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  }
+  .cs-card-top {
+    padding: 2rem 2rem 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .cs-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 16px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(41, 140, 66, 0.3);
+  }
+  .cs-icon svg {
+    width: 26px;
+    height: 26px;
+    color: #fff;
+  }
+  .cs-metric-block {
+    flex: 1;
+  }
+  .cs-metric {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary-light);
+    line-height: 1;
+    margin-bottom: 0.375rem;
+    letter-spacing: -0.02em;
+  }
+  .cs-metric-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #b0b8b3;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .cs-card-bottom {
+    padding: 1.5rem 2rem 2rem;
+  }
+  .cs-card-bottom h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+  .cs-subtitle {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-primary-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    background: rgba(41, 140, 66, 0.15);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+  .cs-card-bottom p {
+    font-size: 0.9375rem;
+    color: #b0b8b3;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ===========================
+     TESTIMONIALS
+     =========================== */
+  .section-testimonials {
+    padding: 6rem 1.5rem;
+    background: #fff;
+    position: relative;
+  }
+  .section-testimonials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.2), transparent);
+  }
+  .testimonials-header {
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    text-align: center;
+  }
+
+  /* Practice area chips */
+  .practice-chips {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .practice-chip {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(41, 140, 66, 0.06);
+    border: 1px solid rgba(41, 140, 66, 0.15);
+    padding: 0.375rem 0.875rem;
+    border-radius: 100px;
   }
 
   .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+    max-width: 1100px;
+    margin: 0 auto;
   }
-
   .testimonial-card {
-    background: var(--color-bg-light);
+    background: #fafafa;
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
   }
-
   .testimonial-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(41, 140, 66, 0.15);
+    background: #fff;
   }
-
-  .testimonial-video {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1a2e22 100%);
+  .testimonial-top {
     display: flex;
+    gap: 1rem;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    padding: 1.5rem 1.5rem 1rem;
   }
-
-  .video-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .testimonial-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 2px solid rgba(41, 140, 66, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
-
-  .play-icon {
-    width: 64px;
-    height: 64px;
-    color: white;
-    opacity: 0.9;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+  .testimonial-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
-
-  .testimonial-card:hover .play-icon {
-    opacity: 1;
-    transform: scale(1.1);
+  .testimonial-meta {
+    flex: 1;
+    min-width: 0;
   }
-
-  .testimonial-info {
-    padding: 1.5rem;
-  }
-
   .testimonial-name {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-text-dark);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.125rem;
   }
-
-  .testimonial-title {
-    font-size: 0.875rem;
+  .testimonial-role {
+    font-size: 0.8125rem;
     color: var(--color-primary);
     font-weight: 500;
-    margin-bottom: 0.25rem;
   }
-
-  .testimonial-firm {
-    font-size: 0.875rem;
+  .testimonial-bottom {
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .testimonial-practice,
+  .testimonial-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
     color: #4b5563;
+    margin: 0;
+  }
+  .testimonial-location {
+    color: var(--color-slate);
+  }
+  .testimonial-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--color-slate-light);
   }
 
-  /* Approach Section */
-  .approach-section {
-    padding: 5rem 0;
-    background: var(--color-bg-dark);
+  /* ===========================
+     APPROACH
+     =========================== */
+  .section-approach {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0a2912 100%);
+    color: #fff;
   }
-
-  .approach-content {
-    max-width: 900px;
-    margin: 0 auto;
+  .approach-header {
+    max-width: 600px;
+    margin: 0 auto 4rem;
     text-align: center;
   }
-
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary-light);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .approach-header h2 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .approach-header .lead-dark {
+    color: #b0b8b3;
+  }
   .approach-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    text-align: left;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
-
-  .approach-item h3 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: white;
+  @media (max-width: 800px) {
+    .approach-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+    }
+  }
+  .approach-card {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    transition: all 0.2s ease;
+  }
+  .approach-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-2px);
+  }
+  .approach-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(41, 140, 66, 0.2);
+    border-radius: 14px;
+    flex-shrink: 0;
+    border: 1px solid rgba(41, 140, 66, 0.15);
+  }
+  .approach-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary-light);
+  }
+  .approach-text strong {
+    display: block;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #fff;
     margin-bottom: 0.5rem;
   }
-
-  .approach-item p {
+  .approach-text p {
     font-size: 0.9375rem;
     color: #b0b8b3;
     line-height: 1.6;
+    margin: 0;
   }
 
-  /* CTA */
-  .cta-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+  /* ===========================
+     CTA
+     =========================== */
+  .section-cta {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
+    color: #fff;
     text-align: center;
   }
-
   .cta-content {
-    max-width: 500px;
+    max-width: 650px;
     margin: 0 auto;
   }
-
-  .cta-title {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
-    color: white;
+  .cta-content h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: #fff;
     margin-bottom: 1rem;
   }
-
-  .cta-subtitle {
+  .cta-content > p {
     font-size: 1rem;
     color: #b0b8b3;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
-
-  .cta-section .btn-primary {
-    background: white;
-    color: var(--color-primary);
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 </style>
