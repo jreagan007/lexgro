@@ -11,34 +11,37 @@ import { Image } from 'astro:assets';
 // Images
 import keithPhoto from '../assets/images/sections/keith-cmo-photo.png';
 
-// What you get in the audit
-const auditIncludes = [
-  {
-    icon: 'chart',
-    title: 'Website Performance Review',
-    description: 'Analysis of your site speed, conversion paths, and user experience.',
-  },
+// What you get in the audit (top 4 cards)
+const auditCards = [
   {
     icon: 'search',
-    title: 'SEO Visibility Snapshot',
-    description: 'Where you rank, where you should rank, and gaps to close.',
+    title: 'Competitive Intelligence Report',
+    description: 'We run your market through LexxlyRank to show your keyword gaps, competitor ad spend, and where you are losing cases to firms with weaker services.',
+  },
+  {
+    icon: 'chart',
+    title: 'Full-Journey Attribution Review',
+    description: 'Most firms only track last-click. We map the full path from first touch to signed case so you see which channels actually drive revenue.',
   },
   {
     icon: 'target',
-    title: 'Competitor Comparison',
-    description: 'How your marketing stacks up against local competitors.',
+    title: 'Website and Intake Audit',
+    description: 'Page speed, mobile experience, intake form completion rates, and call tracking. We show you exactly where potential clients drop off.',
   },
   {
     icon: 'dollar',
-    title: 'Ad Spend Assessment',
-    description: 'Whether your paid media budget is working or wasting.',
-  },
-  {
-    icon: 'roadmap',
-    title: 'Growth Roadmap',
-    description: '3 specific actions to improve results in the next 90 days.',
+    title: 'Ad Spend and LSA Analysis',
+    description: 'Your cost per case on Google Ads and Local Service Ads. We identify wasted spend and show where to reallocate for more signed cases.',
   },
 ];
+
+// Featured roadmap card
+const roadmap = {
+  title: '90-Day Growth Roadmap',
+  description: '3 prioritized actions ranked by cost, effort, and expected case volume. Built around your practice area, market, and current budget.',
+};
+
+import roadmapBg from '../assets/images/sections/roadmap-bg.png';
 ---
 
 <BaseLayout
@@ -99,16 +102,6 @@ const auditIncludes = [
             </div>
 
             <div class="form-group">
-              <label for="firmName">Law Firm Name</label>
-              <input type="text" id="firmName" name="firmName" required placeholder="Smith Law Firm" />
-            </div>
-
-            <div class="form-group">
-              <label for="website">Firm Website</label>
-              <input type="url" id="website" name="website" placeholder="https://smithlawfirm.com" />
-            </div>
-
-            <div class="form-group">
               <label for="practiceArea">Primary Practice Area</label>
               <select id="practiceArea" name="practiceArea" required>
                 <option value="">Select your main practice area</option>
@@ -154,7 +147,7 @@ const auditIncludes = [
       </div>
 
       <div class="includes-grid">
-        {auditIncludes.map((item) => (
+        {auditCards.map((item) => (
           <div class="include-card">
             <div class="include-icon">
               {item.icon === 'chart' && (
@@ -183,16 +176,41 @@ const auditIncludes = [
                   <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                 </svg>
               )}
-              {item.icon === 'roadmap' && (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
-                </svg>
-              )}
             </div>
+            <div class="include-number">{String(auditCards.indexOf(item) + 1).padStart(2, '0')}</div>
             <h3 class="include-title">{item.title}</h3>
             <p class="include-description">{item.description}</p>
           </div>
         ))}
+      </div>
+
+      <!-- Featured: 90-Day Roadmap -->
+      <div class="roadmap-featured">
+        <Image
+          src={roadmapBg}
+          alt=""
+          class="roadmap-bg"
+          width={1200}
+          quality={80}
+        />
+        <div class="roadmap-overlay"></div>
+        <div class="roadmap-content">
+          <div class="roadmap-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+            </svg>
+            The Deliverable
+          </div>
+          <h3 class="roadmap-title">{roadmap.title}</h3>
+          <p class="roadmap-description">{roadmap.description}</p>
+          <a href="#audit-form" class="roadmap-cta">
+            Get Your Roadmap
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -308,7 +326,7 @@ const auditIncludes = [
     padding: 2rem;
     border-radius: 24px;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(41, 140, 66, 0.1);
+    border: 1px solid #e5e7eb;
   }
 
   @media (min-width: 600px) {
@@ -352,17 +370,21 @@ const auditIncludes = [
   .form-group textarea {
     padding: 0.875rem 1rem;
     font-size: 1rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid #d1d5db;
     border-radius: 10px;
-    background: var(--color-bg-light);
+    background: #f9fafb;
+    color: var(--color-text-dark);
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     font-family: inherit;
   }
 
   .form-group input::placeholder,
   .form-group textarea::placeholder {
-    color: var(--color-text-muted);
-    opacity: 0.6;
+    color: #9ca3af;
+  }
+
+  .form-group select {
+    color: var(--color-text-dark);
   }
 
   .form-group input:focus,
@@ -370,7 +392,7 @@ const auditIncludes = [
   .form-group textarea:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(41, 140, 66, 0.1);
+    box-shadow: 0 0 0 3px rgba(41, 140, 66, 0.12);
     background: white;
   }
 
@@ -394,7 +416,7 @@ const auditIncludes = [
   /* What You Get Section */
   .audit-includes {
     padding: 5rem 0;
-    background: white;
+    background: var(--color-bg-dark);
   }
 
   .includes-header {
@@ -405,65 +427,172 @@ const auditIncludes = [
   .includes-title {
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 700;
-    color: var(--color-text-dark);
+    color: white;
     margin-bottom: 0.75rem;
   }
 
   .includes-subtitle {
     font-size: 1.0625rem;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.75);
     max-width: 500px;
     margin: 0 auto;
   }
 
   .includes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 700px) {
+    .includes-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .include-card {
-    padding: 1.75rem;
-    background: var(--color-bg-light);
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    position: relative;
   }
 
   .include-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(41, 140, 66, 0.4);
   }
 
   .include-icon {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .include-number {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.2);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
   }
 
   .include-title {
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     font-weight: 700;
-    color: var(--color-text-dark);
-    margin-bottom: 0.5rem;
+    color: #ffffff;
+    margin-bottom: 0.625rem;
   }
 
   .include-description {
     font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
+    color: #b0b8b3;
+    line-height: 1.6;
     margin: 0;
+  }
+
+  /* Featured Roadmap Card */
+  .roadmap-featured {
+    margin-top: 1.25rem;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+  }
+
+  .roadmap-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .roadmap-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(1, 25, 7, 0.92) 0%,
+      rgba(1, 25, 7, 0.8) 50%,
+      rgba(1, 25, 7, 0.5) 100%
+    );
+  }
+
+  .roadmap-content {
+    position: relative;
+    z-index: 1;
+    padding: 2.5rem 3rem;
+    max-width: 640px;
+  }
+
+  .roadmap-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.875rem;
+    background: rgba(41, 140, 66, 0.2);
+    border: 1px solid rgba(41, 140, 66, 0.3);
+    border-radius: 100px;
+    color: var(--color-mint);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .roadmap-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+  }
+
+  .roadmap-description {
+    font-size: 1.0625rem;
+    color: #b0b8b3;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .roadmap-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-mint);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+
+  .roadmap-cta:hover {
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 600px) {
+    .roadmap-content {
+      padding: 2rem 1.5rem;
+    }
   }
 
   /* Social Proof */
   .social-proof {
     padding: 3rem 0;
-    background: var(--color-bg-dark);
+    background: var(--color-bg-dark-alt);
   }
 
   .proof-content {
@@ -489,7 +618,7 @@ const auditIncludes = [
 
   .stat-label {
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #b0b8b3;
   }
 
   @media (max-width: 500px) {
