@@ -122,23 +122,20 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
         <h2>What Your CMO Actually Does</h2>
         <p class="lead">I don't replace your vendors. I make them accountable. I don't execute tactics. I set the strategy and make sure it gets done.</p>
       </div>
-      <div class="system-flow">
-        <div class="system-step">
+      <div class="system-grid">
+        <div class="system-card">
+          <span class="system-num">01</span>
           <div class="system-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
               <circle cx="12" cy="12" r="3"/>
             </svg>
           </div>
-          <span class="system-label">Assess</span>
-          <p>Audit your market and gaps</p>
+          <h3>Assess</h3>
+          <p>Audit your market, vendors, intake, and competitive gaps.</p>
         </div>
-        <div class="system-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M13 5l7 7-7 7"/>
-          </svg>
-        </div>
-        <div class="system-step">
+        <div class="system-card">
+          <span class="system-num">02</span>
           <div class="system-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 19l7-7 3 3-7 7-3-3z"/>
@@ -147,40 +144,29 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
               <circle cx="11" cy="11" r="2"/>
             </svg>
           </div>
-          <span class="system-label">Build</span>
-          <p>Set strategy and content</p>
+          <h3>Build</h3>
+          <p>Set the strategy, content plan, and vendor accountability structure.</p>
         </div>
-        <div class="system-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M13 5l7 7-7 7"/>
-          </svg>
-        </div>
-        <div class="system-step">
+        <div class="system-card">
+          <span class="system-num">03</span>
           <div class="system-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="3"/>
               <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
             </svg>
           </div>
-          <span class="system-label">Execute</span>
-          <p>Coordinate all channels</p>
+          <h3>Execute</h3>
+          <p>Coordinate all channels, manage vendors, connect marketing to intake.</p>
         </div>
-        <div class="system-arrow system-arrow-loop">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 1l4 4-4 4"/>
-            <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
-            <path d="M7 23l-4-4 4-4"/>
-            <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
-          </svg>
-        </div>
-        <div class="system-step system-step-feedback">
+        <div class="system-card">
+          <span class="system-num">04</span>
           <div class="system-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           </div>
-          <span class="system-label">Measure</span>
-          <p>Track cases, not clicks</p>
+          <h3>Measure</h3>
+          <p>Track signed cases and revenue. Adjust. Repeat the cycle.</p>
         </div>
       </div>
     </div>
@@ -794,9 +780,19 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
   .section-system {
     padding: 6rem 1.5rem;
     background: #fff;
+    position: relative;
+  }
+  .section-system::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.15), transparent);
   }
   .system-header {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto 4rem;
     text-align: center;
   }
@@ -812,97 +808,104 @@ import trustAvatars3 from '../assets/images/heroes/trust-avatars-3.png';
     line-height: 1.7;
     color: #4b5563;
   }
-  .system-flow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    max-width: 1000px;
+  .system-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    position: relative;
+  }
+  /* Connecting line between cards */
+  .system-grid::before {
+    content: '';
+    position: absolute;
+    top: 52px;
+    left: calc(12.5% + 0.75rem);
+    right: calc(12.5% + 0.75rem);
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--color-primary));
+    opacity: 0.25;
+    z-index: 0;
   }
   @media (max-width: 900px) {
-    .system-flow {
-      flex-direction: column;
-      gap: 0.5rem;
+    .system-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 520px;
+    }
+    .system-grid::before {
+      display: none;
     }
   }
-  .system-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1.5rem;
-    min-width: 140px;
+  @media (max-width: 500px) {
+    .system-grid {
+      grid-template-columns: 1fr;
+      max-width: 320px;
+    }
   }
-  .system-icon {
-    width: 64px;
-    height: 64px;
+  .system-card {
+    position: relative;
+    background: #fafafa;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+  }
+  .system-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    border-radius: 16px 16px 0 0;
+  }
+  .system-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(41, 140, 66, 0.15);
+  }
+  .system-num {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: rgba(41, 140, 66, 0.35);
+    letter-spacing: 0.05em;
+  }
+  .system-card .system-icon {
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    border-radius: 16px;
-    margin-bottom: 1rem;
+    border-radius: 14px;
+    margin: 0 auto 1.25rem;
     box-shadow: 0 4px 16px rgba(41, 140, 66, 0.25);
   }
-  .system-icon svg {
-    width: 28px;
-    height: 28px;
+  .system-card .system-icon svg {
+    width: 26px;
+    height: 26px;
     color: #fff;
   }
-  .system-label {
-    font-size: 1rem;
-    font-weight: 600;
+  .system-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
     color: var(--color-text-dark);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
   }
-  .system-step p {
-    font-size: 0.8125rem;
+  .system-card p {
+    font-size: 0.875rem;
     color: #4b5563;
+    line-height: 1.6;
     margin: 0;
-  }
-  .system-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-  }
-  .system-arrow svg {
-    width: 24px;
-    height: 24px;
-    color: #94a3b8;
-  }
-  .system-arrow-loop {
-    width: 48px;
-    height: 48px;
-  }
-  .system-arrow-loop svg {
-    width: 32px;
-    height: 32px;
-    color: var(--color-primary);
-    opacity: 0.6;
-  }
-  .system-step-feedback {
-    background: linear-gradient(135deg, rgba(41, 140, 66, 0.08) 0%, rgba(41, 140, 66, 0.03) 100%);
-    border-radius: 16px;
-    border: 1px dashed rgba(41, 140, 66, 0.2);
-  }
-  .system-step-feedback .system-icon {
-    background: linear-gradient(135deg, rgba(41, 140, 66, 0.15) 0%, rgba(41, 140, 66, 0.1) 100%);
-    box-shadow: none;
-  }
-  .system-step-feedback .system-icon svg {
-    color: var(--color-primary);
-  }
-  @media (max-width: 900px) {
-    .system-arrow {
-      transform: rotate(90deg);
-    }
-    .system-arrow-loop {
-      transform: none;
-    }
   }
 
   /* Capabilities */
