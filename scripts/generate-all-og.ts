@@ -59,7 +59,7 @@ const generateAll = !onlyPages && !onlyContent && !onlyCards
 
 // Static pages to generate OG images for
 const STATIC_PAGES: { slug: string; title: string; category: string }[] = [
-  { slug: 'homepage', title: 'Marketing That Actually Works', category: 'HOME' },
+  { slug: 'homepage', title: 'Your Fractional CMO.', category: 'FRACTIONAL CMO FOR LAW FIRMS' },
   { slug: 'about', title: 'About LEXGRO', category: 'ABOUT' },
   { slug: 'contact', title: 'Contact Us', category: 'CONTACT' },
   { slug: 'faq', title: 'Frequently Asked Questions', category: 'FAQ' },
