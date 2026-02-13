@@ -1,0 +1,182 @@
+---
+/**
+ * Thank You / Success Page
+ * Shown after Growth Audit form submission.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Thank You | LEXGRO"
+  description="Your Growth Audit request has been received. We'll review your information and follow up within 24 hours."
+  image="/og/contact.png"
+>
+  <section class="thank-you">
+    <div class="container">
+      <div class="thank-you-card">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+
+        <h1>You're All Set.</h1>
+        <p class="thank-you-message">
+          Your Growth Audit request has been received. Keith personally reviews every submission. You'll hear from us within 24 hours.
+        </p>
+
+        <div class="next-steps">
+          <h2>What Happens Next</h2>
+          <ol class="steps-list">
+            <li>
+              <span class="step-num">1</span>
+              <div>
+                <strong>We review your submission</strong>
+                <p>Keith looks at your practice area, market, and current marketing to prepare your audit.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div>
+                <strong>You'll get a personal response</strong>
+                <p>Within 24 hours, we'll reach out with initial findings and schedule a time to walk through them.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div>
+                <strong>You receive your 90-Day Roadmap</strong>
+                <p>Three prioritized actions ranked by cost, effort, and expected case volume. No strings attached.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="thank-you-actions">
+          <a href="/" class="btn btn-primary">Back to Home</a>
+          <a href="/how-we-work/" class="btn btn-ghost">See How We Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .thank-you {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .thank-you-card {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .success-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    box-shadow: 0 8px 32px rgba(41, 140, 66, 0.25);
+  }
+
+  .success-icon svg {
+    width: 36px;
+    height: 36px;
+    color: #fff;
+  }
+
+  .thank-you-card h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .thank-you-message {
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  .next-steps {
+    text-align: left;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    margin-bottom: 2.5rem;
+  }
+
+  .next-steps h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .steps-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .steps-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(41, 140, 66, 0.1);
+    color: var(--color-primary);
+    border-radius: 50%;
+    font-size: 0.875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .steps-list strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .steps-list p {
+    font-size: 0.875rem;
+    color: #4b5563;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .thank-you-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>
