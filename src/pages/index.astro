@@ -400,9 +400,9 @@ const featuredTestimonials = testimonials.filter(t =>
     z-index: 1;
     background: linear-gradient(
       to right,
-      rgba(1, 25, 7, 0.88) 0%,
-      rgba(1, 25, 7, 0.72) 45%,
-      rgba(1, 25, 7, 0.45) 100%
+      rgba(1, 25, 7, 0.65) 0%,
+      rgba(1, 25, 7, 0.6) 40%,
+      rgba(1, 25, 7, 0.5) 100%
     );
   }
   .hero-container {
@@ -436,11 +436,12 @@ const featuredTestimonials = testimonials.filter(t =>
     margin-bottom: 1rem;
   }
   .hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2rem, 5vw, 3.75rem);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.1;
     color: #fff;
     margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
   }
   .hero-text {
     font-size: 1.0625rem;
@@ -818,19 +819,22 @@ const featuredTestimonials = testimonials.filter(t =>
   }
   .solution-statement {
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     font-weight: 700;
     color: #fff;
     max-width: 650px;
     margin: 0 auto;
     letter-spacing: -0.01em;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   /* 5. LEXXLY Section */
   .section-lexxly {
     padding: 6rem 1.5rem;
-    background: #fff;
+    background: linear-gradient(180deg, #f0faf2 0%, #ffffff 50%, #f8fdf9 100%);
     position: relative;
+    overflow: hidden;
   }
   .section-lexxly::before {
     content: '';
@@ -839,12 +843,24 @@ const featuredTestimonials = testimonials.filter(t =>
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(100, 116, 139, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(41, 140, 66, 0.2), transparent);
+  }
+  .section-lexxly::after {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(41, 140, 66, 0.04) 0%, transparent 70%);
+    pointer-events: none;
   }
   .lexxly-header {
     max-width: 650px;
     margin: 0 auto 4rem;
     text-align: center;
+    position: relative;
+    z-index: 1;
   }
   .lexxly-header h2 {
     font-size: clamp(2rem, 5vw, 2.75rem);
@@ -862,25 +878,27 @@ const featuredTestimonials = testimonials.filter(t =>
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
+    z-index: 1;
   }
   .lexxly-grid::before {
     content: '';
     position: absolute;
-    top: 52px;
+    top: 56px;
     left: calc(12.5% + 0.75rem);
     right: calc(12.5% + 0.75rem);
     height: 2px;
     background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--color-primary));
-    opacity: 0.25;
+    opacity: 0.2;
     z-index: 0;
   }
   @media (max-width: 900px) {
     .lexxly-grid {
       grid-template-columns: repeat(2, 1fr);
-      max-width: 520px;
+      max-width: 560px;
+      gap: 1.25rem;
     }
     .lexxly-grid::before {
       display: none;
@@ -889,18 +907,18 @@ const featuredTestimonials = testimonials.filter(t =>
   @media (max-width: 500px) {
     .lexxly-grid {
       grid-template-columns: 1fr;
-      max-width: 320px;
+      max-width: 360px;
     }
   }
   .lexxly-card {
     position: relative;
-    background: #fafafa;
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: #fff;
+    border: 1px solid rgba(41, 140, 66, 0.1);
     border-radius: 16px;
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.75rem 2rem;
     text-align: center;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(41, 140, 66, 0.06);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
   }
   .lexxly-card::before {
@@ -909,71 +927,93 @@ const featuredTestimonials = testimonials.filter(t =>
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
+    height: 4px;
     background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
     border-radius: 16px 16px 0 0;
   }
+  .lexxly-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(41, 140, 66, 0.02) 0%, transparent 40%);
+    pointer-events: none;
+  }
   .lexxly-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-    border-color: rgba(41, 140, 66, 0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(41, 140, 66, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+    border-color: rgba(41, 140, 66, 0.2);
   }
   .lexxly-num {
     position: absolute;
     top: 1.25rem;
     right: 1.25rem;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    color: rgba(41, 140, 66, 0.35);
-    letter-spacing: 0.05em;
+    font-size: 0.625rem;
+    font-weight: 800;
+    color: rgba(41, 140, 66, 0.25);
+    letter-spacing: 0.08em;
+    z-index: 2;
   }
   .lexxly-icon {
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    border-radius: 14px;
-    margin: 0 auto 1.25rem;
-    box-shadow: 0 4px 16px rgba(41, 140, 66, 0.25);
+    border-radius: 16px;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 6px 20px rgba(41, 140, 66, 0.3), 0 2px 6px rgba(41, 140, 66, 0.15);
+    position: relative;
+    z-index: 2;
   }
   .lexxly-icon svg {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     color: #fff;
   }
   .lexxly-card h3 {
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
     font-weight: 700;
     color: var(--color-text-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.625rem;
     letter-spacing: -0.01em;
+    position: relative;
+    z-index: 2;
   }
   .lexxly-card p {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     color: #4b5563;
-    line-height: 1.6;
+    line-height: 1.65;
     margin: 0;
+    position: relative;
+    z-index: 2;
   }
   .lexxly-cta {
     text-align: center;
     margin-top: 3rem;
+    position: relative;
+    z-index: 1;
   }
   .btn-outline-light {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
+    padding: 0.875rem 2rem;
+    background: var(--color-primary);
+    color: #fff;
     border: 2px solid var(--color-primary);
-    color: var(--color-primary);
     border-radius: 8px;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(41, 140, 66, 0.2);
   }
   .btn-outline-light:hover {
-    background: var(--color-primary);
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
     color: #fff;
+    box-shadow: 0 6px 20px rgba(41, 140, 66, 0.3);
+    transform: translateY(-1px);
   }
 
   /* 6. How We Work Section */
@@ -1161,9 +1201,11 @@ const featuredTestimonials = testimonials.filter(t =>
   .who-card-not {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
   }
   .who-card-not h3 {
     color: #64748b;
+    font-size: 1.25rem;
   }
   .who-card-not li {
     color: #4b5563;
@@ -1176,11 +1218,13 @@ const featuredTestimonials = testimonials.filter(t =>
     font-weight: 700;
   }
   .who-card-yes {
-    background: linear-gradient(135deg, rgba(41, 140, 66, 0.03) 0%, #fff 100%);
+    background: linear-gradient(135deg, rgba(41, 140, 66, 0.04) 0%, #fff 100%);
     border: 2px solid var(--color-primary);
+    box-shadow: 0 4px 24px rgba(41, 140, 66, 0.08);
   }
   .who-card-yes h3 {
     color: var(--color-primary);
+    font-size: 1.25rem;
   }
   .who-card-yes li {
     color: var(--color-text-dark);
@@ -1210,24 +1254,40 @@ const featuredTestimonials = testimonials.filter(t =>
 
   /* 8. CTA */
   .section-cta {
-    padding: 4rem 1.5rem;
+    padding: 5rem 1.5rem;
     background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     color: #fff;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(41, 140, 66, 0.08) 0%, transparent 60%);
+    pointer-events: none;
   }
   .cta-content {
     max-width: 650px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
   .cta-content h2 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: #fff;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
   }
   .cta-content > p {
-    font-size: 1rem;
+    font-size: 1.0625rem;
     color: #b0b8b3;
-    margin-bottom: 1.5rem;
+    line-height: 1.65;
+    margin-bottom: 2rem;
   }
   .cta-actions {
     display: flex;

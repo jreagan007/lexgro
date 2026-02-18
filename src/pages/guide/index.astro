@@ -81,7 +81,7 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
               <span class="guide-date">{formatDate(featuredGuide.data.pubDate)}</span>
               <span class="guide-time">
                 {featuredGuide.data.wordCount
-                  ? `${Math.ceil(featuredGuide.data.wordCount / 200)} min read`
+                  ? `${Math.ceil(featuredGuide.data.wordCount / 250)} min read`
                   : '25+ min read'}
               </span>
               <span class="read-more">Read Guide →</span>
@@ -761,11 +761,25 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
     padding: 5rem 1.5rem;
     background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -25%;
+    width: 150%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(41, 140, 66, 0.15) 0%, transparent 60%);
+    pointer-events: none;
   }
 
   .cta-content {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
 
   .cta-title {
@@ -777,9 +791,9 @@ const regularGuides = sortedGuides.filter(g => g !== featuredGuide);
   }
 
   .cta-subtitle {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     color: #b0b8b3;
     margin-bottom: 2rem;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 </style>

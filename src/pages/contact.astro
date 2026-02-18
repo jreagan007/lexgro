@@ -296,7 +296,7 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
 
   /* Hero Section */
   .audit-hero {
-    padding: 4rem 0 5rem;
+    padding: 5rem 0 5rem;
     background: var(--color-bg-dark);
     position: relative;
     overflow: hidden;
@@ -356,11 +356,12 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
   }
 
   .hero-title {
-    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-size: clamp(2rem, 5vw, 3.25rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.25rem;
     color: #fff;
+    letter-spacing: -0.02em;
   }
 
   .hero-subtitle {
@@ -404,8 +405,19 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
     background: white;
     padding: 2rem;
     border-radius: 16px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+  }
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--color-mint));
+    border-radius: 16px 16px 0 0;
   }
 
   @media (min-width: 600px) {
@@ -494,8 +506,18 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
 
   /* What You Get Section */
   .audit-includes {
-    padding: 5rem 0;
+    padding: 6rem 0;
     background: var(--color-bg-dark);
+    position: relative;
+  }
+  .audit-includes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(41, 140, 66, 0.3), transparent);
   }
 
   .includes-header {
@@ -504,10 +526,11 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
   }
 
   .includes-title {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     color: white;
     margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
   }
 
   .includes-subtitle {
@@ -670,8 +693,18 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
 
   /* Social Proof */
   .social-proof {
-    padding: 3rem 0;
+    padding: 4rem 0;
     background: var(--color-bg-dark-alt);
+    position: relative;
+  }
+  .social-proof::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(41, 140, 66, 0.2), transparent);
   }
 
   .proof-content {
@@ -690,14 +723,16 @@ import roadmapBg from '../assets/images/sections/roadmap-bg.png';
   }
 
   .stat-value {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 800;
     color: var(--color-mint);
+    letter-spacing: -0.02em;
   }
 
   .stat-label {
     font-size: 0.875rem;
     color: #b0b8b3;
+    font-weight: 500;
   }
 
   @media (max-width: 500px) {

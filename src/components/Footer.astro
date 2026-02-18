@@ -4,16 +4,16 @@
  * Site footer with navigation, contact info, and legal links.
  */
 import { Image } from 'astro:assets';
-import logoWordmark from '../assets/images/logos/lexgro-wordmark.png';
+import logoWordmark from '../assets/images/logos/lexgro-wordmark-white.png';
 
 const currentYear = new Date().getFullYear();
 
 const footerLinks = {
   services: [
     { label: 'Fractional CMO', href: '/services/fractional-cmo/' },
-    { label: 'Marketing Strategy', href: '/services/' },
-    { label: 'SEO for Law Firms', href: '/services/' },
-    { label: 'Intake Optimization', href: '/services/' },
+    { label: 'Marketing Strategy', href: '/how-we-work/' },
+    { label: 'SEO for Law Firms', href: '/guide/' },
+    { label: 'Intake Optimization', href: '/contact/' },
   ],
   resources: [
     { label: 'Guides', href: '/guide/' },
@@ -123,7 +123,6 @@ const footerLinks = {
   .footer-logo img {
     height: 36px;
     width: auto;
-    filter: brightness(0) invert(1);
   }
 
   .footer-tagline {

@@ -47,9 +47,9 @@ export const colors = {
 
   // Text Colors
   text: {
-    dark: '#0D0504',         // Primary dark text
+    dark: '#212121',         // Primary dark text (WCAG AAA on white)
     primary: '#212121',      // Standard text (22 occurrences)
-    muted: '#779B80',        // Muted/secondary text (sage green)
+    muted: '#4b5563',        // Muted/secondary text (neutral gray, WCAG AA)
     light: '#98B39F',        // Light text on dark backgrounds
     white: '#FFFFFF',
   },
@@ -125,6 +125,7 @@ export const letterSpacing = {
   normal: '0',
   wide: '0.025em',
   wider: '0.05em',
+  badge: '0.2em',           // Section badges specifically
 } as const;
 
 // =============================================================================
@@ -169,10 +170,13 @@ export const borderRadius = {
   sm: '6px',
   md: '10px',
   lg: '14px',
+  card: '16px',             // All card components (critical - never approximate)
   xl: '24px',
   '2xl': '32px',
   '3xl': '50px',
+  pill: '100px',            // Section badges
   full: '9999px',
+  statItem: '8px',          // Hero stat items
 } as const;
 
 export const borderWidth = {
@@ -190,8 +194,8 @@ export const shadows = {
   // Soft shadow for cards and elevated elements
   soft: 'rgba(13, 18, 14, 0.05) 0px 4px 6px -1.8px, rgba(13, 18, 14, 0.06) 0px 9px 14px -2.7px',
 
-  // Card shadow with green tint
-  card: 'rgba(37, 167, 119, 0.2) 0px 1px 3px 0px, rgba(55, 251, 179, 0.1) 0px 0px 0px 1px',
+  // Card shadow (matches DESIGN-SYSTEM.md - never approximate)
+  card: '0 4px 24px rgba(0, 0, 0, 0.04)',
 
   // Card shadow with inset highlight
   cardElevated: 'rgba(37, 167, 119, 0.2) 0px 1px 3px 0px, rgba(55, 251, 179, 0.1) 0px 0px 0px 1px, rgba(55, 251, 179, 0.12) 0px -2.4px 0px 0px inset',

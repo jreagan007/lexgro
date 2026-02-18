@@ -971,20 +971,36 @@ const resultsSchema = {
     background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     color: #fff;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(41, 140, 66, 0.08) 0%, transparent 60%);
+    pointer-events: none;
   }
   .cta-content {
     max-width: 650px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
   .cta-content h2 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: #fff;
     margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
   .cta-content > p {
-    font-size: 1rem;
+    font-size: 1.0625rem;
     color: #b0b8b3;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.65;
   }
   .cta-actions {
     display: flex;

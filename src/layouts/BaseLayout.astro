@@ -91,6 +91,59 @@ const canonical = canonicalUrl || Astro.url.href;
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#298C42" />
+
+    <!-- JSON-LD: WebSite Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "LEXGRO",
+      "url": "https://lexgro.com",
+      "description": description,
+      "publisher": {
+        "@type": "Organization",
+        "name": "LEXGRO"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://lexgro.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+
+    <!-- JSON-LD: Organization Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LEXGRO",
+      "url": "https://lexgro.com",
+      "logo": "https://lexgro.com/images/lexgro-logo.png",
+      "description": "Fractional CMO services for injury law firms doing $2M to $15M.",
+      "founder": {
+        "@type": "Person",
+        "name": "Keith Dyer"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "url": "https://lexgro.com/contact/"
+      },
+      "sameAs": []
+    })} />
+
+    <!-- JSON-LD: SiteNavigation Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SiteNavigationElement",
+      "name": ["How We Work", "LEXXLY", "Results", "Resources", "About", "Contact"],
+      "url": [
+        "https://lexgro.com/how-we-work/",
+        "https://lexgro.com/lexxly/",
+        "https://lexgro.com/results/",
+        "https://lexgro.com/guide/",
+        "https://lexgro.com/about/",
+        "https://lexgro.com/contact/"
+      ]
+    })} />
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -98,6 +151,7 @@ const canonical = canonicalUrl || Astro.url.href;
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <Header />
     <main id="main-content">
       <slot />
@@ -151,7 +205,7 @@ const canonical = canonicalUrl || Astro.url.href;
 
         /* Shadows */
         --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
-        --shadow-card: 0 2px 8px rgba(41, 140, 66, 0.08), 0 0 0 1px rgba(41, 140, 66, 0.06);
+        --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.04);
         --shadow-elevated: 0 8px 30px rgba(0, 0, 0, 0.12);
 
         /* Transitions */
@@ -178,7 +232,7 @@ const canonical = canonicalUrl || Astro.url.href;
         min-height: 100vh;
         color: var(--color-text-primary);
         background-color: var(--color-bg-white);
-        line-height: 1.5;
+        line-height: 1.45;
         font-size: 1rem;
       }
 
@@ -209,7 +263,7 @@ const canonical = canonicalUrl || Astro.url.href;
         color: var(--color-text-dark);
       }
 
-      h1 { font-size: clamp(2rem, 5vw, 3rem); }
+      h1 { font-size: clamp(2rem, 5vw, 3.75rem); }
       h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
       h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
 

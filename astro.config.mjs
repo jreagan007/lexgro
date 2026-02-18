@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.URL || 'https://lexgro.netlify.app',
+  site: process.env.URL || 'https://lexgro.com',
 
   redirects: {
     // Service pages consolidation
@@ -15,7 +15,6 @@ export default defineConfig({
     '/services/fractional-law-firm-cmo/': '/how-we-work/',
 
     // URL changes from Framer migration
-    '/privacy-policy': '/privacy/',
     '/privacy-policy/': '/privacy/',
 
     // Blog consolidation (duplicate clusters → keeper posts)
@@ -42,7 +41,6 @@ export default defineConfig({
     '/vendors/hire-a-fractional-cfo': '/services/vendor/',
     '/vendors/hire-a-fractional-coo': '/services/vendor/',
     '/vendors/hire-a-fractional-cmo': '/services/vendor/',
-    '/explore-vendors': '/services/vendor/',
     '/explore-vendors/': '/services/vendor/',
   },
 

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#011907"/><stop offset="100%" stop-color="#233B29"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <rect x="80" y="335" width="50" height="4" fill="#298C42" rx="2"/>
+  <text x="150" y="343" fill="#c5cdc8" font-family="system-ui" font-size="24" font-weight="600">Strategy Session</text>
+  <text x="80" y="380" fill="#4b5563" font-family="system-ui" font-size="12">Run: npx tsx scripts/generate-editorial-images.ts</text>
+</svg>

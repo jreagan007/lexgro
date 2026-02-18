@@ -387,7 +387,10 @@ import heroBackground from '../assets/images/heroes/how-we-work-hero.jpg';
     position: relative;
     background: var(--color-bg-dark);
     color: #fff;
-    padding: 4rem 1.5rem 3rem;
+    padding: 5rem 1.5rem 4rem;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
     text-align: center;
     overflow: hidden;
   }
@@ -429,9 +432,10 @@ import heroBackground from '../assets/images/heroes/how-we-work-hero.jpg';
     margin-bottom: 1rem;
   }
   .hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2rem, 5vw, 3.75rem);
     color: #fff;
     margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
   .hero-text {
     font-size: 1.0625rem;
@@ -481,6 +485,18 @@ import heroBackground from '../assets/images/heroes/how-we-work-hero.jpg';
     background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     color: #fff;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -25%;
+    width: 150%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(41, 140, 66, 0.15) 0%, transparent 60%);
+    pointer-events: none;
   }
   .section-header {
     text-align: center;
@@ -1014,16 +1030,20 @@ import heroBackground from '../assets/images/heroes/how-we-work-hero.jpg';
   .cta-content {
     max-width: 650px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
   .cta-content h2 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: #fff;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
   .cta-content > p {
-    font-size: 1rem;
+    font-size: 1.0625rem;
     color: #b0b8b3;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.65;
   }
   .cta-actions {
     display: flex;
@@ -1034,18 +1054,22 @@ import heroBackground from '../assets/images/heroes/how-we-work-hero.jpg';
   .btn-white {
     background: #fff;
     color: var(--color-primary);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
   .btn-white:hover {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     color: var(--color-primary);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
   }
   .btn-outline-white {
     background: transparent;
     color: #fff;
-    border: 2px solid #fff;
+    border: 2px solid rgba(255,255,255,0.4);
   }
   .btn-outline-white:hover {
-    background: #fff;
-    color: var(--color-primary);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-color: rgba(255,255,255,0.6);
   }
 </style>

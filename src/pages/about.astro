@@ -340,10 +340,11 @@ const expertise = [
   /* Hero Section */
   .about-hero {
     position: relative;
-    padding: 4rem 1.5rem 3rem;
+    padding: 5rem 1.5rem 4rem;
     background: var(--color-bg-dark);
     text-align: center;
     overflow: hidden;
+    min-height: 380px;
   }
   .hero-bg {
     position: absolute;
@@ -376,11 +377,12 @@ const expertise = [
   }
 
   .hero-title {
-    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
     color: white;
+    letter-spacing: -0.02em;
   }
 
   .hero-subtitle {
@@ -530,7 +532,7 @@ const expertise = [
   /* Stats Section */
   .stats-section {
     padding: 4rem 1.5rem;
-    background: var(--color-bg-dark);
+    background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0a1f0f 100%);
   }
 
   .stats-grid {
@@ -713,17 +715,36 @@ const expertise = [
 
   .value-card {
     background: white;
-    padding: 1.5rem;
+    padding: 1.75rem;
     border-radius: 16px;
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
     text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    border-radius: 16px 16px 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .value-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(41, 140, 66, 0.1);
+  }
+
+  .value-card:hover::before {
+    opacity: 1;
   }
 
   .value-icon {
@@ -841,20 +862,36 @@ const expertise = [
 
   /* CTA Section */
   .cta-section {
-    padding: 6rem 1.5rem;
+    padding: 5rem 1.5rem;
     background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(41, 140, 66, 0.08) 0%, transparent 60%);
+    pointer-events: none;
   }
 
   .cta-content {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
 
   .cta-title {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: white;
     margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
 
   .cta-subtitle {
