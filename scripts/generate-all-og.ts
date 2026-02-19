@@ -179,7 +179,7 @@ async function createBackground(
     const config = PROMPTS[promptKey] || PROMPTS.default
     prompt = config.prompt
     fallbackGradient = config.fallbackGradient
-    cacheKey = slug || promptKey
+    cacheKey = slug ? slug.replace(/\//g, '-') : promptKey
   }
 
   // Try AI generation first
