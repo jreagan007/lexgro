@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /preview/
+Disallow: /sops-tools/
+
+Sitemap: https://lexgro.com/sitemap-index.xml

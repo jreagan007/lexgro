@@ -243,7 +243,7 @@ Example:
   - **Correct:** Strategy, execution, and results
 - Job titles are not capitalized unless they precede a name:
   - The managing partner signed the contract.
-  - Managing Partner Keith Dunnivant signed the contract.
+  - Managing Partner Keith Dyer signed the contract.
 - Use person-first language as much as possible:
   - *Law firms that struggle with marketing* instead of *struggling law firms*
 - Use US instead of U.S. when referring to the United States. You can also simply write out "United States"
@@ -392,7 +392,7 @@ Use these terms consistently:
 ## Brand References
 
 - **LEXGRO:** All caps when referring to the company
-- **Keith Dunnivant:** Always include full name on first reference
+- **Keith Dyer:** Always include full name on first reference
 - **Fractional CMO:** Capitalize when referring to the service/role
 - **The Law Firm CMO:** Our tagline, can be used in quotes
 

@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.URL || 'https://lexgro.com',
+  site: 'https://lexgro.com',
 
   redirects: {
     // Service pages consolidation
@@ -48,7 +48,7 @@ export default defineConfig({
     react(),
     mdx(),
     sitemap({
-      filter: (page) => !page.includes('/admin') && !page.includes('/api') && !page.includes('/preview')
+      filter: (page) => !page.includes('/admin') && !page.includes('/api') && !page.includes('/preview') && !page.includes('/sops-tools')
     })
   ],
 
