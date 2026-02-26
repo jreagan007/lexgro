@@ -42,6 +42,11 @@ export default defineConfig({
     '/vendors/hire-a-fractional-coo': '/services/vendor/',
     '/vendors/hire-a-fractional-cmo': '/services/vendor/',
     '/explore-vendors/': '/services/vendor/',
+
+    // Old Framer URLs found in Google Search Console
+    '/about-us/': '/about/',
+    '/cmopodcast': '/cmo-podcast/',
+    '/blog/how-lexgro-boost-marketing': '/blog/',
   },
 
   integrations: [
