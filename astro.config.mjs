@@ -47,6 +47,8 @@ export default defineConfig({
     '/about-us/': '/about/',
     '/cmopodcast': '/cmo-podcast/',
     '/blog/how-lexgro-boost-marketing': '/blog/',
+    '/podcast/scaling-law-firms-': '/podcast/',
+    '/access-denied': '/',
   },
 
   integrations: [
