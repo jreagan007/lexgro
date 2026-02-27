@@ -73,7 +73,7 @@ function formatDate(date: Date): string {
 }
 ---
 
-<BaseLayout title={title} description={description} image={`/og/guide/${slug}.png`}>
+<BaseLayout title={title} description={description} image={`/og/guide/${slug}.png`} ogType="article">
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
   <!-- Reading Progress -->

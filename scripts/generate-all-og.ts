@@ -76,6 +76,10 @@ const STATIC_PAGES: { slug: string; title: string; category: string }[] = [
   { slug: 'guide', title: 'Marketing Guides for Law Firms', category: 'GUIDES' },
   { slug: 'blog', title: 'Law Firm Marketing Blog', category: 'BLOG' },
   { slug: 'answers', title: 'Marketing Answers', category: 'ANSWERS' },
+  { slug: 'insights', title: 'Legal Marketing Intelligence', category: 'RESEARCH' },
+  // Fractional CMO pages
+  { slug: 'fractional-cmo', title: 'Fractional CMO for Law Firms', category: 'FRACTIONAL CMO' },
+  { slug: 'personal-injury', title: 'Fractional CMO for PI Firms', category: 'PERSONAL INJURY' },
   // Preview pages (legacy)
   { slug: 'preview', title: 'Your Growth Partner', category: 'PREVIEW' },
   { slug: 'preview-how-we-work', title: 'How We Work', category: 'PREVIEW' },
@@ -542,7 +546,7 @@ async function generateStaticPageOG(): Promise<void> {
 async function getContentItems(): Promise<{ type: string; slug: string; title: string }[]> {
   const items: { type: string; slug: string; title: string }[] = []
 
-  const contentTypes = ['blog', 'guides', 'answers', 'services']
+  const contentTypes = ['blog', 'guides', 'answers', 'services', 'insights']
 
   for (const type of contentTypes) {
     const pattern = path.join(CONTENT_DIR, type, '*.{md,mdx}')

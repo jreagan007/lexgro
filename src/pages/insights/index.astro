@@ -1,0 +1,535 @@
+---
+/**
+ * Insights Index Page
+ *
+ * Data-led research reports and benchmarks for law firm marketing.
+ * Optimized for Google Discover with large images and curiosity-driven headlines.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all insights sorted by date
+const allInsights = await getCollection('insights');
+const sortedInsights = allInsights
+  .filter(i => !i.data.draft)
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+// Separate featured and regular
+const featuredInsight = sortedInsights.find(i => i.data.featured);
+const regularInsights = sortedInsights.filter(i => i !== featuredInsight);
+
+// Insight type display names
+const insightTypeNames: Record<string, string> = {
+  'benchmark-report': 'Benchmark Report',
+  'market-analysis': 'Market Analysis',
+  'cost-study': 'Cost Study',
+  'survey-results': 'Survey Results',
+  'competitive-intel': 'Competitive Intelligence',
+};
+
+// Get unique insight types
+const allTypes = [...new Set(allInsights.map(i => i.data.insightType))];
+
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  }).format(date);
+}
+
+function formatShortDate(date: Date): string {
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    year: 'numeric'
+  }).format(date);
+}
+---
+
+<BaseLayout
+  title="Legal Marketing Intelligence"
+  description="Data-led research, benchmarks, and market analysis for law firm marketing. Real numbers from real firms."
+  image="/og/insights.png"
+>
+  <!-- Hero Section -->
+  <section class="insights-hero">
+    <div class="container hero-container">
+      <span class="section-label">LEXGRO Research</span>
+      <h1 class="hero-title">Legal Marketing Intelligence</h1>
+      <p class="hero-subtitle">
+        Benchmarks, cost studies, and market analysis built on real data.
+        Not opinions. Numbers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  {allTypes.length > 1 && (
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-scroll">
+          <button class="filter-btn active" data-type="all">All Research</button>
+          {allTypes.map(type => (
+            <button class="filter-btn" data-type={type}>
+              {insightTypeNames[type] || type}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Featured Insight -->
+  {featuredInsight && (
+    <section class="featured-section" data-type={featuredInsight.data.insightType}>
+      <div class="container">
+        <a href={`/insights/${featuredInsight.data.slug}/`} class="featured-card">
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span class="type-pill">{insightTypeNames[featuredInsight.data.insightType] || 'Research'}</span>
+              <span class="data-date">Data as of {formatShortDate(featuredInsight.data.dataDate)}</span>
+            </div>
+            <h2 class="featured-title">{featuredInsight.data.title}</h2>
+            <p class="featured-excerpt">{featuredInsight.data.description}</p>
+
+            <!-- Key Finding Preview -->
+            {featuredInsight.data.keyFindings.length > 0 && (
+              <div class="featured-stat">
+                <span class="stat-number">{featuredInsight.data.keyFindings[0].stat}</span>
+                <span class="stat-context">{featuredInsight.data.keyFindings[0].context}</span>
+              </div>
+            )}
+
+            <div class="featured-footer">
+              <span class="post-date">{formatDate(featuredInsight.data.pubDate)}</span>
+              <span class="read-more">Read Report →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <!-- Insights Grid -->
+  <section class="insights-grid-section">
+    <div class="container">
+      <h2 class="grid-title">All Research</h2>
+      <div class="insights-grid">
+        {regularInsights.map(insight => (
+          <a href={`/insights/${insight.data.slug}/`} class="insight-card" data-type={insight.data.insightType}>
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="type-badge">{insightTypeNames[insight.data.insightType] || 'Research'}</span>
+                <span class="card-date">{formatShortDate(insight.data.dataDate)}</span>
+              </div>
+              <h3 class="card-title">{insight.data.title}</h3>
+              <p class="card-excerpt">{insight.data.description}</p>
+
+              <!-- First Key Finding -->
+              {insight.data.keyFindings.length > 0 && (
+                <div class="card-stat">
+                  <span class="card-stat-number">{insight.data.keyFindings[0].stat}</span>
+                  <span class="card-stat-context">{insight.data.keyFindings[0].context}</span>
+                </div>
+              )}
+
+              <span class="card-link">Read Report →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Want Custom Benchmarks for Your Firm?</h2>
+        <p class="cta-subtitle">
+          Generic data only gets you so far. We build custom analyses
+          based on your market, practice area, and competitive market.
+        </p>
+        <a href="/contact/" class="btn btn-primary btn-lg">
+          Request Custom Analysis
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.insight-card');
+    const featured = document.querySelector('.featured-section');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const type = (btn as HTMLElement).dataset.type;
+
+        cards.forEach(card => {
+          const cardType = (card as HTMLElement).dataset.type;
+          if (type === 'all' || cardType === type) {
+            (card as HTMLElement).style.display = '';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+
+        if (featured) {
+          const featuredType = (featured as HTMLElement).dataset.type;
+          if (type === 'all' || featuredType === type) {
+            (featured as HTMLElement).style.display = '';
+          } else {
+            (featured as HTMLElement).style.display = 'none';
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Hero */
+  .insights-hero {
+    padding: 5rem 0 3rem;
+    background: var(--color-bg-dark);
+    color: #fff;
+    text-align: center;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-label {
+    color: var(--color-primary-light);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .hero-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: #b0b8b3;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Filter Bar */
+  .filter-section {
+    padding: 2rem 0;
+    background: white;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 72px;
+    z-index: 50;
+  }
+
+  .filter-scroll {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .filter-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+  }
+
+  /* Featured Section */
+  .featured-section {
+    padding: 3rem 0;
+    background: white;
+  }
+
+  .featured-card {
+    display: block;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.3s ease;
+    padding: 2.5rem;
+  }
+
+  .featured-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+  }
+
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .type-pill {
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .data-date {
+    font-size: 0.8125rem;
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .featured-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .featured-excerpt {
+    font-size: 1rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+
+  .featured-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--color-primary);
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    white-space: nowrap;
+  }
+
+  .stat-context {
+    font-size: 0.875rem;
+    color: #4b5563;
+    line-height: 1.4;
+  }
+
+  .featured-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .post-date {
+    font-size: 0.875rem;
+    color: #4b5563;
+  }
+
+  .read-more {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  /* Insights Grid */
+  .insights-grid-section {
+    padding: 3rem 0 5rem;
+    background: #fafafa;
+  }
+
+  .grid-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 2rem;
+  }
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 600px) {
+    .insights-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .insights-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .insight-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 3px solid;
+    border-image: linear-gradient(135deg, var(--color-primary), var(--color-teal)) 1;
+  }
+
+  .insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .type-badge {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+  }
+
+  .card-date {
+    font-size: 0.75rem;
+    color: #4b5563;
+  }
+
+  .card-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-excerpt {
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .card-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-stat-number {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    white-space: nowrap;
+  }
+
+  .card-stat-context {
+    font-size: 0.8125rem;
+    color: #4b5563;
+    line-height: 1.3;
+  }
+
+  .card-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.125rem;
+    color: #b0b8b3;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .cta-section .btn-primary {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-section .btn-primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+</style>

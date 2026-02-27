@@ -18,6 +18,7 @@ interface Props {
   image?: string;
   canonicalUrl?: string;
   noIndex?: boolean;
+  ogType?: string;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   image = "/og-image.png",
   canonicalUrl,
   noIndex = false,
+  ogType = "website",
 } = Astro.props;
 
 const siteTitle = "LEXGRO";
@@ -63,9 +65,10 @@ const canonical = canonicalUrl || Astro.url.href;
 
     <!-- Robots -->
     {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="robots" content="max-image-preview:large" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />

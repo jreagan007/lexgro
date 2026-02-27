@@ -1,0 +1,76 @@
+---
+import { getCollection, render } from 'astro:content';
+import InsightLayout from '../../layouts/InsightLayout.astro';
+
+export async function getStaticPaths() {
+  const insights = await getCollection('insights');
+
+  return insights.map((entry) => {
+    // Find related insights by matching tags or practice area
+    const currentTags = entry.data.tags || [];
+    const currentPracticeArea = entry.data.practiceArea;
+
+    const scoredInsights = insights
+      .filter(i => i.data.slug !== entry.data.slug)
+      .map(i => {
+        const iTags = i.data.tags || [];
+        const matchingTags = currentTags.filter(tag => iTags.includes(tag)).length;
+        const samePracticeArea = currentPracticeArea && i.data.practiceArea === currentPracticeArea ? 3 : 0;
+        return { insight: i, score: matchingTags + samePracticeArea };
+      })
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map(item => ({
+        title: item.insight.data.title,
+        slug: item.insight.data.slug,
+        insightType: item.insight.data.insightType,
+        description: item.insight.data.description
+      }));
+
+    // Fill with recent if needed
+    const relatedInsights = scoredInsights.length >= 3 ? scoredInsights : [
+      ...scoredInsights,
+      ...insights
+        .filter(i => i.data.slug !== entry.data.slug && !scoredInsights.find(si => si.slug === i.data.slug))
+        .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+        .slice(0, 3 - scoredInsights.length)
+        .map(i => ({
+          title: i.data.title,
+          slug: i.data.slug,
+          insightType: i.data.insightType,
+          description: i.data.description
+        }))
+    ];
+
+    return {
+      params: { slug: entry.data.slug },
+      props: { entry, relatedInsights },
+    };
+  });
+}
+
+const { entry, relatedInsights } = Astro.props;
+const { Content } = await render(entry);
+
+const readingTime = entry.data.readingTime || '8 min read';
+---
+
+<InsightLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  subtitle={entry.data.subtitle}
+  author={entry.data.author}
+  pubDate={entry.data.pubDate}
+  updatedDate={entry.data.updatedDate}
+  dataDate={entry.data.dataDate}
+  methodology={entry.data.methodology}
+  keyFindings={entry.data.keyFindings}
+  insightType={entry.data.insightType}
+  tags={entry.data.tags}
+  slug={entry.data.slug}
+  readingTime={readingTime}
+  sourcesCount={entry.data.sourcesCount}
+  relatedInsights={relatedInsights}
+>
+  <Content />
+</InsightLayout>

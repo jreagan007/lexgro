@@ -453,7 +453,8 @@ function checkForMissingSources(content: string): StructuralIssue[] {
   // Check if Sources section exists
   const hasSourcesSection = /^##?\s*Sources?\s*$/im.test(content) ||
     /^##?\s*References?\s*$/im.test(content) ||
-    /^\[\d+\]:/m.test(content) // Numbered reference style
+    /^\[\d+\]:/m.test(content) || // Numbered reference style
+    /<div\s+class="references">/i.test(content) // HTML references div pattern
 
   if (hasStats && !hasSourcesSection) {
     issues.push({

@@ -40,6 +40,7 @@ export type PromptKey =
   | 'blog'
   | 'case-study'
   | 'answers'
+  | 'insights'
   // Practice areas
   | 'personal-injury'
   | 'family-law'
@@ -225,6 +226,12 @@ export const PROMPTS: Record<PromptKey, PromptConfig> = {
     fallbackGradient: [[1, 25, 7], [26, 167, 116]],
   },
 
+  insights: {
+    prompt: `Data analysis workspace with printed charts and graphs spread across desk, magnifying glass on spreadsheet, warm desk lamp light, research and intelligence atmosphere, 1990s analyst office documentary style, Kodak Portra 400 warm tones, shallow focus on chart edges, no readable numbers or text, no people, authentic market research aesthetic`,
+    style: 'dark',
+    fallbackGradient: [[1, 25, 7], [103, 58, 228]],
+  },
+
   // === PRACTICE AREAS ===
 
   'personal-injury': {
@@ -345,6 +352,7 @@ export function getPromptKeyFromSlug(slug: string): PromptKey {
   if (normalizedSlug.startsWith('guide/') || normalizedSlug === 'guide') return 'guide'
   if (normalizedSlug.startsWith('blog/') || normalizedSlug === 'blog') return 'blog'
   if (normalizedSlug.startsWith('answers/') || normalizedSlug === 'answers') return 'answers'
+  if (normalizedSlug.startsWith('insights/') || normalizedSlug === 'insights') return 'insights'
   if (normalizedSlug.includes('case-study')) return 'case-study'
 
   // Practice areas (more specific first)

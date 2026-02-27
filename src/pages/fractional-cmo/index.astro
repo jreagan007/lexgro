@@ -1,0 +1,433 @@
+---
+/**
+ * Fractional CMO Practice Area Hub
+ *
+ * Lists all practice-specific fractional CMO pages.
+ * Links to /how-we-work/ for general service info.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const practiceAreas = [
+  {
+    title: 'Personal Injury',
+    slug: 'personal-injury',
+    description: 'High cost per lead, multi-channel complexity, and intake optimization. A fractional CMO builds the system that turns ad spend into signed cases.',
+    stats: '$150-$1,500 CPL',
+    available: true,
+  },
+  {
+    title: 'Family Law',
+    slug: 'family-law',
+    description: 'Sensitive messaging, local SEO dominance, and referral network development. Strategic marketing that respects the emotional weight of family cases.',
+    stats: '$75-$400 CPL',
+    available: false,
+  },
+  {
+    title: 'Criminal Defense',
+    slug: 'criminal-defense',
+    description: 'Urgent search intent, 24/7 intake requirements, and reputation management. Speed and precision in every marketing channel.',
+    stats: '$100-$600 CPL',
+    available: false,
+  },
+  {
+    title: 'Immigration',
+    slug: 'immigration',
+    description: 'Multilingual campaigns, community trust building, and ethical outreach. Marketing that connects with communities responsibly.',
+    stats: '$50-$250 CPL',
+    available: false,
+  },
+  {
+    title: 'Bankruptcy',
+    slug: 'bankruptcy',
+    description: 'High-volume lead generation, intake efficiency, and empathetic positioning. Reaching people at their most vulnerable with helpful content.',
+    stats: '$40-$200 CPL',
+    available: false,
+  },
+  {
+    title: 'Estate Planning',
+    slug: 'estate-planning',
+    description: 'Educational content marketing, trust building, and long sales cycles. Converting information seekers into planning clients.',
+    stats: '$60-$300 CPL',
+    available: false,
+  },
+];
+
+// JSON-LD
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Fractional CMO for Law Firms",
+  "description": "Practice-specific fractional CMO leadership for law firms. Strategic marketing expertise tailored to your practice area.",
+  "provider": {
+    "@type": "Organization",
+    "name": "LEXGRO"
+  },
+  "serviceType": "Fractional CMO",
+  "areaServed": "US"
+};
+---
+
+<BaseLayout
+  title="Fractional CMO for Law Firms by Practice Area"
+  description="Practice-specific fractional CMO leadership for law firms. Strategic marketing expertise tailored to your practice area and market."
+  image="/og/fractional-cmo.png"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="section-badge">Fractional CMO</span>
+        <h1 class="hero-title">Marketing Leadership Built for Your Practice Area</h1>
+        <p class="hero-subtitle">
+          Every practice area has different economics, different buyer journeys,
+          and different competitive dynamics. Cookie-cutter marketing ignores all of it.
+        </p>
+        <div class="hero-ctas">
+          <a href="/how-we-work/" class="btn btn-primary btn-lg">See How We Work</a>
+          <a href="/contact/" class="btn btn-ghost btn-lg">Book a Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Areas Grid -->
+  <section class="practice-areas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge-light">Practice Areas</span>
+        <h2 class="section-title">Choose Your Practice Area</h2>
+        <p class="section-subtitle">
+          Each practice area page covers the specific challenges, benchmarks,
+          and strategies relevant to your firm.
+        </p>
+      </div>
+
+      <div class="areas-grid">
+        {practiceAreas.map(area => (
+          <div class={`area-card ${area.available ? '' : 'coming-soon'}`}>
+            <div class="area-card-header">
+              <h3 class="area-name">{area.title}</h3>
+              <span class="area-stat">{area.stats}</span>
+            </div>
+            <p class="area-description">{area.description}</p>
+            {area.available ? (
+              <a href={`/fractional-cmo/${area.slug}/`} class="area-link">
+                View {area.title} Strategy →
+              </a>
+            ) : (
+              <span class="area-coming">Coming Soon</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- General Info Section -->
+  <section class="general-info">
+    <div class="container">
+      <div class="info-card">
+        <div class="info-content">
+          <span class="section-badge-light">Not Practice-Specific?</span>
+          <h2 class="info-title">See How Our System Works</h2>
+          <p class="info-text">
+            Our approach combines intelligence, editorial, and distribution into one
+            integrated system. It works across every practice area.
+          </p>
+          <a href="/how-we-work/" class="btn btn-primary btn-lg">How We Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Not Sure Where to Start?</h2>
+        <p class="cta-subtitle">
+          We will audit your current marketing, identify the biggest gaps,
+          and tell you exactly what to fix first. No commitment required.
+        </p>
+        <a href="/contact/" class="btn btn-white btn-lg">
+          Schedule a Free Audit
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: 5rem 0 3.5rem;
+    background: var(--color-bg-dark);
+    color: #fff;
+  }
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .section-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12) 0%, rgba(100, 116, 139, 0.06) 100%);
+    padding: 0.375rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: #b0b8b3;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Practice Areas */
+  .practice-areas {
+    padding: 5rem 0;
+    background: #fafafa;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-badge-light {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #4b5563;
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12) 0%, rgba(100, 116, 139, 0.06) 100%);
+    padding: 0.375rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.0625rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .area-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    border-top: 3px solid;
+    border-image: linear-gradient(135deg, var(--color-primary), var(--color-teal)) 1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .area-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .area-card.coming-soon {
+    opacity: 0.7;
+    border-image: linear-gradient(135deg, #94a3b8, #cbd5e1) 1;
+  }
+
+  .area-card.coming-soon:hover {
+    transform: none;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  .area-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .area-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+  }
+
+  .area-stat {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(41, 140, 66, 0.08);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .area-description {
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .area-link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .area-link:hover {
+    text-decoration: underline;
+  }
+
+  .area-coming {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* General Info */
+  .general-info {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .info-card {
+    background: #fafafa;
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .info-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .info-text {
+    font-size: 1.0625rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -25%;
+    width: 150%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(41, 140, 66, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.0625rem;
+    color: #b0b8b3;
+    margin-bottom: 2rem;
+    line-height: 1.65;
+  }
+
+  .btn-white {
+    background: white;
+    color: var(--color-primary);
+    border: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-white:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .areas-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .info-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

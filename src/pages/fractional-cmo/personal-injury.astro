@@ -1,0 +1,850 @@
+---
+/**
+ * Fractional CMO for Personal Injury Law Firms
+ *
+ * Practice-specific conversion page with PI benchmarks, pain points,
+ * and data-backed value proposition. Uses real Perplexity research data.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// JSON-LD Service Schema
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Fractional CMO for Personal Injury Law Firms",
+  "description": "Strategic marketing leadership for PI firms. Reduce cost per lead, optimize intake, and build predictable case flow.",
+  "provider": {
+    "@type": "Organization",
+    "name": "LEXGRO",
+    "url": "https://lexgro.com"
+  },
+  "serviceType": "Fractional CMO",
+  "areaServed": "US",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Personal Injury Law Firms"
+  }
+};
+
+// FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a fractional CMO cost for a PI firm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A fractional CMO typically costs 70% less than a full-time hire. Full-time CMOs run $300K+ annually. Fractional engagement starts at a fraction of that, with most PI firms investing $8K-$15K monthly for senior-level marketing leadership."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What results can a PI firm expect from a fractional CMO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Industry data shows law firms with fractional CMOs grow 3x faster than firms without marketing leadership. PI firms typically see 40% lower client acquisition costs and 2-3x growth in signed cases within 9 months through full-funnel optimization."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is a fractional CMO different from a marketing agency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An agency executes tactics. A fractional CMO owns the strategy. They sit in your leadership meetings, manage your vendors, track cost per signed case by channel, and make budget decisions based on data. They are accountable for revenue growth, not activity metrics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quick wins typically appear within 90 days through intake optimization and paid channel restructuring. Significant revenue impact (300% ROI) usually materializes within 18-24 months as SEO, content, and referral channels compound."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Fractional CMO for Personal Injury Law Firms"
+  description="Strategic marketing leadership for PI firms. Cut cost per lead from $442 to $183. Build predictable case flow. 70% less than a full-time CMO."
+  image="/og/personal-injury.png"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="section-badge">Fractional CMO / Personal Injury</span>
+        <h1 class="hero-title">Your PI Firm Spends $442 Per Lead on Google Ads. That Number Should Be Lower.</h1>
+        <p class="hero-subtitle">
+          The average PI firm wastes 60% of its marketing budget because nobody
+          is tracking cost per signed case by channel. A fractional CMO fixes that.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number">$183</span>
+            <span class="hero-stat-label">SEO cost per lead</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">$442</span>
+            <span class="hero-stat-label">Google Ads CPL</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">3x</span>
+            <span class="hero-stat-label">Faster growth with CMO</span>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="/contact/" class="btn btn-primary btn-lg">Get a Free Marketing Audit</a>
+          <a href="/insights/pi-cost-per-lead-benchmarks/" class="btn btn-ghost btn-lg">See Full Benchmarks</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points Section -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge-light">The Problem</span>
+        <h2 class="section-title">PI Marketing Is Expensive. Bad PI Marketing Is Devastating.</h2>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Cost Per Lead Is Climbing</h3>
+          <p>
+            Google Ads CPC for PI keywords runs $181 to $400+. In metros, truck accident
+            terms hit $1,000 per click. Without a strategy, you are buying clicks that never convert.
+          </p>
+          <span class="pain-stat">$442 average CPL on Google Ads</span>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Intake Leaks Kill ROI</h3>
+          <p>
+            Firms that respond to leads within 5 minutes see 400% higher conversion rates.
+            Most PI firms take hours. Every slow response is a signed case going to your competitor.
+          </p>
+          <span class="pain-stat">400% conversion lift from 5-min response</span>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+          </div>
+          <h3>No Channel Attribution</h3>
+          <p>
+            You run Google Ads, SEO, LSAs, and maybe TV. You cannot tell which channel
+            produced your last 10 signed cases. Without attribution, every dollar is a guess.
+          </p>
+          <span class="pain-stat">60% of PI budgets wasted without tracking</span>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Agencies Without Accountability</h3>
+          <p>
+            Your SEO agency shows you rankings. Your PPC agency shows you clicks.
+            Nobody shows you cost per signed case. Nobody owns the full picture.
+          </p>
+          <span class="pain-stat">82% report poor paid search ROI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benchmarks Section -->
+  <section class="benchmarks-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">PI Benchmarks</span>
+        <h2 class="section-title-light">Know Your Numbers Before You Spend</h2>
+        <p class="section-subtitle-light">
+          These are the 2026 benchmarks we use to evaluate every PI firm's marketing performance.
+        </p>
+      </div>
+      <div class="benchmarks-grid">
+        <div class="benchmark-card">
+          <span class="benchmark-label">Google Ads CPL</span>
+          <span class="benchmark-value">$442</span>
+          <span class="benchmark-detail">5-15% conversion to signed case</span>
+        </div>
+        <div class="benchmark-card">
+          <span class="benchmark-label">SEO CPL</span>
+          <span class="benchmark-value">$183</span>
+          <span class="benchmark-detail">15-20% conversion to signed case</span>
+        </div>
+        <div class="benchmark-card">
+          <span class="benchmark-label">LSA CPL</span>
+          <span class="benchmark-value">$378</span>
+          <span class="benchmark-detail">Local high-intent searches</span>
+        </div>
+        <div class="benchmark-card">
+          <span class="benchmark-label">Referral CPL</span>
+          <span class="benchmark-value">&lt;$100</span>
+          <span class="benchmark-detail">15-20%+ conversion rate</span>
+        </div>
+        <div class="benchmark-card">
+          <span class="benchmark-label">Cost Per Signed Case</span>
+          <span class="benchmark-value">$1,500-$2,500</span>
+          <span class="benchmark-detail">Exclusive leads (owned channels)</span>
+        </div>
+        <div class="benchmark-card">
+          <span class="benchmark-label">Shared Lead Cost</span>
+          <span class="benchmark-value">$3,000-$6,000</span>
+          <span class="benchmark-detail">2-5% conversion rate</span>
+        </div>
+      </div>
+      <div class="benchmarks-cta">
+        <a href="/insights/pi-cost-per-lead-benchmarks/" class="btn btn-outline-white">
+          See Full Benchmark Report →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do Section -->
+  <section class="solution-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge-light">What a Fractional CMO Does for PI</span>
+        <h2 class="section-title">We Own the Strategy. We Fix the System.</h2>
+      </div>
+      <div class="solution-grid">
+        <div class="solution-card featured">
+          <span class="solution-number">01</span>
+          <h3>Channel-Level Attribution</h3>
+          <p>
+            We track every lead from first click to signed retainer. You will know
+            exactly what each channel costs per signed case, not per lead.
+          </p>
+        </div>
+        <div class="solution-card">
+          <span class="solution-number">02</span>
+          <h3>Budget Reallocation</h3>
+          <p>
+            Most PI firms over-invest in Google Ads and under-invest in SEO.
+            We shift spend toward channels with better cost per signed case ratios.
+          </p>
+        </div>
+        <div class="solution-card">
+          <span class="solution-number">03</span>
+          <h3>Intake Optimization</h3>
+          <p>
+            Speed to lead. Call tracking. Intake scripts. CRM workflows.
+            We close the gap between "lead" and "signed case" where most firms lose 40% of potential clients.
+          </p>
+        </div>
+        <div class="solution-card">
+          <span class="solution-number">04</span>
+          <h3>Vendor Accountability</h3>
+          <p>
+            We manage your SEO agency, your PPC team, your web developer.
+            Every vendor reports on metrics that matter: signed cases, not vanity numbers.
+          </p>
+        </div>
+        <div class="solution-card">
+          <span class="solution-number">05</span>
+          <h3>SEO and Content Strategy</h3>
+          <p>
+            SEO delivers leads at $183 CPL with 15-20% conversion. We build the content
+            strategy, keyword targets, and local SEO foundation that compounds over time.
+          </p>
+        </div>
+        <div class="solution-card">
+          <span class="solution-number">06</span>
+          <h3>Monthly Reporting You Actually Read</h3>
+          <p>
+            One dashboard. Cost per signed case by channel. Lead volume trends.
+            Intake conversion rates. No 40-page reports full of vanity metrics.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="results-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Results</span>
+        <h2 class="section-title-light">What the Data Shows</h2>
+      </div>
+      <div class="results-grid">
+        <div class="result-card">
+          <span class="result-number">300%</span>
+          <span class="result-label">Average ROI within 18-24 months</span>
+          <span class="result-source">Industry benchmark across 40+ law firms</span>
+        </div>
+        <div class="result-card">
+          <span class="result-number">40%</span>
+          <span class="result-label">Reduction in client acquisition costs</span>
+          <span class="result-source">Through full-funnel optimization</span>
+        </div>
+        <div class="result-card">
+          <span class="result-number">31%</span>
+          <span class="result-label">Year-over-year caseload increase</span>
+          <span class="result-source">PI firm with fractional CMO engagement</span>
+        </div>
+        <div class="result-card">
+          <span class="result-number">92%</span>
+          <span class="result-label">Client retention rate over 2+ years</span>
+          <span class="result-source">Because measurable results keep clients</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge-light">FAQ</span>
+        <h2 class="section-title">Common Questions from PI Firm Owners</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">How much does a fractional CMO cost for a PI firm?</summary>
+          <p class="faq-answer">
+            A fractional CMO costs about 70% less than a full-time hire. Full-time CMOs
+            run $300K+ annually in salary, benefits, and equity. Fractional engagements
+            for PI firms typically run $8K to $15K monthly for senior-level marketing
+            leadership, strategy, vendor management, and accountability.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What results can a PI firm expect?</summary>
+          <p class="faq-answer">
+            Industry data shows law firms with fractional CMOs grow 3x faster than firms
+            without marketing leadership. PI firms typically see 40% lower client acquisition
+            costs and 2 to 3x growth in signed cases within 9 months. Quick wins from intake
+            optimization and channel reallocation usually appear within 90 days.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How is this different from hiring a marketing agency?</summary>
+          <p class="faq-answer">
+            An agency executes tactics. A fractional CMO owns the strategy. We sit in your
+            leadership meetings, manage your vendors, track cost per signed case by channel,
+            and make budget decisions based on data. We are accountable for revenue growth,
+            not activity metrics like impressions or clicks.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How long until we see results?</summary>
+          <p class="faq-answer">
+            Quick wins appear within 90 days through intake optimization and paid channel
+            restructuring. Significant revenue impact (300% ROI) typically materializes
+            within 18 to 24 months as SEO, content, and referral channels compound.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Do you replace our current marketing vendors?</summary>
+          <p class="faq-answer">
+            Not necessarily. We evaluate your current vendors against performance benchmarks.
+            Good vendors stay. Underperformers get replaced with vetted partners from our network.
+            We manage the entire vendor ecosystem so you do not have to.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Stop Guessing. Start Measuring.</h2>
+        <p class="cta-subtitle">
+          We will audit your current PI marketing, benchmark your cost per signed case
+          by channel, and tell you exactly where to cut waste. No commitment required.
+        </p>
+        <a href="/contact/" class="btn btn-white btn-lg">
+          Get a Free Marketing Audit
+        </a>
+        <p class="cta-disclaimer">
+          No contracts. No pressure. Just data.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: 5rem 0 3.5rem;
+    background: var(--color-bg-dark);
+    color: #fff;
+  }
+
+  .hero-content {
+    max-width: 750px;
+  }
+
+  .section-badge {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12) 0%, rgba(100, 116, 139, 0.06) 100%);
+    padding: 0.375rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: #b0b8b3;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-stat-number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-mint);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-stat-label {
+    font-size: 0.8125rem;
+    color: #b0b8b3;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  /* Pain Points */
+  .pain-section {
+    padding: 5rem 0;
+    background: #fafafa;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 3rem;
+  }
+
+  .section-badge-light {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #4b5563;
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12) 0%, rgba(100, 116, 139, 0.06) 100%);
+    padding: 0.375rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .section-title-light {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle-light {
+    font-size: 1.0625rem;
+    color: #b0b8b3;
+    line-height: 1.6;
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .pain-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  .pain-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(41, 140, 66, 0.08);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .pain-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .pain-card p {
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .pain-stat {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(41, 140, 66, 0.08);
+    padding: 0.375rem 0.75rem;
+    border-radius: 100px;
+    display: inline-block;
+  }
+
+  /* Benchmarks */
+  .benchmarks-section {
+    padding: 5rem 0;
+    background: var(--color-bg-dark);
+    color: #fff;
+  }
+
+  .benchmarks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .benchmark-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .benchmark-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #b0b8b3;
+  }
+
+  .benchmark-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--color-mint);
+    letter-spacing: -0.02em;
+  }
+
+  .benchmark-detail {
+    font-size: 0.8125rem;
+    color: #b0b8b3;
+    line-height: 1.4;
+  }
+
+  .benchmarks-cta {
+    text-align: center;
+  }
+
+  .btn-outline-white {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+
+  .btn-outline-white:hover {
+    background: #fff;
+    color: var(--color-primary);
+  }
+
+  /* Solution */
+  .solution-section {
+    padding: 5rem 0;
+    background: #fafafa;
+  }
+
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .solution-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    border-top: 3px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .solution-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .solution-card.featured {
+    border-top: 3px solid;
+    border-image: linear-gradient(135deg, var(--color-primary), var(--color-teal)) 1;
+  }
+
+  .solution-number {
+    font-size: 0.8125rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .solution-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .solution-card p {
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+
+  /* Results */
+  .results-section {
+    padding: 5rem 0;
+    background: var(--color-bg-dark);
+    color: #fff;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .result-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .result-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-mint);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .result-label {
+    font-size: 0.9375rem;
+    color: #fff;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .result-source {
+    font-size: 0.75rem;
+    color: #b0b8b3;
+    margin-top: 0.25rem;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .faq-list {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-question {
+    padding: 1.25rem 0;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-primary);
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    content: '-';
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-answer {
+    padding: 0 0 1.25rem;
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #0d3d1a 0%, #1a5c2e 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -25%;
+    width: 150%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(41, 140, 66, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.0625rem;
+    color: #b0b8b3;
+    margin-bottom: 2rem;
+    line-height: 1.65;
+  }
+
+  .btn-white {
+    background: white;
+    color: var(--color-primary);
+    border: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-white:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .cta-disclaimer {
+    font-size: 0.8125rem;
+    color: #b0b8b3;
+    margin-top: 1rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .hero-stats {
+      gap: 1rem;
+    }
+
+    .hero-stat {
+      padding: 0.75rem 1rem;
+    }
+
+    .pain-grid,
+    .solution-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

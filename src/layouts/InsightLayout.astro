@@ -1,48 +1,91 @@
 ---
 /**
- * BlogLayout - Modern Editorial Blog Template
- * Features: Hero image, clean TOC, smart related posts, CRO-focused CTAs
+ * InsightLayout - Data-Led Research Report Template
+ * Optimized for Google Discover with key findings callout, data freshness badge,
+ * methodology disclosure, and Article JSON-LD with speakable property.
  */
 import BaseLayout from './BaseLayout.astro';
 
+interface KeyFinding {
+  stat: string;
+  context: string;
+}
 
 interface Props {
   title: string;
   description: string;
+  subtitle?: string;
   author?: string;
   pubDate: Date;
   updatedDate?: Date;
+  dataDate: Date;
+  methodology?: string;
+  keyFindings: KeyFinding[];
+  insightType: string;
   tags?: string[];
   slug?: string;
-  category?: string;
   readingTime?: string;
   heroImage?: string;
-  relatedPosts?: Array<{ title: string; slug: string; category?: string; description?: string }>;
+  sourcesCount?: number;
+  relatedInsights?: Array<{ title: string; slug: string; insightType?: string; description?: string }>;
 }
 
 const {
   title,
   description,
+  subtitle,
   author = 'Keith Dyer',
   pubDate,
   updatedDate,
+  dataDate,
+  methodology,
+  keyFindings = [],
+  insightType = 'benchmark-report',
   tags = [],
   slug = '',
-  category = 'Marketing',
-  readingTime = '5 min read',
+  readingTime = '8 min read',
   heroImage,
-  relatedPosts = []
+  sourcesCount,
+  relatedInsights = []
 } = Astro.props;
 
-// Check for hero image
-const heroImgPath = heroImage || `/images/heroes/blog/${slug}.jpg`;
+// Hero image path
+const heroImgPath = heroImage || `/images/heroes/insights/${slug}.jpg`;
 
-// Article schema
+// Insight type display names
+const insightTypeNames: Record<string, string> = {
+  'benchmark-report': 'Benchmark Report',
+  'market-analysis': 'Market Analysis',
+  'cost-study': 'Cost Study',
+  'survey-results': 'Survey Results',
+  'competitive-intel': 'Competitive Intelligence',
+};
+
+const insightTypeDisplay = insightTypeNames[insightType] || insightType;
+
+// Format dates
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
+function formatShortDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+  });
+}
+
+// Article JSON-LD with speakable
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": title,
   "description": description,
+  "articleSection": "Research",
   "author": {
     "@type": "Person",
     "name": author,
@@ -60,29 +103,25 @@ const articleSchema = {
   ...(updatedDate && { "dateModified": updatedDate.toISOString() }),
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://lexgro.com/blog/${slug}/`
-  }
+    "@id": `https://lexgro.com/insights/${slug}/`
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".article-title", ".article-lede", ".key-finding-stat"]
+  },
+  "image": `https://lexgro.com/og/insights/${slug}.png`
 };
-
-// Format date
-function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-}
 ---
 
-<BaseLayout title={title} description={description} image={`/og/blog/${slug}.png`} ogType="article">
+<BaseLayout title={title} description={description} image={`/og/insights/${slug}.png`} ogType="article">
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
   <!-- Reading Progress Bar -->
   <div class="progress-bar" id="progress-bar"></div>
 
-  <article class="blog-article">
+  <article class="insight-article">
     <!-- Hero Header -->
-    <header class="blog-header">
+    <header class="insight-header">
       <img
         src={heroImgPath}
         alt=""
@@ -94,11 +133,13 @@ function formatDate(date: Date): string {
       <div class="container hero-container">
         <div class="header-inner">
           <div class="meta-top">
-            <span class="category-pill">{category}</span>
+            <span class="type-pill">{insightTypeDisplay}</span>
             <span class="reading-time">{readingTime}</span>
+            <span class="data-date-badge">Data as of {formatShortDate(dataDate)}</span>
           </div>
 
           <h1 class="article-title">{title}</h1>
+          {subtitle && <p class="article-subtitle">{subtitle}</p>}
           <p class="article-lede">{description}</p>
 
           <div class="author-row">
@@ -136,15 +177,42 @@ function formatDate(date: Date): string {
       </div>
     </header>
 
+    <!-- Key Findings Callout -->
+    {keyFindings.length > 0 && (
+      <section class="key-findings">
+        <div class="container">
+          <div class="findings-header">
+            <span class="findings-label">Key Findings</span>
+          </div>
+          <div class="findings-grid">
+            {keyFindings.map(finding => (
+              <div class="finding-card">
+                <span class="key-finding-stat">{finding.stat}</span>
+                <span class="finding-context">{finding.context}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
     <!-- Main Content Area -->
     <div class="content-wrapper">
       <div class="container">
         <div class="content-grid">
           <!-- Article Body -->
           <div class="article-main">
-            <div class="article-body prose" id="blog-content">
+            <div class="article-body prose" id="insight-content">
               <slot />
             </div>
+
+            <!-- Methodology Section -->
+            {methodology && (
+              <div class="methodology-section">
+                <h3 class="methodology-label">Methodology</h3>
+                <p class="methodology-text">{methodology}</p>
+              </div>
+            )}
 
             <!-- Tags -->
             {tags.length > 0 && (
@@ -174,10 +242,9 @@ function formatDate(date: Date): string {
                 <a href="/about/" class="author-card-link">More about Keith</a>
               </div>
             </div>
-
           </div>
 
-          <!-- Sidebar: TOC + CTA -->
+          <!-- Sidebar -->
           <aside class="sidebar" id="toc-sidebar">
             <div class="sidebar-inner">
               <!-- TOC -->
@@ -186,16 +253,16 @@ function formatDate(date: Date): string {
                   <span class="toc-label">Contents</span>
                 </div>
                 <nav class="toc-nav" id="toc-nav">
-                  <!-- Populated by JS - H2s only -->
+                  <!-- Populated by JS -->
                 </nav>
               </div>
 
               <!-- Sidebar CTA -->
               <div class="sidebar-cta">
-                <h4>Ready to Put This Into Action?</h4>
-                <p>Get a personalized marketing roadmap for your firm.</p>
+                <h4>Get Custom Data for Your Firm</h4>
+                <p>Want benchmarks specific to your market and practice area?</p>
                 <a href="/contact/" class="btn btn-primary btn-full">
-                  Book a Free Call
+                  Request Custom Analysis
                 </a>
               </div>
             </div>
@@ -204,20 +271,20 @@ function formatDate(date: Date): string {
       </div>
     </div>
 
-    <!-- Related Posts Section -->
-    {relatedPosts.length > 0 && (
+    <!-- Related Insights -->
+    {relatedInsights.length > 0 && (
       <section class="related-section">
         <div class="container">
-          <h2 class="related-heading">Keep Reading</h2>
+          <h2 class="related-heading">More Research</h2>
           <div class="related-grid">
-            {relatedPosts.slice(0, 3).map(post => (
-              <a href={`/blog/${post.slug}/`} class="related-card">
-                <span class="related-card-category">{post.category || 'Blog'}</span>
-                <h3 class="related-card-title">{post.title}</h3>
-                {post.description && (
-                  <p class="related-card-desc">{post.description.slice(0, 100)}...</p>
+            {relatedInsights.slice(0, 3).map(insight => (
+              <a href={`/insights/${insight.slug}/`} class="related-card">
+                <span class="related-card-category">{insightTypeNames[insight.insightType || 'benchmark-report'] || 'Research'}</span>
+                <h3 class="related-card-title">{insight.title}</h3>
+                {insight.description && (
+                  <p class="related-card-desc">{insight.description.slice(0, 100)}...</p>
                 )}
-                <span class="related-card-link">Read article →</span>
+                <span class="related-card-link">Read report →</span>
               </a>
             ))}
           </div>
@@ -229,10 +296,10 @@ function formatDate(date: Date): string {
     <section class="bottom-cta">
       <div class="container">
         <div class="bottom-cta-inner">
-          <h2>Let's Grow Your Firm</h2>
-          <p>Stop guessing. Start growing. Book a free strategy call.</p>
+          <h2>Put This Data to Work</h2>
+          <p>Benchmarks are only useful if you act on them. Let's build a strategy around your numbers.</p>
           <a href="/contact/" class="btn btn-white btn-lg">
-            Schedule a Call
+            Schedule a Strategy Call
           </a>
         </div>
       </div>
@@ -253,8 +320,8 @@ function formatDate(date: Date): string {
     transition: width 0.1s ease;
   }
 
-  /* Header - Dark hero with editorial background */
-  .blog-header {
+  /* Header */
+  .insight-header {
     position: relative;
     background: var(--color-bg-dark);
     padding: 5rem 0 3rem;
@@ -298,9 +365,10 @@ function formatDate(date: Date): string {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
   }
 
-  .category-pill {
+  .type-pill {
     background: var(--color-primary);
     color: white;
     font-size: 0.6875rem;
@@ -316,13 +384,30 @@ function formatDate(date: Date): string {
     color: #b0b8b3;
   }
 
+  .data-date-badge {
+    font-size: 0.75rem;
+    color: var(--color-mint);
+    font-weight: 600;
+    background: rgba(37, 185, 123, 0.12);
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+  }
+
   .article-title {
     font-size: clamp(1.75rem, 5vw, 3rem);
     line-height: 1.15;
     font-weight: 800;
     color: #fff;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     letter-spacing: -0.02em;
+  }
+
+  .article-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: var(--color-mint);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
   }
 
   .article-lede {
@@ -407,12 +492,66 @@ function formatDate(date: Date): string {
     color: white;
   }
 
+  /* Key Findings Section */
+  .key-findings {
+    background: #fafafa;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(41, 140, 66, 0.12);
+  }
+
+  .findings-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .findings-label {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #4b5563;
+    background: linear-gradient(135deg, rgba(100, 116, 139, 0.12) 0%, rgba(100, 116, 139, 0.06) 100%);
+    padding: 0.375rem 1rem;
+    border-radius: 100px;
+  }
+
+  .findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .finding-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border-top: 3px solid;
+    border-image: linear-gradient(135deg, var(--color-primary), var(--color-teal)) 1;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .key-finding-stat {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .finding-context {
+    font-size: 0.875rem;
+    color: #4b5563;
+    line-height: 1.5;
+  }
+
   /* Content Wrapper */
   .content-wrapper {
     padding: 3rem 0;
   }
 
-  /* Content Grid - Main + Sidebar */
   .content-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -446,7 +585,6 @@ function formatDate(date: Date): string {
     }
   }
 
-  /* TOC Section */
   .toc-section {
     margin-bottom: 2rem;
   }
@@ -493,7 +631,6 @@ function formatDate(date: Date): string {
     font-weight: 500;
   }
 
-  /* Sidebar CTA */
   .sidebar-cta {
     background: #fafafa;
     border-radius: 16px;
@@ -520,7 +657,7 @@ function formatDate(date: Date): string {
     justify-content: center;
   }
 
-  /* Article Body */
+  /* Article Body - inherits from BlogLayout pattern */
   .article-body {
     font-size: 1.0625rem;
     line-height: 1.75;
@@ -564,88 +701,6 @@ function formatDate(date: Date): string {
     font-size: 1.125rem;
     color: #4b5563;
     font-style: italic;
-  }
-
-  /* Cross-Link Callout - internal guide/blog links */
-  .article-body :global(.cross-link) {
-    background: linear-gradient(135deg, rgba(41, 140, 66, 0.03) 0%, rgba(41, 140, 66, 0.06) 100%);
-    border-left: 3px solid var(--color-primary);
-    border-radius: 0 16px 16px 0;
-    padding: 1.25rem 1.75rem 1.25rem 3.25rem;
-    margin: 2rem 0;
-    position: relative;
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-    transition: box-shadow 250ms ease, background 250ms ease;
-  }
-
-  .article-body :global(.cross-link:hover) {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-    background: linear-gradient(135deg, rgba(41, 140, 66, 0.04) 0%, rgba(41, 140, 66, 0.08) 100%);
-  }
-
-  .article-body :global(.cross-link::before) {
-    content: '\2192';
-    position: absolute;
-    left: 1.25rem;
-    top: 1.25rem;
-    font-size: 1.125rem;
-    color: var(--color-primary);
-    font-weight: 700;
-  }
-
-  .article-body :global(.cross-link p) {
-    margin: 0;
-  }
-
-  .article-body :global(.cross-link a) {
-    font-weight: 700;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
-  }
-
-  /* References Section - APA compact style */
-  .article-body :global(.references) {
-    margin-top: 3rem;
-    background: #fafafa;
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    padding: 1.5rem 1.75rem;
-  }
-
-  .article-body :global(.references-label) {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #4b5563;
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .article-body :global(.references p) {
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: #4b5563;
-    margin-bottom: 0.75rem;
-  }
-
-  .article-body :global(.references p em) {
-    font-style: italic;
-  }
-
-  .article-body :global(.references p a) {
-    display: block;
-    color: var(--color-primary);
-    text-decoration: none;
-    font-size: 0.75rem;
-    margin-top: 0.125rem;
-    word-break: break-all;
-  }
-
-  .article-body :global(.references p a:hover) {
-    text-decoration: underline;
   }
 
   .article-body :global(a) {
@@ -711,15 +766,100 @@ function formatDate(date: Date): string {
     border-radius: 0 0 8px 0;
   }
 
-  @media (max-width: 768px) {
-    .article-body :global(table) {
-      font-size: 0.875rem;
-    }
+  /* Cross-Link Callout */
+  .article-body :global(.cross-link) {
+    background: linear-gradient(135deg, rgba(41, 140, 66, 0.03) 0%, rgba(41, 140, 66, 0.06) 100%);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0 16px 16px 0;
+    padding: 1.25rem 1.75rem 1.25rem 3.25rem;
+    margin: 2rem 0;
+    position: relative;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  }
 
-    .article-body :global(th),
-    .article-body :global(td) {
-      padding: 0.625rem 0.75rem;
-    }
+  .article-body :global(.cross-link::before) {
+    content: '\2192';
+    position: absolute;
+    left: 1.25rem;
+    top: 1.25rem;
+    font-size: 1.125rem;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .article-body :global(.cross-link p) {
+    margin: 0;
+  }
+
+  .article-body :global(.cross-link a) {
+    font-weight: 700;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  /* References Section */
+  .article-body :global(.references) {
+    margin-top: 3rem;
+    background: #fafafa;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+  }
+
+  .article-body :global(.references-label) {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #4b5563;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .article-body :global(.references p) {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: #4b5563;
+    margin-bottom: 0.75rem;
+  }
+
+  .article-body :global(.references p a) {
+    display: block;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.75rem;
+    margin-top: 0.125rem;
+    word-break: break-all;
+  }
+
+  .article-body :global(.references p a:hover) {
+    text-decoration: underline;
+  }
+
+  /* Methodology Section */
+  .methodology-section {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: #fafafa;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+  }
+
+  .methodology-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #4b5563;
+    margin-bottom: 0.75rem;
+  }
+
+  .methodology-text {
+    font-size: 0.9375rem;
+    color: #4b5563;
+    line-height: 1.6;
   }
 
   /* Tags */
@@ -889,6 +1029,7 @@ function formatDate(date: Date): string {
     position: relative;
     overflow: hidden;
   }
+
   .bottom-cta::before {
     content: '';
     position: absolute;
@@ -938,7 +1079,7 @@ function formatDate(date: Date): string {
 
   /* Responsive */
   @media (max-width: 768px) {
-    .blog-header {
+    .insight-header {
       padding: 1.5rem 0 1rem;
     }
 
@@ -949,14 +1090,23 @@ function formatDate(date: Date): string {
     .article-body :global(h2) {
       font-size: 1.375rem;
     }
+
+    .article-body :global(table) {
+      font-size: 0.875rem;
+    }
+
+    .article-body :global(th),
+    .article-body :global(td) {
+      padding: 0.625rem 0.75rem;
+    }
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Generate TOC - H2s only for cleaner navigation
+    // Generate TOC
     const tocNav = document.getElementById('toc-nav');
-    const content = document.getElementById('blog-content');
+    const content = document.getElementById('insight-content');
     const headings = content?.querySelectorAll('h2');
 
     if (tocNav && headings && headings.length > 0) {
@@ -992,12 +1142,12 @@ function formatDate(date: Date): string {
 
     // Reading progress bar
     const progressBar = document.getElementById('progress-bar');
-    const article = document.querySelector('.blog-article');
+    const article = document.querySelector('.insight-article');
 
     if (progressBar && article) {
       window.addEventListener('scroll', () => {
-        const articleTop = article.offsetTop;
-        const articleHeight = article.offsetHeight;
+        const articleTop = (article as HTMLElement).offsetTop;
+        const articleHeight = (article as HTMLElement).offsetHeight;
         const windowHeight = window.innerHeight;
         const scrollY = window.scrollY;
 

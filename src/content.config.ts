@@ -6,6 +6,7 @@
  * - Answers: 1200-2500 words, featured snippet targets
  * - Services: 2000-2500 words, conversion focused
  * - Blog: 1500-2500 words, thought leadership
+ * - Insights: Data-led research reports, optimized for Google Discover
  */
 
 import { defineCollection, z } from 'astro:content';
@@ -187,6 +188,68 @@ const blog = defineCollection({
 });
 
 // =============================================================================
+// INSIGHTS COLLECTION (Data-Led Research Reports)
+// =============================================================================
+
+const insights = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/insights' }),
+  schema: baseSchema.extend({
+    // Discover-friendly subhead (max 120 chars)
+    subtitle: z.string().max(120).optional(),
+
+    // When underlying data was collected
+    dataDate: z.coerce.date(),
+
+    // Research method disclosure
+    methodology: z.string().optional(),
+
+    // Hero callout data (2-5 stat cards)
+    keyFindings: z.array(z.object({
+      stat: z.string(),
+      context: z.string(),
+    })).min(2).max(5),
+
+    // Type of insight
+    insightType: z.enum([
+      'benchmark-report',
+      'market-analysis',
+      'cost-study',
+      'survey-results',
+      'competitive-intel',
+    ]),
+
+    // Practice area for cross-linking
+    practiceArea: z.enum([
+      'general',
+      'personal-injury',
+      'family-law',
+      'immigration',
+      'criminal-defense',
+      'estate-planning',
+      'bankruptcy',
+      'mass-tort',
+    ]).optional(),
+
+    // Tags for categorization
+    tags: z.array(z.string()),
+
+    // Reading time
+    readingTime: z.string().optional(),
+
+    // Featured insight
+    featured: z.boolean().default(false),
+
+    // Number of sources cited
+    sourcesCount: z.number().optional(),
+
+    // Related content
+    relatedGuide: z.string().optional(),
+    relatedBlog: z.array(z.string()).optional(),
+    relatedInsights: z.array(z.string()).optional(),
+  }),
+});
+
+// =============================================================================
 // EXPORT COLLECTIONS
 // =============================================================================
 
@@ -195,4 +258,5 @@ export const collections = {
   answers,
   services,
   blog,
+  insights,
 };
