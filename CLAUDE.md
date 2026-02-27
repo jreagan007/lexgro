@@ -215,7 +215,27 @@ See `docs/OG-IMAGE-STYLE-GUIDE.md` for comprehensive guidelines. Key points:
 
 ## Project Status
 **Current Phase:** Site Migration from Framer to Astro
-**Last Updated:** February 4, 2026 (Session 9)
+**Last Updated:** February 27, 2026 (Session 10)
+
+### ✅ Session 10 - Insights Collection + Analytics + Card Image Guardrails
+- **`/insights/` collection built:**
+  - 3 data-driven research reports (PI CPL benchmarks, fractional CMO ROI, marketing spend 2026)
+  - InsightLayout with reading progress bar, TOC sidebar, key findings callout, methodology section, JSON-LD
+  - Index page with hero image, card images, featured insight, filter bar, type badges
+  - OG images (1200x630) and card images (800x450) for all 3 insights
+  - Content schema: keyFindings, dataDate, insightType, methodology, practiceArea
+- **Fractional CMO content pages:**
+  - `/fractional-cmo/` - Main fractional CMO page
+  - `/personal-injury/` - PI-specific fractional CMO page
+- **Card image text guardrails improved:**
+  - Insights titles preserve data (numbers, $, %) instead of stripping them
+  - Widened card text from 22 to 26 chars/line for better readability
+  - Reduced card title font from 42px to 38px for safe zone compliance
+  - Word-boundary truncation (no more mid-word cuts)
+  - Content-type-aware headline extraction
+- **Analytics:** Clicky analytics (ID: 101502024) added to BaseLayout
+- **Footer:** Insights link added to Resources column
+- **Hero images:** Generated insights-index-hero.jpg via Gemini
 
 ### ✅ Session 9 - Homepage Visual Redesign + CTA Consolidation
 - **Homepage sections redesigned:**
@@ -303,12 +323,15 @@ public/og/                    # OG images (1200x630)
 ├── guide.png                 # Guides index
 ├── blog.png                  # Blog index
 ├── answers.png               # Answers index
+├── insights.png              # Insights index
 ├── blog/                     # Blog post OG images
 │   └── *.png                 # 27 blog posts
 ├── guide/                    # Guide OG images
 │   └── *.png
 ├── answers/                  # Answer OG images
 │   └── *.png
+├── insights/                 # Insight OG images
+│   └── *.png                 # 3 research reports
 └── services/                 # Service OG images
     └── *.png
 
@@ -319,6 +342,8 @@ public/cards/                 # Card images (800x450) for previews
 │   └── *.png
 ├── answers/
 │   └── *.png
+├── insights/
+│   └── *.png                 # 3 insight cards
 └── services/
     └── *.png
 ```
@@ -348,9 +373,18 @@ src/lib/og/
 └── prompts.ts           # 30+ page categories with gradients
 
 scripts/
-├── generate-all-og.ts   # Batch generation for all pages
+├── generate-all-og.ts   # Batch OG + card generation (content-type-aware)
+├── generate-hero-images.ts  # Hero backgrounds via Gemini (1920x1080)
 └── generate-homepage-og.ts  # Homepage-specific with Gemini
 ```
+
+### Card Image Guardrails
+- **OG images:** 1200x630, 80px safe padding, 28 chars/line, 56px title font
+- **Card images:** 800x450, 48px safe padding, 26 chars/line, 38px title font
+- **Max 2 lines** for titles on both formats
+- **Insights content** preserves full titles (data/numbers are the hook)
+- **Blog/guide content** uses punchy headline extraction (strips filler prefixes)
+- **Truncation** always at word boundaries (no mid-word cuts)
 
 ## Migration Progress
 
@@ -361,10 +395,10 @@ scripts/
 - [x] `Header.astro` - Astro-native nav with mobile menu
 - [x] `Footer.astro` - Astro-native footer
 - [x] Content collections config (`src/content.config.ts`)
-- [x] 4 page layouts: GuideLayout, AnswerLayout, ServiceLayout, BlogLayout
+- [x] 5 page layouts: GuideLayout, AnswerLayout, ServiceLayout, BlogLayout, InsightLayout
 - [x] Dynamic routing for all content types
 
-### 📄 Pages Built (78 Total)
+### 📄 Pages Built (92 Total)
 
 **Core Pages:**
 - `/` - Homepage (COMPLETE - all 17 sections)
@@ -376,6 +410,8 @@ scripts/
 - `/results/` - Case studies and success stories
 - `/calculator/` - Marketing ROI calculator
 - `/careers/` - Careers page
+- `/how-we-work/` - System overview
+- `/lexxly/` - Intelligence platform
 
 **Services:**
 - `/services/` - Services index with cards and process
@@ -383,6 +419,8 @@ scripts/
 - `/services/vendor/` - Vendor platform service
 - `/services/evergreen-marketing/` - Training service
 - `/services/evergreen-consulting/` - Consulting service
+- `/fractional-cmo/` - Fractional CMO landing page
+- `/personal-injury/` - PI-specific fractional CMO page
 
 **Content Hubs:**
 - `/blog/` - Blog index with featured posts (uses card images)
@@ -391,6 +429,8 @@ scripts/
 - `/guide/[slug]/` - Guide pages
 - `/answers/` - Answers index with search
 - `/answers/[slug]/` - Answer pages
+- `/insights/` - Research index with hero, card images, filter bar
+- `/insights/[slug]/` - 3 insight reports (benchmarks, market analysis, surveys)
 
 **Podcast (29 pages):**
 - `/podcast/` - Law Firm Growth Podcast index
@@ -458,7 +498,7 @@ scripts/
 ## Dev Commands
 ```bash
 npm run dev -- --port 4322   # Dev server
-npm run build                 # Build (78 pages)
+npm run build                 # Build (92 pages)
 npx tsx scripts/generate-all-og.ts  # Generate OG images
 ```
 
@@ -473,7 +513,8 @@ src/
 │   ├── GuideLayout.astro
 │   ├── AnswerLayout.astro
 │   ├── ServiceLayout.astro
-│   └── BlogLayout.astro
+│   ├── BlogLayout.astro
+│   └── InsightLayout.astro
 ├── pages/
 │   ├── index.astro          # Homepage
 │   ├── about.astro
@@ -488,6 +529,7 @@ src/
 │   ├── answers/
 │   ├── services/
 │   ├── blog/
+│   ├── insights/
 │   ├── podcast/
 │   ├── cmo-podcast/
 │   └── tips-from-keith/
@@ -501,15 +543,17 @@ src/
     ├── blog/
     ├── guides/
     ├── answers/
+    ├── insights/
     └── services/
 
 public/
-├── og/                      # 43 OG images
-├── cards/                   # 30 card images
+├── og/                      # 46+ OG images
+├── cards/                   # 33+ card images
 └── og-image.png             # Default OG fallback
 
 scripts/
 ├── generate-all-og.ts       # Batch OG generation
+├── generate-hero-images.ts  # Hero backgrounds via Gemini
 ├── generate-homepage-og.ts  # Homepage OG with Gemini
 ├── audit-content.ts         # Style guide audit (npm run audit)
 ├── fix-content-style.ts     # Auto-fix style issues (npm run fix:style)
@@ -525,9 +569,9 @@ scripts/
 - Planning docs: `planning/`
 - Content briefs: `planning/briefs/phase-1/`
 
-## Current Framer Site
+## Current Site
 - URL: https://lexgro.com
-- Analytics: GA (G-2Z5L72S3NL), Facebook Pixel, Hyros
+- Analytics: GA (G-2Z5L72S3NL), GTM (GTM-WK56H7KT), Clicky (101502024), Facebook Pixel, Hyros
 
 ## Astro 5 Notes
 - Use `render()` from `astro:content` instead of `entry.render()`

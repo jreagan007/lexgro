@@ -87,6 +87,7 @@ const STATIC_PAGES: { slug: string; title: string; category: string }[] = [
 ]
 
 interface PageConfig {
+  contentType?: string
   slug: string
   title: string
   category: string
@@ -273,13 +274,26 @@ function escapeXml(str: string): string {
 /**
  * Extract a punchy headline for cards - not just parroting the full title
  * Focuses on the main keyword phrase and keeps it readable
+ *
+ * For insights/research content, we keep more of the title since the data IS the hook.
+ * For blog/guide content, we strip filler prefixes for punchier cards.
  */
-function getCardHeadline(title: string): string {
+function getCardHeadline(title: string, contentType?: string): string {
+  // Insights titles are data-driven - the numbers are the hook, keep more of the title
+  if (contentType === 'insights') {
+    // For insights: take the full title but cap at 9 words
+    const words = title.split(' ')
+    if (words.length > 9) {
+      return words.slice(0, 9).join(' ')
+    }
+    return title
+  }
+
   // Extract main phrase (before : or | or — but NOT hyphens which are often in keywords)
   const mainPhrase = title.split(/[:|—]/)[0].trim()
 
   // Remove common filler prefixes for punchier headlines
-  const fillers = ['How to', 'How a', 'The Ultimate', 'A Guide to', 'Why ', 'What is', 'Top ']
+  const fillers = ['How to', 'How a', 'The Ultimate', 'A Guide to', 'Why ', 'What is', 'What Are', 'Top ', 'Where ']
   let headline = mainPhrase
   for (const filler of fillers) {
     if (headline.toLowerCase().startsWith(filler.toLowerCase())) {
@@ -302,9 +316,9 @@ function getCardHeadline(title: string): string {
 /**
  * Wrap title text to max 2 lines
  */
-function wrapTitle(title: string, maxCharsPerLine: number = 28, isCard: boolean = false): string[] {
+function wrapTitle(title: string, maxCharsPerLine: number = 28, isCard: boolean = false, contentType?: string): string[] {
   // For cards, use punchy headline instead of full title
-  const displayTitle = isCard ? getCardHeadline(title) : title
+  const displayTitle = isCard ? getCardHeadline(title, contentType) : title
 
   const words = displayTitle.split(' ')
   const lines: string[] = []
@@ -321,9 +335,20 @@ function wrapTitle(title: string, maxCharsPerLine: number = 28, isCard: boolean 
   }
   if (currentLine) lines.push(currentLine)
 
-  // Max 2 lines
+  // Max 2 lines - truncate at word boundary
   if (lines.length > 2) {
-    return [lines[0], lines.slice(1).join(' ').slice(0, maxCharsPerLine) + '...']
+    const remaining = lines.slice(1).join(' ')
+    const words = remaining.split(' ')
+    let line2 = ''
+    for (const word of words) {
+      const test = line2 ? `${line2} ${word}` : word
+      if (test.length <= maxCharsPerLine - 1) {
+        line2 = test
+      } else {
+        break
+      }
+    }
+    return [lines[0], line2]
   }
   return lines
 }
@@ -336,15 +361,16 @@ function createTextOverlaySVG(
   height: number,
   category: string,
   title: string,
-  isCard: boolean = false
+  isCard: boolean = false,
+  contentType?: string
 ): string {
   const padding = isCard ? 48 : SAFE_PADDING
-  const titleLines = wrapTitle(title, isCard ? 22 : 28, isCard)
+  const titleLines = wrapTitle(title, isCard ? 26 : 28, isCard, contentType)
 
-  // Scale fonts for cards
+  // Scale fonts for cards - slightly smaller to fit wider text safely
   const categorySize = isCard ? 11 : 13
-  const titleSize = isCard ? 42 : 56
-  const lineHeight = isCard ? 50 : 64
+  const titleSize = isCard ? 38 : 56
+  const lineHeight = isCard ? 46 : 64
 
   // Position from bottom
   const accentY = height * 0.35
@@ -433,7 +459,7 @@ async function compositeImage(
   // Create all overlays
   const overlayBuffer = Buffer.from(createOverlaySVG(width, height))
   const accentBuffer = Buffer.from(createAccentBarSVG(width, height))
-  const textBuffer = Buffer.from(createTextOverlaySVG(width, height, config.category, config.title, isCard))
+  const textBuffer = Buffer.from(createTextOverlaySVG(width, height, config.category, config.title, isCard, config.contentType))
   const brandingBuffer = Buffer.from(createBrandingSVG(width, height, isCard))
 
   // Composite layers
@@ -594,6 +620,7 @@ async function generateContentOG(): Promise<void> {
 
     const fullSlug = `${item.type}/${item.slug}`
     const config: PageConfig = {
+      contentType: item.type,
       slug: fullSlug,
       title: item.title,
       category: item.type.toUpperCase(),
@@ -630,6 +657,7 @@ async function generateCards(): Promise<void> {
 
     const fullSlug = `${item.type}/${item.slug}`
     const config: PageConfig = {
+      contentType: item.type,
       slug: fullSlug,
       title: item.title,
       category: item.type.toUpperCase(),

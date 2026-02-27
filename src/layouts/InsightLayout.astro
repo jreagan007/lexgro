@@ -49,7 +49,7 @@ const {
   relatedInsights = []
 } = Astro.props;
 
-// Hero image path
+// Hero image: use provided heroImage, or generated hero, or OG image fallback
 const heroImgPath = heroImage || `/images/heroes/insights/${slug}.jpg`;
 
 // Insight type display names
