@@ -50,6 +50,7 @@ const HEROES: [string, PromptKey][] = [
   ['privacy-hero.jpg', 'default'],
   ['terms-hero.jpg', 'default'],
   ['contact-hero.jpg', 'contact'],
+  ['insights-index-hero.jpg', 'insights'],
 ]
 
 // Target dimensions for hero backgrounds (wide aspect for full-width hero)

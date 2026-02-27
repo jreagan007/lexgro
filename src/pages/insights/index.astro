@@ -6,6 +6,8 @@
  * Optimized for Google Discover with large images and curiosity-driven headlines.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import heroBackground from '../../assets/images/heroes/insights-index-hero.jpg';
 import { getCollection } from 'astro:content';
 
 // Get all insights sorted by date
@@ -44,6 +46,15 @@ function formatShortDate(date: Date): string {
     year: 'numeric'
   }).format(date);
 }
+
+function getCardImage(slug: string): string {
+  return `/cards/insights/${slug}.png`;
+}
+
+function getKeywordAlt(title: string): string {
+  const mainPhrase = title.split(/[:\-|]/)[0].trim();
+  return mainPhrase || title;
+}
 ---
 
 <BaseLayout
@@ -53,6 +64,8 @@ function formatShortDate(date: Date): string {
 >
   <!-- Hero Section -->
   <section class="insights-hero">
+    <Image src={heroBackground} alt="" class="hero-bg" widths={[800, 1200, 1920]} sizes="100vw" loading="eager" />
+    <div class="hero-overlay"></div>
     <div class="container hero-container">
       <span class="section-label">LEXGRO Research</span>
       <h1 class="hero-title">Legal Marketing Intelligence</h1>
@@ -84,6 +97,17 @@ function formatShortDate(date: Date): string {
     <section class="featured-section" data-type={featuredInsight.data.insightType}>
       <div class="container">
         <a href={`/insights/${featuredInsight.data.slug}/`} class="featured-card">
+          <div class="featured-image">
+            <img
+              src={getCardImage(featuredInsight.data.slug)}
+              alt={getKeywordAlt(featuredInsight.data.title)}
+              width="800"
+              height="450"
+              class="featured-img"
+              loading="eager"
+            />
+            <span class="featured-badge">Featured</span>
+          </div>
           <div class="featured-content">
             <div class="featured-meta">
               <span class="type-pill">{insightTypeNames[featuredInsight.data.insightType] || 'Research'}</span>
@@ -117,15 +141,28 @@ function formatShortDate(date: Date): string {
       <div class="insights-grid">
         {regularInsights.map(insight => (
           <a href={`/insights/${insight.data.slug}/`} class="insight-card" data-type={insight.data.insightType}>
-            <div class="card-content">
+            <div class="card-image">
+              <img
+                src={getCardImage(insight.data.slug)}
+                alt={getKeywordAlt(insight.data.title)}
+                width="800"
+                height="450"
+                class="card-img"
+                loading="lazy"
+              />
+              <span class="type-overlay">{insightTypeNames[insight.data.insightType] || 'Research'}</span>
+            </div>
+            <div class="card-body">
               <div class="card-meta">
-                <span class="type-badge">{insightTypeNames[insight.data.insightType] || 'Research'}</span>
                 <span class="card-date">{formatShortDate(insight.data.dataDate)}</span>
+                {insight.data.readingTime && (
+                  <span class="card-reading-time">{insight.data.readingTime}</span>
+                )}
               </div>
               <h3 class="card-title">{insight.data.title}</h3>
               <p class="card-excerpt">{insight.data.description}</p>
 
-              <!-- First Key Finding -->
+              <!-- Key Finding -->
               {insight.data.keyFindings.length > 0 && (
                 <div class="card-stat">
                   <span class="card-stat-number">{insight.data.keyFindings[0].stat}</span>
@@ -138,6 +175,8 @@ function formatShortDate(date: Date): string {
           </a>
         ))}
       </div>
+
+      <p class="posts-count"><span id="visible-count">{regularInsights.length}</span> of {regularInsights.length} reports</p>
     </div>
   </section>
 
@@ -148,7 +187,7 @@ function formatShortDate(date: Date): string {
         <h2 class="cta-title">Want Custom Benchmarks for Your Firm?</h2>
         <p class="cta-subtitle">
           Generic data only gets you so far. We build custom analyses
-          based on your market, practice area, and competitive market.
+          based on your market, practice area, and competitive landscape.
         </p>
         <a href="/contact/" class="btn btn-primary btn-lg">
           Request Custom Analysis
@@ -163,6 +202,7 @@ function formatShortDate(date: Date): string {
     const buttons = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.insight-card');
     const featured = document.querySelector('.featured-section');
+    const countEl = document.getElementById('visible-count');
 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -170,11 +210,13 @@ function formatShortDate(date: Date): string {
         btn.classList.add('active');
 
         const type = (btn as HTMLElement).dataset.type;
+        let visibleCount = 0;
 
         cards.forEach(card => {
           const cardType = (card as HTMLElement).dataset.type;
           if (type === 'all' || cardType === type) {
             (card as HTMLElement).style.display = '';
+            visibleCount++;
           } else {
             (card as HTMLElement).style.display = 'none';
           }
@@ -188,18 +230,41 @@ function formatShortDate(date: Date): string {
             (featured as HTMLElement).style.display = 'none';
           }
         }
+
+        if (countEl) {
+          countEl.textContent = String(visibleCount);
+        }
       });
     });
   });
 </script>
 
 <style>
-  /* Hero */
+  /* Hero Section */
   .insights-hero {
     padding: 5rem 0 3rem;
     background: var(--color-bg-dark);
     color: #fff;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to right, rgba(1, 25, 7, 0.85) 0%, rgba(1, 25, 7, 0.78) 40%, rgba(1, 25, 7, 0.68) 100%);
   }
 
   .hero-container {
@@ -286,7 +351,9 @@ function formatShortDate(date: Date): string {
   }
 
   .featured-card {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
     background: white;
     border-radius: 16px;
     overflow: hidden;
@@ -294,12 +361,55 @@ function formatShortDate(date: Date): string {
     text-decoration: none;
     color: inherit;
     transition: box-shadow 0.3s ease;
-    padding: 2.5rem;
   }
 
   .featured-card:hover {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
     text-decoration: none;
+  }
+
+  @media (min-width: 900px) {
+    .featured-card {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .featured-image {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
+  .featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .featured-card:hover .featured-img {
+    transform: scale(1.03);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.375rem 0.875rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .featured-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .featured-meta {
@@ -339,7 +449,6 @@ function formatShortDate(date: Date): string {
     color: #4b5563;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    max-width: 700px;
   }
 
   .featured-stat {
@@ -421,8 +530,7 @@ function formatShortDate(date: Date): string {
     text-decoration: none;
     color: inherit;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 3px solid;
-    border-image: linear-gradient(135deg, var(--color-primary), var(--color-teal)) 1;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
   }
 
   .insight-card:hover {
@@ -431,28 +539,62 @@ function formatShortDate(date: Date): string {
     text-decoration: none;
   }
 
-  .card-content {
+  .card-image {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .insight-card:hover .card-img {
+    transform: scale(1.05);
+  }
+
+  .type-overlay {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: rgba(1, 25, 7, 0.75);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .card-body {
     padding: 1.5rem;
   }
 
   .card-meta {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 0.75rem;
     margin-bottom: 0.75rem;
-  }
-
-  .type-badge {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-primary);
   }
 
   .card-date {
     font-size: 0.75rem;
     color: #4b5563;
+  }
+
+  .card-reading-time {
+    font-size: 0.75rem;
+    color: #4b5563;
+  }
+
+  .card-reading-time::before {
+    content: '·';
+    margin-right: 0.75rem;
   }
 
   .card-title {
@@ -478,6 +620,7 @@ function formatShortDate(date: Date): string {
     border-radius: 8px;
     padding: 0.75rem 1rem;
     margin-bottom: 1rem;
+    border-left: 3px solid var(--color-primary);
   }
 
   .card-stat-number {
@@ -497,6 +640,13 @@ function formatShortDate(date: Date): string {
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--color-primary);
+  }
+
+  .posts-count {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #4b5563;
   }
 
   /* CTA Section */
